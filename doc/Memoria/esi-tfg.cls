@@ -30,7 +30,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\deactivatetilden  % FAQ-CervanTeX-6.html#ss6.7
+% \deactivatetilden  % FAQ-CervanTeX-6.html#ss6.7 --> Solo para babel Spanish
 
 %% -- Fundiciones
 \renewcommand{\rmdefault}{ptm}   % times
@@ -106,7 +106,7 @@
 %% -- LISTADOS DE CÓDIGO -------------------------------------------------------
 \usepackage{listings}
 \usepackage[scaled=.73]{beramono}
-\renewcommand{\lstlistlistingname}{Listings Index}
+\renewcommand{\lstlistlistingname}{List of Listings}
 \renewcommand{\lstlistingname}{Listing}
 
 % de tocbibind, para que el índice de listados aparezca en la ToC
@@ -600,12 +600,12 @@
   \rule{0pt}{8cm}
   \begin{singlespacing}
   \begin{center}
-    Este documento fue editado y tipografiado con \LaTeX{} empleando\\
-    la clase \textbf{esi-tfg} {\small (versión \versiondate)} que se puede encontrar en:\\
+    Este documento fue editado y tipografiado con \LaTeX{} utilizando software  del proyecto GNU y empleando
+    la clase \textbf{esi-tfg} {\small (versión \versiondate)}  que se puede encontrar en:\\
     \url{https://bitbucket.org/arco_group/esi-tfg}
 
     \bigskip
-    {\scriptsize [respeta esta atribución al autor]}
+    %{\scriptsize [respeta esta atribución al autor]}
   \end{center}
   \end{singlespacing}
   \cleardoublepage
