@@ -28,3 +28,6 @@
 #Bibliograpy
 *.bbl
 *.blg
+
+#Temporal files
+*~
