@@ -17,6 +17,8 @@
 % You should have received a copy of the GNU General Public License
 % along with this program; if not, write to the Free Software
 % Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+%
+% Modified by José Ángel Martín Baos in 2017
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{esi-tfg}[2013/08/15 TFG de ESI]
@@ -157,7 +159,7 @@
 }
 
 \lstnewenvironment{console}[1][]
-   {\pagebreak[0]\lstset{style=consoleStyle,#1}}
+   {\pagebreak[0]\lstset{style=consoleStyle,xleftmargin=20pt,#1}} % xleftmargin --> Margen a la izquierda
    {\pagebreak[0]}
 
 
@@ -204,7 +206,8 @@
 
 
 %% -- BIBLIOGRAFÍA -------------------------------------------------------------
-\bibliographystyle{es-alpha}
+\bibliographystyle{alpha}
+% \bibliographystyle{es-alpha} % Bibliografia estilo en español
 
 \newcommand{\bibfont}{\small}      % Bibliography's font size
 %% \setlength{\bibhang}{4ex}       % Indent of Bibliography entries
@@ -578,14 +581,14 @@
   Fdo.: \hfil Fdo.: \hfil Fdo.: \par
 }
 
-\addto\captionsspanish{\renewcommand{\appendixname}{Anexo}}
+\addto\captionsspanish{\renewcommand{\name}{Appendix}}
 
 \newcommand{\appendixtitle} {
   \cleardoublepage
 %  \thispagestyle{empty}%
   \vspace*{5cm}%
   \begin{center}%
-    \sffamily\scshape\Large\scalebox{3}{ANEXOS}%
+    \sffamily\scshape\Large\scalebox{3}{APPENDIX}%
   \end{center}%
 }%
 

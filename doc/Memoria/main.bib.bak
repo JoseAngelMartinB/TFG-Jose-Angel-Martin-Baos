@@ -1,0 +1,119 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+
+@Book{Dow12,
+  Title                    = {Think Python},
+  Author                   = {Allen Downey},
+  Year                     = {2012},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@Book{design_patterns,
+  Title                    = {Dessign Patterns},
+  Author                   = {E. Gamma and R. Helm and R. Johnson and J. Vlissides},
+  Publisher                = {Addison-Wesley},
+  Year                     = {1996},
+
+  Key                      = {GoF}
+}
+
+@Article{GRMSJ12,
+  Title                    = {Lane mark segmentation and identification using statistical criteria over H264/AVC videos},
+  Author                   = {J. Giralt and L. Rodriguez-Benitez and J. Moreno-Garcia and C. Solana-Cipres and L. Jimenez-Linares},
+  Year                     = {2012},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@Article{Hun07,
+  Title                    = {Matplotlib: A 2D graphics environment},
+  Author                   = {Hunter, J. D.},
+  Journal                  = {Computing In Science \& Engineering},
+  Year                     = {2007},
+  Number                   = {3},
+  Pages                    = {90--95},
+  Volume                   = {9},
+
+  Abstract                 = {Matplotlib is a 2D graphics package used for Python
+ for application development, interactive scripting, and
+ publication-quality image generation across user
+ interfaces and operating systems.},
+  Doi                      = {10.1109/MCSE.2007.55},
+  Publisher                = {IEEE COMPUTER SOC}
+}
+
+@Electronic{PiCameraDoc,
+  Title                    = {PiCamera Documentation},
+  Author                   = {Dave Jones},
+  HowPublished             = {\url{http://picamera.readthedocs.io}},
+  Language                 = {English},
+  Note                     = {[Accessed 21 July 2017]},
+  Year                     = {2016},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@Book{LC16,
+  Title                    = {Monitorización del comportamiento de vehículos en vídeo H.264/AVC sobre Broadcom VideoCore IV},
+  Author                   = {Eduardo Lara-Caro},
+  Year                     = {2016},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@PhdThesis{SC11,
+  Title                    = {Arquitectura adaptativa para la segmentación de objetos en secuencias de vídeo H.264/AVC},
+  Author                   = {Cayetano Javier Solana-Ciprés},
+  School                   = {Universidad de Castilla-La Mancha. Escuela Superior de Informática},
+  Year                     = {2011},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@Electronic{NumPy,
+  Title                    = {NumPy Webpage},
+  HowPublished             = {\url{http://www.numpy.org/}},
+  Language                 = {English},
+  Note                     = {[Accessed 26 July 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.26}
+}
+
+@Electronic{OpenSsh,
+  Title                    = {Open SSH},
+  HowPublished             = {\url{https://www.openssh.com/}},
+  Language                 = {Englisth},
+  Note                     = {[Accessed 22 July 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.22}
+}
+
+@Electronic{RaspberryPi,
+  Title                    = {Raspberry Pi Website},
+  HowPublished             = {\url{https://www.raspberrypi.org/}},
+  Language                 = {English},
+  Note                     = {[Accessed 21 July 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+
+@Electronic{Raspbian,
+  Title                    = {Raspbian Webpage},
+  HowPublished             = {\url{https://www.raspbian.org/}},
+  Language                 = {English},
+  Note                     = {[Accessed 21 July 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.21}
+}
+

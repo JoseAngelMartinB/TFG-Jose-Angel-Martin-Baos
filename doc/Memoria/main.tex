@@ -1,0 +1,53 @@
+% TFG - José Ángel Martín Baos. Escuela Superior de Informática. 2017
+\documentclass[twoside]{esi-tfg}
+\usepackage{custom}
+\input{metadata.tex}
+
+
+
+\begin{document}
+	% TODO: Memoria en ingles
+	% Español: Resumen, Indroducción y conclusiones
+
+  % Notas al pie de pagina con: \footnote{Sí, los agradecimientos se firman} 
+
+\cover
+\bastardtitle
+\frontpage
+
+\frontmatter
+\copyrightpage
+\jury
+
+\input{resumen.tex}
+
+\input{thanks.tex}
+\dedication{Cita ...} % TODO
+
+\tableofcontents
+\listoftables
+\listoffigures
+\lstlistoflistings
+\input{acro.tex}
+
+
+\mainmatter
+
+\input{intro.tex}
+\input{objetivos.tex}
+\input{antecedentes.tex}
+\input{metodo.tex}
+\input{resultados.tex}
+\input{conclusiones.tex}
+
+\appendix
+\appendixtitle
+\input{anexo1.tex}
+\input{anexo2.tex}
+
+
+\backmatter
+\bibliography{main}
+\cleardoublepage
+
+\end{document}
