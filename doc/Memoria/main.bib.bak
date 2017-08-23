@@ -2,6 +2,27 @@
 % Encoding: UTF-8
 
 
+@Book{CS14,
+  Title                    = {Pro Git},
+  Author                   = {Scott Chacon and Ben Straub},
+  Publisher                = {Apress},
+  Year                     = {2014},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.21}
+}
+
+@Book{Coh04,
+  Title                    = {User Stories Applied: For Agile Software Development},
+  Author                   = {Mike Cohn},
+  Publisher                = {Addison-Wesley Professional},
+  Year                     = {2004},
+  Month                    = {March},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.19}
+}
+
 @Book{Dow12,
   Title                    = {Think Python},
   Author                   = {Allen Downey},
@@ -18,6 +39,18 @@
   Year                     = {1996},
 
   Key                      = {GoF}
+}
+
+@Electronic{Gar11,
+  Title                    = {¿Qué es el método Kanban para la gestión de proyectos?},
+  Author                   = {Javier Garzás},
+  HowPublished             = {\url{http://www.javiergarzas.com/2011/11/kanban.html}},
+  Language                 = {Spanish},
+  Note                     = {[Accessed 21 August 2017]},
+  Year                     = {2011},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.21}
 }
 
 @Article{GRMSJ12,
@@ -58,13 +91,48 @@
   Timestamp                = {2017.07.21}
 }
 
+@Book{KS10,
+  Title                    = {Kanban and Scrum - making the most of both},
+  Author                   = {Henrik Kniberg and Mattias Skarin},
+  Publisher                = {C4Media},
+  Year                     = {2010},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.21}
+}
+
+@Book{Kot11,
+  Title                    = {LaTeX: Beginner's Guide},
+  Author                   = {Stefan Kottwitz},
+  Publisher                = {Packt Publishing},
+  Year                     = {2011},
+  Month                    = {March},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.21}
+}
+
 @Book{LC16,
   Title                    = {Monitorización del comportamiento de vehículos en vídeo H.264/AVC sobre Broadcom VideoCore IV},
   Author                   = {Eduardo Lara-Caro},
+  Publisher                = {Universidad de Castilla-La Mancha},
   Year                     = {2016},
 
   Owner                    = {joseangel},
+  School                   = {Universidad de Castilla-La Mancha. Escuela Superior de Informática.},
   Timestamp                = {2017.07.21}
+}
+
+@Booklet{ScrumGuide,
+  Title                    = {The Definitive Guide to Scrum: The Rules of the Game},
+  Author                   = {Ken Schwaber and Jeff Sutherland},
+  HowPublished             = {\url{http://www.scrumguides.org/}},
+  Month                    = {July},
+  Note                     = {[Accessed 18 August 2017]},
+  Year                     = {2016},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.17}
 }
 
 @PhdThesis{SC11,
@@ -75,6 +143,16 @@
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.21}
+}
+
+@Electronic{MP4Box,
+  Title                    = {MP4Box - GPAC Documentation},
+  HowPublished             = {\url{https://gpac.wp.imt.fr/mp4box/}},
+  Language                 = {English},
+  Note                     = {[Accessed 26 July 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.07.26}
 }
 
 @Electronic{NumPy,
@@ -115,5 +193,15 @@
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.21}
+}
+
+@Booklet{AnualStateAgile,
+  Title                    = {11th Annual State of Agile Report},
+  HowPublished             = {\url{https://explore.versionone.com/state-of-agile/versionone-11th-annual-state-of-agile-report-2}},
+  Month                    = {April},
+  Year                     = {2017},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2017.08.18}
 }
 

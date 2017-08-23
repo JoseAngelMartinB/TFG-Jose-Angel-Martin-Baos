@@ -3,15 +3,15 @@
 \chapter{Installation Guide}
 \label{chap:installation_guide}
 
-\drop{I}{n} this apendix, we are going to explain the steps to correctly install and configure the Raspberry Pi. We are going to install the Raspbian \acf{OS} \cite{Raspbian} on the Raspberry Pi. Raspbian is an adaptation for the Raspberry Pi of the Debian Operating System. To carry out the installation, we are going to use a GNU/Linux Operating System in our personal computer.
+\drop{I}{n} this apendix, we are going to explain the steps to correctly install and configure the Raspberry Pi. We are going to install the Raspbian \ac{OS} \cite{Raspbian} on the Raspberry Pi. Raspbian is an adaptation for the Raspberry Pi of the Debian Operating System. To carry out the installation, we are going to use a GNU/Linux Operating System in our personal computer.
 
 
 \section{Installation and configuration of Raspbian}
 The first step to get the architecture working consist in installing the Raspbian Operating System and make some basic configurations that will allow us to access the Raspbery from another device using a wireless conection.
 \subsection{Installation of Raspbian in a SD card}
-There are two main forms of installing Raspbian in the Raspberry Pi. The first one consist in downloading the \acs{OS} image and extracting it into the SD card, which is the method explained here. The second form is recomended for people with lower knoledge in Linux \acs{OS} and consist in using the NOOBS software. This software is copied into the SD card and when the Raspberry Pi is first executed, an installation process will be carried out and Raspbian will be installed. 
+There are two main forms of installing Raspbian in the Raspberry Pi. The first one consist in downloading the \ac{OS} image and extracting it into the SD card, which is the method explained here. The second form is recomended for people with lower knoledge in Linux \ac{OS} and consist in using the NOOBS software. This software is copied into the SD card and when the Raspberry Pi is first executed, an installation process will be carried out and Raspbian will be installed. 
 
-Raspbian \acs{OS} can be downloaded from the Raspberry Pi downloads page\footnote{Raspbian download page: \url{https://www.raspberrypi.org/downloads/raspbian/}}. Once downloaded, the following steps should be followd in order to have Raspbian working in the Raspberry Pi board:
+Raspbian \ac{OS} can be downloaded from the Raspberry Pi downloads page\footnote{Raspbian download page: \url{https://www.raspberrypi.org/downloads/raspbian/}}. Once downloaded, the following steps should be followd in order to have Raspbian working in the Raspberry Pi board:
 \begin{enumerate}
 	\item Download Raspbian and check the download. To check if the download has been corectly carried out, we should execute the following command where \emph{file.zip} is the downloaded file and \emph{hash\_value} is the SHA-1 value that can be found below the donwload link in the download page.
 \begin{console}
@@ -31,12 +31,12 @@ $ df -h
 		\end{center}
 	\end{figure}
 
-	\item Once the device where the mirco-SD card is known, it should be unmounted to prevent it from been written while the \acs{OS} is being copied. The command to unmount the card is:
+	\item Once the device where the mirco-SD card is known, it should be unmounted to prevent it from been written while the \ac{OS} is being copied. The command to unmount the card is:
 \begin{console}
 $ umount /dev/sdb1
 \end{console} %$
 
-	\item Now, the \acs{OS} image can be extracted and copied to the micro-SD card as shown in Figure \ref{fig:Appendix_SO_copy}. The following commands should be executed from the directory where the file has been downloaded:
+	\item Now, the \ac{OS} image can be extracted and copied to the micro-SD card as shown in Figure \ref{fig:Appendix_SO_copy}. The following commands should be executed from the directory where the file has been downloaded:
 \begin{console}
 $ unzip 2017-07-05-raspbian-jessie.zip 
 $ sudo dd bs=4M if=2017-07-05-raspbian-jessie.img of=/dev/sdb1
@@ -45,7 +45,7 @@ $ sudo dd bs=4M if=2017-07-05-raspbian-jessie.img of=/dev/sdb1
 	\begin{figure}[!h]
 		\begin{center}
 			\includegraphics[width=0.9\textwidth]{Appendix_SO_copy.png}
-			\caption{Console screenshot that shows the \acs{OS} copy process.}
+			\caption{Console screenshot that shows the \ac{OS} copy process.}
 			\label{fig:Appendix_SO_copy}
 		\end{center}
 	\end{figure}
@@ -55,8 +55,7 @@ $ sudo dd bs=4M if=2017-07-05-raspbian-jessie.img of=/dev/sdb1
 $ sync
 \end{console} %$
 	
-	
-\end{enumerate} 
+\end{enumerate}
 
 
 \subsection{Configuring Raspbian}
@@ -103,7 +102,7 @@ To access the \textsc{vnc} server executing in the Raspberry Pi, we have opted t
 	\end{center}
 \end{figure}
 
-The last step in this configuration process is to update the Raspbian \acs{OS} and applications. To accomplish this task, first, the filesystem should be expanded. This means that all the free space in the SD card will be available to the \acs{OS}. Again, the raspberry configuration tool will be executed (Figure \ref{fig:Appendix_raspi-config_main}), and the \emph{Advance Options} menu should be opened. Then, the \emph{Expand Filesystem} option must be selected. To finish with, the following commands should be executed to update Rasbian:
+The last step in this configuration process is to update the Raspbian \ac{OS} and applications. To accomplish this task, first, the filesystem should be expanded. This means that all the free space in the SD card will be available to the \ac{OS}. Again, the raspberry configuration tool will be executed (Figure \ref{fig:Appendix_raspi-config_main}), and the \emph{Advance Options} menu should be opened. Then, the \emph{Expand Filesystem} option must be selected. To finish with, the following commands should be executed to update Rasbian:
 \begin{console}
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -143,7 +142,7 @@ The last step is to connect the camera to the Raspbery Pi. The \textsc{csi} port
 
 
 \subsection{Installation of the necessary libraries}
-Some libraries are needed in order to execute the software developed in this TFG. These libraries are:
+Some libraries are needed in order to execute the software developed in this \ac{TFG}. These libraries are:
 \begin{enumerate}
 	\item NumPy. \cite{NumPy} Is the fundamental package for scientific computing with Python. NumPy can also be used as an efficient multi-dimensional container of generic data. To install it, the next command needs to be executed:
 \begin{console}
@@ -159,7 +158,7 @@ $ sudo apt-get install python-matplotlib python3-matplotlib
 \begin{console}
 $ sudo apt-get install gpac
 \end{console} %$
-	Once MP4Box has been installed, any video (named \texttt{video.h264}) can be converted from \emph{h265} to \emph{mp4} at 30 \acs{FPS} using:
+	Once MP4Box has been installed, any video (named \texttt{video.h264}) can be converted from \emph{h265} to \emph{mp4} at 30 \ac{FPS} using:
 \begin{console}
 $ MP4Box -fps 30 -add video.h264 video.mp4
 \end{console} %$
@@ -168,4 +167,4 @@ $ MP4Box -fps 30 -add video.h264 video.mp4
 \FIXME{To be continued...} %TODO
 \end{enumerate}
 
-When all this steps has been completed, the Raspberry Pi should be prepared for the correct execution of the software developed in this TFG.
+When all this steps has been completed, the Raspberry Pi should be prepared for the correct execution of the software developed in this \ac{TFG}.
