@@ -6,11 +6,81 @@
 \usepackage{multicol} % Elementos en varias columnas
 \usepackage{multirow} % Elementos en varias filas
 \usepackage[official]{eurosym}
+\usepackage{makecell} % Usar \hlines el doble de gordas en tablas
+\usepackage{xparse}
+\usepackage[ruled,english]{algorithm2e} % Algoritmos
+\usepackage{marginnote}
+\usepackage{MnSymbol}%
+
+
+
+% Tipo de columna centrada
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
 
 \lstloadlanguages{[ISO]C++, Python, XML}
 \def\esitfg{\emph{esi-tfg}\xspace}
 \def\texcmd#1{\texttt{$\backslash$#1}}
 
-\newcommand{\REDNOTE}[1]{\textcolor{red}{#1}} % Nota en color rojo
-\newcommand{\GREENNOTE}[1]{\textcolor{green}{#1}} % Nota en color verde
+\definecolor{mygreen}{rgb}{0.0, 0.4, 0.0}
+\reversemarginpar
+
+\newcommand{\REDNOTE}[1]{\textcolor{red}{#1}} % Nota en color rojo - Ideas, cosas que faltan
+\newcommand{\GREENNOTE}[1]{\marginnote{\textcolor{mygreen}{$\blacksquare$} Translate or check english}[0,3cm] \textcolor{mygreen}{#1}} % Nota en color verde - Traducir o revisar inglés
+\newcommand{\BLUENOTE}[1]{\marginnote{\textcolor{blue}{$\blacksquare$} Revise content}[0,3cm] \textcolor{blue}{#1}  } % Nota en color azul - Revisar contenido o conceptos
+
+
+
+%%% Comandos de Énfasis %%%
+% emlst: Palabras listado
+\newcommand{\emlst}[1]{\textbf{#1}}
+
+% emword: Palabras importantes, conceptos
+\newcommand{\emword}[1]{\emph{#1}}
+
+
+
+%%% Comandos para la creacción de tablas con un formato específico %%%
+
+% User story table
+	% Args: User story number, sprint number, role, priority, effort, name, description, task, tests
+\newcommand{\UserStoryTable}[8]{
+	\begin{table}[p] % h means here and ! means the float will be placed if it fits onto the current page ignoring other floats 
+		\centering
+		{\small
+			\begin{tabular}{ |p{.42\textwidth}|p{.42\textwidth}|}
+				\hline
+				\rowcolor{tabheadbg}
+				\multicolumn{2}{|c|}{\textscale{.8}{\textbf{User story #1}}} \\
+				\hline
+				\hline
+				\multicolumn{2}{|c|}{\textscale{.8}{\textbf{Sprint:}} #2} \\
+				\hline
+				
+				\textscale{.8}{\textbf{Priority:}} #3	
+				& \textscale{.8}{\textbf{Effort:}} #4 hours \\
+				\hline
+				
+				\multicolumn{2}{|p{.84\textwidth}|}{\textscale{.8}{\textbf{Name:}} #5} \\
+				\hline
+				
+				\multicolumn{2}{|p{.84\textwidth}|}{\textscale{.8}{\textbf{Description:}} #6} \\
+				\hline
+				
+				\textscale{.8}{\textbf{Tasks:}} & \textscale{.8}{\textbf{Tests:}} \\
+				\vspace{-\topsep} \begin{enumerate}[leftmargin=1em, noitemsep] #7	\end{enumerate} & 
+				\vspace{-\topsep} \begin{enumerate}[leftmargin=1em, noitemsep] #8	\end{enumerate} \\
+				\hline
+				
+			\end{tabular}
+		}
+		\caption{User story #1: #5}
+		\label{tab:Sprint#2-User-story-#1}
+	\end{table}
+}
+% Llamada: \UserStoryTable{1}{1}{High}{x}{Name of the user story}{A description of the user story}{Postcondition}
+
+
+
+%%% Word Division %%%
+\hyphenation{mon-i-to-ring}

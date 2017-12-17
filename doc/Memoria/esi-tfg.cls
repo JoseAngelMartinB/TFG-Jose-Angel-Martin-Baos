@@ -50,9 +50,6 @@
   style = nextline,
 }
 
-% Las normas tipográficas que aparecen en los comentarios corresponden al libro:
-% J. Martínez de Sousa. Ortografía y ortotipografía del español actual. Trea, 2008.
-
 %% -- MEDIDAS Y DISTANCIAS -----------------------------------------------------
 \usepackage[left=35mm, right=20mm, top=25mm, bottom=25mm]{geometry}
 \usepackage{setspace}
@@ -123,6 +120,7 @@
 \lstset{%
      aboveskip          = 2mm,
      belowskip          = 2mm,
+     xleftmargin		= 25pt,
      %
      frame              = Ltb,
      framerule          = 0pt,
@@ -139,7 +137,7 @@
      commentstyle       = \color{gray45},
      keywordstyle       = \bfseries,
      %
-     numbers            = none,
+     numbers            = left,
      stepnumber         = 1,
      numbersep          = 15pt,
      numberstyle        = \scriptsize,
@@ -398,18 +396,14 @@
       document under the terms of the GNU Free Documentation License,
       Version 1.3 or any later version published by the Free Software
       Foundation; with no Invariant Sections, no Front-Cover Texts,
-      and no Back-Cover Texts.  A copy of the license is included in
-      the section entitled \hyperlink{chap:GFDL}{"GNU Free
-        Documentation License"}.
+      and no Back-Cover Texts.
 
       \smallskip
       Se permite la copia, distribución y/o modificación de este
       documento bajo los términos de la Licencia de Documentación
       Libre GNU, versión 1.3 o cualquier versión posterior publicada
       por la \emph{Free Software Foundation}; sin secciones
-      invariantes. Una copia de esta licencia esta incluida en el
-      apéndice titulado \hyperlink{chap:GFDL}{«GNU Free Documentation
-        License»}.
+      invariantes.
 
     \smallskip
     Muchos de los nombres usados por las compañías para diferenciar

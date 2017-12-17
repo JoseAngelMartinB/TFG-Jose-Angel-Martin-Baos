@@ -3,132 +3,168 @@
 \chapter{Methodology}
 \label{chap:methodology}
 
-% TODO: Revise all (English and content)
-
-\drop{I}{n} order to carry out this project, a working methodology should be choosen and followed throughout the development of this \ac{TFG}. In particular, Scrum has been used as project management methodology and Kanban to manage the progress of the project. The details of the different means and resources that has been used are also described.
+\drop{I}{n} order to carry out this project, a working methodology should be chosen and followed throughout the development of this \ac{BSc.} Thesis. In particular, \emword{Scrum} is used as project management methodology and \emword{Kanban} is adopted to manage the progress of the project. The software development methodology used is \emword{\ac{TDD}}, which is a way of programming focused on writing tests first, and then developing the code. To end with, the details of the different means and resources used are also described.
 
 
 \section{Agile methodologies}
 
-In the last few years, the number of companies of different size and from different areas which are using agile development methodologies has increased. These methodologies are not only used by the software development companies, but they are used by any kind of company. In the software engineering field, agile methodologies gain a lot of importance due to the complexity sometimes required to specify the different requirements of a product in a unique phase. The agile methodologies makes a great difference with respect to Waterfall model, where carry out a change once the product is almost finished is very costly.
+In the last few years, the number of companies, with different size and from different areas, using agile development methodologies has increased considerably. These methodologies are not only used by the software development companies, but also they are used by a wide range of companies. In the software engineering field, agile methodologies gain a lot of importance due to the complexity sometimes needed to specify the different requirements of a product in an unique phase. Agile methodologies makes a great difference with respect to \emword{Waterfall} model where carrying out a change once the product is almost finished is very costly.
 
-In a agile project it is sought to divide the task of the software project in increments with a minimum planning and a short duration (normally between 1 and 4 weeks). Each iteration produces an operational prototype that is revised together with the client. Therefore, we can say that the life cycle of the agile methodologies is iterative and incremental.
+In an agile project it is sought to divide the tasks of the software project in increments with a minimum planning and a short duration (normally between one and four weeks). Each iteration produces an operational prototype that is revised together with the client. Therefore, we can affirm that the life cycle of the agile methodologies is iterative and incremental.
 
-Some examples of agile methodologies are:
+Some examples of agile methodologies could be:
 \begin{multicols}{2}
 	\begin{itemize}
-		\item Scrum
-		\item Adaptive Software Development
-		\item Extreme Programming (XP)
-		\item Open Unified Process (OpenUP)
-		\item Feature-Driven Development
-		\item Lean
+		\item Scrum \cite{ScrumGuide}
+		\item Adaptive Software Development \\ \cite{ASD}
+		\item Extreme Programming (XP) \cite{XPProgramming}
+		\item Open Unified Process (OpenUP) \\ \cite{Bal07}
+		\item Feature-Driven Development \cite{FDD}
+		\item Lean \cite{PP03}
 	\end{itemize}
 \end{multicols}
 
-The \emph{11th anual state or agile survey} \cite{AnualStateAgile} (elaborated in April 2017) has elaborated a listing with the most used agile methodologies which can be seen in Figure \ref{fig:5-AgileMethodologyUsed}. The most used agile methodology is Scrum which is used by the 58\% of the organizations that use agile methodologies. 
+In April 2017 the \emph{11th annual state or agile survey} \cite{AnualStateAgile} produced a listing with the most applied agile methodologies as shown in Figure \ref{fig:5-AgileMethodologyUsed}. The most used agile methodology is Scrum with a 58\% of the total number of organizations using such methodology.
 
-Due to the fact that is the most used agile methodology and that it fits perfectly with the problem dealt in this \ac{TFG}, Scrum has been choosen. Specifically, Scrum methodology \cite{ScrumGuide} has been adapted to an unipersonal development. To manage the progress of the project graphically use the Kanban technique with the tool Trello.\footnote{Trello website: \url{www.trello.com} \label{footnote-1}}
+In our view, Scrum fits nicely with the problem dealt in this \ac{BSc.} Thesis as this project consist on a hardware-software system organised in several stages. Furthermore, as consequence of being one of the most used agile methodologies, lot of literature has been written about it, for this reason, Scrum has been chosen. Specifically, Scrum methodology \cite{ScrumGuide} has been adapted to an one-person development. To manage the progress of the project graphically the Kanban technique with the tool Trello\footnote{Trello website: \url{www.trello.com} \label{footnote-1}} is used.
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{5-AgileMethodologyUsed.png}
-		\caption{More used agile methodologies.}
+		\caption{Most used agile methodologies}{Source: The \emph{11th annual state or agile survey}}
 		\label{fig:5-AgileMethodologyUsed}
 	\end{center}
 \end{figure}
 
+Now, a general description of scrum is exposed.
+
 
 \subsection{Scrum}
 
-Scrum \cite{ScrumGuide} is an agile project management methodology, but not necessarily related with software projects. Scrum has two main characteristics: The development of the software is carried out in incremental iterations and coordination meetings are held throughout the project.
-Figure \ref{fig:5-ScrumSprints} represents the Scrum life cycle.\footnote{Image taken and modified from \url{https://www.visualstudio.com/es/learn/what-is-scrum}} In Scrum, the product is developed in series with a duration of 1 to 4 weeks called \emph{sprints}. The requirements are captured as elements of a list called \emph{product backlog}.
+Scrum \cite{ScrumGuide} is an agile project management methodology not necessarily related with software projects. Scrum has two main characteristics: The first one is that the development of the software is carried out in incremental iterations, whilst the second one is that coordination meetings are held throughout the project.
+In Scrum, the product is developed in series with a duration from one to four weeks called \emword{sprints}. The different requirements are captured as elements of a list called \emword{product backlog} which is created at the beginning of the project. Figure \ref{fig:5-ScrumSprints} represents the complete Scrum life cycle.
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{5-ScrumSprints.png}	
-		\caption{Scrum life cycle.}
+		\includegraphics[width=1\textwidth]{5-ScrumSprints-v2.png}	
+		\caption{Scrum life cycle}{Source: \url{https://www.visualstudio.com/es/learn/what-is-scrum}}
 		\label{fig:5-ScrumSprints}
 	\end{center}
 \end{figure}
 
 
 \subsubsection{Scrum Team} \label{5-ScrumTeam}
-Scrum Teams are self-organizing, cross-functional, non-distributed and with an optimal size. The team model in Scrum is designed to optimize flexibility, creativity, and productivity. The different roles in Scrum are:
+Scrum Teams are self-organizing, cross-functional, non-distributed and must have an optimal size. The team model in Scrum is designed to optimize flexibility, creativity, and productivity and its different roles are:
 
 \begin{itemize}
-	\item Product Owner. Is responsible for maximizing the value of the product and the work of the	Development Team. This person is also responsible of establishing the user stories, assigning them a priority and classifying them in the Product Backlog. The product Owner must have a very clear perspective of the product which will be developed and must transmit it to the development team.
+	\item \emlst{Product owner.} Is responsible for maximizing the value of the product and the work of the	development team. This person is also responsible of establishing the user stories, assigning them a priority and classifying them in the product backlog. The product owner must have a very clear perspective of the product which will be developed and must transmit it to the development team.
 	
-	\item Scrum Master. Is responsible for ensuring Scrum is understood and enacted. Scrum Masters do this by ensuring that the Scrum Team adheres to Scrum theory, practices, and rules. 
+	\item \emlst{Scrum master.} Is responsible for ensuring that the Scrum is understood by all the members and that the Scrum team adheres to Scrum theory, practices, and rules. 
 	
-	\item Development Team. Consists of professionals who do the work of delivering a potentially releasable Increment of “Done” product at the end of each Sprint. It is recommended that they work full time, in the same place and they should not change during a sprint.
+	\item \emlst{Development team.} Consists of professionals who do the work of delivering a potentially releasable increment of “Done” product at the end of each Sprint. It is recommended that they work full time, in the same place and they should not change during a Sprint.
 \end{itemize}
 
 
 \subsubsection{The Sprint}
 
-In agile methodologies, the requirements that must fit the software which will be developed are collected into user stories. The user stories are a brief description of the software functionality as the user perceives them. \cite{Coh04} A Sprint is a time bloc with a duration of one to four weeks in which a product increment is obtained. A new Sprint starts immediately after the conclusion of the previous Sprint. During the Sprint no changes are made that would endanger the Sprint Goal (objective set for the Sprint that can be met through the implementation of Product Backlog). Each Sprints can be considered as a project itself, with a duration, as mentioned previously, between one and 4 weeks.
+In agile methodologies, the requirements that must fit the software which will be developed are collected into user stories. The user stories \cite{Coh04} are a brief description of the software functionality as the user perceives them. A Sprint is a time block with a duration from one to four weeks in which a product increment is obtained. Therefore, each Sprint can be considered as a project itself. A new Sprint starts immediately after the conclusion of the previous Sprint. The \emph{Sprint goal} is the objective set for the Sprint that can be met through the implementation of product backlog. No changes can be made in the Sprint goal during the Sprint execution. 
 
 
-\subsubsection{Scrum Events}
-Some events are planned when using Scrum with a fixed duration and concrete objective in order to minimize the need for meetings not defined. These events are the following ones:
+\subsubsection{Scrum events}
+Some events are planned with a fixed duration and a concrete objective in order to minimize the need for meetings not defined previously. These events are the following ones:
 
 \begin{itemize}
-	\item Sprint planning meeting. Consists on a meeting realized at the start of each Sprint where the elements from the Product Backlog that will be developed are selected. Therefore, the Sprint Backlog is created. It should not last more than one day.
+	\item \emlst{Sprint planning meeting.} Consists of a meeting carried out at the start of each Sprint where the elements from the product backlog to be developed are selected. Therefore, the Sprint backlog is created. This meeting should not last more than one day.
 	
-	\item Daily Scrum. Consist on daily meetings with a duration of less than fifteen minutes where the development team can synchronize their activities and create a plan for the next 24 hours. This is done by inspecting the work since the last Daily Scrum and forecasting the work that could be done before the next one.
+	\item \emlst{Daily Scrum.} Consist of daily meetings with a duration of less than fifteen minutes where the development team can synchronize their activities and create a plan for the next 24 hours. This is done by inspecting the work since the last daily Scrum and forecasting the work that could be done before the next one.
 	
-	\item Sprint Review. Consist on a informal meeting held at the end of the Sprint to inspect the Increment and adapt the Product Backlog if needed. During the Sprint Review, the Scrum Team and stakeholders collaborate about what was done in the Sprint.
+	\item \emlst{Sprint review.} Consist of a informal meeting held at the end of the Sprint to inspect the increment and adapt the product backlog if needed. During the Sprint review, the Scrum team and the stakeholders collaborate about what was done in the Sprint.
 	
-	\item Sprint Retrospective. It is an opportunity for the Scrum Team to inspect itself and create a plan for improvements to be enacted during the next Sprint. It has a maximum duration of three hours and takes places between the Sprint Review meeting and the next Sprint planning meeting.
+	\item \emlst{Sprint retrospective.} It is an opportunity for the Scrum team to inspect itself and create a plan for improvements to be enacted during the next Sprint. It has a maximum duration of three hours and takes place between the Sprint review meeting and the next Sprint planning meeting.
 \end{itemize}
 
 
-\subsubsection{Scrum Artifacts}
-When using Scrum, some outputs are obtained known as Artifacts. They represent work or value to provide transparency and opportunities for inspection and adaptation. In Figure \ref{fig:5-ScrumSprints} it can be shown the different artifacts and when are they obtained.
+\subsubsection{Scrum artefacts}
+When using Scrum, some outputs are obtained known as \emword{Artefacts}. They represent work or value to provide transparency and opportunities for inspection and adaptation. Figure \ref{fig:5-ScrumSprints} shows the different artefacts and the moment in the Scrum life cycle when they are obtained.
 
 \begin{itemize}
-	\item Product Backlog. Consist on an ordered list of requirements or user stories that will be included in the software product in the increments. This list is created by the Product Owner. This list is never complete, therefore, it can change during the project to identify what the product needs. 
+	\item \emlst{Product backlog.} Consist of an ordered list of requirements or user stories that will be included in the software product in the increments. This list is created by the Product owner. This list is never complete, therefore, it can change during the project to identify what the product needs. 
 	
-	\item Sprint Backlog. It is a subset of the elements contained in the Product Backlog. Consist on an ordered list of user stories that will be developed during this Sprint.
+	\item \emlst{Sprint backlog.} It is a subset of the elements contained in the product backlog. It consists of an ordered list of user stories to be developed during this Sprint.
 	
-	\item Product increment. The Increment is the sum of all the Product Backlog items that has been completed during a Sprint and the value of the increments of all the previous Sprints.
+	\item \emlst{Product increment.} The increment is the sum of all the product backlog items that has been completed during a Sprint and the value of the increments of all the previous Sprints.
 \end{itemize}
+
+Heretofore, Scrum project management methodology has been explained, besides the team needed for using it, the events organized and the artefacts produced. In the next section Kanban technique will be explained.
 
 
 \section{Kanban}
 
-Kanban \cite{Gar11,KS10} is a Japanese technique for managing the progress of the project. It was invented by Toyota and was used to control de progresses of their work in the production line. Therefore, Kanban is not a specific software development technique, nevertheless, in the last few years it has been used in the management of software projects.
+Kanban \cite{Gar11,KS10} is a Japanese technique for managing the progress of the project. It was invented by Toyota and was used to control the progress of their work in the production line. Therefore, Kanban is not a specific software development technique, nevertheless, in the last few years it has been used in the management of software projects.
 
-Kanban allows the development team to visualize the workflow of the different task. Normally, consists on using a slate board with three colums: \emph{To Do}, \emph{Doing} and \emph{Done}, which represents the different phases that a task passes until it has been completed. Each task in which a sprint is divided is considered as a card which is put into the slate board. An example of this concept can be seen in Figure \ref{fig:5-KanbanBoard}.\footnote{Image from \url{www.qe2ingenieria.com}}
+Kanban allows the development team to visualize the workflow of the different tasks. Normally, consists in using a slate board with three columns: \emph{To Do}, \emph{Doing} and \emph{Done}, that represents the different phases a task passes until it is completed. Each task in which a sprint is divided is considered as a card which is put into the slate board. An example of this concept can be seen in Figure \ref{fig:5-KanbanBoard}.
 
-To manage the Kanban Board Trello has ben used, as it was previously commented. This tool allow creating several boards. In each board many columns can be created with various task that can be moved from one column to another using a very friendly interface.
+To manage the Kanban Board, Trello is used, as it was previously indicated. This tool allows the creation of several boards. In each board many columns can be created with various tasks that can be moved from one column to another by means of a very friendly interface.
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{5-KanbanBoard.jpg}
-		\caption{Kanban Board.}
-		\label{fig:5-KanbanBoard}
+		\caption{Kanban Board}
+		\label{fig:5-KanbanBoard}{Source: \url{www.qe2ingenieria.com}}
+	\end{center}
+\end{figure}
+
+Up to this time, the project management methodology has been presented. Now, the development methodology will be introduced.
+
+
+\section{Development methodology}
+The development methodology is used by developers and engineers to write code, helping them in the process and giving some guidelines when developing computer systems in order to maintain a high code quality. The development methodology used is \acf{TDD}, which is an evolutionary approach to software development methodology that combines test-first development where you write a test before you write just enough production code to fulfil that test \cite{IntroTDD,Ble10}. This methodology is part of the \ac{XP} methodology and it is focused in three main basis:
+\begin{itemize}
+	\item The implementation of just the functionalities the client needs.
+	\item The minimization of the number of software faults generated in production phase.
+	\item The production of modular software, highly reusable and prepared for the change.
+\end{itemize}
+
+In other software methodologies, the architectural decisions are taken before starting the project, whereas in \ac{TDD} the architecture is gradually defined through test, in continuous iterations. This does not mean that the more technical aspect of architecture are also left out. For example, normally the platform to which the project developed is directed is known. There are three steps that must be followed when using \ac{TDD}:
+\begin{itemize}
+	\item \emlst{Write the test.} The test is the functionality which represents the requirement, or a part of them (when more than one test is needed to satisfy it). Requirements have connotation of being something preset and fixed, however test can be modified. 
+	
+	\item \emlst{Implement the code which represents the test.} The essential code needed to pass the previous test is written. It does not matter if the code is not well-designed, since that point will be covered in the following step. The most important thing is not to implement anything more than strictly needed. It is advisable to write down the doubts about possible future errors or alternative control flows in order to convert them into other tests for future iterations.
+	
+	\item \emlst{Refactor the code.} Refactor does not mean to rewrite the code, it means to change the design while maintaining the functionality unchanged. In this step of the TDD algorithm, duplicate code is found and eliminated through refactoring. Additionally, the code is revised for the sake of meeting design principles, such as \emph{SOLID Principles} \cite{SOLIDPrinciples}. Furthermore, the code can be revised in order to make it more readable and more maintainable by future developers. The key for a good refactoring is to make it in small steps, where at the end of each step all the test are checked again, with the purpose of detecting possible faults in the refactoring process. Also, bad smells must be detected and removed. 
+\end{itemize}
+
+When the three steps has been completed with one specification, another more is taken and the steps are repeated. With the steps indicated, it can be achieved that the code is error free, refactored, and that there is only the code necessary to complete each of the requirements. Figure \ref{fig:5-TDD_sequence} shows the TDD sequence diagram.
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{5-TDD_sequence.pdf}
+		\caption{TDD sequence}
+		\label{fig:5-TDD_sequence}
 	\end{center}
 \end{figure}
 
 
-
-
-
-\REDNOTE{UML ?}
-
-
 \section{Resources} %TODO: Completar
-In this section we are going to describe the different technologies that will be employed during the development of this \ac{TFG}.
+In this section we are going to describe the different technologies that are employed during the development of this \ac{BSc.} Thesis.
 
 \subsection{Hardware resources}
-In this part the different hardware resources employed in the \ac{TFG} are detailed. This includes the computer used to develop the \ac{TFG}, the Raspberry Pi and the different peripherals attached to it.
+Now, the different hardware resources employed in the \ac{BSc.} Thesis are detailed. These include the computer used to develop the \ac{BSc.} Thesis, the Raspberry Pi and the different peripherals attached to it. Figure \ref{fig:5-Foto_zulo} shows the different hardware resources before starting the project.
+
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.96\textwidth]{5-Foto_zulo.JPG}
+		\caption{Hardware resources}
+		\label{fig:5-Foto_zulo}
+	\end{center}
+\end{figure}
+
 
 \begin{itemize}
-	\item \textbf{Development computer.} The personal computer of the student has been employed for this purpose. The spec table can be shown in Table \ref{tab:development-computer-spec-table}.
+	\item \emlst{Development computer.} The personal computer of the student has been employed for this purpose. The spec table is shown in Table \ref{tab:development-computer-spec-table}.
 	
-	\begin{table}[hp]
+	\begin{table}[!h]
 		\centering
 		{\small
 			\input{tables/development-computer-spec-sheet.tex}
@@ -137,9 +173,9 @@ In this part the different hardware resources employed in the \ac{TFG} are detai
 		\label{tab:development-computer-spec-table}
 	\end{table}
 	
-	\item \textbf{Raspberry Pi 3.} The Raspberry Pi is a low cost, credit-card sized computer. The Raspberry Pi 3 is the third-generation Raspberry Pi. Table \ref{tab:raspberry-pi3-spec-table} shows its spec table. With this computer a memory card is also needed. The one used is \emph{Samsung SDHC EVO 8gb Class 10+}.
+	\item \emlst{Raspberry Pi 3.} The Raspberry Pi is a low cost, credit-card sized computer. The Raspberry Pi 3 is the third-generation Raspberry Pi. Table \ref{tab:raspberry-pi3-spec-table} shows its spec table. With this computer a memory card is also needed. The one used is the \emph{Samsung SDHC EVO 8gb Class 10+}.
 	
-	\begin{table}[hp]
+	\begin{table}[!h]
 		\centering
 		{\small
 			\input{tables/raspberry-pi3-spec-table.tex}
@@ -148,9 +184,9 @@ In this part the different hardware resources employed in the \ac{TFG} are detai
 		\label{tab:raspberry-pi3-spec-table}
 	\end{table}
 	
-	\item \textbf{Raspberry Pi Camera Module V2. \cite{PiCameraDoc}} Is a hardware module that allow the Raspberry Pi to capture pictures and record videos using the CSI port. The camera used is the \emph{PI NOIR CAMERA V2}.\footnote{More information in https://www.raspberrypi.org/products/pi-noir-camera-v2/} The table \ref{tab:raspberry-pi3-camera-specs} shows its specs. \label{itm:Pi-camera-module-v2}
+	\item \emlst{Raspberry Pi Camera Module V2 \cite{PiCameraDoc}.} It is a hardware module that allows the Raspberry Pi to capture pictures and record videos using the CSI port. The camera used is the \emph{PI NOIR CAMERA V2}.\footnote{More information in https://www.raspberrypi.org/products/pi-noir-camera-v2/} The table \ref{tab:raspberry-pi3-camera-specs} shows its specs. \label{itm:Pi-camera-module-v2}
 	
-	\begin{table}[hp]
+	\begin{table}[!h]
 		\centering
 		{\small
 			\input{tables/raspberry-pi3-camera-specs.tex}
@@ -158,64 +194,62 @@ In this part the different hardware resources employed in the \ac{TFG} are detai
 		\caption{Pi NoIR Camera V2 spec table}
 		\label{tab:raspberry-pi3-camera-specs}
 	\end{table}
+
+	\item \emlst{Sense HAT \cite{SenseHAT}.} It is an add-on board which is placed on top of the Raspberry Pi board. It was made for the Astro Pi mission which took place in December 2015. This board is composed by several components: 8x8 RGB LED matrix, five-button joystick and some sensors (temperature, humidity, barometric pressure, magnetometer, accelerometer and gyroscope).
 	
-	\item \textbf{\REDNOTE{Power bank battery.}}
+	\item \emlst{Power bank battery.} The Raspberry Pi board is going to be powered using a power bank battery. The one used has a capacity of 10000 mAh and provide a maximum amperage of 2.1 amps at 5 volts.
 	
+	\item \emlst{MQ-7 Sensor. \cite{MQ7}} This sensor is able to measure Carbon Monoxide (CO) concentrations in the air. The MQ-7 can detect concentrations anywhere from 20 to 2000 ppm (parts per million) and has a fast response time. This sensor works with an input voltage of 5 volts and provide an analog output, therefore an anaglog to digital converter is needed.
 	
+	\item \emlst{MQ-2 Sensor \cite{MQ2}.} This sensor is able to measure methane, butane, petroleum gas and smoke in concentrations between 300 to 10000 ppm. As the previous sensor, this one also works with a voltage of 5 volts and provide an analog output.
 	
-	\item \textbf{\REDNOTE{Internet connection.}}
-	
-	
-	
-	\item \textbf{\REDNOTE{Sensors.}}
-	
-	
+	\item \emlst{Analog-to-digital-converter \cite{ADC}.} Ananalog-to-digital converter (ADC) is a system that converts an analog signal into a digital signal. Therefore, the input analog current is converted to a digital number proportional to the magnitude of the current that can be understood by a digital system.	
 	
 \end{itemize} 
 
 
 
 \subsection{Software resources}
-In this part the different software resources employed are described. This include the \ac{OS}, programming languages, libraries, the different development tools and the software used for the documentation.
+In this part the different software resources employed are described. These include the \ac{OS}, programming languages, libraries, the different development tools and the software used to generate the documentation.
 
 \REDNOTE{Image of the different software resources as in DanielEsteban \ac{TFG}.} %TODO
 
 \textbf{Operating Systems:}
 \begin{itemize}
-	\item \textbf{Ubuntu 16.04.3 LTS.} Ubuntu is a popular \ac{OS} based on \ac{GNU}$/$Linux. Ubuntu is one of the most used Linux distributions and it is normally used for personal computers, but also for servers and \ac{IoT}. This \ac{OS} will be used for developing the software in the student computer.
+	\item \emlst{Ubuntu 16.04.3 LTS.} Ubuntu is a popular \ac{OS} based on \ac{GNU}$/$Linux. Ubuntu is one of the most used Linux distributions and it is normally used for personal computers, but also for servers and \ac{IoT}. This \ac{OS} is used for developing the software in the student computer.
 	
-	\item \textbf{Debian 9 “Stretch”.} Debian is also a \ac{OS} based on \ac{GNU}$/$Linux. Debian has a big community form by developers and users, which maintain the software. It will be used also for developing the software.
+	\item \emlst{Debian 9 “Stretch”.} Debian is also a \ac{OS} based on \ac{GNU}$/$Linux. Debian has a big community form by developers and users, which maintain the software. It is used also for developing the software.
 	
-	\item \textbf{Raspbian.} Raspbian is a Debian-based \ac{OS} designed for running in the Raspberry Pi.
+	\item \emlst{Raspbian.} Raspbian is a Debian-based \ac{OS} designed for running in the Raspberry Pi.
 	
 	
 \end{itemize}
 
 \textbf{Programming Languages:}
 \begin{itemize}
-	\item \textbf{Python 3 \cite{Dow12}.} Python is a high-level programming language. Python focuses on offering a simple syntax, as well as being an interpreted language, allowing it to be ideal for scripting and for developing applications in various areas and for most platforms. In addition, it is an \ac{OO} language and has efficient and high-level data structures. Python has been used because it has lot of support for Raspberry Pi. Moreover, the main libraries for the camera module of the Raspberry Pi are written in Python and can use the power of the NumPy scientific computation library.
+	\item \emlst{Python 3 \cite{Dow12}.} Python is a high-level programming language. Python focuses on offering a simple syntax, as well as being an interpreted language, allowing it to be ideal for scripting and for developing applications in various areas and for most platforms. In addition, it is an \ac{OO} language and has efficient and high-level data structures. Python has been used because it has lot of support for Raspberry Pi. Moreover, the main libraries for the camera module of the Raspberry Pi are written in Python and can use the power of the NumPy scientific computation library.
 	
 \end{itemize}
 
 \textbf{Libraries:}
 \begin{itemize}
-	\item \textbf{Python PiCamera \cite{PiCameraDoc}.} Python library for Python 2.7 or Python 3.2 (or above) which provides an interface for controlling the Raspberry Pi camera (PiCamera described in \ref{itm:Pi-camera-module-v2}).
+	\item \emlst{Python PiCamera \cite{PiCameraDoc}.} Python library for Python 2.7 or Python 3.2 (or above) which provides an interface for controlling the Raspberry Pi camera (PiCamera described in \ref{itm:Pi-camera-module-v2}).
 	
-	\item \textbf{Python NumPy \cite{NumPy}.} NumPy is a open-source scientific computing package for Python. It provides an easy and efficient way of working with multidimensional structures, such as the matrices of motion vectors used by H.264/AVC video format that is employed by the PiCamera library.
+	\item \emlst{Python NumPy \cite{NumPy}.} NumPy is a open-source scientific computing package for Python. It provides an easy and efficient way of working with multidimensional structures, such as the matrices of motion vectors used by H.264/AVC video format that is employed by the PiCamera library.
 	
-	\item \textbf{Python Matplotlib \cite{Hun07}.} Matplotlib is a Python 2D plotting library which produces quality figures in a variety of formats. For simple plotting the \emph{pyplot} module provides a MATLAB-like interface.
+	\item \emlst{Python Matplotlib \cite{Hun07}.} Matplotlib is a Python 2D plotting library which produces quality figures in a variety of formats. For simple plotting the \emph{pyplot} module provides a MATLAB-like interface.
 	
 \end{itemize}
 
 \textbf{Development tools:}
 \begin{itemize}
-	\item \textbf{Atom.} Atom is a free open-source text and source coder editor for macOS, Linux and Windows developed by GitHub. It allows to install a lot of plug-ins writen in Node.js and has and embedded Git Control tool.\footnote{Available at \url{https://atom.io/}}
+	\item \emlst{Atom.} Atom is a free open-source text and source coder editor for macOS, Linux and Windows developed by GitHub. It allows to install a lot of plug-ins written in Node.js and has and embedded Git Control tool.\footnote{Available at \url{https://atom.io/}}
 	
-	\item \textbf{Vi.} Vi is a console text editor originaly created for the Unix \ac{OS}. 
+	\item \emlst{Vi.} Vi is a console text editor originally created for the Unix \ac{OS}. 
 	
-	\item \textbf{Git \cite{CS14}.} Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.
+	\item \emlst{Git \cite{CS14}.} Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.
 	
-	\item \textbf{GitHub.} GitHub is a web-based Git version control repository. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.\footnote{GitHub webpage: \url{https://github.com/}}
+	\item \emlst{GitHub.} GitHub is a web-based Git version control repository. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.\footnote{GitHub webpage: \url{https://github.com/}}
 	
 	%\item \textbf{Make}    https://www.gnu.org/doc/doc.html
 	
@@ -224,17 +258,17 @@ In this part the different software resources employed are described. This inclu
 
 \textbf{Software used for the documentation:}
 \begin{itemize}
-	\item \textbf{Trello.} Trello is a web tool which provides support for the Kanban technique allowing to manage the progress of the project. Trello provides the functionality to create boards composed by several lists with cards in them. For this project, a board has been created with 3 lists: \emph{To Do}, \emph{Doing} and \emph{Done}.$^{\ref{footnote-1}}$
+	\item \emlst{Trello.} Trello is a web tool which provides support for the Kanban technique allowing to manage the progress of the project. Trello provides the functionality to create boards composed by several lists with cards in them. For this project, a board has been created with 3 lists: \emph{To Do}, \emph{Doing} and \emph{Done}.$^{\ref{footnote-1}}$
 	
 	\REDNOTE{Insert a screen capture of the Board} %TODO
 	
-	\item \textbf{\LaTeX{} \cite{Kot11}.} \LaTeX{} is a software for typesetting documents. It is not a word processor, but is used as a document markup language. \LaTeX{} is free, open source and provide great typographic quality on the documents, which makes it ideal for composing scientific documents. It is based on the \TeX{} typesetting engine created by Donald Knuth.
+	\item \emlst{\LaTeX{} \cite{Kot11}.} \LaTeX{} is a software for typesetting documents. It is not a word processor, but is used as a document markup language. \LaTeX{} is free, open source and provide great typographic quality on the documents, which makes it ideal for composing scientific documents. It is based on the \TeX{} typesetting engine created by Donald Knuth.
 	
-	\item \textbf{TeXstudio.} TeXstudio is a cross-platform and open source \LaTeX{} editor. TeXstudio has numerous features like syntax-highlighting, integrated viewer, reference checking, code folding and various assistants. Originally, TeXstudio was started as a fork of Texmaker that tried to extend it with additional features. 
+	\item \emlst{TeXstudio.} TeXstudio is a cross-platform and open source \LaTeX{} editor. TeXstudio has numerous features like syntax-highlighting, integrated viewer, reference checking, code folding and various assistants. Originally, TeXstudio was started as a fork of Texmaker that tried to extend it with additional features. 
 	
-	\item \textbf{esi-tfg \LaTeX{} class.} It is a \LaTeX{} class with allows to write the \ac{TFG} in a simple way, as its format conforms to the specification established for the \ac{TFG} by the \emph{Escuela Superior de Informática} from Ciudad Real. This class can be downloaded from the Arco Research Group Bitbucket page.\footnote{Available at \url{https://bitbucket.org/arco_group/esi-tfg}}
+	\item \emlst{esi-tfg \LaTeX{} class.} It is a \LaTeX{} class with allows to write the \ac{BSc.} Thesis in a simple way, as its format conforms to the specification established for the \ac{BSc.} Thesis by the \emph{Escuela Superior de Informática} from Ciudad Real. This class can be downloaded from the Arco Research Group Bitbucket page.\footnote{Available at \url{https://bitbucket.org/arco_group/esi-tfg}}
 	
-	\item \textbf{GIMP.} GIMP (\ac{GNU} Image Manipulation Program) is a free and open-source raster graphics editor used for image editing.
+	\item \emlst{GIMP.} GIMP (\ac{GNU} Image Manipulation Program) is a free and open-source raster graphics editor used for image editing.
 	
 	%\item \textbf{Inkscape.}
 	
@@ -242,7 +276,7 @@ In this part the different software resources employed are described. This inclu
 
 \textbf{Additional software:}
 \begin{itemize}
-	\item \textbf{MP4Box \cite{MP4Box}.} MP4Box is the multimedia package available in GPAC. It can be used for performing manipulations on multimedia files such as AVI, MPG, TS and ISO media files (for example MP4 or 3GP). In this work, it has been used to generate MP4 files from H.264 video format.
+	\item \emlst{MP4Box \cite{MP4Box}.} MP4Box is the multimedia package available in GPAC. It can be used for performing manipulations on multimedia files such as AVI, MPG, TS and ISO media files (for example MP4 or 3GP). In this work, it has been used to generate MP4 files from H.264 video format.
 	
 	%TODO: Add more additional software	
 	
