@@ -1,16 +1,9 @@
-% TFG - José Ángel Martín Baos. Escuela Superior de Informática. 2017
+% TFG - José Ángel Martín Baos. Escuela Superior de Informática. 2018
 \documentclass[twoside]{esi-tfg}
 \usepackage{custom}
 \input{metadata.tex}
 
-
-
 \begin{document}
-	% TODO: Memoria en ingles
-	% Español: Resumen, Indroducción y conclusiones
-
-  % Notas al pie de pagina con: \footnote{Sí, los agradecimientos se firman} 
-
 \cover
 \bastardtitle
 \frontpage
@@ -22,14 +15,14 @@
 \input{resumen.tex}
 
 \input{thanks.tex}
-\dedication{”Science knows no country,\\ because knowledge belongs to humanity,\\ and is the torch which illuminates the world.”,\\ Louis Pasteur}
+\dedication{\epigraph{``Science knows no country, because knowledge belongs to humanity, and is the torch which illuminates the world.''}{\rm Louis Pasteur}}
+%\dedication{``Science knows no country, because\\ knowledge belongs to humanity, and is\\ the torch which illuminates the world.''\\[5pt]	\rightline{{\rm --- Louis Pasteur}} }
 
 \tableofcontents
 \listoftables
 \listoffigures
 \lstlistoflistings
 \input{acro.tex}
-
 
 \mainmatter
 
@@ -45,9 +38,7 @@
 \input{anexo1.tex}
 \input{anexo2.tex}
 
-
 \backmatter
 \bibliography{main}
 \cleardoublepage
-
 \end{document}
