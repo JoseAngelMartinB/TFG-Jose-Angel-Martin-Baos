@@ -3,7 +3,7 @@
 \chapter{Methodology}
 \label{chap:methodology}
 
-\drop{I}{n} order to carry out this project, a working methodology should be chosen and followed throughout the development of this \ac{BSc.} Thesis. In particular, \emword{Scrum} is used as project management methodology and \emword{Kanban} is adopted to manage the progress of the project. The software development methodology used is \emword{\ac{TDD}}, which is a way of programming focused on writing tests first, and then developing the code. To end with, the details of the different means and resources used are also described.
+\drop{I}{n} order to carry out this project, a working methodology should be chosen and followed throughout the development of this \ac{BSc.} Thesis. In particular, \emword{Scrum} is used as project management methodology and \emword{Kanban} is adopted to manage the progress of the project. The iterative and incremental software development methodology is been used, where the product is developed in several increments and each increment is executed in iterative cycles. To end with, the details of the different means and resources used are also described.
 
 
 \section{Agile methodologies}
@@ -118,35 +118,41 @@ Up to this time, the project management methodology has been presented. Now, the
 
 
 \section{Development methodology}
-The development methodology is used by developers and engineers to write code, helping them in the process and giving some guidelines when developing computer systems in order to maintain a high code quality. The development methodology used is \acf{TDD}, which is an evolutionary approach to software development methodology that combines test-first development where you write a test before you write just enough production code to fulfil that test \cite{IntroTDD,Ble10}. This methodology is part of the \ac{XP} methodology and it is focused in three main basis:
-\begin{itemize}
-	\item The implementation of just the functionalities the client needs.
-	\item The minimization of the number of software faults generated in production phase.
-	\item The production of modular software, highly reusable and prepared for the change.
-\end{itemize}
+The development methodology is used by developers and engineers to write code, helping them in the process and giving some guidelines when developing computer systems in order to maintain a high code quality. In this \ac{BSc.} thesis the iterative and incremental software development methodology is used. In this method of software development the project is divided into several blocks, which match with the temporal blocks defined in Scrum \cite{ItIncr}. 
 
-In other software methodologies, the architectural decisions are taken before starting the project, whereas in \ac{TDD} the architecture is gradually defined through test, in continuous iterations. This does not mean that the more technical aspect of architecture are also left out. For example, normally the platform to which the project developed is directed is known. There are three steps that must be followed when using \ac{TDD}:
-\begin{itemize}
-	\item \emlst{Write the test.} The test is the functionality which represents the requirement, or a part of them (when more than one test is needed to satisfy it). Requirements have connotation of being something preset and fixed, however test can be modified. 
-	
-	\item \emlst{Implement the code which represents the test.} The essential code needed to pass the previous test is written. It does not matter if the code is not well-designed, since that point will be covered in the following step. The most important thing is not to implement anything more than strictly needed. It is advisable to write down the doubts about possible future errors or alternative control flows in order to convert them into other tests for future iterations.
-	
-	\item \emlst{Refactor the code.} Refactor does not mean to rewrite the code, it means to change the design while maintaining the functionality unchanged. In this step of the TDD algorithm, duplicate code is found and eliminated through refactoring. Additionally, the code is revised for the sake of meeting design principles, such as \emph{SOLID Principles} \cite{SOLIDPrinciples}. Furthermore, the code can be revised in order to make it more readable and more maintainable by future developers. The key for a good refactoring is to make it in small steps, where at the end of each step all the test are checked again, with the purpose of detecting possible faults in the refactoring process. Also, bad smells must be detected and removed. 
-\end{itemize}
-
-When the three steps has been completed with one specification, another more is taken and the steps are repeated. With the steps indicated, it can be achieved that the code is error free, refactored, and that there is only the code necessary to complete each of the requirements. Figure \ref{fig:5-TDD_sequence} shows the TDD sequence diagram.
+Each iteration of the iterative and incremental methodology can be considered as a project itself where a value must be added to the final product. For each of those iterations all the tasks necessary to complete it must be executed, incorporating analysis, design, coding and testing phases (this is the reason of being called iterative). Moreover, in each iteration the team must take the work done in the previous iterations and include new objectives and requirements or improve the ones that are already accomplished (this is the reason of being called incremental). Figure \ref{fig:5-Iterative-and-incremental} represents the iterative and incremental methodology flow.
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=0.6\textwidth]{5-TDD_sequence.pdf}
-		\caption{TDD sequence}
-		\label{fig:5-TDD_sequence}
+		\includegraphics[width=0.9\textwidth]{5-Iterative-and-incremental.jpg}
+		\caption{Iterative and incremental methodology flow}
+		\label{fig:5-Iterative-and-incremental}{Adapted from  \url{http://www.technologyuk.net}}
 	\end{center}
 \end{figure}
 
+Some of the advantages of using the iterative and incremental methodology are:
+\begin{itemize}
+	\item The end product is more adjusted to the client needs due to the fact that in each iteration a part of the product is obtained and it can be checked by the client and, therefore, some adjustments can be made in the following iterations.
+	
+	\item The changes that may appear during the project can be managed easier.
+	
+	\item Functional results are obtained since the firsts iterations.
+	
+	\item The client tend to involve itself more in the project. 
+\end{itemize}
+
+However, some disadvantages should be commented:
+\begin{itemize}
+	\item The result of each iteration must be an useful product, so that the result is really useful for the client.
+	
+	\item Each of the steps in an iteration are fixed and iterations cannot be overlapped.
+	
+	\item Some techniques must be used in order to accomplish changes in the product easily, without incrementing the complexity of the project.
+\end{itemize}
+
 
 \section{Resources} %TODO: Completar
-In this section we are going to describe the different technologies that are employed during the development of this \ac{BSc.} Thesis.
+In this section we are going to describe the different technologies that are employed during the development of this \ac{BSc.} thesis.
 
 \subsection{Hardware resources}
 Now, the different hardware resources employed in the \ac{BSc.} Thesis are detailed. These include the computer used to develop the \ac{BSc.} Thesis, the Raspberry Pi and the different peripherals attached to it. Figure \ref{fig:5-Foto_zulo} shows the different hardware resources before starting the project.
@@ -204,6 +210,8 @@ Now, the different hardware resources employed in the \ac{BSc.} Thesis are detai
 	\item \emlst{MQ-2 Sensor \cite{MQ2}.} This sensor is able to measure methane, butane, petroleum gas and smoke in concentrations between 300 to 10000 ppm. As the previous sensor, this one also works with a voltage of 5 volts and provide an analog output.
 	
 	\item \emlst{Analog-to-digital-converter \cite{ADC}.} Ananalog-to-digital converter (ADC) is a system that converts an analog signal into a digital signal. Therefore, the input analog current is converted to a digital number proportional to the magnitude of the current that can be understood by a digital system.	
+	
+	\item \emlst{LM317 \cite{LM317}.} An electronic device which is capable of supplying more than 1.5 Ampers over an output voltage range of 1.25 to 37 Volts.
 	
 \end{itemize} 
 

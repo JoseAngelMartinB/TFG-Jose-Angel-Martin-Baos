@@ -1,11 +1,11 @@
 \documentclass{pre-tfg}
 \usepackage{custom}
 
-\title{\REDNOTE{An integrated IoT approach for monitoring road traffic and air pollution in urban areas}}% TODO
+\title{An integrated low-cost IoT approach for monitoring road traffic and air pollution in urban areas}
 \author{José Ángel Martín Baos}
 \advisorFirst{Dr. Luis Rodríguez Benítez}
 \advisorDepartment{Tecnologías y Sistemas de Información}
-\advisorSecond{Dr. Ricardo Garcia Rodenas}
+\advisorSecond{Dr. Ricardo García Ródenas}
 \intensification{Ingeniería de Computadores}
 \docdate{2018}{February}
 
@@ -18,12 +18,12 @@
 \newpage
 
 
-\section{INTRODUCTION} % TODO
+\section{INTRODUCTION}
 %1. Enmarcar el problema. Necesidad de ciudades inteligentes que se anticipen a la contaminación y tomen medidas paliativas (Restringir el tráfico [por número vehiculos, matricula, calles...]).
 
 Road transportation is often the main source of air pollution in urban areas, with detrimental effects on local air quality, ecology, and human health. Therefore, there is an increasing need to estimate precisely the contribution of road transport to air pollution in the cities, so that pollution-reduction measures can be designed and implemented appropriately \cite{SNB10}. These pollution-reduction measures are becoming increasingly relevant due to the continued growth in vehicle use and the deterioration in driving conditions (congestion). Many authorities find it difficult to meet their environmental targets (e.g. air quality standards or national emission ceilings) and, therefore, reliable emissions models are needed, in order to predict accurately the road transport contribution to air pollution.
 
-Therefore, intelligent cities are needed to prevent situations of high level of contamination in the cities and take measures when these situations occur. These cities must predict the pollution peaks and take palliative measures, such as restrict the traffic by the number of vehicles, by the license plates, close traffic in some streets, change the speed limits, etc. Moreover, traffic flows must be measured and controlled, as they will affect to the pollution levels on that city. For this reason, those cities must relay in an IoT (Internet of Things) infrastructure that supports the those systems, as well as sensor-based big data applications \cite{Bib18}.
+Therefore, intelligent cities are essential to prevent situations of high level of contamination in the cities and take measures when these situations occur. These cities must predict the pollution peaks and take palliative measures, such as restrict the traffic by the number of vehicles, by the license plates, close traffic in some streets, change the speed limits, etc. Moreover, traffic flows must be measured and controlled, as they will affect to the pollution levels on that city. For this reason, these cities must relay in an IoT (Internet of Things) infrastructure that supports those systems, as well as sensor-based big data applications \cite{Bib18}.
 
 
 %2. Todo esto requiere de una infraestrucutra técnologica que le de soporte. Ciudades son entornos distribuidos, tiempo real, masivo.
@@ -38,23 +38,7 @@ The objective in this Bachelor of Science Thesis (BSc. thesis from now on) is to
 
 \section{SPECIFIC TECHNOLOGY COURSED}
 
-The Table \ref{tab:tec-especifica} shows the specific technology coursed (\emph{Ingeniería de Computadores}). In addition, Table \ref{tab:competencias} shows the different specific competences that are addressed in this BSc. thesis. 
-
-\begin{table}[hp]
-	\centering
-	\caption{Specific technology coursed}
-	\label{tab:tec-especifica}
-	
-	\zebrarows{1}
-	\begin{tabular}{cp{0.32\textwidth}}
-		\hline
-		&Tecnologías de la Información \\
-		&Computación \\
-		&Ingeniería del Software \\
-		\textbf{X}&Ingeniería de Computadores \\
-		\hline
-	\end{tabular}
-\end{table}
+The specific technology coursed is \emph{Ingeniería de Computadores}. In addition, Table \ref{tab:competencias} shows the different specific competences from that specific technology that are addressed in this BSc. thesis. 
 
 \begin{table}[hp]
   \centering
@@ -99,19 +83,18 @@ The main objective of this BSc. thesis is the analysis, design and implementatio
 		
 		\textbf{O.2}& Develop a module to obtain environmental parameters on the Raspberry Pi System.  \\
 		
-		\textbf{O.3}& Develop a sever and a module to synchronize the data of the Raspberry Pi modules with that server.  \\
+		\textbf{O.3}& Develop a cloud service to communicate and synchronize the data from the different Raspberry Pi devices.  \\
 		
-		\textbf{O.4}& Develop a program to monitor the data recorded by the different Raspberry Pi systems in real time and control them.  \\
-		
-		\textbf{O.5}& \REDNOTE{------------------------------------------------------------}  \\
+		\textbf{O.4}& Develop a front-end using BlueMix platform to monitor the data recorded by the different Raspberry Pi devices and control them.  \\
 		
 		\hline
 	\end{tabular}
 \end{table}
 
 
-\section{\REDNOTE{METHODOLOGIES AND WORK PHASES}}
+\section{METHODOLOGIES AND WORK PHASES}
 
+\subsection{Project management methodology}
 In the last few years, the number of companies, with different size and from different areas, using agile development methodologies has increased considerably. These methodologies are not only used by the software development companies, but also they are used by a wide range of companies. In the software engineering field, agile methodologies gain a lot of importance due to the complexity sometimes needed to specify the different requirements of a product in an unique phase. Agile methodologies makes a great difference with respect to \emword{Waterfall} model where carrying out a change once the product is almost finished is very costly.
 
 In an agile project it is sought to divide the tasks of the software project in increments with a minimum planning and a short duration (normally between one and four weeks). Each iteration produces an operational prototype that is revised together with the client. Therefore, we can affirm that the life cycle of the agile methodologies is iterative and incremental.
@@ -142,23 +125,18 @@ To manage the Kanban Board, Trello is used, as it was previously indicated. This
 	\end{center}
 \end{figure}
 
-The development methodology is used by developers and engineers to write code, helping them in the process and giving some guidelines when developing computer systems in order to maintain a high code quality. The development methodology used is \REDNOTE{ XXX }
+\subsection{Software development methodology}
+The development methodology is used by developers and engineers to write code, helping them in the process and giving some guidelines when developing computer systems in order to maintain a high code quality. In this BSc. thesis the iterative and incremental software development methodology is used. In this method of software development the project is divided into several blocks, which match with the temporal blocks defined in Scrum \cite{ItIncr}. 
 
-\REDNOTE{...}
+Each iteration of the iterative and incremental methodology can be considered as a project itself where a value must be added to the final product. For each of those iterations all the tasks necessary to complete it must be executed, incorporating analysis, design, coding and testing phases (this is the reason of being called iterative). Moreover, in each iteration the team must take the work done in the previous iterations and include new objectives and requirements or improve the ones that are already accomplished (this is the reason of being called incremental). Figure \ref{fig:5-Iterative-and-incremental} represents the iterative and incremental methodology flow.
 
-
-
-\REDNOTE{Based on the sub-objectives established in Table \ref{tab:sub-objectives}, the following project plan is proposed, as shown in Table \ref{tab:Sprints}.}
-
-\begin{table}[!h]
-	\centering
-	{\small
-		\input{tables/Sprints.tex}
-	}
-	\caption{Sprints}
-	\label{tab:Sprints}
-\end{table}
-
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{Iterative-and-incremental.jpg}
+		\caption{Iterative and incremental methodology flow}
+		\label{fig:5-Iterative-and-incremental}{Adapted from  \url{http://www.technologyuk.net}}
+	\end{center}
+\end{figure}
 
 
 \section{RESOURCES THAT ARE INTENDED TO BE USED}
@@ -166,21 +144,12 @@ The development methodology is used by developers and engineers to write code, h
 In this section we are going to describe the different technologies that are intended to be employed during the development of this BSc. thesis.
 
 \subsection{Hardware resources}
-Now, the different hardware resources intended to be used in the BSc. thesis are detailed. These include the computer that will be used to develop the BSc. thesis, the Raspberry Pi and the different peripherals attached to it.
+Now, the different hardware resources intended to be used in the BSc. thesis are detailed. These include the computer that will be used to develop the BSc. thesis, the Raspberry Pi and the different peripherals attached to it. \vspace{-2mm}
 
-\begin{itemize}
-	\item \emlst{Development computer.} The personal computer of the student will employ for this purpose. The spec table is shown in Table \ref{tab:development-computer-spec-table}.
+\begin{itemize}[noitemsep,nolistsep]
+	\item \emlst{Development computer.} The personal computer of the student will employ for the development of this work.
 	
-	\begin{table}[!h]
-		\centering
-		{\small
-			\input{tables/development-computer-spec-sheet.tex}
-		}
-		\caption{Development computer spec table}
-		\label{tab:development-computer-spec-table}
-	\end{table}
-	
-	\item \emlst{Raspberry Pi 3.} The Raspberry Pi is a low cost, credit-card sized computer. The Raspberry Pi 3 is the third-generation Raspberry Pi. Table \ref{tab:raspberry-pi3-spec-table} shows its spec table. With this computer a memory card is also needed. The one used is the \emph{Samsung SDHC EVO 8gb Class 10+}.
+	\item \emlst{Raspberry Pi 3.} The Raspberry Pi is a low cost, credit-card sized computer. The Raspberry Pi 3 is the third-generation Raspberry Pi. Table \ref{tab:raspberry-pi3-spec-table} shows its spec table.
 	
 	\begin{table}[!h]
 		\centering
@@ -191,7 +160,7 @@ Now, the different hardware resources intended to be used in the BSc. thesis are
 		\label{tab:raspberry-pi3-spec-table}
 	\end{table}
 	
-	\item \emlst{Raspberry Pi Camera Module V2 \cite{PiCameraDoc}.} It is a hardware module that allows the Raspberry Pi to capture pictures and record videos using the CSI port. The camera that will be used is the \emph{PI NOIR CAMERA V2}.\footnote{More information in https://www.raspberrypi.org/products/pi-noir-camera-v2/} The table \ref{tab:raspberry-pi3-camera-specs} shows its specs. \label{itm:Pi-camera-module-v2}
+	\item \emlst{Raspberry Pi Camera Module V2 \cite{PiCameraDoc}.} It is a hardware module that allows the Raspberry Pi to capture pictures and record videos using the CSI port. The camera that will be used is the \emph{PI NOIR CAMERA V2} whose spec table can be shown in table \ref{tab:raspberry-pi3-camera-specs}. \label{itm:Pi-camera-module-v2}
 	
 	\begin{table}[!h]
 		\centering
@@ -212,38 +181,33 @@ Now, the different hardware resources intended to be used in the BSc. thesis are
 	
 	\item \emlst{Analog-to-digital-converter \cite{ADC}.} Ananalog-to-digital converter (ADC) is a system that converts an analog signal into a digital signal. Therefore, the input analog current is converted to a digital number proportional to the magnitude of the current that can be understood by a digital system.	
 	
+	\item \emlst{LM317 \cite{LM317}.} An electronic device which is capable of supplying more than 1.5 Ampers over an output voltage range of 1.25 to 37 Volts.
+	
 \end{itemize} 
 
 
 
 \subsection{Software resources}
-The different software resources that will be employed are described. These include the Operating System, programming languages, libraries, the different development tools and the software that will be used to generate the documentation.
+The different software resources that will be employed are described. These include the programming languages, libraries, the different development tools and the software that will be used to generate the documentation. \vspace{-2mm}
 
-\textbf{Operating Systems:}
-\begin{itemize}
-	\item \emlst{Ubuntu 16.04.3 LTS.}
-	\item \emlst{Debian 9 “Stretch”.}
-	\item \emlst{Raspbian.}
-\end{itemize}
-
-\textbf{Programming Languages:}
-\begin{itemize}
+\textbf{Programming Languages:} \vspace{-4mm}
+\begin{itemize}[noitemsep,nolistsep]
 	\item \emlst{Python 3 \cite{Dow12}.} Python is a high-level programming language.  Python will be used because it has lot of support for Raspberry Pi.
 	
-\end{itemize}
+\end{itemize} \vspace{-2mm}
 
-\textbf{Libraries:}
-\begin{itemize}
+\textbf{Libraries:} \vspace{-4mm}
+\begin{itemize}[noitemsep,nolistsep]
 	\item \emlst{Python PiCamera \cite{PiCameraDoc}.} Python library that provides an interface for controlling the Raspberry Pi camera.
 	
 	\item \emlst{Python NumPy \cite{NumPy}.} NumPy is a open-source scientific computing package for Python.
 	
 	\item \emlst{Python Matplotlib \cite{Hun07}.} Matplotlib is a Python 2D plotting library which produces quality figures in a variety of formats.
 	
-\end{itemize}
+\end{itemize} \vspace{-2mm}
 
-\textbf{Development tools:}
-\begin{itemize}
+\textbf{Development tools:} \vspace{-4mm}
+\begin{itemize}[noitemsep,nolistsep]
 	\item \emlst{Atom.} Atom is a free open-source text and source coder editor for macOS, Linux and Windows developed by GitHub.
 	
 	\item \emlst{Vi.} Vi is a console text editor originally created for the Unix  Operating System. 
@@ -255,10 +219,10 @@ The different software resources that will be employed are described. These incl
 	%\item \textbf{Make}    https://www.gnu.org/doc/doc.html
 	
 	
-\end{itemize}
+\end{itemize} \vspace{-2mm}
 
-\textbf{Software used for the documentation:}
-\begin{itemize}
+\textbf{Software used for the documentation:} \vspace{-4mm}
+\begin{itemize}[noitemsep,nolistsep]
 	\item \emlst{Trello.} Trello is a web tool which provides support for the Kanban technique allowing to manage the progress of the project.
 	
 	\item \emlst{\LaTeX{} \cite{Kot11}.} \LaTeX{} is a software for typesetting documents.
@@ -275,7 +239,7 @@ The different software resources that will be employed are described. These incl
 
 
 %\bibliographystyle{alpha}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \singlespacing
 \bibliography{main}
 
