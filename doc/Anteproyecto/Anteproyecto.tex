@@ -4,7 +4,8 @@
 \title{An integrated low-cost IoT approach for monitoring road traffic and air pollution in urban areas}
 \author{José Ángel Martín Baos}
 \advisorFirst{Dr. Luis Rodríguez Benítez}
-\advisorDepartment{Tecnologías y Sistemas de Información}
+\advisorDepartment{Departamento de Tecnologías y Sistemas de Información\\
+Departamento de Matemáticas}
 \advisorSecond{Dr. Ricardo García Ródenas}
 \intensification{Ingeniería de Computadores}
 \docdate{2018}{February}
@@ -21,18 +22,18 @@
 \section{INTRODUCTION}
 %1. Enmarcar el problema. Necesidad de ciudades inteligentes que se anticipen a la contaminación y tomen medidas paliativas (Restringir el tráfico [por número vehiculos, matricula, calles...]).
 
-Road transportation is often the main source of air pollution in urban areas, with detrimental effects on local air quality, ecology, and human health. Therefore, there is an increasing need to estimate precisely the contribution of road transport to air pollution in the cities, so that pollution-reduction measures can be designed and implemented appropriately \cite{SNB10}. These pollution-reduction measures are becoming increasingly relevant due to the continued growth in vehicle use and the deterioration in driving conditions (congestion). Many authorities find it difficult to meet their environmental targets (e.g. air quality standards or national emission ceilings) and, therefore, reliable emissions models are needed, in order to predict accurately the road transport contribution to air pollution.
+Road transportation is often the main source of air pollution in urban areas with detrimental effects on local air quality, ecology, and human health. Therefore, there is an increasing need to estimate precisely the contribution of road transport to air pollution in the cities, so that pollution-reduction measures can be designed and implemented appropriately \cite{SNB10}. These pollution-reduction measures are becoming increasingly relevant due to the continued growth in vehicle use and the deterioration in driving conditions (congestion). Many authorities find difficult to meet their environmental targets (e.g. air quality standards or national emission ceilings) and, therefore, reliable emissions models are needed, in order to predict accurately the impact of road transport to air pollution.
 
-Therefore, intelligent cities are essential to prevent situations of high level of contamination in the cities and take measures when these situations occur. These cities must predict the pollution peaks and take palliative measures, such as restrict the traffic by the number of vehicles, by the license plates, close traffic in some streets, change the speed limits, etc. Moreover, traffic flows must be measured and controlled, as they will affect to the pollution levels on that city. For this reason, these cities must relay in an IoT (Internet of Things) infrastructure that supports those systems, as well as sensor-based big data applications \cite{Bib18}.
+Therefore, intelligent cities are essential to prevent situations of high level of contamination in the cities and take measures when these situations occur. These cities must predict the pollution peaks and take palliative measures, such as restrict the traffic by the number of vehicles, by the license plates, close traffic in some streets, change the speed limits, etc. Moreover, traffic flows must be monitored as they affect to the pollution levels on that city. For this reason, these cities must rely on an IoT (Internet of Things) infrastructure connected to a cloud platform that supports those systems as well as sensor-based big data applications. \cite{Bib18}.
 
 
 %2. Todo esto requiere de una infraestrucutra técnologica que le de soporte. Ciudades son entornos distribuidos, tiempo real, masivo.
 % Se necesita una arquitectura distribuida que controle la contaminación por zonas/Calles, a diferencia de los sistemas actuales.
 
-Typical pollution surveillance and control systems are composed by big and expensive devices that are only located in some points in a city, hence, they provide information for vast areas and sometimes those systems are not scalable. However, cities are distributed environments, where the events occur in real time and in a massive way. Therefore, a cheap distributed IoT architecture is needed to control pollution levels by zones or streets. These can be combined with a traffic surveillance system in order to have a complete system that can be used as a Decision Support System (DSS) to help authorities to take decisions about environmental problems caused by pollution before they occur.
+Typical pollution surveillance and control systems are composed by big and expensive devices that are only located in some points in a city, hence, they provide information for vast areas and sometimes those systems are not scalable. However, cities are distributed environments where the events occur in real time and on a massive scale. Therefore, a inexpensive distributed IoT architecture is needed to control pollution levels by zones or streets. These can be combined with a traffic surveillance infrastructure in order to have a complete system that could be used as a Decision Support System (DSS) to help authorities to take decisions about environmental problems caused by pollution before they occur.
 
 %3. El objetivo del TFG es hacer un prototipo de este sistema. Se centraría unicamente en la estructura que daría soporte a un sistema inteligente (que no se aborda en este TFG).
-The objective in this Bachelor of Science Thesis (BSc. thesis from now on) is to design and build a prototype of an integrated low-cost road traffic and air pollution monitoring platform. It will be focus only in the design and implementation of the software and hardware architecture that must allow the future implementation of an intelligent system for the prediction of the pollution levels, the recommendation of palliative actions and monitoring those actions. An inexpensive embedded system will be used for designing the architecture in order to get a scalable system.
+The objective in this Bachelor of Science Thesis (BSc. thesis from now on) is to design and build a prototype of an integrated low-cost road traffic and air pollution monitoring platform. It will be focused just in the design and implementation of the software and hardware architecture that must allow the future implementation of an intelligent system for the prediction of the pollution levels, the recommendation of palliative actions and monitoring those actions. An inexpensive embedded system will be used for designing the architecture in order to obtain a scalable system not only in size but also in cost.
 
 
 
@@ -52,9 +53,9 @@ The specific technology coursed is \emph{Ingeniería de Computadores}. In additi
 
     \textbf{[IC1]}& Ability to design and build digital systems, including computers, microprocessor-based systems and communications systems.&& In this BSc. thesis a microprocessor-based system is going to be developed using a Raspberry Pi. \\
     
-    \textbf{[IC2]}& Ability to develop specific processors and embedded systems, as well as to develop and optimize the software of that systems.&& In this BSc. thesis some software code has to be developed and optimized in order to execute in real time on the Raspberry Pi. \\
+    \textbf{[IC2]}& Ability to develop specific processors and embedded systems, as well as to develop and optimize the software of that systems.&& In this BSc. thesis some software code has to be developed and optimized in order to execute it in real time on the Raspberry Pi. \\
     
-    \textbf{[IC4]}& Ability to design and implement system and communications software.&& Some system software must be developed in order to control de device as well as a communication software to send the different data to the servers. \\
+    \textbf{[IC4]}& Ability to design and implement system and communications software.&& Some system software must be developed in order to control the device as well as a communication software to send the different data to the cloud. \\
     
     \textbf{[IC5]}& Ability to analyse, evaluate and select the most appropriate hardware and software platforms to support embedded and real-time applications.&& In this BSc. thesis the most convenient real-time embeded system platform must be selected to implement the desired functionality. \\
     
@@ -95,11 +96,9 @@ The main objective of this BSc. thesis is the analysis, design and implementatio
 \section{METHODOLOGIES AND WORK PHASES}
 
 \subsection{Project management methodology}
-In the last few years, the number of companies, with different size and from different areas, using agile development methodologies has increased considerably. These methodologies are not only used by the software development companies, but also they are used by a wide range of companies. In the software engineering field, agile methodologies gain a lot of importance due to the complexity sometimes needed to specify the different requirements of a product in an unique phase. Agile methodologies makes a great difference with respect to \emword{Waterfall} model where carrying out a change once the product is almost finished is very costly.
+In the last few years, the number of companies, with different size and from different areas, using agile development methodologies have increased considerably. These methodologies are not only used by the software development companies, but also by a wide range of companies. In the software engineering field, agile methodologies gain a lot of importance due to the complexity sometimes needed to specify the different requirements of a product in an unique phase. Agile methodologies makes a great difference with respect to \emword{Waterfall} model where carrying out a change once the product is almost finished is very costly. In an agile project it is sought to divide the tasks of the software project in increments with a minimum planning and a short duration (normally between one and four weeks). Each iteration produces an operational prototype that is revised together with the client. Therefore, we can affirm that the life cycle of the agile methodologies is iterative and incremental.
 
-In an agile project it is sought to divide the tasks of the software project in increments with a minimum planning and a short duration (normally between one and four weeks). Each iteration produces an operational prototype that is revised together with the client. Therefore, we can affirm that the life cycle of the agile methodologies is iterative and incremental.
-
-In our view, Scrum fits nicely with the problem dealt in this BSc. thesis as this project consist on a hardware-software system organised in several stages. Furthermore, as consequence of being one of the most used agile methodologies, lot of literature has been written about it, for this reason, Scrum has been chosen. Specifically, Scrum methodology \cite{ScrumGuide} will be adapted to an one-person development. To manage the progress of the project graphically the Kanban technique with the tool Trello will be used.
+In our view, Scrum fits nicely with the problem dealt in this BSc. thesis as this project consist on a hardware-software system organised in several stages. Furthermore, as consequence of being one of the most used agile methodologies, a lot of literature has been written about it, for this reason, Scrum has been chosen. Specifically, Scrum methodology \cite{ScrumGuide} will be adapted to an one-person development. To manage the progress of the project graphically the Kanban technique with the tool Trello will be used.
 
 Scrum has two main characteristics: The first one is that the development of the software is carried out in incremental iterations, whilst the second one is that coordination meetings are held throughout the project. In Scrum, the product is developed in series with a duration from one to four weeks called \emword{sprints}. The different requirements are captured as elements of a list called \emword{product backlog} which is created at the beginning of the project. Figure \ref{fig:5-ScrumSprints} represents the complete Scrum life cycle.
 
@@ -111,9 +110,7 @@ Scrum has two main characteristics: The first one is that the development of the
 	\end{center}
 \end{figure}
 
-Kanban \cite{Gar11,KS10} is a Japanese technique for managing the progress of the project. It was invented by Toyota and was used to control the progress of their work in the production line. Therefore, Kanban is not a specific software development technique, nevertheless, in the last few years it has been used in the management of software projects.
-
-Kanban allows the development team to visualize the workflow of the different tasks. Normally, consists in using a slate board with three columns: \emph{To Do}, \emph{Doing} and \emph{Done}, that represents the different phases a task passes until it is completed. Each task in which a sprint is divided is considered as a card which is put into the slate board. An example of this concept can be seen in Figure \ref{fig:5-KanbanBoard}.
+Kanban \cite{Gar11,KS10} is a Japanese technique for managing the progress of the project. It was invented by Toyota and was used to control the progress of their work in the production line. Therefore, Kanban is not a specific software development technique, nevertheless, in the last few years it has been used in the management of software projects. Kanban allows the development team to visualize the workflow of the different tasks. Normally, consists in using a slate board with three columns: \emph{To Do}, \emph{Doing} and \emph{Done}, that represents the different phases a task passes until it is completed. Each task in which a sprint is divided is considered as a card which is put into the slate board. An example of this concept can be seen in Figure \ref{fig:5-KanbanBoard}.
 
 To manage the Kanban Board, Trello is used, as it was previously indicated. This tool allows the creation of several boards. In each board many columns can be created with various tasks that can be moved from one column to another by means of a very friendly interface.
 
@@ -147,7 +144,7 @@ In this section we are going to describe the different technologies that are int
 Now, the different hardware resources intended to be used in the BSc. thesis are detailed. These include the computer that will be used to develop the BSc. thesis, the Raspberry Pi and the different peripherals attached to it. \vspace{-2mm}
 
 \begin{itemize}[noitemsep,nolistsep]
-	\item \emlst{Development computer.} The personal computer of the student will employ for the development of this work.
+	\item \emlst{Student computer.} The personal computer of the student which will be employed for the development of this work.
 	
 	\item \emlst{Raspberry Pi 3.} The Raspberry Pi is a low cost, credit-card sized computer. The Raspberry Pi 3 is the third-generation Raspberry Pi. Table \ref{tab:raspberry-pi3-spec-table} shows its spec table.
 	
@@ -160,7 +157,7 @@ Now, the different hardware resources intended to be used in the BSc. thesis are
 		\label{tab:raspberry-pi3-spec-table}
 	\end{table}
 	
-	\item \emlst{Raspberry Pi Camera Module V2 \cite{PiCameraDoc}.} It is a hardware module that allows the Raspberry Pi to capture pictures and record videos using the CSI port. The camera that will be used is the \emph{PI NOIR CAMERA V2} whose spec table can be shown in table \ref{tab:raspberry-pi3-camera-specs}. \label{itm:Pi-camera-module-v2}
+	\item \emlst{Raspberry Pi Camera Module V2 \cite{PiCameraDoc}.} It is a hardware module that allows the Raspberry Pi to capture pictures and record videos using the CSI port. That camera is the \emph{PI NOIR CAMERA V2} whose spec table is shown in table \ref{tab:raspberry-pi3-camera-specs}. \label{itm:Pi-camera-module-v2}
 	
 	\begin{table}[!h]
 		\centering
@@ -175,11 +172,11 @@ Now, the different hardware resources intended to be used in the BSc. thesis are
 	
 	\item \emlst{Power bank battery.} The Raspberry Pi board is going to be powered using a power bank battery.
 	
-	\item \emlst{MQ-7 Sensor. \cite{MQ7}} This sensor is able to measure Carbon Monoxide (CO) concentrations in the air. The MQ-7 can detect concentrations anywhere from 20 to 2000 ppm (parts per million) and has a fast response time. This sensor works with an input voltage of 5 volts and provide an analog output, therefore an anaglog to digital converter is needed.
+	\item \emlst{MQ-7 Sensor. \cite{MQ7}} This sensor is able to measure Carbon Monoxide (CO) concentrations in the air. The MQ-7 can detect concentrations anywhere from 20 to 2000 ppm (parts per million) and has a fast response time. This sensor works with an input voltage of 5 volts and provide an analogue output, therefore an anaglog to digital converter is needed.
 	
-	\item \emlst{MQ-2 Sensor \cite{MQ2}.} This sensor is able to measure methane, butane, petroleum gas and smoke in concentrations between 300 to 10000 ppm. As the previous sensor, this one also works with a voltage of 5 volts and provide an analog output.
+	\item \emlst{MQ-2 Sensor \cite{MQ2}.} This sensor is able to measure methane, butane, petroleum gas and smoke in concentrations between 300 to 10000 ppm. As the previous sensor, this one also works with a voltage of 5 volts and provide an analogue output.
 	
-	\item \emlst{Analog-to-digital-converter \cite{ADC}.} Ananalog-to-digital converter (ADC) is a system that converts an analog signal into a digital signal. Therefore, the input analog current is converted to a digital number proportional to the magnitude of the current that can be understood by a digital system.	
+	\item \emlst{Analogue-to-digital-converter \cite{ADC}.} Analogue-to-digital converter (ADC) is a system that converts an analogue signal into a digital signal. Therefore, the input analogue current is converted to a digital number proportional to the magnitude of the current that can be understood by a digital system.	
 	
 	\item \emlst{LM317 \cite{LM317}.} An electronic device which is capable of supplying more than 1.5 Ampers over an output voltage range of 1.25 to 37 Volts.
 	
@@ -188,7 +185,7 @@ Now, the different hardware resources intended to be used in the BSc. thesis are
 
 
 \subsection{Software resources}
-The different software resources that will be employed are described. These include the programming languages, libraries, the different development tools and the software that will be used to generate the documentation. \vspace{-2mm}
+The different software resources that will be employed are now described. These include the programming languages, libraries, the different development tools and the software that will be used to generate the documentation. \vspace{-2mm}
 
 \textbf{Programming Languages:} \vspace{-4mm}
 \begin{itemize}[noitemsep,nolistsep]
