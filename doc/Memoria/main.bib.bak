@@ -68,6 +68,15 @@
   Timestamp                = {2017.08.19}
 }
 
+@Booklet{DdlT16,
+  Title                    = {Arduino, un enfoque práctico e incremental},
+  Author                   = {Dondo Gazzano, Julio Daniel and de la Torre las Heras, José Antonio},
+  Year                     = {2016},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2018.03.26}
+}
+
 @Book{Dow12,
   Title                    = {Think Python},
   Author                   = {Allen Downey},
@@ -332,6 +341,15 @@
   Timestamp                = {2017.11.19}
 }
 
+@Electronic{ItIncr,
+  Title                    = {Desarrollo iterativo e incremental},
+  HowPublished             = {\url{https://proyectosagiles.org/desarrollo-iterativo-incremental/}},
+  Note                     = {[Accessed 19 November 2017]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2018.02.22}
+}
+
 @Electronic{LM317,
   Title                    = {LM317 3-Terminal Adjustable Regulator},
   HowPublished             = {\url{http://www.ti.com/lit/ds/symlink/lm317.pdf}},
@@ -340,6 +358,16 @@
 
   Owner                    = {joseangel},
   Timestamp                = {2018.02.17}
+}
+
+@Electronic{MCP3008,
+  Title                    = {MCP3004/3008},
+  HowPublished             = {\url{https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf}},
+  Note                     = {[Accessed 17 February 2018]},
+  Organization             = {Microchip Technology Inc},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2018.03.10}
 }
 
 @Electronic{MP4Box,

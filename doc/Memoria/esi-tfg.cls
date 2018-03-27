@@ -542,7 +542,7 @@
     \begin{tabbing}
       \hspace*{1.7cm} \= \\
       \ifdefempty{\@email}   {}{\emph{E-mail:}   \> \@email \\}
-      \ifdefempty{\@phone}   {}{\emph{Teléfono:} \> \@phone \\}
+      %\ifdefempty{\@phone}   {}{\emph{Teléfono:} \> \@phone \\}
       \ifdefempty{\@homepage}{}{\emph{Web site:} \> \url{\@homepage} \\}
     \end{tabbing}
     \vspace{-1cm}
