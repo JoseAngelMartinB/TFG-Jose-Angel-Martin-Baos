@@ -20,7 +20,7 @@ class Sensors():
 
         # Gas sensor ajustments
         self.MQ7_Ro = MQ7_Ro   # Sensor resistance at 100 ppm of CO
-        self.MQ2_Ro = MQ2_Ro # Sensor resistance at 1000 ppm of H2
+        self.MQ2_Ro = MQ2_Ro   # Sensor resistance at 1000 ppm of H2
 
         # Initializing
         self.spi_comm = spiCommunicator(SPICLK, SPIMOSI, SPIMISO, SPICS)
@@ -73,7 +73,7 @@ class Sensors():
 
         # Gas sensors
         data["CO"] = self.getGasPPM(float(mq7_Rs)/self.MQ7_Ro, MQ7_CHANNEL)
-        data["LGP"] = self.getGasPPM(float(mq2_Rs)/self.MQ2_Ro, MQ7_CHANNEL)
+        data["LPG"] = self.getGasPPM(float(mq2_Rs)/self.MQ2_Ro, MQ7_CHANNEL)
 
         # Environment sensors
         data["Temperature"] = self.sense.get_temperature()
@@ -93,7 +93,8 @@ class Sensors():
         """
         Rs = 0.0
         for i in range(READ_SAMPLE_TIMES):
-            Rs += self.getResistance(self.spi_comm.read(mq_channel), mq_channel)
+            adc_value = self.spi_comm.read(mq_channel)
+            Rs += self.getResistance(adc_value, mq_channel)
             time.sleep(READ_SAMPLE_INTERVAL/1000.0)
 
         Rs = Rs/READ_SAMPLE_TIMES
@@ -101,19 +102,21 @@ class Sensors():
         return Rs
 
 
-    def getResistance(self, voltage, mq_channel):
+    def getResistance(self, adc_value, mq_channel):
         """
         Calculate the current resistance of the sensor given its current voltage.
 
-        Input:   voltage -> Raw value form the ADC, which represents the voltage
+        Input:   adc_value -> Raw value form the ADC. Voltage = adc*Vref/1024
                  mq_channel -> Analog channel where the MQ sensor is connected
         Output:  Current resistance of the sensor
         """
         resistance = 0.0
+        if adc_value == 0: # Avoid division by 0
+            adc_value = 1
         if(mq_channel == MQ7_CHANNEL):
-            resistance = float(MQ7_RL*(1023.0-voltage)/float(voltage))
+            resistance = float(MQ7_RL*(1024.0-adc_value)/float(adc_value))
         elif(mq_channel == MQ2_CHANNEL):
-            resistance = float(MQ2_RL*(1023.0-voltage)/float(voltage))
+            resistance = float(MQ2_RL*(1024.0-adc_value)/float(adc_value))
 
         return resistance
 
@@ -130,7 +133,7 @@ class Sensors():
         if(mq_channel == MQ7_CHANNEL):
             percentage =  self.getMQPPM(rs_ro_ratio, CO_Curve)
         elif(mq_channel == MQ2_CHANNEL):
-            percentage =  self.getMQPPM(rs_ro_ratio, LGP_Curve)
+            percentage =  self.getMQPPM(rs_ro_ratio, LPG_Curve)
 
         return percentage
 

@@ -25,7 +25,12 @@ class spiCommunicator():
 
 
     def read(self, channel):
-        # Read SPI data from MCP3008 chip
+        """
+        Read SPI data from MCP3008 chip.
+
+        Input:   channel -> Analog channel where the target MQ sensor is connected
+        Output:  Digital value obtained from the MCP3008 chip
+        """
         if((channel > 7) or (channel < 0)):
             return -1
 

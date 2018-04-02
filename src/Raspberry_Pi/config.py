@@ -6,6 +6,13 @@
 # Author
 #  - José Ángel Martín Baos
 
+# CONFIGURATION FILE
+
+## Camera module configuration:
+# TODO
+
+
+## Sensors module configuration:
 # GPIO pins used
 SPICLK  = 21    # SPI CLK signal
 SPIMISO = 19    # SPI MISO signal
@@ -25,14 +32,19 @@ MQ7_Ro                       = 10.722
 MQ2_Ro                       = 9.313
 
 # MQ read settings
-READ_SAMPLE_TIMES            = 5    # Number of samples taken in reading phase
+READ_SAMPLE_TIMES            = 5     # Number of samples taken in reading phase
 READ_SAMPLE_INTERVAL         = 500   # Time interval(in milisecond) between each sample in reading phase
+ALPHA                        = 0.57  # Factor that indicates how much niew values affect the final value of the measurements
 
 # MQ Sensor Load Resistances
 MQ7_RL = 10     # MQ-7 Sensor Load Resistance in kilo ohms
 MQ2_RL = 5      # MQ-2 Sensor Load Resistance in kilo ohms
 
 # Gas Curves. Data format: {x, y, slope}
-# TODO: Source https://tutorials-raspberrypi.com/configure-and-read-out-the-raspberry-pi-gas-sensor-mq-x/
 CO_Curve = [1.7,0.26,-0.68]
 LPG_Curve = [2.3,0.21,-0.47]
+
+
+## IBM IoT platform configuration:
+DEVICEID = 1            # ID of the device
+TIME_INTERVAL = 300     # Seconds between updates
