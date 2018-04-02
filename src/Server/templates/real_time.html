@@ -1,0 +1,346 @@
+<!-- BSC Thesis
+
+Author
+ - José Ángel Martín Baos
+
+Bootstrap template based on "SB Admin template" under MIT License.
+https://startbootstrap.com/template-overviews/sb-admin/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>IoT road traffic and air pollution monitoring</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+
+  <script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /*loop through a collection of all HTML elements:*/
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /*remove the attribute, and call this function once more:*/
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /*exit the function:*/
+        return;
+      }
+    }
+  }
+  </script>
+  <meta http-equiv="refresh" content="{{update_interval}}" />
+
+  <style>
+  .right {
+      float: right;
+  }
+  </style>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="about.html">BSc. Thesis</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div w3-include-html="{{ url_for('static', filename='menu_elements.html') }}"></div>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main page -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Realtime data</a>
+        </li>
+      </ol>
+
+
+      <!-- List of devices table-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-microchip"></i> List of devices
+          <div class="right">
+            <a href="/real_time.html"><i class="fa fa-refresh"></i> Update</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th width="10%">Device ID</th>
+                  <th width="45%">Location</th>
+                  <th width="9%">Status</th>
+                  <th width="14%">Update interval</th>
+                  <th width="16%">Last update</th>
+                  <th width="6%">Select</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for device in devices %}
+                <tr>
+                  <td align="center">{{device['idDevice']}}</td>
+                  <td>{{device['Location']}}</td>
+                  {% if device['status'] %}
+                    <td>Online <i class="fa fa-signal" style="color:green"></i></td>
+                  {% else %}
+                    <td>Offline <i class="fa fa-times" style="color:red"></i></td>
+                  {% endif %}
+                  <td>{{device['timeInterval']}} minutes</td>
+                  <td>{{device['LastDate']}}</td>
+                  {% if device['LastDate'] == None %}
+                    <td align="center"> </td>
+                  {% else %}
+                    <td align="center">
+                      <form action="/real_time.html" method="post">
+                        <button type="submit" name="device" value="{{device['idDevice']}}" class="fa fa-2x fa-check-circle">
+                      </form>
+                    </td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Last updated: {{ last_update }}</div>
+      </div>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <h2>Last data of device {{data['idDevice']}}: {{location}}</h2>
+
+          <div class="row">
+
+            <div class="col-lg-8">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fa fa-fw fa-sun-o"></i> Environmental parameters</div>
+                <div class="card-body">
+                  <div class="row">
+
+                    <script src="{{ url_for('static', filename='js/raphael-2.1.4.min.js') }}"></script>
+                    <script src="{{ url_for('static', filename='js/justgage.js') }}"></script>
+                    <script>
+                    var g1, g2, g3;
+
+                      document.addEventListener("DOMContentLoaded", function(event) {
+                        g1 = new JustGage({
+                            id: "g1",
+                            value: {{ data['Temperature'] }},
+                            min: 0,
+                            max: 50,
+                            startAnimationTime: 2000,
+                            startAnimationType: ">",
+                            title: "Temperature",
+                            label: "ºC",
+                            decimals: 1,
+                            levelColors: [
+                              "#FF0000",
+                              "#7FFF00",
+                              "#FF0000"
+                            ]
+                        });
+
+                        g2 = new JustGage({
+                            id: "g2",
+                            value: {{ data['Humidity'] }},
+                            min: 0,
+                            max: 100,
+                            startAnimationTime: 2000,
+                            startAnimationType: ">",
+                            title: "Humidity",
+                            label: "%rH",
+                            decimals: 1,
+                            levelColors: [
+                              "#FF0000",
+                              "#7FFF00",
+                              "#FF0000"
+                            ]
+                        });
+
+                        g3 = new JustGage({
+                            id: "g3",
+                            value: {{ data['Pressure'] }},
+                            min: 870,
+                            max: 1100,
+                            startAnimationTime: 2000,
+                            startAnimationType: ">",
+                            title: "Pressure",
+                            label: "Millibars",
+                            decimals: 1,
+                            levelColors: [
+                              "#FF0000",
+                              "#7FFF00",
+                              "#FF0000"
+                            ]
+                        });
+
+                      });
+                    </script>
+
+                    <div class="col-lg-4" id="g1"></div>
+                    <div class="col-lg-4" id="g2"></div>
+                    <div class="col-lg-4" id="g3"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      {% if data['CO'] < limits['CO'][0] %}
+                        <div class="card text-white bg-success o-hidden h-100">
+                      {% elif data['CO'] < limits['CO'][1] %}
+                        <div class="card text-white bg-warning o-hidden h-100">
+                      {% else %}
+                        <div class="card text-white bg-danger o-hidden h-100">
+                      {% endif %}
+                        <div class="card-body">
+                          <div class="card-body-icon">
+                            <i class="fa fa-fw fa-fire"></i>
+                          </div>
+                          <div class="mr-5">CO gas concentration:</div>
+                        </div>
+                        <a class="card-footer text-white clearfix medim z-1">
+                          <span class="float-left">{{ "%.2f"|format(data['CO']) }} ppm</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      {% if data['LPG'] < limits['LPG'][0] %}
+                        <div class="card text-white bg-success o-hidden h-100">
+                      {% elif data['LPG'] < limits['LPG'][1] %}
+                        <div class="card text-white bg-warning o-hidden h-100">
+                      {% else %}
+                        <div class="card text-white bg-danger o-hidden h-100">
+                      {% endif %}
+                        <div class="card-body">
+                          <div class="card-body-icon">
+                            <i class="fa fa-fw fa-fire"></i>
+                          </div>
+                          <div class="mr-5">LPG concentration:</div>
+                        </div>
+                        <a class="card-footer text-white clearfix medim z-1">
+                          <span class="float-left">{{ "%.2f"|format(data['LPG']) }} ppm</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-footer small text-muted">Last updated: {{ data['DateAndTime'] }}</div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <i class="fa fa-fw fa-road"></i> Traffic parameters</div>
+                <div class="card-body">
+                  {% if data['Cars'] < limits['Cars'][0] %}
+                    <div class="card text-white bg-success o-hidden h-100">
+                  {% elif data['Cars'] < limits['Cars'][1] %}
+                    <div class="card text-white bg-warning o-hidden h-100">
+                  {% else %}
+                    <div class="card text-white bg-danger o-hidden h-100">
+                  {% endif %}
+                    <div class="card-body">
+                      <div class="card-body-icon">
+                        <i class="fa fa-fw fa-automobile"></i>
+                      </div>
+                      <div class="mr-5">Cars in the last 5 minutes:</div>
+                      </div>
+                      <a class="card-footer text-white clearfix medim z-1">
+                        <span class="float-left">{{ data['Cars'] }}</span>
+                      </a>
+                    </div>
+                  </div>
+                <div class="card-footer small text-muted">Last updated: {{ data['DateAndTime'] }}</div>
+              </div>
+            </div>
+
+      </li>
+    </ol>
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © José Ángel Martín Baos 2018</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/chart.js/Chart.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{{ url_for('static', filename='js/sb-admin-charts.min.js') }}"></script>
+  </div>
+
+  <script>
+  includeHTML();
+  </script>
+</body>
+
+</html>

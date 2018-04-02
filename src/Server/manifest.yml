@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: python-flask-test-tfg
+  host: python-flask-test-tfg
+  disk_quota: 1024M
+  buildpack: python_buildpack

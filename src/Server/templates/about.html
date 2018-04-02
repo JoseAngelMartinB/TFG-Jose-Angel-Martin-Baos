@@ -1,0 +1,271 @@
+<!-- BSC Thesis
+
+Author
+ - José Ángel Martín Baos
+
+Bootstrap template based on "SB Admin template" under MIT License.
+https://startbootstrap.com/template-overviews/sb-admin/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>IoT road traffic and air pollution monitoring</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+
+  <script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /*loop through a collection of all HTML elements:*/
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /*remove the attribute, and call this function once more:*/
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /*exit the function:*/
+        return;
+      }
+    }
+  }
+  </script>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="about.html">BSc. Thesis</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div w3-include-html="{{ url_for('static', filename='menu_elements.html') }}"></div>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main page -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">About this page</a>
+        </li>
+      </ol>
+
+      <div class="row">
+        <div class="col-12">
+          <h1>José Ángel Martín Baos BSc. Thesis</h1>
+
+          <div class="card mb-3">
+            <div class="card-header">
+              An integrated low-cost IoT approach for monitoring road traffic and air pollution in urban areas
+            </div>
+            <div class="card-body">
+              This page is the result of the BSc. thesis (TFG - Trabajo Fin de Grado)
+              done by José Ángel Martín Baos in order to finish his studies in
+              Computer Science in the Universidad de Castilla-La Mancha (Ciudad Real).
+              <br><br>
+              This webpage consist in a prototype of a website to monitor the different
+              atmospherical and traffic parameters that are recorded by some
+              small embedded system devices called Raspberry Pi.
+
+              <br><br>
+              <h5><i class="fa fa-fw fa-github"></i> Github:</h5>
+              Very soon.
+
+              <br><br>
+              <h5><i class="fa fa-fw fa-book"></i> BSc. thesis documentation:</h5> 
+              Very soon.
+
+              <br><br>
+              <h4>Advisors:</h4>
+              <ul>
+                <li>Dr. Luis Rodríguez Benítez</li>
+                <li>Dr. Ricardo García Ródenas</li>
+              </ul>
+            </div>
+            <div class="card-footer medium text-muted">
+              Escuela Superior de Informática. Universidad de Castilla-La Mancha (UCLM). Ciudad Real, España. 2018.
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-fw fa-lightbulb-o"></i> Motivation
+            </div>
+            <div class="card-body">
+              Road transportation is often the main source of air pollution in urban areas with detrimental
+              effects on local air quality, ecology, and human health. Therefore, there is an
+              increasing need to estimate precisely the contribution of road transport to air pollution in the
+              cities, so that pollution-reduction measures can be designed and implemented appropriately
+              [SNB10]. These pollution-reduction measures are becoming increasingly relevant due to
+              the continued growth in vehicle use and the deterioration in driving conditions (congestion).
+              Many authorities find it difficult to meet their environmental targets (e.g. air quality standards
+              or national emission ceilings) and, therefore, reliable emission models are needed, in
+              order to predict accurately the impact of road transport on air pollution. <br>
+
+              Therefore, intelligent cities are essential to prevent situations of high level contamination
+              and take measures when these situations occur. These cities must predict the pollution peaks
+              and take palliative measures, such as restricting the traffic to a number of vehicles, by the
+              license plates, closing traffic in some streets, lowering the speed limits, etc. Moreover, traffic
+              flows must be monitored as they affect the pollution levels in that city. For this reason, these
+              cities must rely on an Internet of Things (IOT) infrastructure connected to a cloud platform
+              that supports those systems as well as sensor-based big data applications. [Bib18]. <br>
+
+              Typical pollution surveillance and control systems are composed of big and expensive
+              devices that are only located in some points in a city, hence, they provide information for
+              vast areas and sometimes those systems are not scalable. However, cities are distributed
+              environments where the events occur in real time and on a massive scale. Therefore, an
+              inexpensive distributed IoT architecture is needed to control pollution levels by zones or
+              streets. These can be combined with a traffic surveillance infrastructure in order to have a
+              complete system that could be used as a Decision Support System (DSS) to help authorities
+              to take decisions about environmental problems caused by pollution before they occur. <br>
+
+              The objective in this Bachelor of Science (BSC.) thesis is to design and build a prototype
+              of an integrated low-cost road traffic and air pollution monitoring platform. It will only focus
+              on the design and implementation of the software and hardware architecture that must allow
+              the future implementation of an intelligent system for the prediction of the pollution levels,
+              the recommendation of palliative actions and monitoring those actions. An inexpensive
+              embedded system will be used for designing the architecture in order to obtain a scalable system
+              not only in size but also in cost.
+            </div>
+            <div class="card-footer medium text-muted">
+              References:
+              <ul>
+                <li>[Bib18] Simon Elias Bibri. The iot for smart sustainable cities of the future: An
+                  analytical framework for sensor-based big data applications for environmental
+                  sustainability. Sustainable Cities and Society, 38:230–253, 2018.</li>
+                <li>[SNB10] Robin Smit, Leonidas Ntziachristos, and Paul Boulter. Validation of road vehicle
+                  and traffic emission models – a review and meta-analysis. Atmospheric
+                  Environment, 44:2943–2953, August 2010.</li>
+              </ul>
+
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-fw fa-id-card"></i> Contact info</div>
+              <div class="card-body">
+
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="card text-white bg-primary o-hidden h-100">
+                      <div class="card-body">
+                        <div class="card-body-icon">
+                          <i class="fa fa-fw fa-id-card"></i>
+                        </div>
+                        <div class="mr-5">José Ángel Martín Baos</div>
+                        </div>
+                        <a class="card-footer text-white clearfix medim z-1">
+                          <span class="float-left">JoseAngel.Martin@uclm.es</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="card text-white bg-success o-hidden h-100">
+                        <div class="card-body">
+                          <div class="card-body-icon">
+                            <i class="fa fa-fw fa-id-card"></i>
+                          </div>
+                          <div class="mr-5">Luis Rodríguez Benítez</div>
+                        </div>
+                        <a class="card-footer text-white clearfix medim z-1">
+                          <span class="float-left">Luis.Rodriguez@uclm.es</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <div class="card text-white bg-success o-hidden h-100">
+                        <div class="card-body">
+                          <div class="card-body-icon">
+                            <i class="fa fa-fw fa-id-card"></i>
+                          </div>
+                          <div class="mr-5">Ricardo García Ródenas</div>
+                        </div>
+                        <a class="card-footer text-white clearfix medim z-1">
+                          <span class="float-left">Ricardo.Garcia@uclm.es</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+
+          <center>
+            <img src="{{ url_for('static', filename='images/logoesi.jpg') }}" alt="ESI">
+            &#8195;&#8195;&#8195;&#8195;&#8195;&#8195;
+            <img src="{{ url_for('static', filename='images/UCLM.png') }}" alt="UCLM">
+          </center> <br>
+
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © José Ángel Martín Baos 2018</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
+  </div>
+
+  <script>
+  includeHTML();
+  </script>
+</body>
+
+</html>

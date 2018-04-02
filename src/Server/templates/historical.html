@@ -1,0 +1,290 @@
+<!-- BSC Thesis
+
+Author
+ - José Ángel Martín Baos
+
+Bootstrap template based on "SB Admin template" under MIT License.
+https://startbootstrap.com/template-overviews/sb-admin/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>IoT road traffic and air pollution monitoring</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
+  <script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /*loop through a collection of all HTML elements:*/
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /*remove the attribute, and call this function once more:*/
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /*exit the function:*/
+        return;
+      }
+    }
+  }
+  </script>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="about.html">BSc. Thesis</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div w3-include-html="{{ url_for('static', filename='menu_elements.html') }}"></div>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main page -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Historical Data</a>
+        </li>
+      </ol>
+
+      <!-- Plots:
+        http://www.flotcharts.org/flot/examples/
+        http://www.chartjs.org/samples/latest/
+        http://justgage.com/
+      -->
+
+      <!-- Temperature Chart -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Temperature</div>
+        <div class="card-body">
+          <canvas id="temperatureChart" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+      <!-- Humidity Chart -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Humidity</div>
+        <div class="card-body">
+          <canvas id="humiditiyChart" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+
+
+
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © José Ángel Martín Baos 2018</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/chart.js/Chart.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{{ url_for('static', filename='js/sb-admin-charts.min.js') }}"></script>
+
+  </div>
+
+  <!-- Temperature Chart -->
+  <script>
+  var ctx = document.getElementById("temperatureChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          label: "{{device['location']}}",
+          lineTension: 0.3,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 5,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['temperature'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+					text: 'Temperature'
+				},
+      scales: {
+        xAxes: [{
+						type: 'time',
+						time: {
+							format: timeFormat,
+							// round: 'day'
+							tooltipFormat: 'll HH:mm'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Date'
+						}
+					}],
+        yAxes: [{
+          ticks: {
+            maxTicksLimit: 5
+          },
+          gridLines: {
+            color: "rgba(0, 0, 0, .125)",
+          },
+          scaleLabel: {
+							display: true,
+							labelString: 'ºC'
+						}
+        }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <!-- Humidity Chart -->
+  <script>
+  var ctx = document.getElementById("humiditiyChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          label: "{{device['location']}}",
+          lineTension: 0.3,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 5,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['humidity'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+					text: 'Humidity'
+				},
+      scales: {
+        xAxes: [{
+						type: 'time',
+						time: {
+							format: timeFormat,
+							// round: 'day'
+							tooltipFormat: 'll HH:mm'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Date'
+						}
+					}],
+        yAxes: [{
+          ticks: {
+            maxTicksLimit: 5
+          },
+          gridLines: {
+            color: "rgba(0, 0, 0, .125)",
+          },
+          scaleLabel: {
+							display: true,
+							labelString: '%rH'
+						}
+        }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <script>
+  includeHTML();
+  </script>
+</body>
+
+</html>
