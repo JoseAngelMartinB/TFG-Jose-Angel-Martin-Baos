@@ -23,6 +23,8 @@ https://startbootstrap.com/template-overviews/sb-admin/
   <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+  <!-- Page level plugin CSS-->
+  <link href="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
 
   <script>
   function includeHTML() {
@@ -91,59 +93,6 @@ https://startbootstrap.com/template-overviews/sb-admin/
           <a href="#">Realtime data</a>
         </li>
       </ol>
-
-
-      <!-- List of devices table-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-microchip"></i> List of devices
-          <div class="right">
-            <a href="/real_time.html"><i class="fa fa-refresh"></i> Update</a>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th width="10%">Device ID</th>
-                  <th width="45%">Location</th>
-                  <th width="9%">Status</th>
-                  <th width="14%">Update interval</th>
-                  <th width="16%">Last update</th>
-                  <th width="6%">Select</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                {% for device in devices %}
-                <tr>
-                  <td align="center">{{device['idDevice']}}</td>
-                  <td>{{device['Location']}}</td>
-                  {% if device['status'] %}
-                    <td>Online <i class="fa fa-signal" style="color:green"></i></td>
-                  {% else %}
-                    <td>Offline <i class="fa fa-times" style="color:red"></i></td>
-                  {% endif %}
-                  <td>{{device['timeInterval']}} minutes</td>
-                  <td>{{device['LastDate']}}</td>
-                  {% if device['LastDate'] == None %}
-                    <td align="center"> </td>
-                  {% else %}
-                    <td align="center">
-                      <form action="/real_time.html" method="post">
-                        <button type="submit" name="device" value="{{device['idDevice']}}" class="fa fa-2x fa-check-circle">
-                      </form>
-                    </td>
-                  {% endif %}
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card-footer small text-muted">Last updated: {{ last_update }}</div>
-      </div>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
@@ -301,12 +250,60 @@ https://startbootstrap.com/template-overviews/sb-admin/
     </ol>
 
 
-
+    <!-- List of devices table-->
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-microchip"></i> List of devices
+        <div class="right">
+          <a href="/real_time.html"><i class="fa fa-refresh"></i> Update</a>
+        </div>
       </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th width="10%">Device ID</th>
+                <th width="45%">Location</th>
+                <th width="9%">Status</th>
+                <th width="14%">Update interval</th>
+                <th width="16%">Last update</th>
+                <th width="6%">Select</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for device in devices %}
+              <tr>
+                <td align="center">{{device['idDevice']}}</td>
+                <td>{{device['Location']}}</td>
+                {% if device['status'] %}
+                  <td>Online <i class="fa fa-signal" style="color:green"></i></td>
+                {% else %}
+                  <td>Offline <i class="fa fa-times" style="color:red"></i></td>
+                {% endif %}
+                <td>{{device['timeInterval']}} minutes</td>
+                <td>{{device['LastDate']}}</td>
+                {% if device['LastDate'] == None %}
+                  <td align="center"> </td>
+                {% else %}
+                  <td align="center">
+                    <form action="/real_time.html" method="post">
+                      <button type="submit" name="device" value="{{device['idDevice']}}" class="fa fa-2x fa-check-circle">
+                    </form>
+                  </td>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">Last updated: {{ last_update }}</div>
+    </div>
 
 
-
-
+    </div>
 
     </div>
 
@@ -336,6 +333,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
     <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
     <!-- Custom scripts for this page-->
     <script src="{{ url_for('static', filename='js/sb-admin-charts.min.js') }}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{{ url_for('static', filename='js/sb-admin-datatables.min.js') }}"></script>
   </div>
 
   <script>

@@ -29,11 +29,13 @@ local_tz = pytz.timezone('Europe/Madrid')
 BS = 16
 pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS).encode()
 unpad = lambda s: s[:-ord(s[len(s)-1:])]
+
 def iv():
     """
     The initialization vector to use for encryption or decryption.
     """
     return chr(0) * 16
+
 
 class AESCipher():
     """
@@ -74,7 +76,7 @@ def getDefaultData():
     }
     return data
 
-def getLastData(idDevice): # TODO
+def getLastData(idDevice):
     """
     Obtain last data stored into de DB.
 
@@ -108,6 +110,48 @@ def getLastData(idDevice): # TODO
         db.close()
     except:
         data = getDefaultData()
+        db.close()
+
+    return data
+
+
+def getData(devices, dates):
+    """
+    Obtain sensor data stored into de DB.
+
+    Intput:   devices -> List of Raspberry Pi devices from which obtain the data
+              dates -> Initial and finish dates
+    Output:   data -> List of dictionaries with the obtained data.
+    """
+    data = []
+    try:
+        # Open database connection
+        db = pymysql.connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, charset='utf8', use_unicode=True)
+
+        # Prepare a cursor object
+        cursor = db.cursor(pymysql.cursors.DictCursor)
+
+        # Prepare SQL query to obtain the data
+        sql = "SELECT idDevice, DateAndTime, Temperature, Humidity, Pressure, CO, LPG, Cars \
+                FROM data \
+                WHERE idDevice IN ("
+
+        for i in range(0,len(devices)):
+            sql += "'%d'" % (devices[i])
+            if i != len(devices)-1:
+                sql += ", "
+
+        sql += ") \
+                AND DateAndTime BETWEEN '%s' AND '%s' \
+                ORDER BY DateAndTime ASC" % (dates[0], dates[1])
+
+        # Execute the SQL querry
+        cursor.execute(sql)
+
+        # Obtain the data
+        data = cursor.fetchall()
+        db.close()
+    except:
         db.close()
 
     return data
@@ -257,6 +301,73 @@ def checkUserSession(user_id, user_auth_token):
     return (success, email)
 
 
+def getHistoricalData(selected_devices, dates, devices):
+    """
+    Obtain sensor data stored into de DB and prepare it for plot.js.
+
+    Intput:   selected_devices -> List of Raspberry Pi devices from which obtain the data
+              dates -> Initial and finish dates
+              devices -> Devices information
+    Output:   labels -> List of the plot labels
+              data -> Dictionary with plot data
+    """
+    labels = []
+    data = []
+    data_aux = getData(selected_devices, dates)
+    temperature = dict()
+    humidity = dict()
+    pressure = dict()
+    CO = dict()
+    LPG = dict()
+    Cars = dict()
+
+    for dev in selected_devices:
+        temperature[dev] = []
+        humidity[dev] = []
+        pressure[dev] = []
+        CO[dev] = []
+        LPG[dev] = []
+        Cars[dev] = []
+
+    for elm in data_aux:
+        labels.append(elm['DateAndTime'].strftime("%d-%m-%Y %H:%M"))
+        idDevice = int(elm['idDevice'])
+        for dev in selected_devices:
+            if dev == idDevice:
+                temperature[dev].append(round(elm['Temperature'], 1))
+                humidity[dev].append(round(elm['Humidity'], 1))
+                pressure[dev].append(round(elm['Pressure'], 1))
+                CO[dev].append(round(elm['CO'], 3))
+                LPG[dev].append(round(elm['LPG'], 3))
+                Cars[dev].append(round(elm['Cars'], 3))
+            else:
+                temperature[dev].append('null')
+                humidity[dev].append('null')
+                pressure[dev].append('null')
+                CO[dev].append('null')
+                LPG[dev].append('null')
+                Cars[dev].append('null')
+
+    i = 0
+    for device in devices:
+        idDevice = device['idDevice']
+        if idDevice in selected_devices:
+            data.append({
+                'idDevice': idDevice,
+                'location': "Device %d: %s" % (idDevice, device['Location']),
+                'color' : CHART_COLORS[i % len(CHART_COLORS)],
+                'temperature' : temperature[idDevice],
+                'humidity' : humidity[idDevice],
+                'pressure' : pressure[idDevice],
+                'CO' : CO[idDevice],
+                'LPG' : LPG[idDevice],
+                'cars' : Cars[idDevice]
+            })
+            i += 1
+
+    return (labels, data)
+
+
 # Python Flask Functions:
 @app.route('/')
 @app.route('/index.html')
@@ -301,36 +412,44 @@ def realTime():
 
     resp = make_response(render_template('real_time.html', devices=devices, data=data, limits=LIMITS, \
         last_update=last_update, location=location, update_interval=update_interval))
-    resp.set_cookie('device', str(idDevice))
+    expire_date = datetime.datetime.now()
+    expire_date = expire_date + datetime.timedelta(days=1)
+    resp.set_cookie('device', str(idDevice), expires=expire_date)
 
     return resp
 
 
-@app.route('/historical.html')
+@app.route('/historical.html', methods=['GET', 'POST'])
 def historical():
     """
     Render /historical.html web page.
     """
+    no_data = False
+    selected_devices = []
+    labels = []
+    data = []
+    devices = getDevices()
+    time_now = datetime.datetime.now()
+    time_last_week = time_now - datetime.timedelta(days=7)
+    dates = [time_last_week.strftime("%Y-%m-%dT%H:%M"), time_now.strftime("%Y-%m-%dT%H:%M")]
 
-    labels = ["01-04-2018 12:35", "01-04-2018 12:40", "01-04-2018 12:45", "01-04-2018 12:50"]
+    if request.method == 'POST':
+        try:
+            selected_devices_str = request.form.getlist('device')
+            selected_devices = [ int(x) for x in selected_devices_str ]
+            selected_dates = [request.form['init-date'].replace("T", " "),
+                              request.form['finish-date'].replace("T", " ")]
+            dates = [request.form['init-date'], request.form['finish-date']]
+        except KeyError:
+            selected_devices = []
 
-    data = [
-        {'idDevice' : 1,
-        'location': unicode("Device " + str(1) + ": Escuela Superior de Informática. Ciudad Real, España.", 'utf-8'),
-        'color' : CHART_COLORS[1 % len(CHART_COLORS)],
-        'temperature': [27, 29, 32, 31],
-        'humidity': [38.1, 38.2, 38.2, 38.5]
-        },
-        {'idDevice' : 2,
-        'location': unicode("Device " + str(2) + ": Bolaños de Calatrava, España.", 'utf-8'),
-        'color' : CHART_COLORS[2 % len(CHART_COLORS)],
-        'temperature': [21, 22, 20, 20],
-        'humidity': [32.1, 32.2, 32.2, 32.3]
-        }
-    ]
+    if len(selected_devices) == 0:
+        no_data = True
+    else:
+        (labels, data) = getHistoricalData(selected_devices, selected_dates, devices)
 
-
-    return render_template('historical.html', labels=labels, data=data)
+    return render_template('historical.html', devices=devices, dates=dates,
+        no_data=no_data, labels=labels, data=data, selected_devices=selected_devices)
 
 
 @app.route('/configuration.html')
@@ -338,7 +457,6 @@ def configuration():
     """
     Render /configuration.html web page.
     """
-
     # Check if the user has log into the system
     auth = False
     try:
@@ -396,14 +514,12 @@ def login():
     return render_template('login.html', bad_login=bad_login)
 
 
-
 @app.route('/about.html')
 def about():
     """
     Render /about.html web page.
     """
     return render_template('about.html',)
-
 
 
 def sensorUpdate(event):
@@ -437,6 +553,7 @@ def sensorUpdate(event):
 
     db.close()
     print("Stored live data from %s (%s) sent at %s into DB" % (event.deviceId, event.deviceType, date_time))
+
 
 def removeLogFiles():
     """

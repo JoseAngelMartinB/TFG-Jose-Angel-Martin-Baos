@@ -23,6 +23,8 @@ https://startbootstrap.com/template-overviews/sb-admin/
   <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="{{ url_for('static', filename='css/sb-admin.css') }}" rel="stylesheet">
+  <!-- Page level plugin CSS-->
+  <link href="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 
   <script>
@@ -54,6 +56,12 @@ https://startbootstrap.com/template-overviews/sb-admin/
     }
   }
   </script>
+
+  <style>
+  .right {
+      float: right;
+  }
+  </style>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -86,34 +94,145 @@ https://startbootstrap.com/template-overviews/sb-admin/
         </li>
       </ol>
 
-      <!-- Plots:
-        http://www.flotcharts.org/flot/examples/
-        http://www.chartjs.org/samples/latest/
-        http://justgage.com/
-      -->
 
-      <!-- Temperature Chart -->
+      <!-- List of devices table-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-area-chart"></i> Temperature</div>
-        <div class="card-body">
-          <canvas id="temperatureChart" width="100%" height="30"></canvas>
+          <i class="fa fa-microchip"></i> List of devices
+          <div class="right">
+            <a href="/historical.html"><i class="fa fa-refresh"></i> Update</a>
+          </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <form action="/historical.html" method="post">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th width="10%">Device ID</th>
+                  <th width="45%">Location</th>
+                  <th width="9%">Status</th>
+                  <th width="14%">Update interval</th>
+                  <th width="16%">Last update</th>
+                  <th width="6%">Show</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for device in devices %}
+                <tr>
+                  <td align="center">{{device['idDevice']}}</td>
+                  <td>{{device['Location']}}</td>
+                  {% if device['status'] %}
+                    <td>Online <i class="fa fa-signal" style="color:green"></i></td>
+                  {% else %}
+                    <td>Offline <i class="fa fa-times" style="color:red"></i></td>
+                  {% endif %}
+                  <td>{{device['timeInterval']}} minutes</td>
+                  <td>{{device['LastDate']}}</td>
+                  {% if device['LastDate'] == None %}
+                    <td align="center"> </td>
+                  {% else %}
+                    <td align="center">
+                      {% if device['idDevice'] in selected_devices %}
+                        <input type="checkbox" name="device" value="{{device['idDevice']}}" checked="yes">
+                        {% else %}
+                        <input type="checkbox" name="device" value="{{device['idDevice']}}">
+                        {% endif %}
+                    </td>
+                  {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <br>
+            Select data from <input type="datetime-local" name="init-date" value="{{dates[0]}}"> to <input type="datetime-local" name="finish-date" value="{{dates[1]}}">
+            <div class="right">
+              <input type="submit" value="Load Data">
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Last updated: {{ last_update }}</div>
       </div>
 
-      <!-- Humidity Chart -->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-area-chart"></i> Humidity</div>
-        <div class="card-body">
-          <canvas id="humiditiyChart" width="100%" height="30"></canvas>
+
+      {% if no_data %}
+        No device selected. Please select some devices from "List of devices" table.
+
+      {% else %}
+
+
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-area-chart"></i> Historical charts</div>
+          <div class="card-body">
+
+            <!-- Temperature Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-thermometer"></i> Temperature</div>
+              <div class="card-body">
+                <canvas id="temperatureChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+            <!-- Humidity Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-tint"></i> Humidity</div>
+              <div class="card-body">
+                <canvas id="humiditiyChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+            <!-- Pressure Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-cloud"></i> Pressure</div>
+              <div class="card-body">
+                <canvas id="pressureChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+            <!-- CO Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-fire"></i> CO gas concentration</div>
+              <div class="card-body">
+                <canvas id="COChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+
+            <!-- LPG Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-fire"></i> LPG concentration</div>
+              <div class="card-body">
+                <canvas id="LPGChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+            <!-- Cars Chart -->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fa fa-automobile"></i> Cars per minute</div>
+              <div class="card-body">
+                <canvas id="carsChart" width="100%" height="30"></canvas>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-      </div>
 
 
 
+
+
+
+      {% endif %}
 
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -141,6 +260,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
     <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
     <!-- Custom scripts for this page-->
     <script src="{{ url_for('static', filename='js/sb-admin-charts.min.js') }}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{{ url_for('static', filename='js/sb-admin-datatables.min.js') }}"></script>
 
   </div>
 
@@ -159,11 +283,12 @@ https://startbootstrap.com/template-overviews/sb-admin/
         datasets: [
     {% for device in data %}
         {
+          spanGaps: true,
           label: "{{device['location']}}",
-          lineTension: 0.3,
+          lineTension: 0.1,
           borderColor: "{{device['color']}}",
           backgroundColor: "{{device['color']}}",
-          pointRadius: 5,
+          pointRadius: 2,
           fill: false,
           pointBackgroundColor: "{{device['color']}}",
           pointBorderColor: "rgba(0,0,0,0.8)",
@@ -186,7 +311,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
 						time: {
 							format: timeFormat,
 							// round: 'day'
-							tooltipFormat: 'll HH:mm'
+							tooltipFormat: 'll HH:mm',
+              displayFormats: {
+               'hour': 'll HH:mm',
+            },
+              unit: 'hour'
 						},
 						scaleLabel: {
 							display: true,
@@ -195,7 +324,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
 					}],
         yAxes: [{
           ticks: {
-            maxTicksLimit: 5
+            maxTicksLimit: 8
           },
           gridLines: {
             color: "rgba(0, 0, 0, .125)",
@@ -228,11 +357,12 @@ https://startbootstrap.com/template-overviews/sb-admin/
         datasets: [
     {% for device in data %}
         {
+          spanGaps: true,
           label: "{{device['location']}}",
-          lineTension: 0.3,
+          lineTension: 0.1,
           borderColor: "{{device['color']}}",
           backgroundColor: "{{device['color']}}",
-          pointRadius: 5,
+          pointRadius: 2,
           fill: false,
           pointBackgroundColor: "{{device['color']}}",
           pointBorderColor: "rgba(0,0,0,0.8)",
@@ -249,31 +379,331 @@ https://startbootstrap.com/template-overviews/sb-admin/
       title: {
 					text: 'Humidity'
 				},
-      scales: {
-        xAxes: [{
-						type: 'time',
-						time: {
-							format: timeFormat,
-							// round: 'day'
-							tooltipFormat: 'll HH:mm'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Date'
-						}
-					}],
-        yAxes: [{
-          ticks: {
-            maxTicksLimit: 5
-          },
-          gridLines: {
-            color: "rgba(0, 0, 0, .125)",
-          },
-          scaleLabel: {
-							display: true,
-							labelString: '%rH'
-						}
-        }],
+        scales: {
+          xAxes: [{
+  						type: 'time',
+  						time: {
+  							format: timeFormat,
+  							// round: 'day'
+  							tooltipFormat: 'll HH:mm',
+                displayFormats: {
+                 'hour': 'll HH:mm',
+              },
+                unit: 'hour'
+  						},
+  						scaleLabel: {
+  							display: true,
+  							labelString: 'Date'
+  						}
+  					}],
+          yAxes: [{
+            ticks: {
+              maxTicksLimit: 8
+            },
+            gridLines: {
+              color: "rgba(0, 0, 0, .125)",
+            },
+            scaleLabel: {
+  							display: true,
+  							labelString: '%rH'
+  						}
+          }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <!-- Pressure Chart -->
+  <script>
+  var ctx = document.getElementById("pressureChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          spanGaps: true,
+          label: "{{device['location']}}",
+          lineTension: 0.1,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 2,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['pressure'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+          text: 'Pressure'
+        },
+        scales: {
+          xAxes: [{
+              type: 'time',
+              time: {
+                format: timeFormat,
+                // round: 'day'
+                tooltipFormat: 'll HH:mm',
+                displayFormats: {
+                 'hour': 'll HH:mm',
+              },
+                unit: 'hour'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
+          yAxes: [{
+            ticks: {
+              maxTicksLimit: 8
+            },
+            gridLines: {
+              color: "rgba(0, 0, 0, .125)",
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'Millibars'
+              }
+          }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <!-- CO Chart -->
+  <script>
+  var ctx = document.getElementById("COChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          spanGaps: true,
+          label: "{{device['location']}}",
+          lineTension: 0.1,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 2,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['CO'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+          text: 'CO gas concentration'
+        },
+        scales: {
+          xAxes: [{
+              type: 'time',
+              time: {
+                format: timeFormat,
+                // round: 'day'
+                tooltipFormat: 'll HH:mm',
+                displayFormats: {
+                 'hour': 'll HH:mm',
+              },
+                unit: 'hour'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
+          yAxes: [{
+            ticks: {
+              maxTicksLimit: 8
+            },
+            gridLines: {
+              color: "rgba(0, 0, 0, .125)",
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'ppm'
+              }
+          }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <!-- LPG Chart -->
+  <script>
+  var ctx = document.getElementById("LPGChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          spanGaps: true,
+          label: "{{device['location']}}",
+          lineTension: 0.1,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 2,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['LPG'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+          text: 'LPG concentration'
+        },
+        scales: {
+          xAxes: [{
+              type: 'time',
+              time: {
+                format: timeFormat,
+                // round: 'day'
+                tooltipFormat: 'll HH:mm',
+                displayFormats: {
+                 'hour': 'll HH:mm',
+              },
+                unit: 'hour'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
+          yAxes: [{
+            ticks: {
+              maxTicksLimit: 8
+            },
+            gridLines: {
+              color: "rgba(0, 0, 0, .125)",
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'ppm'
+              }
+          }],
+      },
+      legend: {
+        display: true
+      }
+    }
+  });
+  </script>
+
+  <!-- Cars Chart -->
+  <script>
+  var ctx = document.getElementById("carsChart");
+  var timeFormat = 'DD/MM/YYYY HH:mm';
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data:
+    {
+      labels: [{% for item in labels %}
+                  "moment({{item}}).format(timeFormat);",
+              {% endfor %}],
+
+        datasets: [
+    {% for device in data %}
+        {
+          spanGaps: true,
+          label: "{{device['location']}}",
+          lineTension: 0.1,
+          borderColor: "{{device['color']}}",
+          backgroundColor: "{{device['color']}}",
+          pointRadius: 2,
+          fill: false,
+          pointBackgroundColor: "{{device['color']}}",
+          pointBorderColor: "rgba(0,0,0,0.8)",
+          pointHitRadius: 20,
+          pointBorderWidth: 1,
+          data: [{% for item in device['cars'] %}
+                        {{item}},
+                {% endfor %}],
+        },
+    {% endfor %}
+      ]
+    },
+    options: {
+      title: {
+          text: 'Cars per minute'
+        },
+        scales: {
+          xAxes: [{
+              type: 'time',
+              time: {
+                format: timeFormat,
+                // round: 'day'
+                tooltipFormat: 'll HH:mm',
+                displayFormats: {
+                 'hour': 'll HH:mm',
+              },
+                unit: 'hour'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              }
+            }],
+          yAxes: [{
+            ticks: {
+              maxTicksLimit: 8
+            },
+            gridLines: {
+              color: "rgba(0, 0, 0, .125)",
+            },
+            scaleLabel: {
+                display: true,
+                labelString: 'cars/minute'
+              }
+          }],
       },
       legend: {
         display: true
