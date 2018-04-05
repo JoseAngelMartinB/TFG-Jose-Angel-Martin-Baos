@@ -30,6 +30,8 @@ class Sensors():
         self.sense.set_rotation(0)
         self.sense.show_message("INITIALIZING...", text_colour=[255, 255, 255], scroll_speed=0.2)
         time.sleep(20)
+        # Execute a first measurement in order to avoid error data from sensors
+        self.getSensorData()
 
 
     def calibration(self, mq_channel):

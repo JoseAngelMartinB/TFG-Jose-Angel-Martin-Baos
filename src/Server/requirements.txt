@@ -3,3 +3,4 @@ ibmiotf
 pytz
 pymysql
 pycrypto
+python-dateutil

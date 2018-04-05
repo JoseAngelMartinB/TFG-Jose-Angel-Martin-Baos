@@ -14,6 +14,7 @@ import time
 import pymysql
 import pytz
 import datetime
+from dateutil.tz import tzlocal
 import hashlib
 import base64
 import uuid
@@ -25,6 +26,7 @@ app = Flask(__name__)
 port = os.getenv('PORT', PORT)
 
 local_tz = pytz.timezone('Europe/Madrid')
+server_tz = tzlocal()
 
 BS = 16
 pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS).encode()
@@ -186,7 +188,8 @@ def getDevices():
     db.close()
 
     # Convert time to UTC - Europe/Madrid
-    time_now = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
+    #time_now = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
+    time_now = datetime.datetime.now().replace(tzinfo=server_tz).astimezone(local_tz)
     time_now = time_now.replace(tzinfo=None)
 
     for device in devices:
@@ -406,7 +409,8 @@ def realTime():
                 update_interval = 60*device['timeInterval']
                 break
 
-    last_update = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
+    #last_update = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
+    last_update = datetime.datetime.now().replace(tzinfo=server_tz).astimezone(local_tz)
     last_update = last_update.replace(tzinfo=None).strftime("%Y-%m-%d at %H:%M:%S")
     data = getLastData(idDevice)
 
@@ -429,9 +433,11 @@ def historical():
     labels = []
     data = []
     devices = getDevices()
-    time_now = datetime.datetime.now()
+    #time_now = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
+    time_now = datetime.datetime.now().replace(tzinfo=server_tz).astimezone(local_tz)
+    last_update = time_now.replace(tzinfo=None).strftime("%Y-%m-%d at %H:%M:%S")
     time_last_week = time_now - datetime.timedelta(days=7)
-    dates = [time_last_week.strftime("%Y-%m-%dT%H:%M"), time_now.strftime("%Y-%m-%dT%H:%M")]
+    dates = [time_last_week.strftime("%Y-%m-%dT%H:%M"), time_now.replace(tzinfo=None).strftime("%Y-%m-%dT%H:%M")]
 
     if request.method == 'POST':
         try:
@@ -449,7 +455,8 @@ def historical():
         (labels, data) = getHistoricalData(selected_devices, selected_dates, devices)
 
     return render_template('historical.html', devices=devices, dates=dates,
-        no_data=no_data, labels=labels, data=data, selected_devices=selected_devices)
+        no_data=no_data, labels=labels, data=data, selected_devices=selected_devices,
+        last_update=last_update)
 
 
 @app.route('/configuration.html')

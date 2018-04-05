@@ -44,7 +44,7 @@ class CameraModule(threading.Thread):
             # TODO Not implemented
 
             # Generate random cars usign normal distribution
-            scale = 200
+            scale = 20
             cars = -1
             while cars < 0 or cars > 1:
                 cars = np.random.normal(loc=0.5,scale=0.125)
