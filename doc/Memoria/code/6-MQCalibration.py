@@ -7,11 +7,11 @@ def calibration(self, mq_channel):
 	Output:  Ro of the sensor
 	"""
 	ro = 0.0
-	for i in range(CALIBARAION_SAMPLE_TIMES):
+	for i in range(CALIBRATION_SAMPLE_TIMES):
 		ro += self.getResistance(self.spi_comm.read(mq_channel), mq_channel)
 		time.sleep(CALIBRATION_SAMPLE_INTERVAL/1000.0)
 
-	ro = ro/CALIBARAION_SAMPLE_TIMES
+	ro = ro/CALIBRATION_SAMPLE_TIMES
 
 	if(mq_channel == MQ7_CHANNEL):
 		ro = ro/MQ7_RO_CLEAN_AIR_FACTOR

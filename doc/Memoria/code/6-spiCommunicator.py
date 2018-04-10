@@ -28,7 +28,7 @@ class spiCommunicator():
         """
         Read SPI data from MCP3008 chip.
 
-        Input:   channel -> Analog channel where the target MQ sensor is connected
+        Input:   channel -> Analogue channel where the target MQ sensor is connected
         Output:  Digital value obtained from the MCP3008 chip
         """
         if((channel > 7) or (channel < 0)):
@@ -61,7 +61,7 @@ class spiCommunicator():
             if(GPIO.input(self.miso_pin)):
                 adc_out |= 0x1
 
-        # Finish SPI comunication
+        # Finishing SPI comunication
         GPIO.output(self.cs_pin, True)
 
         adc_out >>= 1   # Drop first bit (null one)

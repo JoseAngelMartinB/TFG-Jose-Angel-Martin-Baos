@@ -12,6 +12,7 @@
 \usepackage{marginnote}
 \usepackage{MnSymbol}%
 \usepackage{epigraph}
+\usepackage{enumitem}
 
 
 
@@ -71,8 +72,8 @@
 				\hline
 				
 				\textscale{.8}{\textbf{Tasks:}} & \textscale{.8}{\textbf{Tests:}} \\
-				\vspace{-\topsep} \begin{enumerate}[leftmargin=1em, noitemsep] #7	\end{enumerate} & 
-				\vspace{-\topsep} \begin{enumerate}[leftmargin=1em, noitemsep] #8	\end{enumerate} \\
+				\vspace{-\topsep} \begin{enumerate}[leftmargin=3em, noitemsep,label=\textbf{T#2.#1.{\arabic*}}] #7	\end{enumerate} & 
+				\vspace{-\topsep} \begin{enumerate}[leftmargin=1em, noitemsep, label=\textbf{{\arabic*}.}] #8	\end{enumerate} \\
 				\hline
 				
 			\end{tabular}

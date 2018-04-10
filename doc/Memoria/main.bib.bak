@@ -86,11 +86,10 @@
   Timestamp                = {2017.07.21}
 }
 
-@Article{EMA09,
+@Conference{EMA09,
   Title                    = {Decision making on short term traffic measures to influence traffic related air pollution},
   Author                   = {Elshout, Sef and Mahmod, Mohamed and Arem, B},
   Year                     = {2009},
-
   Month                    = {June},
 
   Owner                    = {joseangel},
@@ -296,7 +295,7 @@
 }
 
 @Electronic{ASD,
-  Title                    = {METODO AGIL - ASD (ADAPTIVE SOFTWARE DEVELOPMENT)},
+  Title                    = {Método agil - ASD (ADAPTIVE SOFTWARE DEVELOPMENT)},
   HowPublished             = {\url{http://ingenieriadesoftware.mex.tl/61154_ASD.html}},
   Note                     = {[Accessed 19 November 2017]},
 
@@ -324,7 +323,7 @@
 }
 
 @Electronic{EuStrat,
-  Title                    = {A European Strategy for low-emission mobility},
+  Title                    = {An European Strategy for low-emission mobility},
   HowPublished             = {\url{https://ec.europa.eu/clima/policies/transport_en}},
   Note                     = {[Accessed 30 December 2017]},
 

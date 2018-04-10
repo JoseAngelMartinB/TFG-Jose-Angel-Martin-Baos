@@ -8,6 +8,7 @@
 
 import time
 import math
+import os
 from config import *
 from spiCommunicator import spiCommunicator
 from sense_hat import SenseHat
@@ -43,11 +44,11 @@ class Sensors():
         Output:  Ro of the sensor
         """
         ro = 0.0
-        for i in range(CALIBARAION_SAMPLE_TIMES):
+        for i in range(CALIBRATION_SAMPLE_TIMES):
             ro += self.getResistance(self.spi_comm.read(mq_channel), mq_channel)
             time.sleep(CALIBRATION_SAMPLE_INTERVAL/1000.0)
 
-        ro = ro/CALIBARAION_SAMPLE_TIMES
+        ro = ro/CALIBRATION_SAMPLE_TIMES
 
         if(mq_channel == MQ7_CHANNEL):
             ro = ro/MQ7_RO_CLEAN_AIR_FACTOR
@@ -77,12 +78,30 @@ class Sensors():
         data["CO"] = self.getGasPPM(float(mq7_Rs)/self.MQ7_Ro, MQ7_CHANNEL)
         data["LPG"] = self.getGasPPM(float(mq2_Rs)/self.MQ2_Ro, MQ7_CHANNEL)
 
+        # Calculate the real temperature compensating the CPU heating
+        temp1 = self.sense.get_temperature_from_humidity()
+        temp2 = self.sense.get_temperature_from_pressure()
+        temp_cpu = self.getCPUTemperature()
+        temp = (temp1+temp2)/2
+        real_temp = temp - ((temp_cpu-temp)/CPU_TEMP_FACTOR)
+
         # Environment sensors
-        data["Temperature"] = self.sense.get_temperature()
+        data["Temperature"] = real_temp
         data["Humidity"] = self.sense.get_humidity()
         data["Pressure"] = self.sense.get_pressure()
 
         return data
+
+    
+    def getCPUTemperature(self):
+        """
+        Calculate CPU temperature.
+
+        Output:  Current CPU temperature
+        """
+        command_res = os.popen("vcgencmd measure_temp").readline()
+        t = float(command_res.replace("temp=","").replace("'C\n",""))
+        return(t)
 
 
     def read(self, mq_channel):
@@ -144,10 +163,11 @@ class Sensors():
         """
         Calculate the ppm of the target gas using the slope and a point
         form the line obtained aproximating the sensitivity characteristic curve.
+        x = (y-n)/m
 
         Input:   rs_ro_ratio -> Value obtained of the division Rs/Ro
                  mq_curve -> Line obtained using two points form the sensitivity
                     characteristic curve
         Output:  Current gas percentage in the environment
         """
-        return (math.pow(10,(((math.log(rs_ro_ratio)-mq_curve[1])/ mq_curve[2]) + mq_curve[0])))
+        return (math.pow(10, (math.log10(rs_ro_ratio)-mq_curve[1]) / mq_curve[0]))
