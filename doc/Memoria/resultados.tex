@@ -98,7 +98,7 @@ To manage the costs for the development of this project, two tables has been ela
 
 
 %%% Sprint 1
-\section{Sprint 1: Development a basic algorithm to calculate the traffic flows based on video data}
+\section{Sprint 1: Development of a basic algorithm to calculate the traffic flows based on video data}
 \label{Section:Sprint1}
 According to the project plan, in this sprint, a basic algorithm to calculate the vehicle flow must be developed. This involves executing the task associated to the user stories 1, 2 and 3. This iteration aims to obtain a basic algorithm to count the number of cars that cross a street in a certain amount of time so as to obtain the vehicle flow. \REDNOTE{Then in Sprint X, it will be improved.} To be able to count the number of cars using the PiCamera, \emword{motion vectors} are used. Therefore, a study about this concept has been done before implementing the algorithm. But first, it is necessary to configure the Raspberry Pi architecture and to install the PiCamera. 
 
@@ -107,32 +107,32 @@ During the planning meeting, the different user stories addressed in this sprint
 
 \UserStoryTable{1}{1}{High}{15}
 {Configure Raspberry Pi Architecture}
-{The \ac{OS} and all the components must be installed and configured}
-{	\item Install and configure Raspbian \ac{OS}
-	\item Install the necessary libraries
-}{	\item Check if the system works correctly using SSH connection
-	\item Check if python works
+{The \ac{OS} and all the components must be installed and configured.}
+{	\item Install and configure Raspbian \ac{OS}.
+	\item Install the necessary libraries.
+}{	\item Check if the system works correctly using SSH connection.
+	\item Check if python works.
 }
 
 \UserStoryTable{2}{1}{High}{5}
 {Install PiCamera into Raspberry Pi}
-{The PiCamera module must be working and some sample videos should be recorded in order to check the camera}
-{	\item Install the PiCamera module
-	\item Develop a program to record videos
-}{	\item Check if the camera is working correctly
+{The PiCamera module must be working and some sample videos should be recorded in order to check the camera.}
+{	\item Install the PiCamera module.
+	\item Develop a program to record videos.
+}{	\item Check if the camera is working correctly.
 }
 
 \UserStoryTable{3}{1}{High}{30}
 {Develop a basic algorithm to calculate the vehicle flow}
-{Development of a basic algorithm that counts the number of cars that go across a street and determines their direction}
-{	\item Study the functionality of the motion vectors in H264/AVC
-	\item Extract the motion vectors when recording a video with the PiCamera module using PiMotionAnalysis
-	\item Read and process the data stored containing the motion vectors
-	\item Develop a noise filter using moving averages
-	\item Develop the basic algorithm to counts the cars
-}{	\item Check the correctness of the motion vectors extracted
-	\item Compare the data before and after applying the noise filter
-	\item Assess the performance of the traffic-counting algorithm
+{Development of a basic algorithm that counts the number of cars that go across a street and determines their direction.}
+{	\item Study the functionality of the motion vectors in H264/AVC.
+	\item Extract the motion vectors when recording a video with the PiCamera module using PiMotionAnalysis.
+	\item Read and process the data stored containing the motion vectors.
+	\item Develop a noise filter using moving averages.
+	\item Develop the basic algorithm to counts the cars.
+}{	\item Check the correctness of the motion vectors extracted.
+	\item Compare the data before and after applying the noise filter.
+	\item Assess the performance of the traffic-counting algorithm.
 }
 
 
@@ -308,23 +308,23 @@ During the planning meeting, the two user stories addressed in this sprint have 
 
 \UserStoryTable{4}{2}{High}{25}
 {Install environmental and gas sensors into Raspberry Pi}
-{Design and implement the electronic circuit to integrate the different sensors into Raspberry Pi device}
-{	\item Install Raspberry Pi Sense Hat board
-	\item Design an electronic circuit for the MQ gas sensors
-	\item Connect the electronic circuit to Raspberry Pi device
-}{	\item Check if the sensors are working correctly
-	\item Test the connectivity of the Raspberry Pi with the external electronic circuit
+{Design and implement the electronic circuit to integrate the different sensors into Raspberry Pi device.}
+{	\item Install Raspberry Pi Sense Hat board.
+	\item Design an electronic circuit for the MQ gas sensors.
+	\item Connect the electronic circuit to Raspberry Pi device.
+}{	\item Check if the sensors are working correctly.
+	\item Test the connectivity of the Raspberry Pi with the external electronic circuit.
 }
 
 \UserStoryTable{5}{2}{High}{30}
 {Obtain and preprocess data from the sensors}
-{Develop a module to receive and preprocess the data from the installed sensors}
-{	\item Develop a class that communicates with the external sensors using \ac{SPI}
-	\item Develop a method to convert the read values of the MQ sensors to particles per million
-	\item Calibrate the MQ sensors
-	\item Develop a method to obtain data from the different sensors and synchronize them
-}{	\item Test the environmental sensors
-	\item Test the MQ gas sensor
+{Develop a module to receive and preprocess the data from the installed sensors.}
+{	\item Develop a class that communicates with the external sensors using \ac{SPI}.
+	\item Develop a method to convert the read values of the MQ sensors to particles per million.
+	\item Calibrate the MQ sensors.
+	\item Develop a method to obtain data from the different sensors and synchronize them.
+}{	\item Test the environmental sensors.
+	\item Test the MQ gas sensor.
 }
 
 %Table \ref{tab:Sprint2-User-story-4}
@@ -538,15 +538,34 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 \subsection{Sprint planning meeting}
 \REDNOTE{...}
 
-%\UserStoryTable{6}{3}{High}{x}
-%{Name of the user story}
-%{A description of the user story}
-%{	\item Task A
-%	\item Task B
-%	\item Task C
-%}{	\item Test A
-%	\item Test B
-%}
+\UserStoryTable{6}{3}{High}{15}
+{Develop a comunication module using IBM IoT}
+{Development of a comunication module that allows to send Raspberry Pi data to the cloud usign IBM Watson IoT Platform.}
+{	\item Create and configure an IBM Watson IoT Platform account.
+	\item Connect the Raspberry Pi device to the IoT Platform and send the data.
+}{	\item Check if the data sent by the Raspberry Pi device has arrived to the IoT Platform.
+}
+
+\UserStoryTable{7}{3}{High}{12}
+{Receive sensor data from the Raspberry Pi and store it into a Database}
+{Development of a program to receive the sensor data from the different Raspberry Pi devices and store it into a SQL Database.}
+{	\item Create a SQL database.
+	\item Develop a program that connects to IoT Platform and stores into the SQL database the received information.
+}{	\item Check the SQL database connectivity.
+	\item Check if the data generated by the Raspberry Pi is correctly stored into the database.
+}
+
+\UserStoryTable{8}{3}{Medium}{8}
+{Integrate camera, sensors and comunication module into an unique program}
+{Development of an unique program that controls all the modules which runs into the Raspberry Pi.}
+{	\item Create a program that executes each module in a different thread.
+	\item Modify communication module in order to access to the data generated by camera and sensor modules.
+}{	\item Check if the modules are correctly created.
+	\item Check if communication module obtains the generated data correctly.
+}
+
+
+
 
 %Table \ref{tab:Sprint2-User-story-4}
 
@@ -564,15 +583,32 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 \subsection{Sprint planning meeting}
 \REDNOTE{...}
 
-%\UserStoryTable{4}{3}{High}{x}
-%{Name of the user story}
-%{A description of the user story}
-%{	\item Task A
-%	\item Task B
-%	\item Task C
-%}{	\item Test A
-%	\item Test B
-%}
+\UserStoryTable{9}{4}{High}{10}
+{Design a webpage to monitor the data obtained by the Raspberry Pi devices}
+{Development of a webpage to allow users to access the data collected by the sensor devices.}
+{	\item Create an IBM Bluemix Cloud Foundry App to deploy the webpage.
+	\item Create a simple webpage usign a Bootstrap template.
+}{	\item Check if the webpage is accesible in the web browser.
+	\item Test the functionality of the implemented Bootstrap template.
+}
+
+\UserStoryTable{10}{4}{High}{20}
+{Monitor in real time the data obtained by the devices and send an alert if the pollutant gases exceed a threshold}
+{Implement a subpage into the webpage that allows users to access to the data obtained by the Rasberry Pi devices in real time, as well as implementing an email notification system to alert supervisors if the pollutant gases exceed a threshold level.}
+{	\item Create a subpage to visualize the last data obtained by the devices.
+	\item Implement a notification system.
+}{	\item Check if the last data recorded is shown correcly.
+	\item Check if an alert is generated when exceeding the threshold level.
+}
+
+\UserStoryTable{11}{4}{Medium}{20}
+{Display the historical data generated by the Raspberry Pi devices}
+{Develop a subpage into the webpage to visualize the information stored from the devices in an interval of time.}
+{	\item Create a subpage that displays a graph with the stored data.
+}{	\item Check the correctness of the displayed graphs.
+}
+
+
 
 %Table \ref{tab:Sprint2-User-story-4}
 
