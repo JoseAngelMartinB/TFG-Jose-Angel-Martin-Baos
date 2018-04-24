@@ -100,7 +100,139 @@ https://startbootstrap.com/template-overviews/sb-admin/
               <br><br>
               This webpage consist in a prototype of a website to monitor the different
               atmospherical and traffic parameters that are recorded by some
-              small embedded system devices called Raspberry Pi.
+              small embedded system devices called Raspberry Pi. Realtime or historical
+              data subpages can be selected in the main menu. In the historical data subpage
+              it is shown the different data stored by the sensors during a interval of time
+              selected by the user, whereas in the Realtime data, the last data collected by
+              the different sensors is displayed. In this last subpage, the pollution related
+              data is displayed into some small boxes that changes their colours depending on
+              the pollution level. The description of the different levels can be sown in the
+              following table. The CO gas values for defining the different levels are
+              obtained from the Air Quality In Europe webpage
+              (<a href="http://www.airqualitynow.eu/about_indices_definition.php">http://www.airqualitynow.eu/about_indices_definition.php</a>),
+              which is part of the CITEAIR project of the European Union. This page
+              measures the different gases in µg/m³, therefore, they have been
+              converted to ppm as stated in <a href="https://www.cdc.gov/niosh/npg/npgd0105.html">https://www.cdc.gov/niosh/npg/npgd0105.html</a>.
+              For the LPG gas the different levels have been calculated taking into
+              account that the maximum allowed LPG concentration during an 8-hour
+              workday by the Occupational Safety and Health Administration (OSHA)
+              is 1000 ppm (<a href="https://www.cdc.gov/niosh/npg/npgd0679.html">https://www.cdc.gov/niosh/npg/npgd0679.html</a>).
+
+              <table  border="2" width="40%" cellspacing="0" align="center">
+                <thead>
+                  <tr align="center">
+                    <th rowspan="2">Levels</th>
+                    <th colspan="2">CO</th>
+                    <th>LPG</th>
+                  </tr>
+                  <tr align="center">
+                    <th>µg/m³</th>
+                    <th>ppm</th>
+                    <th>ppm</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr align="center" bgcolor="#dc3545">
+                    <td>Very High</td>
+                    <td>>20000</td>
+                    <td>>17.4</td>
+                    <td>>1000</td>
+                  </tr>
+                  <tr align="center" bgcolor="#f2910d">
+                    <td rowspan="2">High</td>
+                    <td>20000</td>
+                    <td>17.4</td>
+                    <td>1000</td>
+                  </tr>
+                  <tr align="center" bgcolor="#f2910d">
+                    <td>10000</td>
+                    <td>8.7</td>
+                    <td>750</td>
+                  </tr>
+                  <tr align="center" bgcolor="#d9d926">
+                    <td rowspan="2">Medium</td>
+                    <td>10000</td>
+                    <td>8.7</td>
+                    <td>750</td>
+                  </tr>
+                  <tr align="center" bgcolor="#d9d926">
+                    <td>7500</td>
+                    <td>6.52</td>
+                    <td>500</td>
+                  </tr>
+                  <tr align="center" bgcolor="#81e72b">
+                    <td rowspan="2">Low</td>
+                    <td>7500</td>
+                    <td>6.52</td>
+                    <td>500</td>
+                  </tr>
+                  <tr align="center" bgcolor="#81e72b">
+                    <td>5000</td>
+                    <td>4.35</td>
+                    <td>250</td>
+                  </tr>
+                  <tr align="center" bgcolor="#28a745">
+                    <td rowspan="2">Very Low</td>
+                    <td>5000</td>
+                    <td>4.35</td>
+                    <td>250</td>
+                  </tr>
+                  <tr align="center" bgcolor="#28a745">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table> <br>
+
+              Moreover, the number of cars has also been classified per levels
+              depending on the vehicle flow range, which was adapted from the
+              Highway Capacity Manual 2000.
+              <table  border="2" width="30%" cellspacing="0" align="center">
+                <thead>
+                  <tr align="center">
+                    <th rowspan="2">Levels</th>
+                    <th>Vehicle flow</th>
+                  </tr>
+                  <tr align="center">
+                    <th>cars/hour</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr align="center" bgcolor="#dc3545">
+                    <td>E</td>
+                    <td>>1200</td>
+                  </tr>
+                  <tr align="center" bgcolor="#f2910d">
+                    <td rowspan="2">D</td>
+                    <td>1200</td>
+                  </tr>
+                  <tr align="center" bgcolor="#f2910d">
+                    <td>900</td>
+                  </tr>
+                  <tr align="center" bgcolor="#d9d926">
+                    <td rowspan="2">C</td>
+                    <td>900</td>
+                  </tr>
+                  <tr align="center" bgcolor="#d9d926">
+                    <td>600</td>
+                  </tr>
+                  <tr align="center" bgcolor="#81e72b">
+                    <td rowspan="2">B</td>
+                    <td>600</td>
+                  </tr>
+                  <tr align="center" bgcolor="#81e72b">
+                    <td>300</td>
+                  </tr>
+                  <tr align="center" bgcolor="#28a745">
+                    <td rowspan="2">A</td>
+                    <td>300</td>
+                  </tr>
+                  <tr align="center" bgcolor="#28a745">
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table> <br>
 
               <br><br>
               <h5><i class="fa fa-fw fa-github"></i> Github:</h5>

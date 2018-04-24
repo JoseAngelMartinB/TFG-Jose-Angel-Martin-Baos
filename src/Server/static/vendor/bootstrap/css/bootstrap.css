@@ -6094,6 +6094,29 @@ button.bg-secondary:focus {
   background-color: #545b62 !important;
 }
 
+/* Level colors */
+.bg-very-high {
+  background-color: #dc3545 !important;
+}
+
+.bg-high {
+  background-color: #28a745 !important;
+}
+
+.bg-medium {
+  background-color: #ffc107 !important;
+}
+
+.bg-low {
+  background-color: #28a745 !important;
+}
+
+.bg-very-low {
+  background-color: #28a745 !important;
+}
+
+/******/
+
 .bg-success {
   background-color: #28a745 !important;
 }

@@ -19,6 +19,7 @@ import hashlib
 import base64
 import uuid
 from Crypto.Cipher import AES
+import math
 import ibmiotf.application
 
 # Create a python Flask app
@@ -304,13 +305,14 @@ def checkUserSession(user_id, user_auth_token):
     return (success, email)
 
 
-def getHistoricalData(selected_devices, dates, devices):
+def getHistoricalData(selected_devices, dates, devices, smooth_factor):
     """
     Obtain sensor data stored into de DB and prepare it for plot.js.
 
     Intput:   selected_devices -> List of Raspberry Pi devices from which obtain the data
               dates -> Initial and finish dates
               devices -> Devices information
+              smooth_factor -> Mooving average order
     Output:   labels -> List of the plot labels
               data -> Dictionary with plot data
     """
@@ -323,6 +325,7 @@ def getHistoricalData(selected_devices, dates, devices):
     CO = dict()
     LPG = dict()
     Cars = dict()
+    dates_list = []
 
     for dev in selected_devices:
         temperature[dev] = []
@@ -333,6 +336,7 @@ def getHistoricalData(selected_devices, dates, devices):
         Cars[dev] = []
 
     for elm in data_aux:
+        dates_list.append(elm['DateAndTime'])
         labels.append(elm['DateAndTime'].strftime("%d-%m-%Y %H:%M"))
         idDevice = int(elm['idDevice'])
         for dev in selected_devices:
@@ -350,6 +354,15 @@ def getHistoricalData(selected_devices, dates, devices):
                 CO[dev].append('null')
                 LPG[dev].append('null')
                 Cars[dev].append('null')
+
+    # Smoothing - Moving average
+    for idDevice in selected_devices:
+        temperature[idDevice] = moving_average(temperature[idDevice], smooth_factor, dates_list)
+        humidity[idDevice] = moving_average(humidity[idDevice], smooth_factor, dates_list)
+        pressure[idDevice] = moving_average(pressure[idDevice], smooth_factor, dates_list)
+        CO[idDevice] = moving_average(CO[idDevice], smooth_factor, dates_list)
+        LPG[idDevice] = moving_average(LPG[idDevice], smooth_factor, dates_list)
+        Cars[idDevice] = moving_average(Cars[idDevice], smooth_factor, dates_list)
 
     i = 0
     for device in devices:
@@ -371,6 +384,46 @@ def getHistoricalData(selected_devices, dates, devices):
     return (labels, data)
 
 
+def moving_average(data, order, dates_list):
+    #order = 3
+    smoot_data = []
+    if order == 1:
+        return data
+    else:
+        for i in range(0, len(data)):
+            if data[i] == 'null':
+                smoot_data.append('null')
+            else:
+                aux = data[i]
+                if order%2 == 1:
+                    for j in range(1,int(math.floor(float(order)/2))+1):
+                        if (i-j < 0 or data[i-j] == 'null' or
+                                abs(dates_list[i-j] - dates_list[i]).seconds > MAX_SMOOT_SECONDS):
+                            aux += data[i]
+                        else:
+                            aux += data[i-j]
+                        if (i+j >= len(data) or data[i+j] == 'null' or
+                                abs(dates_list[i+j] - dates_list[i]).seconds > MAX_SMOOT_SECONDS):
+                            aux += data[i]
+                        else:
+                            aux += data[i+j]
+                else:
+                    for j in range(1,order/2+1):
+                        if (i-j < 0 or data[i-j] == 'null' or
+                                abs(dates_list[i-j] - dates_list[i]).seconds > MAX_SMOOT_SECONDS):
+                            aux += data[i]
+                        else:
+                            aux += data[i-j]
+                    for j in range(1,order/2):
+                        if (i+j >= len(data) or data[i+j] == 'null' or
+                                abs(dates_list[i+j] - dates_list[i]).seconds > MAX_SMOOT_SECONDS):
+                            aux += data[i]
+                        else:
+                            aux += data[i+j]
+                smoot_data.append(aux/order)
+        return smoot_data
+
+
 # Python Flask Functions:
 @app.route('/')
 @app.route('/index.html')
@@ -389,6 +442,7 @@ def realTime():
     devices = getDevices()
     location = ""
     update_interval = 300
+    numberLines = 1
 
     if request.method == 'POST':
         try:
@@ -407,12 +461,14 @@ def realTime():
             if device['idDevice'] == idDevice:
                 location = device['Location']
                 update_interval = 60*device['timeInterval']
+                numberLines = device['numberLines']
                 break
 
     #last_update = datetime.datetime.now().replace(tzinfo=pytz.utc).astimezone(local_tz)
     last_update = datetime.datetime.now().replace(tzinfo=server_tz).astimezone(local_tz)
     last_update = last_update.replace(tzinfo=None).strftime("%Y-%m-%d at %H:%M:%S")
     data = getLastData(idDevice)
+    data['Cars_per_line'] = data['Cars'] / numberLines
 
     resp = make_response(render_template('real_time.html', devices=devices, data=data, limits=LIMITS, \
         last_update=last_update, location=location, update_interval=update_interval))
@@ -452,7 +508,8 @@ def historical():
     if len(selected_devices) == 0:
         no_data = True
     else:
-        (labels, data) = getHistoricalData(selected_devices, selected_dates, devices)
+        smooth_factor = 3
+        (labels, data) = getHistoricalData(selected_devices, selected_dates, devices, smooth_factor)
 
     return render_template('historical.html', devices=devices, dates=dates,
         no_data=no_data, labels=labels, data=data, selected_devices=selected_devices,
