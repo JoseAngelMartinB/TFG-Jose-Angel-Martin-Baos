@@ -19,6 +19,13 @@ DB_NAME = "ibmx_ac5d4e98f296176"
 PORT = 80
 
 
+## Notification parameters:
+NOTIFY_EMAIL = "joseangelmartin.bsc@gmail.com"
+NOTIFY_PASS = "JoseAngelBScThesis"
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+
+
 ## Webpage parameters:
 # Select the ranges for colors green, yellow and red in cars
 LIMITS = {
