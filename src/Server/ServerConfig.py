@@ -18,7 +18,6 @@ DB_NAME = "ibmx_ac5d4e98f296176"
 ## Web Server configuration:
 PORT = 80
 
-
 ## Notification parameters:
 NOTIFY_EMAIL = "joseangelmartin.bsc@gmail.com"
 NOTIFY_PASS = "JoseAngelBScThesis"
