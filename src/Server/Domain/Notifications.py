@@ -112,11 +112,11 @@ class Notifications:
                 body += "<li>The LPG limit has been gotten over!<br> \
                     \t Current LPG ppm: %.2f <br> \
                     \t Notification LPG ppm limit: %.2f </li> <br><br>" % (data['LPG'], notification['LPGLimit'])
-            if notification['vehiclesLimit'] != None and data['car_count'] > notification['vehiclesLimit']:
+            if notification['vehiclesLimit'] != None and data['vehicles_per_hour'] > notification['vehiclesLimit']:
                 count += 1
                 body += "<li>The vehicles per hour limit has been gotten over! <br> \
                     \t Current vehicles per hour: %.2f <br> \
-                    \t Notification vehicles per hour: %.2f </li> <br><br>" % (data['car_count'], notification['vehiclesLimit'])
+                    \t Notification vehicles per hour: %.2f </li> <br><br>" % (data['vehicles_per_hour'], notification['vehiclesLimit'])
 
             body += "This is just an informative email, please do not respond to it."
 
