@@ -214,12 +214,12 @@ https://startbootstrap.com/template-overviews/sb-admin/
               </div>
             </div>
 
-            <!-- Cars Chart -->
+            <!-- Vehicles Chart -->
             <div class="card mb-3">
               <div class="card-header">
-                <i class="fa fa-automobile"></i> Cars per hour</div>
+                <i class="fa fa-automobile"></i> Vehicles per hour</div>
               <div class="card-body">
-                <canvas id="carsChart" width="100%" height="30"></canvas>
+                <canvas id="vehiclesChart" width="100%" height="30"></canvas>
               </div>
             </div>
 
@@ -633,9 +633,9 @@ https://startbootstrap.com/template-overviews/sb-admin/
   });
   </script>
 
-  <!-- Cars Chart -->
+  <!-- Vehicles Chart -->
   <script>
-  var ctx = document.getElementById("carsChart");
+  var ctx = document.getElementById("vehiclesChart");
   var timeFormat = 'DD/MM/YYYY HH:mm';
   var myLineChart = new Chart(ctx, {
     type: 'line',
@@ -659,7 +659,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
           pointBorderColor: "rgba(0,0,0,0.8)",
           pointHitRadius: 20,
           pointBorderWidth: 1,
-          data: [{% for item in device['cars'] %}
+          data: [{% for item in device['VehiclesPerHour'] %}
                         {{item}},
                 {% endfor %}],
         },
@@ -668,7 +668,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
     },
     options: {
       title: {
-          text: 'Cars per hour'
+          text: 'Vehicles per hour'
         },
         scales: {
           xAxes: [{
@@ -696,7 +696,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
             },
             scaleLabel: {
                 display: true,
-                labelString: 'cars/hour'
+                labelString: 'Vehicles/hour'
               }
           }],
       },

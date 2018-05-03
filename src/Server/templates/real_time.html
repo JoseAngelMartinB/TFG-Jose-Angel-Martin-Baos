@@ -232,13 +232,13 @@ https://startbootstrap.com/template-overviews/sb-admin/
                 <div class="card-header">
                   <i class="fa fa-fw fa-road"></i> Traffic parameters</div>
                 <div class="card-body">
-                  {% if data['Cars_per_line'] < limits['Cars'][0] %}
+                  {% if data['Vehicles_per_line'] < limits['Vehicles'][0] %}
                     <div class="card text-white bg-very-low o-hidden h-100">
-                  {% elif data['Cars_per_line'] > limits['Cars'][0] and data['Cars_per_line'] < limits['Cars'][1] %}
+                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][0] and data['Vehicles_per_line'] < limits['Vehicles'][1] %}
                     <div class="card text-white bg-low o-hidden h-100">
-                  {% elif data['Cars_per_line'] > limits['Cars'][1] and data['Cars_per_line'] < limits['Cars'][2] %}
+                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][1] and data['Vehicles_per_line'] < limits['Vehicles'][2] %}
                     <div class="card text-white bg-medium o-hidden h-100">
-                  {% elif data['Cars_per_line'] > limits['Cars'][2] and data['Cars_per_line'] < limits['Cars'][3] %}
+                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][2] and data['Vehicles_per_line'] < limits['Vehicles'][3] %}
                     <div class="card text-white bg-high o-hidden h-100">
                   {% else %}
                     <div class="card text-white bg-very-high o-hidden h-100">
@@ -247,10 +247,10 @@ https://startbootstrap.com/template-overviews/sb-admin/
                       <div class="card-body-icon">
                         <i class="fa fa-fw fa-automobile"></i>
                       </div>
-                      <div class="mr-5">Cars per hour:</div>
+                      <div class="mr-5">Vehicles per hour:</div>
                       </div>
                       <a class="card-footer text-white clearfix medim z-1">
-                        <span class="float-left">{{ data['Cars'] }}</span>
+                        <span class="float-left">{{ data['VehiclesPerHour'] }}</span>
                       </a>
                     </div>
                   </div>

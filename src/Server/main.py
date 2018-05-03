@@ -43,9 +43,9 @@ def sensorUpdate(event):
     date_time = event.timestamp
 
     db = DBBroker()
-    sql = "INSERT INTO data(idDevice, DateAndTime, Temperature, Humidity, Pressure, CO, LPG, Cars) \
+    sql = "INSERT INTO data(idDevice, DateAndTime, Temperature, Humidity, Pressure, CO, LPG, VehiclesPerHour) \
             VALUES ('%s', '%s', '%f', '%f', '%f', '%f', '%f', '%f')" % \
-            (data['idDevice'], data['date_time'], data['temperature'], data['humidity'], data['pressure'], data['CO'], data['LPG_gas'], data['car_count'])
+            (data['idDevice'], data['date_time'], data['temperature'], data['humidity'], data['pressure'], data['CO'], data['LPG_gas'], data['vehicles_per_hour'])
     db.update(sql)
 
     print("Stored into the DB live data from %s (%s) sent at %s" % (event.deviceId, event.deviceType, date_time))

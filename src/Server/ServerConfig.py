@@ -28,7 +28,7 @@ SMTP_PORT = 587
 ## Webpage parameters:
 # Select the ranges for colors green, yellow and red in cars
 LIMITS = {
-    'Cars' : [300, 600, 900, 1200],
+    'Vehicles' : [300, 600, 900, 1200],
     'CO' : [4.35, 6.52, 8.7, 17.4],
     'LPG' : [250, 500, 750, 1000]
 }

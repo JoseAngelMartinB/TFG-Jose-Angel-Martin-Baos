@@ -27,19 +27,19 @@ class Notifications:
         return notifications
 
 
-    def createNotification(self, email, CO_level, LPG_level, cars):
+    def createNotification(self, email, CO_level, LPG_level, vehicles):
         """
         Create a new notification.
 
         Input:   email -> Notification email
                  CO_level -> CO notification level
                  LPG_level -> LPG notification level
-                 cars -> vehicles per hour notification level
+                 vehicles -> vehicles per hour notification level
         """
         db = DBBroker()
-        sql = "INSERT INTO notifications(email, COLimit, LPGLimit, carsLimit) \
+        sql = "INSERT INTO notifications(email, COLimit, LPGLimit, vehiclesLimit) \
                 VALUES ('%s', %s, %s, %s)" % \
-                (email, CO_level, LPG_level, cars)
+                (email, CO_level, LPG_level, vehicles)
         db.update(sql)
 
 
@@ -56,20 +56,20 @@ class Notifications:
 
 
 
-    def updateNotification(self, email, CO_level, LPG_level, cars):
+    def updateNotification(self, email, CO_level, LPG_level, vehicles):
         """
         Update and existing notifications.
 
         Input:   email -> Notification email
                  CO_level -> CO notification level
                  LPG_level -> LPG notification level
-                 cars -> vehicles per hour notification level
+                 vehicles -> vehicles per hour notification level
         """
         db = DBBroker()
         sql = "UPDATE notifications \
-                SET COLimit =  %s, LPGLimit =  %s, carsLimit =  %s \
+                SET COLimit =  %s, LPGLimit =  %s, vehiclesLimit =  %s \
                 WHERE email = '%s'" % \
-                (CO_level, LPG_level, cars, email)
+                (CO_level, LPG_level, vehicles, email)
         db.update(sql)
 
 
@@ -112,11 +112,11 @@ class Notifications:
                 body += "<li>The LPG limit has been gotten over!<br> \
                     \t Current LPG ppm: %.2f <br> \
                     \t Notification LPG ppm limit: %.2f </li> <br><br>" % (data['LPG'], notification['LPGLimit'])
-            if notification['carsLimit'] != None and data['car_count'] > notification['carsLimit']:
+            if notification['vehiclesLimit'] != None and data['car_count'] > notification['vehiclesLimit']:
                 count += 1
                 body += "<li>The vehicles per hour limit has been gotten over! <br> \
                     \t Current vehicles per hour: %.2f <br> \
-                    \t Notification vehicles per hour: %.2f </li> <br><br>" % (data['car_count'], notification['carsLimit'])
+                    \t Notification vehicles per hour: %.2f </li> <br><br>" % (data['car_count'], notification['vehiclesLimit'])
 
             body += "This is just an informative email, please do not respond to it."
 

@@ -51,7 +51,7 @@ def RealTime():
     last_update = datetime.datetime.now().replace(tzinfo=server_tz).astimezone(local_tz)
     last_update = last_update.replace(tzinfo=None).strftime("%Y-%m-%d at %H:%M:%S")
     data = sensorData.getLastData(idDevice)
-    data['Cars_per_line'] = data['Cars'] / numberLines
+    data['Vehicles_per_line'] = data['VehiclesPerHour'] / numberLines
 
     resp = make_response(render_template('real_time.html', devices=devices, data=data, limits=LIMITS, \
         last_update=last_update, location=location, update_interval=update_interval))

@@ -61,11 +61,11 @@ def Configuration():
                         LPG_level = 'NULL'
                     else:
                         LPG_level = request.form['LPGLimit']
-                    if request.form['carsLimit'] == '':
-                        cars = 'NULL'
+                    if request.form['vehiclesLimit'] == '':
+                        vehicles = 'NULL'
                     else:
-                        cars = request.form['carsLimit']
-                    notif.updateNotification(request.form['email'], CO_level, LPG_level, cars)
+                        vehicles = request.form['vehiclesLimit']
+                    notif.updateNotification(request.form['email'], CO_level, LPG_level, vehicles)
                     notifications = notif.getNotifications()
 
                 elif request.form['action'] == "Remove":
@@ -83,11 +83,11 @@ def Configuration():
                         LPG_level = 'NULL'
                     else:
                         LPG_level = request.form['LPGLimit']
-                    if request.form['carsLimit'] == '':
-                        cars = 'NULL'
+                    if request.form['vehiclesLimit'] == '':
+                        vehicles = 'NULL'
                     else:
-                        cars = request.form['carsLimit']
-                    notif.createNotification(request.form['email'], CO_level, LPG_level, cars)
+                        vehicles = request.form['vehiclesLimit']
+                    notif.createNotification(request.form['email'], CO_level, LPG_level, vehicles)
                     notifications = notif.getNotifications()
             except KeyError:
                 selected_email = None

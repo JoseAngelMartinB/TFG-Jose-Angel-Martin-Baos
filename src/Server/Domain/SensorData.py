@@ -36,7 +36,7 @@ class SensorData:
             'Pressure' : 0,
             'CO' : 0,
             'LPG' : 0,
-            'Cars' : 0
+            'VehiclesPerHour' : 0
         }
         return data
 
@@ -48,7 +48,7 @@ class SensorData:
         Output:   data -> Dictionary with the obtained data.
         """
         db = DBBroker()
-        sql = "SELECT DateAndTime, Temperature, Humidity, Pressure, CO, LPG, Cars \
+        sql = "SELECT DateAndTime, Temperature, Humidity, Pressure, CO, LPG, VehiclesPerHour \
                 FROM data t\
                 inner join ( \
                     SELECT idDevice, max(DateAndTime) as LastDate \
@@ -74,7 +74,7 @@ class SensorData:
         """
         db = DBBroker()
         # Prepare SQL query to obtain the data
-        sql = "SELECT idDevice, DateAndTime, Temperature, Humidity, Pressure, CO, LPG, Cars \
+        sql = "SELECT idDevice, DateAndTime, Temperature, Humidity, Pressure, CO, LPG, VehiclesPerHour \
                 FROM data \
                 WHERE idDevice IN ("
 
@@ -145,7 +145,7 @@ class SensorData:
         pressure = dict()
         CO = dict()
         LPG = dict()
-        Cars = dict()
+        VehiclesPerHour = dict()
         dates_list = []
 
         for dev in selected_devices:
@@ -154,7 +154,7 @@ class SensorData:
             pressure[dev] = []
             CO[dev] = []
             LPG[dev] = []
-            Cars[dev] = []
+            VehiclesPerHour[dev] = []
 
         for elm in data_aux:
             dates_list.append(elm['DateAndTime'])
@@ -167,14 +167,14 @@ class SensorData:
                     pressure[dev].append(round(elm['Pressure'], 1))
                     CO[dev].append(round(elm['CO'], 3))
                     LPG[dev].append(round(elm['LPG'], 3))
-                    Cars[dev].append(round(elm['Cars'], 3))
+                    VehiclesPerHour[dev].append(round(elm['VehiclesPerHour'], 3))
                 else:
                     temperature[dev].append('null')
                     humidity[dev].append('null')
                     pressure[dev].append('null')
                     CO[dev].append('null')
                     LPG[dev].append('null')
-                    Cars[dev].append('null')
+                    VehiclesPerHour[dev].append('null')
 
         # Smoothing - Moving average
         for idDevice in selected_devices:
@@ -183,7 +183,7 @@ class SensorData:
             pressure[idDevice] = self.moving_average(pressure[idDevice], smooth_factor, dates_list)
             CO[idDevice] = self.moving_average(CO[idDevice], smooth_factor, dates_list)
             LPG[idDevice] = self.moving_average(LPG[idDevice], smooth_factor, dates_list)
-            Cars[idDevice] = self.moving_average(Cars[idDevice], smooth_factor, dates_list)
+            VehiclesPerHour[idDevice] = self.moving_average(VehiclesPerHour[idDevice], smooth_factor, dates_list)
 
         i = 0
         for device in devices:
@@ -198,7 +198,7 @@ class SensorData:
                     'pressure' : pressure[idDevice],
                     'CO' : CO[idDevice],
                     'LPG' : LPG[idDevice],
-                    'cars' : Cars[idDevice]
+                    'VehiclesPerHour' : VehiclesPerHour[idDevice]
                 })
                 i += 1
 

@@ -122,7 +122,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
                       <td>{{notification['email']}}</td>
                       <td align="center">{{notification['COLimit']}}</td>
                       <td align="center">{{notification['LPGLimit']}}</td>
-                      <td align="center">{{notification['carsLimit']}}</td>
+                      <td align="center">{{notification['vehiclesLimit']}}</td>
                       <td align="center">
                         <form action="/configuration.html" method="post">
                           <input type="hidden" name="action" value="Select">
@@ -154,7 +154,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
                     <a class="card-footer text-white clearfix medim z-1">
                       <span class="float-left">CO notification level: <input type="number" name="COLimit" min="1" step="0.01" value="{{selected_not['COLimit']}}"></span><br><br>
                       <span class="float-left">LPG notification level: <input type="number" name="LPGLimit" min="1" step="0.01" value="{{selected_not['LPGLimit']}}"></span><br><br>
-                      <span class="float-left">Vehicles per hour notification level: <input type="number" name="carsLimit" min="1" step="0.01" value="{{selected_not['carsLimit']}}"></span><br><br>
+                      <span class="float-left">Vehicles per hour notification level: <input type="number" name="vehiclesLimit" min="1" step="0.01" value="{{selected_not['vehiclesLimit']}}"></span><br><br>
                       <span class="float-left">Note: Leave the corresponging box empty to remove that level notification.</span><br>
                     </a>
 
@@ -216,7 +216,7 @@ https://startbootstrap.com/template-overviews/sb-admin/
                       <span class="float-left">Notification email address: <input type="email" name="email"></span><br><br>
                       <span class="float-left">CO notification level: <input type="number" name="COLimit" min="1" step="0.01" value="{{selected_not['COLimit']}}"></span><br><br>
                       <span class="float-left">LPG notification level: <input type="number" name="LPGLimit" min="1" step="0.01" value="{{selected_not['LPGLimit']}}"></span><br><br>
-                      <span class="float-left">Vehicles per hour notification level: <input type="number" name="carsLimit" min="1" step="0.01" value="{{selected_not['carsLimit']}}"></span><br><br>
+                      <span class="float-left">Vehicles per hour notification level: <input type="number" name="vehiclesLimit" min="1" step="0.01" value="{{selected_not['vehiclesLimit']}}"></span><br><br>
                       <span class="float-left">Note: Leave the corresponging box empty to remove that level notification.</span><br><br>
                       <span class="float-left"><input type="submit" name="action" value="Create"></span>
                     </a>
