@@ -36,21 +36,22 @@ class CameraModule(threading.Thread):
         self.lock = lock
 
     def run(self):
-        global car_count
+        global vehicles_per_hour
 
         print('Camera module has started')
 
         while not self.shutdown_flag.is_set():
             # TODO Not implemented
 
-            # Generate random cars usign normal distribution
+            # Generate random vehicles usign normal distribution
             scale = 20
-            cars = -1
-            while cars < 0 or cars > 1:
-                cars = np.random.normal(loc=0.5,scale=0.125)
+            vehicles = -1
+            while vehicles < 0 or vehicles > 1:
+                vehicles = np.random.normal(loc=0.5,scale=0.125)
+                vehicles = vehicles * scale
 
             self.lock.acquire()
-            car_count = cars * scale
+            vehicles_per_hour = vehicles * 60 
             self.lock.release()
 
             time.sleep(30)
@@ -122,7 +123,7 @@ class CommunicatorModule():
         self.time_interval = time_interval
 
     def run(self):
-        global car_count, sensor_data
+        global vehicles_per_hour, sensor_data
 
         print('Communicator module has started')
 
@@ -144,7 +145,7 @@ class CommunicatorModule():
             self.lock.acquire()
             data = { 'idDevice' : self.id_device,
                      'time_interval' : self.time_interval,
-                     'car_count' : car_count,
+                     'vehicles_per_hour' : vehicles_per_hour,
                      'temperature' : sensor_data["Temperature"],
                      'humidity' : sensor_data["Humidity"],
                      'pressure' : sensor_data["Pressure"],
@@ -188,7 +189,7 @@ if __name__ == "__main__":
 
     # Initlialize variables
     id_device = DEVICEID
-    car_count = 0
+    vehicles_per_hour = 0
     sensor_data = {
 		"Temperature" : 0,
 		"Humidity" : 0,
