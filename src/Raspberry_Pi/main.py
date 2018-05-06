@@ -7,28 +7,27 @@
 #  - José Ángel Martín Baos
 
 from config import *
+from CountVehicles import CountVehicles
+from MotionAnalysis import MotionAnalysis
 from Sensors import Sensors
-import os
+import picamera
 import RPi.GPIO as GPIO
+import ibmiotf.device
+import os
 import threading
 import signal
 import time
-import ibmiotf.device
 from datetime import datetime
-import numpy as np
+
 
 class ProgramExit(Exception):
-    """
-    Exception used to trigger the termination of the main program and all the
-    running threads.
-    """
+    """Exception used to trigger the termination of the main program and all the
+    running threads."""
     pass
 
 
 class CameraModule(threading.Thread):
-    """
-    Obtain the car flow using the camera installed in the device.
-    """
+    """Obtain the car flow using the camera installed in the device."""
     def __init__(self, lock):
         threading.Thread.__init__(self)
 
@@ -36,33 +35,37 @@ class CameraModule(threading.Thread):
         self.lock = lock
 
     def run(self):
-        global vehicles_per_hour
+        global list_vehicles
 
-        print('Camera module has started')
+        with picamera.PiCamera() as camera:
+            count_vehicles = CountVehicles()
+            with MotionAnalysis(camera, count_vehicles) as motion_analysis:
+                camera.resolution = (VIDEO_WIDTH, VIDEO_HEIGHT)
+                camera.framerate = FRAMERATE
+                camera.hflip = HFLIP
+                camera.vflip = VFLIP
+                time.sleep(2)
 
-        while not self.shutdown_flag.is_set():
-            # TODO Not implemented
+                print('* Camera module has started')
 
-            # Generate random vehicles usign normal distribution
-            scale = 20
-            vehicles = -1
-            while vehicles < 0 or vehicles > 1:
-                vehicles = np.random.normal(loc=0.5,scale=0.125)
-                vehicles = vehicles * scale
+                camera.start_recording('/dev/null', format='h264',
+                    motion_output=motion_analysis)
 
-            self.lock.acquire()
-            vehicles_per_hour = vehicles * 60 
-            self.lock.release()
+                while not self.shutdown_flag.is_set():
+                    camera.wait_recording(RECORDING_TIME)
+                    vehicles = count_vehicles.getVehicles()
 
-            time.sleep(30)
+                    self.lock.acquire()
+                    list_vehicles.append(vehicles)
+                    self.lock.release()
 
-        print('Camera module has stopped')
+                camera.stop_recording()
+
+        print('* Camera module has stopped')
 
 
 class SensorsModule(threading.Thread):
-    """
-    Obtain data from the Sensors installed in the device.
-    """
+    """Obtain data from the Sensors installed in the device."""
     def __init__(self, lock):
         threading.Thread.__init__(self)
 
@@ -86,7 +89,7 @@ class SensorsModule(threading.Thread):
     def run(self):
         global sensor_data
 
-        print('Sensors module has started')
+        print('* Sensors module has started')
         sensor_data_aux = {}
 
         # First measurement
@@ -109,27 +112,26 @@ class SensorsModule(threading.Thread):
             self.pwm.start(100)   # Generate a duty cycle capable of providing 1.4 volts to MQ-7
             time.sleep(90)
 
-        print('Sensors module has stopped')
+        print('* Sensors module has stopped')
 
 
 class CommunicatorModule():
-    """
-    Obtain data from the CameraModule and the SensorsModule and send it to the
-    Cloud.
-    """
+    """Obtain data from the CameraModule and the SensorsModule and send it to
+    the Cloud."""
     def __init__(self, lock, id_device, time_interval):
         self.lock = lock
         self.id_device = id_device
         self.time_interval = time_interval
 
     def run(self):
-        global vehicles_per_hour, sensor_data
+        global list_vehicles, sensor_data
 
-        print('Communicator module has started')
+        time.sleep(5) # Wait for teh rest of modules to start
+        print('* Communicator module has started')
 
         # Initialize the device client.
         try:
-            deviceFile="device.conf"
+            deviceFile = "device.conf"
             deviceOptions = ibmiotf.device.ParseConfigFile(deviceFile)
             deviceClient = ibmiotf.device.Client(deviceOptions)
             deviceClient.connect()
@@ -143,6 +145,8 @@ class CommunicatorModule():
             date_time = date_time.strftime('%Y-%m-%d %H:%M:%S')
 
             self.lock.acquire()
+            vehicles_per_hour = int((sum(list_vehicles)/len(list_vehicles))*60)
+            list_vehicles = []
             data = { 'idDevice' : self.id_device,
                      'time_interval' : self.time_interval,
                      'vehicles_per_hour' : vehicles_per_hour,
@@ -156,13 +160,13 @@ class CommunicatorModule():
 
             success = deviceClient.publishEvent("sensor_update", "json", data, qos=0)
             if not success:
-        	    print("Not connected to IoTF")
+        	    print("- Error: Not connected to IBM IoT Platform.")
             else:
-                print("Event sent to cloud")
+                print("* Event sent to cloud")
 
         # Disconnect the device from the cloud
         deviceClient.disconnect()
-        print('Communicator module has stopped')
+        print('* Communicator module has stopped')
 
 
 # Main program
@@ -170,7 +174,7 @@ def serviceShutdown(signum, frame):
     """
     Raise ProgramExit exception in order to exit the program.
     """
-    print('\nCaught signal %d' % signum)
+    print('\nCaught signal %d - Attempting peaceful exit: Stopping all the modules.' % signum)
     raise ProgramExit
 
 def removeLogFiles():
@@ -184,12 +188,14 @@ def removeLogFiles():
         if item.endswith(".log"):
             os.remove(os.path.join(directory, item ))
 
+
+# MAIN PROGRAM
 if __name__ == "__main__":
     removeLogFiles()
 
     # Initlialize variables
     id_device = DEVICEID
-    vehicles_per_hour = 0
+    list_vehicles = []
     sensor_data = {
 		"Temperature" : 0,
 		"Humidity" : 0,
@@ -203,7 +209,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGTERM, serviceShutdown)
     signal.signal(signal.SIGINT, serviceShutdown)
 
-    print('Starting main program...')
+    print('* Starting main program...')
 
     try:
         lock = threading.Lock()
@@ -222,8 +228,12 @@ if __name__ == "__main__":
         cam_module.shutdown_flag.set()
         sen_module.shutdown_flag.set()
 
+        # Release the lock
+        if lock.locked():
+            lock.release()
+
         # Wait for the threads termination...
         cam_module.join()
         sen_module.join()
 
-        print('The main program has finished')
+        print('* The main program has finished')

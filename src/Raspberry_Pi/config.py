@@ -9,7 +9,23 @@
 # CONFIGURATION FILE
 
 ## Camera module configuration:
-# TODO
+# Configuration parameters for the camera
+VIDEO_WIDTH         = 1080
+VIDEO_HEIGHT        = 720
+FRAMERATE           = 30
+HFLIP               = False
+VFLIP               = False
+RECORDING_TIME      = 60
+BUFFER_SIZE         = 300
+
+# Configuration parameters for the Smoothing
+SMOOT_ORDER         = 6
+
+# Parameters for the car cointing
+GROUP_SENSITIVITY   = 5
+WIDTH_THRESHOLD     = 10
+HEIGHT_THRESHOLD    = 150
+GROWTH_LIMIT        = 5
 
 
 ## Sensors module configuration:
@@ -46,6 +62,23 @@ LPG_Curve = [-0.47, 1.291]
 
 # Temperature calibration
 CPU_TEMP_FACTOR = 2.5
+
+# SenseHat Screen
+ROTATION = 0
+TEXT_COLOUR = [255, 255, 255]
+TEXT_SPEED = 0.2
+LIMITS = {
+    'CO' : [4.35, 6.52, 8.7, 17.4],
+    'LPG' : [250, 500, 750, 1000]
+    }
+COLOURS_LEVELS = [
+    [40, 167, 69], # Very low
+    [129, 231, 43], # Low
+    [217, 217, 38], # Medium
+    [242, 145, 13], # High
+    [220, 53, 69] # Very high
+]
+
 
 
 ## IBM IoT platform configuration:

@@ -15,7 +15,7 @@ from sense_hat import SenseHat
 
 
 class Sensors():
-    """Obtain data from the Atmospheric sensors"""
+    """Obtain data from the Atmospheric sensors."""
 
     def __init__(self, MQ7_Ro, MQ2_Ro):
 
@@ -27,9 +27,11 @@ class Sensors():
         self.spi_comm = spiCommunicator(SPICLK, SPIMOSI, SPIMISO, SPICS)
         self.sense = SenseHat()
 
-        print("Initializing sensors. Please wait 20 seconds...")
-        self.sense.set_rotation(0)
-        self.sense.show_message("INITIALIZING...", text_colour=[255, 255, 255], scroll_speed=0.2)
+        print("* Initializing sensors. Please wait 20 seconds...")
+        self.sense.set_rotation(ROTATION)
+        self.sense.show_message("INITIALIZING...", text_colour=TEXT_COLOUR,
+            scroll_speed=TEXT_SPEED)
+        self.sense.show_letter("-", [255, 0, 0])
         time.sleep(20)
         # Execute a first measurement in order to avoid error data from sensors
         self.getSensorData()
@@ -90,9 +92,39 @@ class Sensors():
         data["Humidity"] = self.sense.get_humidity()
         data["Pressure"] = self.sense.get_pressure()
 
+        # Set screen colors:
+        self.setScreen(data["CO"], data["LPG"])
+
         return data
 
-    
+
+    def setScreen(self, CO, LPG):
+        """
+        Set SenseHat screen depending on the CO and LPG levels.
+
+        Input:   CO -> CO gas level.
+                 LPG -> LPG level.
+        """
+        O = [0, 0, 0]
+        X = COLOURS_LEVELS[4]
+        Y = COLOURS_LEVELS[4]
+        for i in reversed(range(0,4)):
+            if CO < LIMITS['CO'][i]: X = COLOURS_LEVELS[i]
+            if LPG < LIMITS['LPG'][i]: Y = COLOURS_LEVELS[i]
+
+        screen = [
+            O, O, X, X, X, O, O, O,
+            O, O, X, X, X, O, O, O,
+            O, O, X, X, X, O, O, O,
+            O, O, O, O, O, O, O, O,
+            O, O, O, O, O, O, O, O,
+            O, O, Y, Y, Y, O, O, O,
+            O, O, Y, Y, Y, O, O, O,
+            O, O, Y, Y, Y, O, O, O
+        ]
+        self.sense.set_pixels(screen)
+
+
     def getCPUTemperature(self):
         """
         Calculate CPU temperature.
