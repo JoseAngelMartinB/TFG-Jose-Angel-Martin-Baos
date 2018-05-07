@@ -29,5 +29,8 @@
 *.bbl
 *.blg
 
+#Python .pyc
+*.pyc
+
 #Temporal files
 *~
