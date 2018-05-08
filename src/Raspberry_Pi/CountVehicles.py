@@ -8,6 +8,7 @@
 
 from config import *
 import picamera.array
+import sys
 import numpy as np
 import time
 import threading
@@ -68,6 +69,7 @@ class CountVehicles():
                         self.n_vehicles[direction] += 1
                         self.lock.release()
                         print("Car detected!!! - Direction: %s" % directions[direction]) # Debug info
+                        sys.stdout.flush()
                 elif self.growth[direction] == -GROWTH_LIMIT:
                     self.car_detected[direction] = False
                     self.n_positive_frames[direction] = 0

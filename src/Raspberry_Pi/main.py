@@ -14,6 +14,7 @@ import picamera
 import RPi.GPIO as GPIO
 import ibmiotf.device
 import os
+import sys
 import threading
 import signal
 import time
@@ -47,6 +48,7 @@ class CameraModule(threading.Thread):
                 time.sleep(2)
 
                 print('* Camera module has started')
+                sys.stdout.flush()
 
                 camera.start_recording('/dev/null', format='h264',
                     motion_output=motion_analysis)
@@ -62,6 +64,7 @@ class CameraModule(threading.Thread):
                 camera.stop_recording()
 
         print('* Camera module has stopped')
+        sys.stdout.flush()
 
 
 class SensorsModule(threading.Thread):
@@ -90,6 +93,7 @@ class SensorsModule(threading.Thread):
         global sensor_data
 
         print('* Sensors module has started')
+        sys.stdout.flush()
         sensor_data_aux = {}
 
         # First measurement
@@ -113,6 +117,7 @@ class SensorsModule(threading.Thread):
             time.sleep(90)
 
         print('* Sensors module has stopped')
+        sys.stdout.flush()
 
 
 class CommunicatorModule():
@@ -128,6 +133,7 @@ class CommunicatorModule():
 
         time.sleep(5) # Wait for teh rest of modules to start
         print('* Communicator module has started')
+        sys.stdout.flush()
 
         # Initialize the device client.
         try:
@@ -135,8 +141,10 @@ class CommunicatorModule():
             deviceOptions = ibmiotf.device.ParseConfigFile(deviceFile)
             deviceClient = ibmiotf.device.Client(deviceOptions)
             deviceClient.connect()
+            sys.stdout.flush()
         except Exception as e:
         	print(str(e))
+        	sys.stdout.flush()
         	raise ProgramExit
 
         while True:
@@ -161,12 +169,15 @@ class CommunicatorModule():
             success = deviceClient.publishEvent("sensor_update", "json", data, qos=0)
             if not success:
         	    print("- Error: Not connected to IBM IoT Platform.")
+        	    sys.stdout.flush()
             else:
                 print("* Event sent to cloud")
+                sys.stdout.flush()
 
         # Disconnect the device from the cloud
         deviceClient.disconnect()
         print('* Communicator module has stopped')
+        sys.stdout.flush()
 
 
 # Main program
@@ -175,6 +186,7 @@ def serviceShutdown(signum, frame):
     Raise ProgramExit exception in order to exit the program.
     """
     print('\nCaught signal %d - Attempting peaceful exit: Stopping all the modules.' % signum)
+    sys.stdout.flush()
     raise ProgramExit
 
 def removeLogFiles():
@@ -210,6 +222,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, serviceShutdown)
 
     print('* Starting main program...')
+    sys.stdout.flush()
 
     try:
         lock = threading.Lock()
@@ -237,3 +250,4 @@ if __name__ == "__main__":
         sen_module.join()
 
         print('* The main program has finished')
+        sys.stdout.flush()

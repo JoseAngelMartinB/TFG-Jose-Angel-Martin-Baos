@@ -9,6 +9,7 @@
 import time
 import math
 import os
+import sys
 from config import *
 from spiCommunicator import spiCommunicator
 from sense_hat import SenseHat
@@ -28,6 +29,7 @@ class Sensors():
         self.sense = SenseHat()
 
         print("* Initializing sensors. Please wait 20 seconds...")
+        sys.stdout.flush()
         self.sense.set_rotation(ROTATION)
         self.sense.show_message("INITIALIZING...", text_colour=TEXT_COLOUR,
             scroll_speed=TEXT_SPEED)
