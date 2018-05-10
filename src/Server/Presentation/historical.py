@@ -46,7 +46,7 @@ def Historical():
     if len(selected_devices) == 0:
         no_data = True
     else:
-        smooth_factor = SMOOTH_FACTOR
+        smooth_factor = sensorData.get_smooth_factor()
         (labels, data) = sensorData.getHistoricalData(selected_devices, selected_dates, devices, smooth_factor)
 
     return render_template('historical.html', devices=devices, dates=dates,

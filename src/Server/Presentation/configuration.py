@@ -38,12 +38,21 @@ def Configuration():
     if auth == False:
         return redirect(url_for('login.Login'))
     else: # Autentication is correct. Show configuration page
+        smooth_factor = SensorData().get_smooth_factor()
         selected_email = None
         selected_not = None
         notif = Notifications()
         if request.method == 'POST':
             try:
-                if request.form['action'] == "Select":
+                if request.form['action'] == "Save":
+                    # Get all the notifications
+                    notifications = notif.getNotifications()
+
+                    # Set new smooth factor
+                    smooth_factor = SensorData().set_smooth_factor(int(request.form['smooth_factor']))
+
+
+                elif request.form['action'] == "Select":
                     # Get all the notifications
                     notifications = notif.getNotifications()
                     selected_email = request.form['notification']
@@ -99,4 +108,4 @@ def Configuration():
 
         return render_template('configuration.html', email=email, \
             notifications=notifications, last_update=last_update, \
-            selected_not=selected_not)
+            selected_not=selected_not, smooth_factor=smooth_factor)

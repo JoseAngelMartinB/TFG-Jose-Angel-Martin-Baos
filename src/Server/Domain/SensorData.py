@@ -243,3 +243,22 @@ class SensorData:
                                 aux += data[i+j]
                     smoot_data.append(aux/order)
             return smoot_data
+
+
+    def get_smooth_factor(self):
+        try:
+            with open(SMOOTH_FACTOR_FILE, "r") as file:
+                 smooth_factor = int(file.read().split()[0])
+        except:
+            smooth_factor = 1
+        return smooth_factor
+
+
+    def set_smooth_factor(self, smooth_factor):
+        try:
+            with open(SMOOTH_FACTOR_FILE, "w") as file:
+                 file.write(str(smooth_factor))
+        except:
+            smooth_factor = 1
+
+        return smooth_factor
