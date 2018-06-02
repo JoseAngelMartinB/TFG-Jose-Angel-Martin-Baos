@@ -15,8 +15,8 @@ class Recorder():
 			with ImageAnalizer(camera) as output:
 				camera.resolution = (VIDEO\_WIDTH, VIDEO\_HEIGHT)
 				camera.framerate = FRAMERATE
-				camera.hflip = True
-				camera.vflip = True
+				camera.hflip = HFLIP
+				camera.vflip = VFLIP
 				time.sleep(2)
 
 				print("Starting the recording during %i seconds..." % RECORDING\_TIME)

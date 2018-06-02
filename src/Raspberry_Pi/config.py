@@ -19,7 +19,7 @@ RECORDING_TIME      = 60
 BUFFER_SIZE         = 300
 
 # Configuration parameters for the Smoothing
-SMOOT_ORDER         = 6
+SMOOTH_ORDER         = 6
 
 # Parameters for the car cointing
 GROUP_SENSITIVITY   = 5

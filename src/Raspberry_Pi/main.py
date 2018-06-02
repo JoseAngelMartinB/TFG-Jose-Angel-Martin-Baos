@@ -120,7 +120,7 @@ class SensorsModule(threading.Thread):
         sys.stdout.flush()
 
 
-class CommunicatorModule():
+class CommunicationModule():
     """Obtain data from the CameraModule and the SensorsModule and send it to
     the Cloud."""
     def __init__(self, lock, id_device, time_interval):
@@ -132,7 +132,7 @@ class CommunicatorModule():
         global list_vehicles, sensor_data
 
         time.sleep(5) # Wait for teh rest of modules to start
-        print('* Communicator module has started')
+        print('* Communication module has started')
         sys.stdout.flush()
 
         # Initialize the device client.
@@ -176,7 +176,7 @@ class CommunicatorModule():
 
         # Disconnect the device from the cloud
         deviceClient.disconnect()
-        print('* Communicator module has stopped')
+        print('* Communication module has stopped')
         sys.stdout.flush()
 
 
@@ -228,7 +228,7 @@ if __name__ == "__main__":
         lock = threading.Lock()
 
         # Create modules
-        comm = CommunicatorModule(lock, id_device, time_interval)
+        comm = CommunicationModule(lock, id_device, time_interval)
         cam_module = CameraModule(lock)
         sen_module = SensorsModule(lock)
         cam_module.start()

@@ -1,4 +1,3 @@
-% This file was created with JabRef 2.10.
 % Encoding: UTF-8
 
 
@@ -115,16 +114,35 @@
   Key                      = {GoF}
 }
 
+@Electronic{Gar18,
+  Title                    = {La técnica del Planning Poker},
+  Author                   = {Javier Garzás},
+  HowPublished             = {\url{http://www.javiergarzas.com/2018/01/la-tecnica-del-planning-poker.html}},
+  Note                     = {[Accessed 14 May 2018]},
+  Year                     = {2018},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2018.05.14}
+}
+
 @Electronic{Gar11,
   Title                    = {¿Qué es el método Kanban para la gestión de proyectos?},
   Author                   = {Javier Garzás},
   HowPublished             = {\url{http://www.javiergarzas.com/2011/11/kanban.html}},
   Language                 = {Spanish},
-  Note                     = {[Accessed 21 August 2017]},
+  Note                     = {[Accessed 21 September 2017]},
   Year                     = {2011},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.08.21}
+}
+
+@PhdThesis{Gir14,
+  Title                    = {Generación automática de resúmenes de vídeos obtenidos desde cámaras móviles utilizando vectores de movimiento generados por un codificador H.264/AVC},
+  Author                   = {Giralt Muiña, Juan},
+  Year                     = {2014},
+
+  Institution              = {Universidad de Castilla-La Mancha}
 }
 
 @Article{GRMSJ12,
@@ -158,7 +176,7 @@
   Author                   = {Dave Jones},
   HowPublished             = {\url{http://picamera.readthedocs.io}},
   Language                 = {English},
-  Note                     = {[Accessed 21 July 2017]},
+  Note                     = {[Accessed 21 October 2017]},
   Year                     = {2016},
 
   Owner                    = {joseangel},
@@ -267,7 +285,7 @@
 
 @Conference{ZDHB09,
   Title                    = {Reduction of travel times and traffic emissions using model predictive control},
-  Author                   = {Zegeye, S.K. and De Schutter, Bart and Hellendoorn, Hans and Breunesse, Ewald},
+  Author                   = {Zegeye, Solomon Kidane and De Schutter, Bart and Hellendoorn, Hans and Breunesse, Ewald},
   Booktitle                = {Proceedings of the American Control Conference},
   Year                     = {2009},
   Month                    = {July},
@@ -340,6 +358,15 @@
   Timestamp                = {2017.11.19}
 }
 
+@Electronic{IBMIoT,
+  Title                    = {IBM Watson IoT (Internet of Things) Platform Documentation},
+  HowPublished             = {\url{https://console.bluemix.net/docs/services/IoT/getting-started.html\#getting-started-with-iotp}},
+  Note                     = {[Accessed 21 May 2018]},
+
+  Owner                    = {joseangel},
+  Timestamp                = {2018.05.21}
+}
+
 @Electronic{ItIncr,
   Title                    = {Desarrollo iterativo e incremental},
   HowPublished             = {\url{https://proyectosagiles.org/desarrollo-iterativo-incremental/}},
@@ -373,7 +400,7 @@
   Title                    = {MP4Box - GPAC Documentation},
   HowPublished             = {\url{https://gpac.wp.imt.fr/mp4box/}},
   Language                 = {English},
-  Note                     = {[Accessed 26 July 2017]},
+  Note                     = {[Accessed 26 September 2017]},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.26}
@@ -401,7 +428,7 @@
   Title                    = {NumPy Webpage},
   HowPublished             = {\url{http://www.numpy.org/}},
   Language                 = {English},
-  Note                     = {[Accessed 26 July 2017]},
+  Note                     = {[Accessed 26 September 2017]},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.26}
@@ -411,7 +438,7 @@
   Title                    = {Open SSH},
   HowPublished             = {\url{https://www.openssh.com/}},
   Language                 = {Englisth},
-  Note                     = {[Accessed 22 July 2017]},
+  Note                     = {[Accessed 22 September 2017]},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.22}
@@ -421,7 +448,7 @@
   Title                    = {Raspberry Pi Website},
   HowPublished             = {\url{https://www.raspberrypi.org/}},
   Language                 = {English},
-  Note                     = {[Accessed 21 July 2017]},
+  Note                     = {[Accessed 21 September 2017]},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.21}
@@ -431,7 +458,7 @@
   Title                    = {Raspbian Webpage},
   HowPublished             = {\url{https://www.raspbian.org/}},
   Language                 = {English},
-  Note                     = {[Accessed 21 July 2017]},
+  Note                     = {[Accessed 21 September 2017]},
 
   Owner                    = {joseangel},
   Timestamp                = {2017.07.21}
@@ -448,7 +475,7 @@
 }
 
 @Electronic{XPProgramming,
-  Title                    = {PROGRAMACION EXTREMA XP},
+  Title                    = {Programación extrema XP},
   HowPublished             = {\url{http://ingenieriadesoftware.mex.tl/52753_xp---extreme-programing.html}},
   Note                     = {[Accessed 19 November 2017]},
 
@@ -476,3 +503,12 @@
   Timestamp                = {2017.12.30}
 }
 
+@Book{SGG06,
+  author    = {Silberschatz, Abraham and Galvin, Peter Baer and Gagne, Greg},
+  title     = {Operating System Concepts 7th Edition},
+  year      = {2006},
+  publisher = {John Wiley \&\#38; Sons, Inc.},
+  isbn      = {047176907X},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

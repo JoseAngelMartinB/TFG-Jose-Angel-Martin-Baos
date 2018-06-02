@@ -47,11 +47,11 @@ class CountVehicles():
         # Smoothing. Applies Moving averages to smooth the number of motion vectors
         tmp_left = 0
         tmp_right = 0
-        for i in range(0, SMOOT_ORDER):
+        for i in range(0, SMOOTH_ORDER):
             if i > self.buff_size: i = 0
             tmp_left += self.mv[-i][0]
             tmp_right += self.mv[-i][1]
-        self.smooth_mv.append([tmp_left//SMOOT_ORDER, tmp_right//SMOOT_ORDER])
+        self.smooth_mv.append([tmp_left//SMOOTH_ORDER, tmp_right//SMOOTH_ORDER])
 
         directions = ["Left", "Right"]
         if self.buff_size > 2:

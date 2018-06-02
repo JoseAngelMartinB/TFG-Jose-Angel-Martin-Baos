@@ -1,9 +1,11 @@
 % TFG - José Ángel Martín Baos. Escuela Superior de Informática. 2018
+% !TeX spellcheck = en_GB
+
 %%%% CHAPTER: Results %%%
 \chapter{Results} % TODO
 \label{chap:results}
 
-\drop{I}{n} this chapter, the different results obtained during the execution of this \ac{BSc.} thesis are presented. The working methodology presented in Chapter \ref{chap:methodology} is going to be used to carry out the work. In first place, the initial Sprint is presented, where the Scrum team will be set up, as well as the initial planning of the project. Subsequently, the different Sprints are presented, where the work planned in the initial Sprint will be carried out.
+\drop{I}{n} this chapter, the different results obtained during the development of this \ac{BSc.} thesis are presented. The working methodology presented in Chapter \ref{chap:methodology} is used to carry out the work. In first place, the initial Sprint is presented, where the Scrum team is set up, as well as the initial planning of the project. Subsequently, the different Sprints are presented, where the work planned in the initial Sprint are carried out.
 
 
 
@@ -11,7 +13,7 @@
 %%% Sprint 0
 \section{Sprint 0: Initial planning}
 \label{Section:Sprint0}
-In this first phase, Sprint 0, the main objective is to define the Scrum team, the user stories, the project plan, and the temporal and cost planning. Then, the draft (“Anteproyecto”) must be written. Once this Sprint has been completed, the project can start, as state in the temporal planning. The task associated to this initial Sprint can be shown in Table \ref{tab:Sprint0-Tasks}.
+In this first phase, the main objective is to define the Scrum team, the user stories, the project plan and the temporal and cost planning. Then, the draft (“Anteproyecto”) have to be written. Once this Sprint was completed, the project started  as it was stated in the temporal planning. The task associated to this initial Sprint is shown in Table \ref{tab:Sprint0-Tasks}.
 
 \begin{table}[hp]
 	\centering
@@ -23,7 +25,7 @@ In this first phase, Sprint 0, the main objective is to define the Scrum team, t
 \end{table}
 
 \subsection{Scrum Team}
-Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team will have the following structure:
+Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team have the following structure:
 \begin{itemize}
 	\item \textbf{Product Owner:} Ricardo García Ródenas
 	\item \textbf{Scrum Master:} Luis Rodríguez Benítez
@@ -31,7 +33,8 @@ Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team w
 \end{itemize}
 
 \subsection{Product Backlog}
-\REDNOTE{... \& User Stories Table}
+The Scrum Team had several meetings after the completion of the draft (“Anteproyecto”) and the different requirements stated in the draft were translated to user stories that should be accomplished during the execution of the BSc. thesis. The Scrum Team has defined the different user stories, as well as the priority and the estimated duration they will have using planning poker technique. In this technique, the product owner explains an user story and each member of the development team writes his estimation into a card \cite{Gar18}. Nonetheless, in this case, all the members of the Scrum Team have participated in the estimation. The final list of User stories is shown in Table \ref{tab:User-Stories}.
+
 \begin{table}[hp]
 	\centering
 	{\small
@@ -41,20 +44,20 @@ Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team w
 	\label{tab:User-Stories}
 \end{table}
 	
-The different user stories are presented its corresponding Sprints. Each user story is formed by the following fields:
+The different user stories are presented in its corresponding Sprint. Each user story is composed by the following fields:
 \begin{itemize}
 	\item \emlst{Sprint.} It indicates the Sprint number to which the user story belongs to.
-	\item \emlst{Priority.} Priority given to the user story. It can take the values: low, medium and high.
+	\item \emlst{Priority.} Priority given to the user story. It can take the levels: low, medium and high.
 	\item \emlst{Effort.} The estimated duration of the user story in hours. 
 	\item \emlst{Name.} The label of the user story.
 	\item \emlst{Description.} It is a brief definition of the user story.
-	\item \emlst{Tasks.} It consists in a list of the different tasks that must be executed to complete the user story.
-	\item \emlst{Tests.} It is a list of the different tests defined for the user story.
+	\item \emlst{Tasks.} It consists of a list of the different tasks that must be executed to complete the user story.
+	\item \emlst{Tests.} It is a list of the different tests defined specifically for the user story.
 \end{itemize}
 
 \subsection{Project plan}
-\REDNOTE{Different sprints and its associated user stories and time estimation. \\
-What is the total duration of the \ac{BSc.} Thesis?}
+Once the different user stories have been defined, the next step is to define the different Sprints that must be carried out and their associated user stories (Table \ref{tab:Sprints}). This is only the initial plan of the project, so that means that additional tasks can be created to solve errors or to add functionalities not taken into account in this initial phase of the project.
+
 \begin{table}[hp]
 	\centering
 	{\small
@@ -65,24 +68,61 @@ What is the total duration of the \ac{BSc.} Thesis?}
 \end{table}
 
 \subsection{Temporal planning}
-\REDNOTE{Using the project plan, translate it to a graph (Remember the “Anteproyecto”)}
+Considering Table \ref{tab:Sprints}, the temporal planning for this BSc. thesis is defined. The total duration of the project when all the Sprints finish is estimated to be 225 hours. The project started on 18th September 2017 and was planned to be finished on 18th June 2018. Therefore, this means that the student has dedicated 6.25 hours per week in the project. Taking all these elements into account the Gantt diagram shown in Figure \ref{fig:6-Gantt} was defined.
 
-\REDNOTE{ Check the duration of all the task and sprints.} %TODO: Check the duration of all the task and sprints
-
-\REDNOTE{The project start in September}
-
-% Ganttproject
-
+\begin{figure}[!h]
+	\begin{center}
+		\begin{ganttchart}[%Specs
+			x unit = 9pt,
+			vgrid={*{3}{draw=none},dotted},
+			title/.style={fill=gray!30, draw=black, very thick},
+			canvas/.style={fill=gray!10, draw=black, dashed, very thick},
+			bar/.style={fill=barblue, draw=black},
+			link/.append style={thick}
+			]{1}{40}
+			\gantttitle{2017}{16}
+			\gantttitle{2018}{24} \\
+			\gantttitle{Sep}{4}
+			\gantttitle{Oct}{4}
+			\gantttitle{Nov}{4}
+			\gantttitle{Dec}{4}
+			\gantttitle{Jan}{4}                      
+			\gantttitle{Feb}{4}
+			\gantttitle{Mar}{4}
+			\gantttitle{Apr}{4}
+			\gantttitle{May}{4}
+			\gantttitle{Jun}{4}\\
+			
+			% Draft (“Anteproyecto”)
+			\ganttgroup{Draft}{3}{8} \\
+			\Dganttbar{Sprint 0}{35h}{3}{8} \\	
+			
+			% Draft (“Anteproyecto”)
+			\ganttgroup{BSc. Thesis}{9}{38} \\
+			\Dganttbar{Sprint 1}{50h}{9}{16} \\
+			\Dganttbar{Sprint 2}{55h}{17}{24} \\
+			\Dganttbar{Sprint 3}{35h}{25}{30} \\
+			\Dganttbar{Sprint 4}{50h}{31}{38}
+			\ganttlink[link type=rdldr*, link bulge 2=9, link mid=0.25]{elem5}{elem9}
+			\ganttlink[link bulge=1]{elem7}{elem9}
+			\ganttlink[link bulge=1]{elem9}{elem11}
+		\end{ganttchart}
+		\caption{Temporal planning}
+		\label{fig:6-Gantt}
+	\end{center}
+\end{figure}
 
 \subsection{Cost planning}
-To manage the costs for the development of this project, two tables has been elaborated. Table \ref{tab:Hardware-Costs} indicates the costs related with the hardware resources that must be purchase in order to execute the project. Moreover, some development cost must be taken into account, which are indicated in Table \ref{tab:Development-Costs}. For the purpose of calculating the salary of the developer, the \ac{UCLM} retributions table of labor contracts for research projects on 2017 has been used. Therefore, it has been considered that the developer will have “Tercera-O-II” category, meaning that its annual cost will be of $23.598,83$\euro{}
+To manage the costs for the development of this project, two tables had been elaborated. Table \ref{tab:Hardware-Costs} indicates the costs related to the hardware resources that might be purchased in order to execute the project. Moreover, some development costs must be taken into account, as it is indicated in Table \ref{tab:Development-Costs}. For the purpose of calculating the salary of the developer, the \ac{UCLM} retributions table of labor contracts for research projects on 2017 has been used. Therefore, it has been considered that the developer will have a “Tercera-O-II” category, meaning that the annual cost of a full-time job is $23.025.67$\euro{}. Taking into account that a full-time job in the UCLM consist of 7 work hours per day and 225 working days per year then, the Table \ref{tab:Development-Costs} is obtained. 
+
+Taking into account Tables \ref{tab:Hardware-Costs} and \ref{tab:Development-Costs}, an estimation of the total cost of the project can be $3685.87$\euro{}.
 
 \begin{table}[hp]
 	\centering
 	{\small
 		\input{tables/6-Results/Hardware-Costs.tex}
 	}
-	\caption{Hardware costs}
+	\caption{Hardware investments}
 	\label{tab:Hardware-Costs}
 \end{table}
 
@@ -96,52 +136,51 @@ To manage the costs for the development of this project, two tables has been ela
 \end{table}
 
 
-
+\newpage
 %%% Sprint 1
-\section{Sprint 1: Development of a basic algorithm to calculate the traffic flows based on video data}
+\section{Sprint 1: Development of an algorithm to calculate the traffic flows based on video data}
 \label{Section:Sprint1}
-According to the project plan, in this sprint, a basic algorithm to calculate the vehicle flow must be developed. This involves executing the task associated to the user stories 1, 2 and 3. This iteration aims to obtain a basic algorithm to count the number of cars that cross a street in a certain amount of time so as to obtain the vehicle flow. \REDNOTE{Then in Sprint X, it will be improved.} To be able to count the number of cars using the PiCamera, \emword{motion vectors} are used. Therefore, a study about this concept has been done before implementing the algorithm. But first, it is necessary to configure the Raspberry Pi architecture and to install the PiCamera. 
+According to the project plan, in this Sprint, the tasks associated to the user stories 1, 2 and 3 should be executed. This iteration aims to obtain an algorithm to count the number of vehicles that cross a street in a certain amount of time so as to obtain the vehicle flow. To be able to count the number of vehicles using the PiCamera, \emword{motion vectors} are used. Therefore, some research about video codification and \emword{motion vectors} is needed before implementing the algorithm. But first, it is necessary to configure the Raspberry Pi architecture and to install the PiCamera. 
 
-\subsection{Sprint planning meeting}
-During the planning meeting, the different user stories addressed in this sprint has been analysed. Consequently, they have been divided into several tasks and tests. The three user stories are shown in Tables from \ref{tab:Sprint1-User-story-1} to \ref{tab:Sprint1-User-story-3}.
+During the planning meeting, the different user stories addressed in this Sprint has been analysed. Consequently, they have been divided into several tasks and tests. The three user stories are shown in Tables from \ref{tab:Sprint1-User-story-1} to \ref{tab:Sprint1-User-story-3}.
 
 \UserStoryTable{1}{1}{High}{15}
 {Configure Raspberry Pi Architecture}
-{The \ac{OS} and all the components must be installed and configured.}
+{Raspbian \ac{OS} and all the components must be installed and configured.}
 {	\item Install and configure Raspbian \ac{OS}.
 	\item Install the necessary libraries.
-}{	\item Check if the system works correctly using SSH connection.
+}{	\item Check if the system works correctly using a SSH connection.
 	\item Check if python works.
 }
 
 \UserStoryTable{2}{1}{High}{5}
-{Install PiCamera into Raspberry Pi}
+{Install PiCamera module in the Raspberry Pi}
 {The PiCamera module must be working and some sample videos should be recorded in order to check the camera.}
 {	\item Install the PiCamera module.
 	\item Develop a program to record videos.
-}{	\item Check if the camera is working correctly.
+}{	\item Check if the camera is working correctly by storing some photos and videos.
 }
 
 \UserStoryTable{3}{1}{High}{30}
-{Develop a basic algorithm to calculate the vehicle flow}
-{Development of a basic algorithm that counts the number of cars that go across a street and determines their direction.}
-{	\item Study the functionality of the motion vectors in H264/AVC.
-	\item Extract the motion vectors when recording a video with the PiCamera module using PiMotionAnalysis.
-	\item Read and process the data stored containing the motion vectors.
+{Develop an algorithm to calculate the vehicle flow}
+{Development of an algorithm that counts the number of vehicles travelling on a street and determines their direction.}
+{	\item Extract the \emword{motion vectors} while recording a video with the PiCamera module using PiMotionAnalysis.
+	\item Read and process the data stored containing the \emword{motion vectors}.
 	\item Develop a noise filter using moving averages.
-	\item Develop the basic algorithm to counts the cars.
-}{	\item Check the correctness of the motion vectors extracted.
+	\item Develop the algorithm to count vehicles.
+}{	\item Check the correctness of the \emword{motion vectors} extracted.
 	\item Compare the data before and after applying the noise filter.
 	\item Assess the performance of the traffic-counting algorithm.
 }
 
+\subsubsection{T1.1.1. Install and configure Raspbian \ac{OS}}
+The first step consist of the Raspbian \ac{OS} installation and its configuration. The Operating System allows us not only to execute programs into the Raspberry Pi device, but also to connect it to the network, which is necessary to send the data collected.
 
-\subsection{Results of the development of the tasks}
-\subsubsection{T1.1.1. Install and configure Raspbian \ac{OS} and the necessary libraries}
-The first step consist of the Raspbian \ac{OS} installation, its configuration, and the installation of the necessary libraries. These steps are explained in the Appendix \ref{chap:installation_guide}. Once installed, the functionality of the system has been checked using a SSH connection from the development computer to the Raspberry, in order to ease the access to the System. 
+\subsubsection{T1.1.2. Install the necessary libraries}
+When the \ac{OS} is installed, some libraries need to be installed in order to execute the programs that are developed in the following Sprints. All these steps are detailed in the Appendix \ref{chap:installation_guide}. Once installed, the functionality of the system has been checked using a SSH connection from the development computer to the Raspberry, in order to ease the access to the system. 
 
-\subsubsection{Install the PiCamera module and develop a program to record videos}
-The next step is connecting the PiCamera module and configuring it as stated in Appendix \ref{chap:installation_guide}. Now, the device looks like in the Figure \ref{fig:6-Sistema_v1}. 
+\subsubsection{T1.2.1. Install the PiCamera module}
+The next step is connecting the PiCamera module and configuring it as it is detailed in Appendix \ref{chap:installation_guide}. Now, the device is the one shown in Figure \ref{fig:6-Sistema_v1}. 
 
 \begin{figure}[!h]
 	\begin{center}
@@ -151,75 +190,71 @@ The next step is connecting the PiCamera module and configuring it as stated in 
 	\end{center}
 \end{figure}
 
-A configuration file has been implemented which contains some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed easily. The whole file is shown and explained in Appendix \ref{chap:user_manual}. The parameters related with the camera are shown in Listing \ref{lst:6-camera-config}.
+\subsubsection{T1.2.2. Develop a program to record videos}
+A configuration file has been implemented containing some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed without difficulties. The file format is shown and explained in Appendix \ref{chap:user_manual}. The parameters related to the camera are shown in Listing \ref{lst:6-camera-config}.
 
-\lstinputlisting[language=Python, firstline=1, texcl, caption = {Part of \texttt{config.py} file containing the camera parameters}, label = lst:6-camera-config]{code/6-camera-config.py}
+\lstinputlisting[language=Python, firstline=4, texcl, caption = {Part of \texttt{config.py} file containing the camera parameters}, label = lst:6-camera-config]{code/6-camera-config.py}
 
-To assure the correct functionality of the camera, some videos are recorded. For that purpose and following the examples provided in PiCamera documentation \cite{PiCameraDoc}, a script has been developed. This script is shown in Listing \ref{lst:6-camera-video-recording}. This script must wait two seconds to ensure the camera is initialized correctly, then the camera starts recording during 60 seconds (as it is defined in \texttt{config.py}) and finally the video is saved in the file \texttt{my\_video.h264} in h264 video format.
+To ensure the correct functionality of the camera, a set of test videos are recorded. For that purpose and following the examples provided in PiCamera documentation \cite{PiCameraDoc}, a script has been developed. This script is shown in Listing \ref{lst:6-camera-video-recording}, and when it is executed it must wait two seconds to ensure the camera is correctly initialized. Then the camera starts recording during 60 seconds (as it is defined in \texttt{config.py}) and finally the video is saved in the file \texttt{my\_video.h264} in h264 video format.
 
-\lstinputlisting[language=Python, firstline=1, texcl, caption = {Sample recording with PiCamera script}, label = lst:6-camera-video-recording]{code/6-camera-video-recording.py}
+\lstinputlisting[language=Python, firstline=4, texcl, caption = {Video recording with PiCamera script}, label = lst:6-camera-video-recording]{code/6-camera-video-recording.py}
+
+\subsubsection{T1.3.1. Extract the \emword{motion vectors} while recording a video with the PiCamera module using PiMotionAnalysis}
+\BLUENOTE{The result of the previous task allows to record videos using the PiCamera. Moreover, the PiCamera is capable of generating the motion vector estimates that the camera's H.264 encoder calculates while generating the compressed video. If we suppose a video where each frame has $x$ pixels width and $y$ pixels height, the total number of pixels can be calculated as $ Npx = x\cdot y $. Then, taking into account that each macroblock has a size of $16\times16$ pixels, the number of motion vectors can be calculated in the following way:
+$ Nmv = \frac { x }{ 16 } \cdot \frac { y }{ 16 } =\frac { xy }{ 256 } $. 
+Hence, we can calculate the percentage of the video information processed using motion vectors instead of pixels as
+$ \frac { Nmv }{ Npx } \simeq 0.4\% $. In consequence, we can say that motion vectors are very useful because using them only the 0.4\% of the video information is needed approximately, which makes it a very good approach if low resources are available. }
+
+This task deals with the need of extracting motion data from videos. To achieve this task, \texttt{PiMotionAnalysis} class from \texttt{picamera.array} is used. While recording is in progress, the incoming motion data is stored into a numpy array and the \texttt{analyse} method from this class is called with the resulting array passed as argument \cite{PiCameraDoc}. This class can be extended and then, the \texttt{analyse} method can be overridden. Therefore, in this method, the \emword{motion vectors} can be used to identify motion fields in the video.
+
+The \texttt{analyse} method is called by the camera each time a frame is recorded and the motion vectors obtained for that frame are passed as argument to this method. Then, the algorithm to count the number of vehicles should be implemented inside this method, in order to be executed in each frame. Nonetheless, due to the fact that the camera is configured to record 30 frames per second (fps), the execution of the algorithm should not last more than $1/30$ seconds or even less due to the overhead of the picamera itself when generating the image. This is a major limitation that must be taken into account when designing and implementing the algorithm.
+
+\subsubsection{T1.3.2. Read and process the data stored containing the motion vectors.}
+\BLUENOTE{Due to the fact that \texttt{PiMotionAnalysis} class is used when the video is being recorded, it is used in the final implementation but first, in order to complete the different test, \texttt{PiMotionArray} class is used instead. This class converts the incoming motion data into a numpy array as the realtime version (\texttt{PiMotionAnalysis}), but the conversion is made when the recording has finished. This will allow us to have the videos with the motion data stored into files and use them at any time, allowing us to check the implemented algorithm and the different parameters. The class generates a 3-dimensional numpy array organized as (frames, rows, columns) where rows and columns are the number of the rows and columns of the macro-block (see Section \ref{subsect:Macroblocks}) in the frame. In the implementation of this class there is an extra column in the motion vector data that is not going to be used.}
+
+The class used for recording the videos and store the \emword{motion vectors} that have been used later for developing the algorithm to count vehicles is shown in Listing \ref{lst:6-Recorder-Sprint1}. Some parameters are given as arguments: \texttt{distance} and \texttt{angle}. They are used only for the filename so as to know afterwards the conditions of the camera when the video was recorded. In this class, the camera is configured according to the values stored in \texttt{config.py}. When the video had been recorded, it will be stored in a file with extension \texttt{.h264}, as well as the motion data, that will be stored in a file with the same name but with \texttt{.data} extension. To finish with, the video will be also converted to \texttt{.mp4} to ease its view in the development computer. 
+
+\lstinputlisting[language=Python, firstline=4, texcl, caption = {Class used to record a video and its corresponding motion data}, label = lst:6-Recorder-Sprint1]{code/6-Recorder-Sprint1.py}
 
 
-\subsubsection{T1.3.2. Extract the motion vectors when recording a video with the PiCamera module using PiMotionAnalysis and PiMotionArray}
-The result of the previous task allows recording videos using the PiCamera. This task deals with the need of extracting the motion data from the videos. To achieve this task, \texttt{PiMotionAnalysis} class from \texttt{picamera.array} is used. While recording is in progress, the incoming motion data is converted into a numpy array and an analysis method is called with the resulting array passed as argument. This class can be extended and the analysis method can be overridden. Therefore, in this method, the motion vectors can be used to detect movement in the video.
+\subsubsection{T1.3.3. Develop a noise filter using moving averages}
+There are some factors that can affect the number of \emword{motion vectors} in a certain frame. Some of these factors can be the incorrect codification of that frame, a small object crossing the image (e.g., a person or an animal) or just light reflection. Moreover, when H.264 video coding is used, there are several types of frames: I-frames, P-frames and B-frames as explained in Section \ref{subsect:H.264}. I-frames do not require other video frames to be decoded, therefore, they do not generate any \emword{motion vectors}. Thus, the number of \emword{motion vectors} in some frames is not going to be close to the reality, causing noise. To solve this problem, a smoothing technique is used. More concretely, simple moving averages calculation is applied.
 
-\BLUENOTE{Due to the fact that this class is used when the video is being recorded, it is used in the final implementation but first, in order to realize the different test, another class is used instead. The reason is that in this early steps of the work, it is more interesting to have the videos with the motion data stored into files and use them at any time. Hence, \texttt{PiMotionArray} class is used, which converts the incoming motion data into a numpy array also, but the conversion its made when the recording has finished. The class generates a 3-dimensional numpy array organized as (frames, rows, columns) where rows and columns are the number of the rows and columns of the macro-block \REDNOTE{(reference to the explanation of a macro-block)} in the frame. There is an extra column in the motion vector data that is not going to be used. Then, the data is stored into a file. 
-}
-
-\begin{figure}[!h]
-	\begin{center}
-		\includegraphics[width=0.8\textwidth]{6-Car_with_MV.png}
-		\caption{Example of  the motion vectors taken by the Raspberry Pi}
-		\label{fig:6-Car_with_MV}
-	\end{center}
-\end{figure}
-
-The class used for recording the videos and the motion vectors used for developing the algorithm to count cars can be shown in Listing \ref{lst:6-Recorder-Sprint1}. Some parameters are given as arguments: \texttt{distance} and \texttt{angle}. They are used only for the filename so as to know afterwards the conditions of the camera when the video was recorded. In this class, the camera is configured according to the values stored in \texttt{config.py}. When the video has been recorded, it will be stored in a file with extension \texttt{.h264}, as well as the motion data, that will be stored in a file with the same name and extension \texttt{.data}. To finish with, the video will be also converted to \texttt{.mp4} to make easier its view in the development computer. 
-
-\REDNOTE{IMPORTANT NOTE: Image resizer is not used. An other option is configure the camera resolution to 1920x1080 and use a resizer in the video to reduce the resolution given to the H.264 video coder.}
-
-\lstinputlisting[language=Python, firstline=1, texcl, caption = {Class used to record a video and its corresponding motion data}, label = lst:6-Recorder-Sprint1]{code/6-Recorder-Sprint1.py}
-
-\subsubsection{T1.3.4. Develop a noise filter using moving averages}
-There are some factors that can affect the number of motion vectors in a certain frame. Some of these factors can be the incorrect codification of that frame or a small object crossing the image (e.g., a person or a bug). Moreover, when H.264 video coding is used, there are several types of frame: I-frames, P-frames and B-frames \REDNOTE{(reference to their explanation)}. I-frames do not require other video frames to be decoded, therefore, they do not generate any motion vectors. Thus, the number of motion vectors in some frames is not going to be close to the reality, causing noise. To solve this problem, a smoothing technique is used. More concretely, simple moving averages calculation is applied.
-
-A simple moving average \cite{Smi15} is a unweighted average of k prior values. Since a time series can be regarded as a sequence of values, $\{\overline {x_{t}}\}$, being $t=1,2,3,4,…n$, the moving average of these values can be computed. If we assume that $n$ is quite large, and we select an integer $k$ which is much smaller than $n$, we can compute the simple moving averages (of order k) as shown in Equation (\ref{eq:simple_moving_averages}).
+A simple moving average \cite{Smi15} is an unweighted average of $k$ prior values. Since a time series can be regarded as a sequence of values, $\{x_{t}\}$, being $t=1,2,3,4,…n$, the moving average of these values $\{\overline {x_{t}}\}$ can be computed. If we assume that $n$ is quite large, and we select an integer $k$ which is much smaller than $n$, we can compute the simple moving averages (of order $k$) as shown in Equation (\ref{eq:simple_moving_averages}).
 
 \begin{equation} \label{eq:simple_moving_averages}
 \overline { { x }_{ t } } =\frac { 1 }{ k } \sum _{ i=t-k+1 }^{ t }{ { x }_{ i } } ,\quad 2\le k\le n
 \end{equation}
 
-The result of applying the simple moving average over the data recorded previously can be shown in Figure \ref{fig:6-moving_averages}. Here, it can be appreciate how the graphic corresponding with the data before applying simple moving averages (black line) has some noise and sometimes it falls to 0. Additionally, it can be shown how the problem is decreased using this smoothing technique.
+The result of applying the simple moving average over the data recorded previously is shown in Figure \ref{fig:6-moving_averages}, where it can be appreciated how the graphic corresponding with the data before applying simple moving averages (black line) has some noise and sometimes it falls to 0. Additionally, it can be observed how the noise is decreased using this smoothing technique (red line).
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{6-moving_averages.pdf}
-		\caption{Result of applying moving averages of order $n = 6$ to smooth the data}
+		\caption{Result of applying moving averages of order $k = 6$ to smooth the data}
 		\label{fig:6-moving_averages}
 	\end{center}
 \end{figure}
 
 
-\subsubsection{T1.3.5. Develop the basic algorithm to counts the cars}
-To count the cars that go across a street depending on its direction and using the motion data previously stored, an algorithm has been developed. Its pseudocode is shown in Algorithm \ref{alg:count_cars_V1}. This algorithm discriminates the cars direction (left or right). For each of the directions, the following algorithm is executed: 
+\subsubsection{T1.3.4. Develop the algorithm to count vehicles}
+To count the vehicles that travels on a street depending on its direction and using the motion data previously stored, an algorithm has been developed. Its pseudocode is shown in Algorithm \ref{alg:count_vehicles_V1}. This algorithm discriminates the vehicles direction (left or right). For each of the directions, the following algorithm is executed: 
 
-For each frame, the number of motion vectors in that frame is compared with the number of vectors in the previous frame, increasing or decreasing a variable called \texttt{growth}. Once the number of frames exceed the \texttt{HEIGHT\_THRESHOLD} variable, if the \texttt{growth} variable is positive, the variable \texttt{n\_positive\_frames} is increased by one. If this last variable overtakes the \texttt{WIDTH\_THRESHOLD} variable, then it can be considererd that a new car has been detected. If the \texttt{growth} variable gets equal to \texttt{-GROWTH\_LIMIT}, then it is considered that the car has already passed, and the variable \texttt{n\_positive\_frames} is restored to its initial value (zero).
+\BLUENOTE{For each frame, the number of \emword{motion vectors} in that frame is compared with the number of vectors in the previous frame, increasing or decreasing a variable called \variable{growth}. Once the number of frames exceed the \variable{HEIGHT\_THRESHOLD} variable, if the \variable{growth} variable is positive, the variable \variable{n\_positive\_frames} is increased by one. If this last variable overtakes the \variable{WIDTH\_THRESHOLD} variable, then it can be considererd that a new car has been detected. If the \variable{growth} variable gets equal to \variable{-GROWTH\_LIMIT}, then it is considered that the car has already passed, and the variable \variable{n\_positive\_frames} is restored to its initial value (zero).}
 
-An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-Count_cars_graphic}, where the blue line represents the number of motion vectors with left direction for each frame, and the red line represents the same but for right direction. The black line, represent the \texttt{HEIGHT\_THRESHOLD} variable. Therefore, a car can be predicted if the number of frames in one direction overtakes the \texttt{HEIGHT\_THRESHOLD} variable during more than \texttt{WIDTH\_THRESHOLD} frames. And, it can be considered that the car has already cross if the number of frames has been decreasing $\texttt{GROWTH\_LIMIT} \times 2 $ frames, regardless if the number of motion vectors is under the \texttt{HEIGHT\_THRESHOLD} variable or not. Therefore, in Figure \ref{fig:6-Count_cars_graphic}, it can be considered that two different cars have cross near the frame 1000, as the number of motion vectors has decreased during more than $\texttt{GROWTH\_LIMIT} \times 2 $ frames.
+An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-Count_cars_graphic}, where the blue line represents the number of \emword{motion vectors} with left \GREENNOTE{direction} for each frame, and the red line represents the same but for those that go from left to right. The black line, represent the \variable{HEIGHT\_THRESHOLD} variable. Therefore, a car can be predicted if the number of frames in one direction overtakes the \variable{HEIGHT\_THRESHOLD} variable during more than \variable{WIDTH\_THRESHOLD} frames. And, it can be considered that the car has already passed if the number of frames has been decreasing $\variable{GROWTH\_LIMIT} \times 2 $ frames, regardless if the number of \emword{motion vectors} is under the \variable{HEIGHT\_THRESHOLD} variable or not. Therefore, in Figure \ref{fig:6-Count_cars_graphic}, it can be considered that two different vehicles have passed near the frame 1000, as the number of \emword{motion vectors} has decreased during more than $\variable{GROWTH\_LIMIT} \times 2 $ frames.
 
 %\IncMargin{1em}
 \begin{algorithm}
-	\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+	\SetKwInput{Input}{Input}\SetKwInput{Output}{Output}
 	\LinesNumbered
 	\SetAlgoLined
 	
-	\Input{cols --> Number of colums with a macroblock in each frame\\
-		rows --> Number of rows with a macroblock in each frame\\
-		frames --> The number of frames in the video. \\
-		motion\_data --> Array that contains a structure [x,y,SAD] for each frame} 
-	\Output{n\_cars  --> Vector which contains the number of cars that has been counted crossing in left and right direction respectively.}
+	\Input{\textit{frames} --> The number of frames in the video. \newline
+		\textit{motion\_data} --> Vector that contains a structure [x,y,SAD] for each frame} 
+	\Output{\textit{n\_vehicles} --> Vector which contains the number of vehicles that has been counted passing in left and right direction respectively.}
 	
-	n\_cars $\gets$ [0, 0]\;
+	n\_vehicles $\gets$ [0, 0]\;
 	mv $\gets$ []\;
 	smooth\_mv $\gets$ []\;
 	car\_detected $\gets$ [False, False]\;
@@ -229,20 +264,21 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 	
 	\For{frame $\gets$ 0 to frames}{
 		%Add to the end of $mv$ vector a list with two elements. The first element consist in the number of motion vectors in that frame whose 'x' value is greather than the variable $GROUP\_SENSITIVITY$. The second element is the number of them whose 'x' value is lower than $-GROUP\_SENSITIVITY$.
-		\tcc{Obtain number of motion vectors in each direction.}
-		mv.append([ (motion\_data[frame]['x'] > GROUP\_SENSITIVITY).sum() ,
-		(motion\_data[frame]['x'] < -GROUP\_SENSITIVITY).sum() ])\;
+		\tcc{Obtain number of \emword{motion vectors} in each direction.}
+		left\_mvs $\gets$ (motion\_data[frame]['x'] > GROUP\_SENSITIVITY).sum()\;
+		right\_mvs $\gets$ (motion\_data[frame]['x'] < -GROUP\_SENSITIVITY).sum()\;
+		\textbf{insert} [left\_mvs, right\_mvs] \textbf{into} mv\;
 		
 		\BlankLine
-		\tcc{Apply moving averages to smooth the number of motion vectors}
+		\tcc{Apply moving averages to smooth the number of \emword{motion vectors}}
 		tmp\_left $\gets$ 0, tmp\_right $\gets$ 0\;
-		\For{i $\gets$ 0 to SMOOT\_ORDER}{
+		\For{i $\gets$ 0 to SMOOTH\_ORDER}{
 			j $\gets$ frame - i\;
 			\lIf{j < 0}{j $\gets$ 0}
 			tmp\_left $\gets$ tmp\_left + mv[j][0] \;
 			tmp\_right $\gets$ tmp\_right + mv[j][1]\;
 		}
-		smooth\_mv.append([tmp\_left / SMOOT\_ORDER, tmp\_right / SMOOT\_ORDER])\;
+		\textbf{insert} [tmp\_left / SMOOTH\_ORDER, tmp\_right / SMOOTH\_ORDER] \textbf{into} smooth\_mv\;
 		
 		\BlankLine
 		\BlankLine
@@ -262,7 +298,7 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 				\If{n\_positive\_frames[direction] >= WIDTH\_THRESHOLD \\
 					\hskip2em \textbf{and} car\_detected[direction] = False}{
 					car\_detected[direction] $\gets$ True\;
-					n\_cars[direction] $\gets$ n\_cars[direction] + 1\;
+					n\_vehicles[direction] $\gets$ n\_vehicles[direction] + 1\;
 				}
 				
 			}
@@ -272,39 +308,37 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 			}	
 		}	
 	}
-	\caption{Count cars (First Version)}\label{alg:count_cars_V1}
+	\caption{Count vehicle flow in a stored video}\label{alg:count_vehicles_V1}
 \end{algorithm}\DecMargin{1em}
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{6-Count_cars_graphic.pdf}
-		\caption{Number of motion vectors in the test video 8}
+		\caption{Number of \emword{motion vectors} in the test video 8}
 		\label{fig:6-Count_cars_graphic}
 	\end{center}
 \end{figure}
 
-Once the algorithm has been developed, it should be tested using the different videos recorded previously as it was stated in the list of test for the user story. The result of executing the algorithm over the different videos is shown in Table \ref{tab:Results_CountCars_V1}. After evaluating the results obtained, it is concluded that they are acceptable for the goal of this Sprint, therefore, a new Sprint can be started.
+Once the algorithm has been developed, it should be tested using the different videos recorded previously as it was stated in the list of tests for the user story. For this purpose an automated test has been programmed, which executes the algorithm over the different videos recorded, and whose results are shown in Table \ref{tab:Results_CountVehicles_V1}. In these tests, 23 videos of one minute length and with different camera configurations were tested and 89.57\% of the vehicles where correctly identified by the algorithm. After evaluating the results obtained, it is concluded that they are acceptable for the goal of this Sprint. Moreover, it is shown that the algorithm performs almost without any error if the camera is centered, this means that it looks perpendicular to the road, such as in Figure \ref{fig:4-Car_with_MV}. 
 
-\begin{table}[hp]
+The next step is to modify this algorithm to work in real time. For this purpose, the first step is to change the class used to process the \emword{motion vectors} to \texttt{PiMotionAnalysis}, and to create and structure that stores \emword{motion vectors} from the latter frames in order to be able to apply the algorithm. The last step is to measure the time taken by program to execute one iteration, which is approximately 0.0024 seconds, which is about 14 times lower than 0.033 seconds, with is the period between frames.
+
+\begin{table}[!h]
 	\centering
 	{\small
 		\input{tables/6-Results/Results_CountCarsV1.tex}
 	}
-	\caption{Results of the Algorithm \ref{alg:count_cars_V1} over the first test dataset}
-	\label{tab:Results_CountCars_V1}
+	\caption{Results of the Algorithm \ref{alg:count_vehicles_V1} using the first test video dataset}
+	\label{tab:Results_CountVehicles_V1}
 \end{table}
 
 
-\REDNOTE{Task: Create a module that use the counting algorithm to obtain the vehicle flow in real time (using PiMotionAnalysis) in this Sprint or in another one.}
-
-
-
+\newpage
 %%% Sprint 2
 \section{Sprint 2: Design of an environmental parameters monitoring system}
 In this Sprint, a program to obtain environmental data is going to be developed. This goal involves the integration of some environmental sensors to measure several parameters such as temperature, humidity and pressure, as well as, the design and implementation of an electronic circuit to measure some contaminant gases. These gas sensors used are the MQ-7 and MQ-2, which measures CO and LPG gases, respectively. Once the circuit has been implemented, a program must be developed in order to control the sensors, as well as get the data they generate and finally store it into a data structure.
 
-\subsection{Sprint planning meeting}
-During the planning meeting, the two user stories addressed in this sprint have been analysed. These user stories are shown in Tables \ref{tab:Sprint2-User-story-4} and \ref{tab:Sprint2-User-story-5}.
+During the planning meeting, the two user stories addressed in this Sprint have been analysed. These user stories are shown in Tables \ref{tab:Sprint2-User-story-4} and \ref{tab:Sprint2-User-story-5}.
 
 \UserStoryTable{4}{2}{High}{25}
 {Install environmental and gas sensors into Raspberry Pi}
@@ -327,9 +361,6 @@ During the planning meeting, the two user stories addressed in this sprint have 
 	\item Test the MQ gas sensor.
 }
 
-%Table \ref{tab:Sprint2-User-story-4}
-
-\subsection{Results of the development of the tasks}
 
 \subsubsection{T2.4.1. Install Raspberry Pi Sense Hat board}
 To install this board, the first step is to place it correctly on top of the Raspberry Pi, making sure that the GPIO pins (Figure \ref{fig:6-Raspberry-Pinout-En}) are correctly aligned. Then, press it down firmly so the board is properly attached to the Raspberry Pi.
@@ -531,12 +562,10 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 
 
 %%% Sprint 3
-\section{Sprint 3: Development a module to send data from Raspberry Pi to the cloud and store it into a Database}
-\REDNOTE{...}
-% Product Backlog refinement
+\section{Sprint 3: Development a module to send data from Raspberry Pi to the cloud and store it into a database}
+Following the project plan, this Sprint is dedicated to the development of the main program that integrates all the previous modules, collect the data they generate and sent it to the cloud. Moreover, a server should be developed to receive the data sent by the different devices, process and store it into a database. This Sprint cannot be started until Sprints 1 and 2 have been finished.
 
-\subsection{Sprint planning meeting}
-\REDNOTE{...}
+During the Sprint planning meeting the Scrum Team has analysed the different user stories and has divide them into some task and test. The user stories addressed in this Sprint are the ones shown in Tables \ref{tab:Sprint3-User-story-6}, \ref{tab:Sprint3-User-story-7} and \ref{tab:Sprint3-User-story-8}.
 
 \UserStoryTable{6}{3}{High}{15}
 {Develop a comunication module using IBM IoT}
@@ -564,15 +593,170 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 	\item Check if communication module obtains the generated data correctly.
 }
 
+\subsubsection{T3.6.1. Create and configure an IBM Watson IoT Platform account.}
+
+To send the data collected by the different Raspberry Pi devices, \emword{MQTT} messaging has been used. \emword{MQTT} is a publish and subscribe messaging transport protocol that is designed for the efficient exchange of real-time data between sensors and other devices. \emword{MQTT} runs over the TCP/IP protocol and it is the primary protocol used by the \emword{IBM Watson IoT Platform}, which is the service that have been used to abstract the complexity of implementing this \emword{MQTT} protocol. Moreover, IBM also provides some good resources for implementing the server that is developed in Sprint 4. 
+
+\BLUENOTE{IBM is one of the top companies that provides Cloud solutions for organizations. Their different services are widely used by lot of companies all over the word.} In addition, thanks to the IBM Academic Initiative program, the use of the IBM Bluemix services is completely free for students and teachers. For this reason we have decided to implement IBM Bluemix servicies in this \ac{BSc.} thesis.
+
+To create the IBM Academic account, first we need to register at \url{ibm.onthehub.com} using the University email. Then, we need to select \emph{IBM Cloud} and purchase it. This will not cost anything and a token will be generated which gives access to the IBM Bluemix services for 6 moths or 1 year, depending on whether the email correspond to a student or a teacher respectively. This token should be redeemed in \url{http://www.ibm.com/bluemix}. 
+
+Finally, we can access to the IBM Cloud dashboard in the webpage \url{console.bluemix.net}. There, all the services created will be listed as shown in Figure \ref{fig:6-Bluemix-DashBoard}. 
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{6-Bluemix-DashBoard.png}
+		\caption{Bluemix Console Dashboard}
+		\label{fig:6-Bluemix-DashBoard}
+	\end{center}
+\end{figure}
 
 
+\subsubsection{T3.6.2. Connect the Raspberry Pi device to the IoT Platform and send the data.}
 
-%Table \ref{tab:Sprint2-User-story-4}
+The IBM Watson \ac{IoT} Platform collect connected devices data and perform analytic on real-time data \cite{IBMIoT}. As it was mention in T3.6.1, the \ac{IoT} Platform relies on \emword{MQTT} service to send the data between the sensors and the applications running in the Servers. Figure \ref{fig:6-MQTT} shows a diagram with the basic structure of \emword{MQTT} messaging. In this example, the two Raspberry Pi devices collects the temperature and sent it to the \emword{MQTT} service (\emph{Publish}), whereas the Server manifest its intention of receiving the temperatures (\emph{Subscribe}) and, therefore, receives all the temperature data collected by the devices.
 
-\subsection{Results of the development of the tasks}
-\textbf{task something ...}
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{6-MQTT.pdf}
+		\caption{MQTT basic structure}
+		\label{fig:6-MQTT}
+	\end{center}
+\end{figure}
 
-\REDNOTE{...}
+From the IBM Bluemix Console Dashboard (Figure \ref{fig:6-Bluemix-DashBoard}), the \emph{Create Resource} section should be selected and then the \emph{Internet of Things Platform} service should be chosen. The \emph{little} plan will be available which allows to use the service for free, with some limitations like a maximum of 200 MB of data per month or 500 devices connected. Nevertheless, a plan with more resources can be bought if it is necessary at anytime. The last step is to click the \textit{Launch} button that will open IBM Watson \ac{IoT} Platform in a new browser window.
+
+Inside the IBM Watson \ac{IoT} Platform all the configuration related with the service can be managed. In addition, some statistics about the different devices connected can be obtained, in order to know if the system is working appropriately. The \textit{Devices} section (Figure \ref{fig:6-IoT_Dashboard}) display all the associated devices and allows to add new ones. In this page the device types can also be managed by selecting the \textit{Device Types} tab in the upper menu. The \texttt{Raspberry\_Pi} type has been defined, which allows to connect several Raspberry Pi devices. When a new device is added to the platform an authentication token is generated, which will be used by the device to connect to the IBM \ac{IoT} service. 
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{6-IoT_Dashboard.png}
+		\caption{MQTT basic structure}
+		\label{fig:6-IoT_Dashboard}
+	\end{center}
+\end{figure}
+
+The next step is to define the configuration file for each of the devices as it is shown in Listing \ref{lst:6-device-conf}, where the following parameters have to be defined:
+\begin{itemize}
+	\item \textbf{org.} The organization ID, which is displayed in the IBM Bluemix dashboard (Figure \ref{fig:6-Bluemix-DashBoard}).
+	\item \textbf{type.} Define the type of device. The device type is a grouping for devices that perform a specific task, in this case all the devices are of the type "Raspberry\_Pi".
+	\item \textbf{id.} An unique ID that identify each device which is defined when the device is added to the application.
+	\item \textbf{auth-method.} Defines the autentication method. The only supported method is "token".
+	\item \textbf{auth-token.} An authentication token that allows to securely connect the device to Watson \ac{IoT} Platform.
+	\item \textbf{clean-session.} When it is set to true the messages are queued while the device is not connected.
+\end{itemize}
+
+\lstinputlisting[firstline=1, texcl, caption = {\texttt{device.conf} file}, label = lst:6-device-conf]{code/6-device.conf}
+
+Once the parameters of the Watson \ac{IoT} Platform have been configured, the code to connect to it should be developed, which is shown in Listing \ref{lst:6-connect-IBM-IoT.py}. Lines 5 to 8 set the configuration stored into \texttt{device.conf} and connect to the service. Then, line 14 send the data variable, which is a dictionary with all the sensor data, to the MQTT queue. Finally, line 22 disconnect from the service. This will define the communication module of the Raspberry Pi device.
+
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to connect and send data to Watson IoT Platform}, label = lst:6-connect-IBM-IoT.py]{code/6-connect-IBM-IoT.py}
+
+Heretofore, the different data collected by the Raspberry Pi device can be sent to the MQTT queue. This data is published as an event in the Watson \ac{IoT} Platform. Events can be pulished with any of the three \ac{QoS} leves defined by the MQTT protocol:
+\begin{itemize}
+	\item \textbf{At most once (qos=0).} This is the fastest mode of transfer. The message is not stored and it is delivered across the network without acknowledgement.
+	\item \textbf{At least once (qos=1).} The message is delivered at least once. If a failure occurs before acknowledgement is received, then the message is forwarded again.
+	\item \textbf{Exactly once (qos=2).} This is the safest but slowest transfer mode. The message is always delivered exactly one. This means that the message must be stored locally at the sender, until a confirmation message is published by the receiver.
+\end{itemize}
+
+The application (receiver) that is subscribe to the "sensor\_update" event in the MQTT queue and process all the data generated by the Raspberry Pi devices is developed in User Story 7.
+
+
+\subsubsection{T3.7.1. Create a SQL database.}
+
+We want to store all the collected data in order to be able to access it later or just to plot a graph with the historical data. For this reason, a database is needed. As the data generated by the devices is well organized and fixed, a SQL database is used. The academic IBM Bluemix account allows to create a ClearDB database. ClearDB, is an external company that offers SQL databases. With the free plan a database of up to 10 MB can be created, but ClearDB offers more advanced plans if more space is needed.
+
+To manage the SQL database the application MySQL Workbench has been used, which is an unified visual tool for database architects and developers. This application is available on Windows, Mac OS and Linux distributions. The first step is to connect the application to the database. Then, two tables have been created (Figure \ref{fig:6-SQL-data-devices}). The \texttt{data} table stores all the data received from the Raspberry Pi devices, whereas the \texttt{devices} table stores information about all the different Raspberry Pi devices, such as the time interval when a new sensor update is generated, their location and the number of lines in the street where it is placed.
+
+\begin{figure}[htb]
+	\centering
+	\subfigure[\texttt{data} table]{
+		\begin{tabular}{ |p{.18\textwidth}p{.08\textwidth}P{0.08\textwidth}P{.04\textwidth}|}
+			\hline
+			\rowcolor{tabheadbg}
+			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
+			\hline
+			idDevice		& Int 		& No 	& Yes \\ 
+			\hline
+			DateAndTime		& Datetime 	& No 	& Yes \\  
+			\hline
+			Temperature		& Double 	& No 	& No \\  
+			\hline
+			Humidity		& Double 	& No 	& No \\ 
+			\hline
+			Pressure		& Double 	& No 	& No \\   
+			\hline
+			CO				& Double 	& No 	& No \\  
+			\hline
+			LPG				& Double 	& No 	& No \\  
+			\hline
+			VehiclesPerHour	& Int 		& No 	& No \\  
+			\hline			
+		\end{tabular}
+		\label{fig:6-SQL-data}
+	}
+	\subfigure[\texttt{devices} table]{
+		\begin{tabular}{ |p{.14\textwidth}p{.08\textwidth}P{0.08\textwidth}P{.04\textwidth}|}
+			\hline
+			\rowcolor{tabheadbg}
+			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
+			\hline
+			idDevice		& Int 		& No 	& Yes \\ 
+			\hline
+			timeInterval	& Int 		& Yes 	& No \\  
+			\hline
+			Location		& Varchar 	& Yes 	& No \\  
+			\hline
+			numberLines		& Int 		& No 	& No \\ 
+			\hline		
+		\end{tabular}
+		\label{fig:6-SQL-devices}
+	}
+	\caption{SQL tables structure}
+	\label{fig:6-SQL-data-devices}
+\end{figure}
+
+\subsubsection{T3.7.2. Develop a program that connects to IoT Platform and stores into the SQL database the received information.}
+
+A program has been developed to receive the data form the different Raspberry Pi devices and store it into the database previously created. This stored data is used by the webpage that is developed in Sprint 4. This program needs to access the IBM Watson IoT Platform and subscribe to the events that the Raspberry Pi devices generates. Therefore, the first step is to define the  \texttt{application.conf} file (Listing \ref{lst:6-application.conf}) which contains the information used to connect to the Watson IoT Platform. This file is similar as the one used by the Raspberry Pi devices, but there is one new parameter, \texttt{aut-key}, which is a value that must be specified when the authentication method is "apikey". This value is generated at the same time as the \texttt{aut-token} when a new Application is added to the platform from the \textit{Applications} panel.
+
+ 
+\lstinputlisting[firstline=1, texcl, caption = {\texttt{application.conf} file}, label = lst:6-application.conf]{code/6-application.conf}
+
+Listing \ref{lst:6-subscriber.py} shows the more import code employed in the program developed. Lines 6 to 22 defines the function that will be executed each time a new message arrives at the server. This function access to the database to store all the received data. Then, lines 27 to 35 connect to the Watson IoT Platform. To finish with, line 36 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 37 associate this event with the previously defined function.
+
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to store the data received from the Watson IoT Platform into the database}, label = lst:6-subscriber.py]{code/6-subscriber.py}
+
+
+\subsubsection{T3.8.1. Create a program that executes each module in a different thread.}
+
+At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to execute a main program that is going to create one thread for each module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} python library is used to create the different threads. We have decided to use threads instead of processes for two main reasons. The first reason is that threads share memory, which allows to have global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes threads share resources of the process to which they belong \cite{SGG06}.
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{6-Modules.pdf}
+		\caption{Raspberry Pi program structure}
+		\label{fig:6-Modules}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{T3.8.2. Modify communication module in order to access to the data generated by camera and sensor modules.}
+All the different modules executes concurrently and shares some resources such as memory. This allows to have some global variables that are used to communicate the data collected from Camera and Sensors module to the Communication one. Nevertheless, the \emword{critical section} problem is introduced using this approach \cite{SGG06}. A situation where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the order in which the access took place, is called a \emword{race condition}. A critical section is a segment of code in which processes may be changing global variables, therefore a race condition may occur. For this reason, only one process should be allowed to execute in its critical section. The code section implementing the request of a process to execute its critical section is called \emword{entry section}. The critical section might be followed by an \emword{exit section}, where the process communicates that it has finished executing its critical section. Any solution to the critical section problem must satisfy three requirements:
+\begin{itemize}
+	\item \textbf{Mutual exclusion.} If a process is executing in its critical section no other process can be executing in their critical sections.
+	\item \textbf{Progress.} The selection of the process that will enter the critical section next cannot be postponed indefinitely.
+	\item \textbf{Bounded waiting.} There is a limit on the number of times that any process is allowed to enter its critical section after another process has made a request to enter its critical section and before that request is granted.
+\end{itemize}
+
+\emword{Locks} have been used to solve the critical section problem. The lock is implemented using a binary semaphore, also called \emword{mutex}, which has a counter initialized to 1 and two main methods. \texttt{Acquire} method is used when a thread want to access the critical section, then if the internal variable of the lock is equal 1, the variable is decreased to 0 and the thread enter the critical section. In any other case, the thread gets block there until \texttt{release} method is called by any other thread into the same lock. Then variable will be set to 1 again and all the process that are blocked in the \texttt{acquire} method will compete for the access to the critical section. Listing \ref{lst:6-locks.py} shows a solution to the critical section problem using locks.
+
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {Solution to the critical section problem using locks}, label = lst:6-locks.py, emph={lock},emphstyle=\textbf]{code/6-locks.py}
+
+The main program running into the Raspberry Pi devices loads the different modules, define some global variables and a lock that is used for the critical section problem. Then, the process create two different threads, one for the Camera and another for the Sensor modules, passing them the lock previously created. The main thread is the one that will execute the communication module when all the other threads have been created. Listing \ref{lst:6-RP_program.py} shows the main structure of the final program. The communication module will be the one that orchestrate the rest of the modules, by means of a timer that will be triggered repeatedly after a determined number of seconds defined in \texttt{time\_interval} variable. The program configuration is stored in \texttt{config.py} file with is shown in Appendix \ref{chap:user_manual}.
+
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic structure of the Raspberry Pi final program}, label = lst:6-RP_program.py]{code/6-RP_program.py}
+
 
 
 %%% Sprint 4
@@ -580,7 +764,6 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 \REDNOTE{...}
 % Product Backlog refinement
 
-\subsection{Sprint planning meeting}
 \REDNOTE{...}
 
 \UserStoryTable{9}{4}{High}{10}
@@ -612,10 +795,45 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 
 %Table \ref{tab:Sprint2-User-story-4}
 
-\subsection{Results of the development of the tasks}
-\textbf{task something ...}
+\subsubsection{T3.9.1. Create an IBM Bluemix Cloud Foundry App to deploy the webpage.}
+\REDNOTE{...}
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{6-Webpage_App.png}
+		\caption{\REDNOTE{Webpage app}}
+		\label{fig:6-Webpage_App}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{T3.9.2. Create a simple webpage usign a Bootstrap template.}
+
+
+\REDNOTE{Hablar de las multicapas y del DBBroker}
+
+\REDNOTE{Explain main subpage and configuration one. Add users table to the SQL database}
 
 \REDNOTE{...}
+
+
+\subsubsection{T3.10.1. Create a subpage to visualize the last data obtained by the devices.}
+
+\REDNOTE{...}
+
+
+\subsubsection{T3.10.2. Implement a notification system.}
+
+\REDNOTE{Add notifications table to the SQL database}
+
+\REDNOTE{...}
+
+
+\subsubsection{T3.11.1. Create a subpage that displays a graph with the stored data.}
+
+\REDNOTE{...}
+
+
 
 
 
