@@ -55,16 +55,14 @@ class CommunicationModule():
 
 # Main program
 def serviceShutdown(signum, frame):
-    """
-    Raise ProgramExit exception in order to exit the program.
-    """
+    """ Raise ProgramExit exception in order to exit from the program."""
     print('\nCaught signal %d - Attempting peaceful exit: Stopping all the modules.' % signum)
     raise ProgramExit
 
 
 # MAIN PROGRAM
 if __name__ == "__main__":
-    # Initlialize variables
+    # Initialize variables
     id_device = DEVICEID
     list_vehicles = []
     sensor_data = {

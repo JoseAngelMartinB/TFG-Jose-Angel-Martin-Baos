@@ -2,7 +2,7 @@
 % !TeX spellcheck = en_GB
 
 %%%% CHAPTER: Results %%%
-\chapter{Results} % TODO
+\chapter{Results}
 \label{chap:results}
 
 \drop{I}{n} this chapter, the different results obtained during the development of this \ac{BSc.} thesis are presented. The working methodology presented in Chapter \ref{chap:methodology} is used to carry out the work. In first place, the initial Sprint is presented, where the Scrum team is set up, as well as the initial planning of the project. Subsequently, the different Sprints are presented, where the work planned in the initial Sprint are carried out.
@@ -33,7 +33,7 @@ Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team h
 \end{itemize}
 
 \subsection{Product Backlog}
-The Scrum Team had several meetings after the completion of the draft (“Anteproyecto”) and the different requirements stated in the draft were translated to user stories that should be accomplished during the execution of the BSc. thesis. The Scrum Team has defined the different user stories, as well as the priority and the estimated duration they will have using planning poker technique. In this technique, the product owner explains an user story and each member of the development team writes his estimation into a card \cite{Gar18}. Nonetheless, in this case, all the members of the Scrum Team have participated in the estimation. The final list of User stories is shown in Table \ref{tab:User-Stories}.
+The Scrum Team had several meetings after the completion of the draft (“Anteproyecto”) and the different requirements stated in the draft were translated to user stories that needs to be accomplished during the execution of the BSc. thesis. The Scrum Team has defined the different user stories, as well as the priority and the estimated duration they will have using planning poker technique. In this technique, the product owner explains an user story and each member of the development team writes his estimation into a card \cite{Gar18}. Nonetheless, in this case, all the members of the Scrum Team have participated in the estimation. The final list of User stories is shown in Table \ref{tab:User-Stories}.
 
 \begin{table}[hp]
 	\centering
@@ -140,9 +140,9 @@ Taking into account Tables \ref{tab:Hardware-Costs} and \ref{tab:Development-Cos
 %%% Sprint 1
 \section{Sprint 1: Development of an algorithm to calculate the traffic flows based on video data}
 \label{Section:Sprint1}
-According to the project plan, in this Sprint, the tasks associated to the user stories 1, 2 and 3 should be executed. This iteration aims to obtain an algorithm to count the number of vehicles that cross a street in a certain amount of time so as to obtain the vehicle flow. To be able to count the number of vehicles using the PiCamera, \emword{motion vectors} are used. Therefore, some research about video codification and \emword{motion vectors} is needed before implementing the algorithm. But first, it is necessary to configure the Raspberry Pi architecture and to install the PiCamera. 
+According to the project plan, in this Sprint, the tasks associated to the user stories 1, 2 and 3 have to be executed. This iteration aims to obtain an algorithm to count the number of vehicles that cross a street in a certain amount of time so as to obtain the vehicle flow. To be able to count the number of vehicles using the PiCamera, \emword{motion vectors} are used. Therefore, some research about video codification and \emword{motion vectors} is needed before implementing the algorithm. But first, it is necessary to configure the Raspberry Pi architecture and to install the PiCamera. 
 
-During the planning meeting, the different user stories addressed in this Sprint has been analysed. Consequently, they have been divided into several tasks and tests. The three user stories are shown in Tables from \ref{tab:Sprint1-User-story-1} to \ref{tab:Sprint1-User-story-3}.
+During the planning meeting the different user stories addressed in this Sprint has been analysed. Consequently, they have been divided into several tasks and tests. The three user stories are shown in Tables from \ref{tab:Sprint1-User-story-1} to \ref{tab:Sprint1-User-story-3}.
 
 \UserStoryTable{1}{1}{High}{15}
 {Configure Raspberry Pi Architecture}
@@ -155,7 +155,7 @@ During the planning meeting, the different user stories addressed in this Sprint
 
 \UserStoryTable{2}{1}{High}{5}
 {Install PiCamera module in the Raspberry Pi}
-{The PiCamera module must be working and some sample videos should be recorded in order to check the camera.}
+{The PiCamera module must be working and some sample videos have to be recorded in order to check the camera.}
 {	\item Install the PiCamera module.
 	\item Develop a program to record videos.
 }{	\item Check if the camera is working correctly by storing some photos and videos.
@@ -191,7 +191,7 @@ The next step is connecting the PiCamera module and configuring it as it is deta
 \end{figure}
 
 \subsubsection{T1.2.2. Develop a program to record videos}
-A configuration file has been implemented containing some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed without difficulties. The file format is shown and explained in Appendix \ref{chap:user_manual}. The parameters related to the camera are shown in Listing \ref{lst:6-camera-config}.
+A configuration file has been implemented containing some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed without difficulties. The file format is shown and explained in Appendix \ref{chap:config_file}. The parameters related to the camera are shown in Listing \ref{lst:6-camera-config}.
 
 \lstinputlisting[language=Python, firstline=4, texcl, caption = {Part of \texttt{config.py} file containing the camera parameters}, label = lst:6-camera-config]{code/6-camera-config.py}
 
@@ -207,7 +207,7 @@ $ \frac { Nmv }{ Npx } \simeq 0.4\% $. In consequence, we can say that motion ve
 
 This task deals with the need of extracting motion data from videos. To achieve this task, \texttt{PiMotionAnalysis} class from \texttt{picamera.array} is used. While recording is in progress, the incoming motion data is stored into a numpy array and the \texttt{analyse} method from this class is called with the resulting array passed as argument \cite{PiCameraDoc}. This class can be extended and then, the \texttt{analyse} method can be overridden. Therefore, in this method, the \emword{motion vectors} can be used to identify motion fields in the video.
 
-The \texttt{analyse} method is called by the camera each time a frame is recorded and the motion vectors obtained for that frame are passed as argument to this method. Then, the algorithm to count the number of vehicles should be implemented inside this method, in order to be executed in each frame. Nonetheless, due to the fact that the camera is configured to record 30 frames per second (fps), the execution of the algorithm should not last more than $1/30$ seconds or even less due to the overhead of the picamera itself when generating the image. This is a major limitation that must be taken into account when designing and implementing the algorithm.
+The \texttt{analyse} method is called by the camera each time a frame is recorded and the motion vectors obtained for that frame are passed as argument to this method. Then, the algorithm to count the number of vehicles have to be implemented inside this method, in order to be executed in each frame. Nonetheless, due to the fact that the camera is configured to record 30 frames per second (fps), the execution of the algorithm must last less than $1/30$ seconds or even less due to the overhead of the picamera itself when generating the image. This is a major limitation that must be taken into account when designing and implementing the algorithm.
 
 \subsubsection{T1.3.2. Read and process the data stored containing the motion vectors.}
 \BLUENOTE{Due to the fact that \texttt{PiMotionAnalysis} class is used when the video is being recorded, it is used in the final implementation but first, in order to complete the different test, \texttt{PiMotionArray} class is used instead. This class converts the incoming motion data into a numpy array as the realtime version (\texttt{PiMotionAnalysis}), but the conversion is made when the recording has finished. This will allow us to have the videos with the motion data stored into files and use them at any time, allowing us to check the implemented algorithm and the different parameters. The class generates a 3-dimensional numpy array organized as (frames, rows, columns) where rows and columns are the number of the rows and columns of the macro-block (see Section \ref{subsect:Macroblocks}) in the frame. In the implementation of this class there is an extra column in the motion vector data that is not going to be used.}
@@ -319,7 +319,7 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 	\end{center}
 \end{figure}
 
-Once the algorithm has been developed, it should be tested using the different videos recorded previously as it was stated in the list of tests for the user story. For this purpose an automated test has been programmed, which executes the algorithm over the different videos recorded, and whose results are shown in Table \ref{tab:Results_CountVehicles_V1}. In these tests, 23 videos of one minute length and with different camera configurations were tested and 89.57\% of the vehicles where correctly identified by the algorithm. After evaluating the results obtained, it is concluded that they are acceptable for the goal of this Sprint. Moreover, it is shown that the algorithm performs almost without any error if the camera is centered, this means that it looks perpendicular to the road, such as in Figure \ref{fig:4-Car_with_MV}. 
+Once the algorithm has been developed, it needs to be tested using the different videos recorded previously as it was stated in the list of tests for the user story. For this purpose an automated test has been programmed, which executes the algorithm over the different videos recorded, and whose results are shown in Table \ref{tab:Results_CountVehicles_V1}. In these tests, 23 videos of one minute length and with different camera configurations were tested and 89.57\% of the vehicles where correctly identified by the algorithm. After evaluating the results obtained, it is concluded that they are acceptable for the goal of this Sprint. Moreover, it is shown that the algorithm performs almost without any error if the camera is centered, this means that it looks perpendicular to the road, such as in Figure \ref{fig:4-Car_with_MV}. 
 
 The next step is to modify this algorithm to work in real time. For this purpose, the first step is to change the class used to process the \emword{motion vectors} to \texttt{PiMotionAnalysis}, and to create and structure that stores \emword{motion vectors} from the latter frames in order to be able to apply the algorithm. The last step is to measure the time taken by program to execute one iteration, which is approximately 0.0024 seconds, which is about 14 times lower than 0.033 seconds, with is the period between frames.
 
@@ -420,7 +420,7 @@ The consequence of using the LM317 chip is that it has an internal drift that we
 
 
 \subsubsection{T2.4.3. Connect the electronic circuit to Raspberry Pi device}
-The next step is to connect the previous electronic circuit to the Raspberry Pi. For this purpose the GPIO pins are going to be used. However, as the Sense hat module has been installed in the Raspberry Pi, not all the GPIO pins are available. These pins can be located in Figure \ref{fig:6-Raspberry-Pinout-Expanded} or using the webpage \url{https://pinout.xyz/} where all the information about the different pins is displayed. Therefore, for the \ac{SPI} communication with the MCP3008 chip the pins BCM  18, 19, 20, and 21 are used. In addition, pin BCM 16 is used for \ac{PWM} and GPIO 4 and 6 for 5 volts power and ground respectively. Figure \ref{fig:6-Electric_diagram.pdf} shows the connection diagram of the components using a protoboard to connect them.
+The next step is to connect the previous electronic circuit to the Raspberry Pi. For this purpose the GPIO pins are going to be used. However, as the Sense hat module has been installed in the Raspberry Pi, not all the GPIO pins are available. These pins can be located in Figure \ref{fig:6-Raspberry-Pinout-Expanded} or using the web page \url{https://pinout.xyz/} where all the information about the different pins is displayed. Therefore, for the \ac{SPI} communication with the MCP3008 chip the pins BCM  18, 19, 20, and 21 are used. In addition, pin BCM 16 is used for \ac{PWM} and GPIO 4 and 6 for 5 volts power and ground respectively. Figure \ref{fig:6-Electric_diagram.pdf} shows the connection diagram of the components using a protoboard to connect them.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -562,24 +562,26 @@ These parameters are going to be used to adjust Equation (\ref{eq:smoothed_avera
 
 
 %%% Sprint 3
-\section{Sprint 3: Development a module to send data from Raspberry Pi to the cloud and store it into a database}
-Following the project plan, this Sprint is dedicated to the development of the main program that integrates all the previous modules, collect the data they generate and sent it to the cloud. Moreover, a server should be developed to receive the data sent by the different devices, process and store it into a database. This Sprint cannot be started until Sprints 1 and 2 have been finished.
+\section{Sprint 3: Development of a module to send data from Raspberry Pi to the Cloud and store it into a database}
+Following the project plan, Sprint 3 is dedicated to the development of the main program that integrates all the previous modules, collects the data they generate and sends it to the Cloud. Moreover, a server needs to be developed to receive the data send by the multiple devices, process and store it into a database. Sprint 3 cannot be started unless Sprints 1 and 2 are finished.
 
-During the Sprint planning meeting the Scrum Team has analysed the different user stories and has divide them into some task and test. The user stories addressed in this Sprint are the ones shown in Tables \ref{tab:Sprint3-User-story-6}, \ref{tab:Sprint3-User-story-7} and \ref{tab:Sprint3-User-story-8}.
+During the Sprint planning meeting the Scrum Team analysed the different user stories and divided them into some tasks and tests. The user stories addressed in this Sprint are shown in Tables \ref{tab:Sprint3-User-story-6} to \ref{tab:Sprint3-User-story-8}.
+
+% TODO: Add Ricardo's diagram?
 
 \UserStoryTable{6}{3}{High}{15}
 {Develop a comunication module using IBM IoT}
-{Development of a comunication module that allows to send Raspberry Pi data to the cloud usign IBM Watson IoT Platform.}
+{Development of a comunication module that allows to send Raspberry Pi data to the Cloud usign IBM Watson IoT Platform.}
 {	\item Create and configure an IBM Watson IoT Platform account.
-	\item Connect the Raspberry Pi device to the IoT Platform and send the data.
-}{	\item Check if the data sent by the Raspberry Pi device has arrived to the IoT Platform.
+	\item Connect the Raspberry Pi device to the IoT Platform.
+}{	\item Check if the data sent by the Raspberry Pi device has been received in the IoT Platform.
 }
 
 \UserStoryTable{7}{3}{High}{12}
-{Receive sensor data from the Raspberry Pi and store it into a Database}
-{Development of a program to receive the sensor data from the different Raspberry Pi devices and store it into a SQL Database.}
+{Receive sensor data from the Raspberry Pi and store it into a database}
+{Development of a program to receive the sensor data from the multiple Raspberry Pi devices and store it into a SQL Database.}
 {	\item Create a SQL database.
-	\item Develop a program that connects to IoT Platform and stores into the SQL database the received information.
+	\item Develop a program that connects to the IoT Platform and stores into the SQL database the received information.
 }{	\item Check the SQL database connectivity.
 	\item Check if the data generated by the Raspberry Pi is correctly stored into the database.
 }
@@ -593,15 +595,13 @@ During the Sprint planning meeting the Scrum Team has analysed the different use
 	\item Check if communication module obtains the generated data correctly.
 }
 
-\subsubsection{T3.6.1. Create and configure an IBM Watson IoT Platform account.}
+\subsubsection{T3.6.1. Create and configure an IBM Watson IoT Platform account}
 
-To send the data collected by the different Raspberry Pi devices, \emword{MQTT} messaging has been used. \emword{MQTT} is a publish and subscribe messaging transport protocol that is designed for the efficient exchange of real-time data between sensors and other devices. \emword{MQTT} runs over the TCP/IP protocol and it is the primary protocol used by the \emword{IBM Watson IoT Platform}, which is the service that have been used to abstract the complexity of implementing this \emword{MQTT} protocol. Moreover, IBM also provides some good resources for implementing the server that is developed in Sprint 4. 
+To send the data collected by each one of the Raspberry Pi devices, \emword{MQTT} messaging has been used. \emword{MQTT} is a publish and subscribe messaging transport protocol that is designed for the efficient exchange of real-time data between sensors and other devices. \emword{MQTT} runs over the TCP/IP protocol and it is the primary protocol used by the \emword{IBM Watson IoT Platform}, which is the service that have been used to communicate the Raspberry Pi devices. Moreover, IBM also provides some good resources for implementing the server that is developed in Sprint 4. 
 
-\BLUENOTE{IBM is one of the top companies that provides Cloud solutions for organizations. Their different services are widely used by lot of companies all over the word.} In addition, thanks to the IBM Academic Initiative program, the use of the IBM Bluemix services is completely free for students and teachers. For this reason we have decided to implement IBM Bluemix servicies in this \ac{BSc.} thesis.
+IBM is one of the top companies that provides cloud solutions for organizations. Their different services are widely used by lot of companies all over the world. In addition, thanks to the IBM Academic Initiative program, the use of the IBM Bluemix services is completely free for students and teachers. For this reason we have decided to use them in this \ac{BSc.} thesis.
 
-To create the IBM Academic account, first we need to register at \url{ibm.onthehub.com} using the University email. Then, we need to select \emph{IBM Cloud} and purchase it. This will not cost anything and a token will be generated which gives access to the IBM Bluemix services for 6 moths or 1 year, depending on whether the email correspond to a student or a teacher respectively. This token should be redeemed in \url{http://www.ibm.com/bluemix}. 
-
-Finally, we can access to the IBM Cloud dashboard in the webpage \url{console.bluemix.net}. There, all the services created will be listed as shown in Figure \ref{fig:6-Bluemix-DashBoard}. 
+To create the IBM Academic account, first we need to register at \url{ibm.onthehub.com} using the University email. Then, we need to select \emph{IBM Cloud} and purchase it. This does not cost anything and a token will be generated which gives access to the IBM Bluemix services for 6 moths or 1 year, depending on whether the email corresponds to a student or a teacher, respectively. This token has to be introduced in \url{http://www.ibm.com/bluemix}. Finally, we can access to the IBM Cloud dashboard in the web page \url{console.bluemix.net}. There, all the services created are listed as shown in Figure \ref{fig:6-Bluemix-DashBoard}. 
 
 \begin{figure}[!h]
 	\begin{center}
@@ -612,9 +612,9 @@ Finally, we can access to the IBM Cloud dashboard in the webpage \url{console.bl
 \end{figure}
 
 
-\subsubsection{T3.6.2. Connect the Raspberry Pi device to the IoT Platform and send the data.}
+\subsubsection{T3.6.2. Connect the Raspberry Pi device to the IoT Platform}
 
-The IBM Watson \ac{IoT} Platform collect connected devices data and perform analytic on real-time data \cite{IBMIoT}. As it was mention in T3.6.1, the \ac{IoT} Platform relies on \emword{MQTT} service to send the data between the sensors and the applications running in the Servers. Figure \ref{fig:6-MQTT} shows a diagram with the basic structure of \emword{MQTT} messaging. In this example, the two Raspberry Pi devices collects the temperature and sent it to the \emword{MQTT} service (\emph{Publish}), whereas the Server manifest its intention of receiving the temperatures (\emph{Subscribe}) and, therefore, receives all the temperature data collected by the devices.
+The IBM Watson \ac{IoT} Platform collects connected devices data and performs analytics on real-time data \cite{IBMIoT}. The \ac{IoT} Platform relies on \emword{MQTT} service to send the data between the sensors and the applications running in the servers. Figure \ref{fig:6-MQTT} shows a diagram with the basic structure of \emword{MQTT} messaging. In this example, two Raspberry Pi devices collect the temperature and send it to the \emword{MQTT} service (\emph{Publish}), whereas the server manifest its intention of receiving the temperatures (\emph{Subscribe}) and, therefore, receives all the temperature data collected by the devices.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -624,49 +624,51 @@ The IBM Watson \ac{IoT} Platform collect connected devices data and perform anal
 	\end{center}
 \end{figure}
 
-From the IBM Bluemix Console Dashboard (Figure \ref{fig:6-Bluemix-DashBoard}), the \emph{Create Resource} section should be selected and then the \emph{Internet of Things Platform} service should be chosen. The \emph{little} plan will be available which allows to use the service for free, with some limitations like a maximum of 200 MB of data per month or 500 devices connected. Nevertheless, a plan with more resources can be bought if it is necessary at anytime. The last step is to click the \textit{Launch} button that will open IBM Watson \ac{IoT} Platform in a new browser window.
+From the IBM Bluemix Console Dashboard (Figure \ref{fig:6-Bluemix-DashBoard}), the \emph{Create Resource} section needs to be selected and then the \emph{Internet of Things Platform} service have to be chosen. The \emph{little} plan is available and allows to use the service for free, with some limitations like a maximum of 200 MB of data per month or a maximum of 500 devices connected. Nevertheless, a plan with more resources can be bought if it is necessary at anytime. The last step is to click the \textit{Launch} button that opens IBM Watson \ac{IoT} Platform in a new browser window.
 
-Inside the IBM Watson \ac{IoT} Platform all the configuration related with the service can be managed. In addition, some statistics about the different devices connected can be obtained, in order to know if the system is working appropriately. The \textit{Devices} section (Figure \ref{fig:6-IoT_Dashboard}) display all the associated devices and allows to add new ones. In this page the device types can also be managed by selecting the \textit{Device Types} tab in the upper menu. The \texttt{Raspberry\_Pi} type has been defined, which allows to connect several Raspberry Pi devices. When a new device is added to the platform an authentication token is generated, which will be used by the device to connect to the IBM \ac{IoT} service. 
+Inside the IBM Watson \ac{IoT} Platform all the configuration related with the service can be managed. In addition, some statistics about the different devices connected can be obtained, in order to know if the system is working properly. The \textit{Devices} section (Figure \ref{fig:6-IoT_Dashboard}) displays all the associated devices and allows to add new ones. In this page the device types can also be managed by selecting the \textit{Device Types} tab in the upper menu. The \texttt{Raspberry\_Pi} type has been defined, which allows to connect several Raspberry Pi devices. When a new device is added to the platform an authentication token is generated, which is used by the device to connect to the IBM \ac{IoT} service. 
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{6-IoT_Dashboard.png}
-		\caption{MQTT basic structure}
+		\caption{Devices section of the IBM Watson IoT Platform}
 		\label{fig:6-IoT_Dashboard}
 	\end{center}
 \end{figure}
 
-The next step is to define the configuration file for each of the devices as it is shown in Listing \ref{lst:6-device-conf}, where the following parameters have to be defined:
+The next step is to define the configuration file for each one of the devices as it is shown in Listing \ref{lst:6-device-conf}, where the following parameters are:
 \begin{itemize}
-	\item \textbf{org.} The organization ID, which is displayed in the IBM Bluemix dashboard (Figure \ref{fig:6-Bluemix-DashBoard}).
-	\item \textbf{type.} Define the type of device. The device type is a grouping for devices that perform a specific task, in this case all the devices are of the type "Raspberry\_Pi".
-	\item \textbf{id.} An unique ID that identify each device which is defined when the device is added to the application.
-	\item \textbf{auth-method.} Defines the autentication method. The only supported method is "token".
+	\item \textbf{org.} Indicates the organization ID, which is displayed in the IBM Bluemix dashboard (Figure \ref{fig:6-Bluemix-DashBoard}).
+	\item \textbf{type.} Identifies the type of device. The device type is a grouping for devices that perform a specific task.
+	\item \textbf{id.} It is an unique ID that identifies each device which is added to the application.
+	\item \textbf{auth-method.} It defines the autentication method. The only supported method at this moment is "token".
 	\item \textbf{auth-token.} An authentication token that allows to securely connect the device to Watson \ac{IoT} Platform.
 	\item \textbf{clean-session.} When it is set to true the messages are queued while the device is not connected.
 \end{itemize}
 
 \lstinputlisting[firstline=1, texcl, caption = {\texttt{device.conf} file}, label = lst:6-device-conf]{code/6-device.conf}
 
-Once the parameters of the Watson \ac{IoT} Platform have been configured, the code to connect to it should be developed, which is shown in Listing \ref{lst:6-connect-IBM-IoT.py}. Lines 5 to 8 set the configuration stored into \texttt{device.conf} and connect to the service. Then, line 14 send the data variable, which is a dictionary with all the sensor data, to the MQTT queue. Finally, line 22 disconnect from the service. This will define the communication module of the Raspberry Pi device.
+Once the parameters of the Watson \ac{IoT} Platform have been configured, the code to connect to it was developed, as shown in Listing \ref{lst:6-connect-IBM-IoT.py}. Lines 5 to 8 set the configuration stored into \texttt{device.conf} and allow connecting to the service. Then, line 14 sends the data variable, which is a dictionary with all the sensor data, to the MQTT queue. Finally, line 22 disconnects from the service. This defines the communication module of the Raspberry Pi device.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to connect and send data to Watson IoT Platform}, label = lst:6-connect-IBM-IoT.py]{code/6-connect-IBM-IoT.py}
 
-Heretofore, the different data collected by the Raspberry Pi device can be sent to the MQTT queue. This data is published as an event in the Watson \ac{IoT} Platform. Events can be pulished with any of the three \ac{QoS} leves defined by the MQTT protocol:
+Heretofore, the different data collected by the Raspberry Pi device were sent to the MQTT queue. This data is published as an event in the Watson \ac{IoT} Platform. Events can be pulished associated to any of the three \ac{QoS} leves defined by the MQTT protocol:
 \begin{itemize}
 	\item \textbf{At most once (qos=0).} This is the fastest mode of transfer. The message is not stored and it is delivered across the network without acknowledgement.
 	\item \textbf{At least once (qos=1).} The message is delivered at least once. If a failure occurs before acknowledgement is received, then the message is forwarded again.
-	\item \textbf{Exactly once (qos=2).} This is the safest but slowest transfer mode. The message is always delivered exactly one. This means that the message must be stored locally at the sender, until a confirmation message is published by the receiver.
+	\item \textbf{Exactly once (qos=2).} This is the safest but slowest transfer mode. The message is always delivered exactly one. This means that the message must be stored locally at the sender until a confirmation message is published by the receiver.
 \end{itemize}
 
-The application (receiver) that is subscribe to the "sensor\_update" event in the MQTT queue and process all the data generated by the Raspberry Pi devices is developed in User Story 7.
+The application (receiver) that is subscribed to the "sensor\_update" event in the MQTT queue and process all the data generated by the Raspberry Pi devices is developed in User Story 7.
 
 
-\subsubsection{T3.7.1. Create a SQL database.}
+\subsubsection{T3.7.1. Create a SQL database}
 
-We want to store all the collected data in order to be able to access it later or just to plot a graph with the historical data. For this reason, a database is needed. As the data generated by the devices is well organized and fixed, a SQL database is used. The academic IBM Bluemix account allows to create a ClearDB database. ClearDB, is an external company that offers SQL databases. With the free plan a database of up to 10 MB can be created, but ClearDB offers more advanced plans if more space is needed.
+We want to store all the collected data in order to be able to access it later or to plot a graph with the historical data. For this reason, a database is needed. As the data generated by the devices is well organized and fixed, a relational SQL database is used. The academic IBM Bluemix account allows to create a ClearDB database. ClearDB is an external company that offers SQL databases. With the free plan a database of up to 10 MB can be created. Nonetheless, ClearDB offers advanced plans if more space is needed.
 
-To manage the SQL database the application MySQL Workbench has been used, which is an unified visual tool for database architects and developers. This application is available on Windows, Mac OS and Linux distributions. The first step is to connect the application to the database. Then, two tables have been created (Figure \ref{fig:6-SQL-data-devices}). The \texttt{data} table stores all the data received from the Raspberry Pi devices, whereas the \texttt{devices} table stores information about all the different Raspberry Pi devices, such as the time interval when a new sensor update is generated, their location and the number of lines in the street where it is placed.
+To manage the SQL database the application MySQL Workbench is used, which is an unified visual tool for database architects and developers. This application is available on Windows, Mac OS and Linux distributions. The first step is to connect the application to the database. Each database table have one or more columns, which contains data of a certain data type. In Figure \ref{fig:6-SQL-data-devices} the \texttt{Nullable} attribute specifies if a column can contain null data, whereas the \texttt{PK} attribute specifies if the column is part of the \textit{Primary Key}.
+
+Two tables have been created: The \texttt{data} table (Figure \ref{fig:6-SQL-data}) stores all the data received from the Raspberry Pi devices; whereas the \texttt{devices} table (Figure \ref{fig:6-SQL-devices}) stores information about all the different Raspberry Pi devices, such as the time interval when a sensor is updated, their location and the number of lanes in the street where the sensor is located.
 
 \begin{figure}[htb]
 	\centering
@@ -676,9 +678,9 @@ To manage the SQL database the application MySQL Workbench has been used, which 
 			\rowcolor{tabheadbg}
 			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
 			\hline
-			idDevice		& Int 		& No 	& Yes \\ 
+			\underline{idDevice}		& Int 		& No 	& Yes \\ 
 			\hline
-			DateAndTime		& Datetime 	& No 	& Yes \\  
+			\underline{DateAndTime}		& Datetime 	& No 	& Yes \\  
 			\hline
 			Temperature		& Double 	& No 	& No \\  
 			\hline
@@ -701,7 +703,7 @@ To manage the SQL database the application MySQL Workbench has been used, which 
 			\rowcolor{tabheadbg}
 			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
 			\hline
-			idDevice		& Int 		& No 	& Yes \\ 
+			\underline{idDevice}		& Int 		& No 	& Yes \\ 
 			\hline
 			timeInterval	& Int 		& Yes 	& No \\  
 			\hline
@@ -712,25 +714,25 @@ To manage the SQL database the application MySQL Workbench has been used, which 
 		\end{tabular}
 		\label{fig:6-SQL-devices}
 	}
-	\caption{SQL tables structure}
+	\caption{Structure of the \texttt{data} and \texttt{devices} SQL tables}
 	\label{fig:6-SQL-data-devices}
 \end{figure}
 
-\subsubsection{T3.7.2. Develop a program that connects to IoT Platform and stores into the SQL database the received information.}
+\subsubsection{T3.7.2. Develop a program that connects to the IoT Platform and stores into the SQL database the received information}
 
-A program has been developed to receive the data form the different Raspberry Pi devices and store it into the database previously created. This stored data is used by the webpage that is developed in Sprint 4. This program needs to access the IBM Watson IoT Platform and subscribe to the events that the Raspberry Pi devices generates. Therefore, the first step is to define the  \texttt{application.conf} file (Listing \ref{lst:6-application.conf}) which contains the information used to connect to the Watson IoT Platform. This file is similar as the one used by the Raspberry Pi devices, but there is one new parameter, \texttt{aut-key}, which is a value that must be specified when the authentication method is "apikey". This value is generated at the same time as the \texttt{aut-token} when a new Application is added to the platform from the \textit{Applications} panel.
+A program has been developed to receive the data from the different Raspberry Pi devices and store it into the database previously created. This program runs in a server together with the web server developed in Sprint 4. The program access to the IBM Watson IoT Platform and subscribes to the events that the Raspberry Pi devices generates. Therefore, the first step is to define the \texttt{application.conf} file (Listing \ref{lst:6-application.conf}) which contains the information used to connect to the Watson IoT Platform. This file is similar to the one used by the Raspberry Pi devices, but there is one new parameter, \texttt{aut-key}, which is a value generated at the same time as the \texttt{aut-token} when a new Application is added to the platform from the \textit{Applications} panel.
 
  
 \lstinputlisting[firstline=1, texcl, caption = {\texttt{application.conf} file}, label = lst:6-application.conf]{code/6-application.conf}
 
-Listing \ref{lst:6-subscriber.py} shows the more import code employed in the program developed. Lines 6 to 22 defines the function that will be executed each time a new message arrives at the server. This function access to the database to store all the received data. Then, lines 27 to 35 connect to the Watson IoT Platform. To finish with, line 36 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 37 associate this event with the previously defined function.
+Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed. Lines 6 to 22 define the function that is executed each time a new message arrives at the server. This function accesses to the database to store all the received data. Then, lines 27 to 35 connect to the Watson IoT Platform. To finish with, line 36 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 37 associates this event with the previously defined function.
 
-\lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to store the data received from the Watson IoT Platform into the database}, label = lst:6-subscriber.py]{code/6-subscriber.py}
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to store data received from the Watson IoT Platform into the database}, label = lst:6-subscriber.py]{code/6-subscriber.py}
 
 
-\subsubsection{T3.8.1. Create a program that executes each module in a different thread.}
+\subsubsection{T3.8.1. Create a program that executes each module in a different thread}
 
-At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to execute a main program that is going to create one thread for each module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} python library is used to create the different threads. We have decided to use threads instead of processes for two main reasons. The first reason is that threads share memory, which allows to have global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes threads share resources of the process to which they belong \cite{SGG06}.
+At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} python library is used to create the different threads. We have decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -741,43 +743,42 @@ At this point, all the necessary modules for the Raspberry Pi devices have been 
 \end{figure}
 
 
-\subsubsection{T3.8.2. Modify communication module in order to access to the data generated by camera and sensor modules.}
-All the different modules executes concurrently and shares some resources such as memory. This allows to have some global variables that are used to communicate the data collected from Camera and Sensors module to the Communication one. Nevertheless, the \emword{critical section} problem is introduced using this approach \cite{SGG06}. A situation where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the order in which the access took place, is called a \emword{race condition}. A critical section is a segment of code in which processes may be changing global variables, therefore a race condition may occur. For this reason, only one process should be allowed to execute in its critical section. The code section implementing the request of a process to execute its critical section is called \emword{entry section}. The critical section might be followed by an \emword{exit section}, where the process communicates that it has finished executing its critical section. Any solution to the critical section problem must satisfy three requirements:
+\subsubsection{T3.8.2. Modify communication module in order to access to the data generated by camera and sensor modules}
+All the different modules execute concurrently and share some resources such as memory. This allows to have some global variables that are used to communicate the data collected from Camera and Sensors module to the Communication one. Nevertheless, the \emword{critical section} problem is introduced using this approach \cite{SGG06}. A situation where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the order in which the access took place, is called a \emword{race condition}. A critical section is a segment of code in which processes may change global variables, therefore a race condition can occur. For this reason, only one process must be allowed to execute in its critical section. The code section implementing the request of a process to execute its critical section is called \emword{entry section}. The critical section might be followed by an \emword{exit section}, where the process communicates that it has finished executing its critical section. Any solution to the critical section problem must satisfy three requirements:
 \begin{itemize}
 	\item \textbf{Mutual exclusion.} If a process is executing in its critical section no other process can be executing in their critical sections.
 	\item \textbf{Progress.} The selection of the process that will enter the critical section next cannot be postponed indefinitely.
 	\item \textbf{Bounded waiting.} There is a limit on the number of times that any process is allowed to enter its critical section after another process has made a request to enter its critical section and before that request is granted.
 \end{itemize}
 
-\emword{Locks} have been used to solve the critical section problem. The lock is implemented using a binary semaphore, also called \emword{mutex}, which has a counter initialized to 1 and two main methods. \texttt{Acquire} method is used when a thread want to access the critical section, then if the internal variable of the lock is equal 1, the variable is decreased to 0 and the thread enter the critical section. In any other case, the thread gets block there until \texttt{release} method is called by any other thread into the same lock. Then variable will be set to 1 again and all the process that are blocked in the \texttt{acquire} method will compete for the access to the critical section. Listing \ref{lst:6-locks.py} shows a solution to the critical section problem using locks.
+\emword{Locks} have been used to solve the critical section problem. The lock is implemented using a binary semaphore, also called \emword{mutex}, which has a counter initialized to 1 and two main methods. \texttt{Acquire} method is used when a thread want to access the critical section, then if the internal variable of the lock is equal 1, the variable is decreased to 0 and the thread enters the critical section. In any other case, the thread gets blocked there until \texttt{release} method is called by any other thread into the same lock. Then variable will be set to 1 again and all the processes that are blocked in the \texttt{acquire} method will compete for the access to the critical section. Listing \ref{lst:6-locks.py} shows a solution to the critical section problem using locks.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Solution to the critical section problem using locks}, label = lst:6-locks.py, emph={lock},emphstyle=\textbf]{code/6-locks.py}
 
-The main program running into the Raspberry Pi devices loads the different modules, define some global variables and a lock that is used for the critical section problem. Then, the process create two different threads, one for the Camera and another for the Sensor modules, passing them the lock previously created. The main thread is the one that will execute the communication module when all the other threads have been created. Listing \ref{lst:6-RP_program.py} shows the main structure of the final program. The communication module will be the one that orchestrate the rest of the modules, by means of a timer that will be triggered repeatedly after a determined number of seconds defined in \texttt{time\_interval} variable. The program configuration is stored in \texttt{config.py} file with is shown in Appendix \ref{chap:user_manual}.
+The main program running into the Raspberry Pi devices loads the different modules, defines some global variables and a lock that is used for the critical section problem. Then, the process creates two different threads, one for the camera and another for the sensor modules, passing them the lock previously created. The main thread is the one that executes the communication module once all the other threads have been created. Listing \ref{lst:6-RP_program.py} shows the main structure of the final program. The communication module is the one that orchestrate the rest of the modules, by means of a timer which is triggered repeatedly after a determined number of seconds defined in \texttt{time\_interval} variable. The configuration of the program is stored in \texttt{config.py} file with is shown in Appendix \ref{chap:config_file}.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic structure of the Raspberry Pi final program}, label = lst:6-RP_program.py]{code/6-RP_program.py}
 
 
 
 %%% Sprint 4
-\section{Sprint 4: Development of a program to monitor the data in real time and control the Raspberry Pi systems}
-\REDNOTE{...}
-% Product Backlog refinement
+\section{Sprint 4: Development of a web page to monitor the data in real time and to control the Raspberry Pi systems}
+The aim of this iteration is the development of a web page which allows to monitor the data obtained by the multiple Raspberry Pi devices installed. This web page have to allow monitoring the data in real time and visualizing the data collected in a certain time interval. Moreover, a notification system is implemented, which allows the users to be informed if a certain parameter get over a given threshold.
 
-\REDNOTE{...}
+In the Sprint planning meeting the different user stories that are addressed has been analysed and discussed. These user stories  are shown in Tables from \ref{tab:Sprint4-User-story-9} to \ref{tab:Sprint4-User-story-11}, where they had been divided into several tasks and tests.
 
 \UserStoryTable{9}{4}{High}{10}
-{Design a webpage to monitor the data obtained by the Raspberry Pi devices}
-{Development of a webpage to allow users to access the data collected by the sensor devices.}
-{	\item Create an IBM Bluemix Cloud Foundry App to deploy the webpage.
-	\item Create a simple webpage usign a Bootstrap template.
-}{	\item Check if the webpage is accesible in the web browser.
+{Design a web page to monitor the data obtained by the Raspberry Pi devices}
+{Development of a web page to allow users to access the data collected by the sensor devices.}
+{	\item Create an IBM Bluemix Cloud Foundry App to deploy the web page.
+	\item Create a simple web page using a Bootstrap template.
+}{	\item Check if the web page is accessible in the web browser.
 	\item Test the functionality of the implemented Bootstrap template.
 }
 
-\UserStoryTable{10}{4}{High}{20}
+\UserStoryTable{10}{4}{Medium}{20}
 {Monitor in real time the data obtained by the devices and send an alert if the pollutant gases exceed a threshold}
-{Implement a subpage into the webpage that allows users to access to the data obtained by the Rasberry Pi devices in real time, as well as implementing an email notification system to alert supervisors if the pollutant gases exceed a threshold level.}
+{Implement a subpage into the web page that allows users to access to the data obtained by the Rasberry Pi devices in real time, as well as implementing an email notification system to alert supervisors if the pollutant gases exceed a threshold level.}
 {	\item Create a subpage to visualize the last data obtained by the devices.
 	\item Implement a notification system.
 }{	\item Check if the last data recorded is shown correcly.
@@ -786,87 +787,230 @@ The main program running into the Raspberry Pi devices loads the different modul
 
 \UserStoryTable{11}{4}{Medium}{20}
 {Display the historical data generated by the Raspberry Pi devices}
-{Develop a subpage into the webpage to visualize the information stored from the devices in an interval of time.}
+{Develop a subpage into the web page to visualize the information stored from the devices in an interval of time.}
 {	\item Create a subpage that displays a graph with the stored data.
 }{	\item Check the correctness of the displayed graphs.
+	\item Test the whole system
 }
 
 
+\subsubsection{T3.9.1. Create an IBM Bluemix Cloud Foundry App to deploy the web page}
+The IBM Bluemix service has been used to create a web app. IBM Cloud allows to create mobile and web applications that can be managed from the IBM Cloud console or by command line, which allows building, running and deploying the app. The first step is to create an IBM Bluemix Cloud Foundry App from the IBM Cloud dashboard (Figure \ref{fig:6-Bluemix-DashBoard}). Python has been selected as the programming language for the web app to maintain consistency with the code developed for the Raspberry Pi devices. Moreover, python allows programmers implement functions with fewer lines of code. The Cloud Foundry App created has been named \textit{BSc Thesis Web page}.
 
-%Table \ref{tab:Sprint2-User-story-4}
+\emword{IBM Cloud Developer Tools} is a command line program for managing IBM Cloud Foundry Apps. These tools can be installed using the command:
+\begin{console}
+$ curl -sL https://ibm.biz/idt-installer | bash
+\end{console} %$
 
-\subsubsection{T3.9.1. Create an IBM Bluemix Cloud Foundry App to deploy the webpage.}
-\REDNOTE{...}
+Then, the web app need to be configured in the IBM Cloud Developer Tools. For this purpose, the directory where the web app code is placed have to be accessed using the command line. Next, the Developer Tools have to be associated with the developer IBM Cloud account by using:
+\begin{console}
+$ bluemix login -u joseangel.martin3@alu.uclm.es -o JoseAngel.Martin3@alu.uclm.es -s dev
+\end{console} %$
+
+Once configured the web app can be managed from the command line in the developer's computer. To upload or update our code into the IBM servers and start running the application the following command need to be executed:
+\begin{console}
+$ bluemix app push "BSc Thesis Webpage"
+\end{console} %$
+
+To finish with, the status of the application can be checked from the IBM Cloud Dashboard as shown in Figure \ref{fig:6-Webpage_App} or by using the command line as shown in Figure \ref{fig:6-AppShow}. In addition, some parameters from the application such as the number of instances or the memory per instance can be configured here.
 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{6-Webpage_App.png}
-		\caption{\REDNOTE{Webpage app}}
+		\caption{Web app status}
 		\label{fig:6-Webpage_App}
 	\end{center}
 \end{figure}
 
-
-\subsubsection{T3.9.2. Create a simple webpage usign a Bootstrap template.}
-
-
-\REDNOTE{Hablar de las multicapas y del DBBroker}
-
-\REDNOTE{Explain main subpage and configuration one. Add users table to the SQL database}
-
-\REDNOTE{...}
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.85\textwidth]{6-AppShow.png}
+		\caption{Web app status usign command line}
+		\label{fig:6-AppShow}
+	\end{center}
+\end{figure}
 
 
-\subsubsection{T3.10.1. Create a subpage to visualize the last data obtained by the devices.}
+\subsubsection{T3.9.2. Create a simple web page using a Bootstrap template}
+\emword{Bootstrap} \cite{Meg14} is a free open-source toolkit for developing with HTML, CSS and JavaScript. Bootstrap is used for developing responsive websites and web applications. There are lots of bootstrap themes that can be downloaded and used as a base for developing the web page. In this \ac{BSc.} thesis the theme used is \textit{SB Admin}\footnote{SB Admin theme can be downloaded on: \url{https://startbootstrap.com/template-overviews/sb-admin/}}.
 
-\REDNOTE{...}
+Bootstrap has been used to build the front-end of the web page, whereas \emword{Flask} framework \cite{Gri14} for Python programming language has been employed to build the back-end of the application. Flask does not requiere the use of particular tools of libraries. For this reason any library can be used to implement the database abstraction layer and the rest of the components. The SQL database has been integrated into the server using the \emword{PyMySQL} library \cite{Mat16}. 
+
+A multi-layered architecture or \textit{n}-tier architecture has been employed in the web server. It consists in dividing the different components on several layers. More concretely, three-tier architecture has been used, which consists in three layers: presentation, domain and persistence.
+
+The \emword{presentation layer} is responsible for handling all user interface and browser communication logic. This information is passed to the domain or business layer, which is responsible for executing specific business rules associated with the request. To end with, persistence layer is in charge of performing load and store operations into the database.
+
+% TODO: Dibujo de las multicapas con que lenguaje funciona cada una?
+
+The \emword{persistence layer} contains the \texttt{DBBroker} class, which is in charge of connecting to the database and perform operations on it. This class implement the \emword{Singleton} design pattern \cite{Vil07}, which avoid creating more than one instance of the same class. The responsibility of creating just one instance is relegated to the class itself. Therefore, if when the class is used if no instance exists a new one is created and stored for posterior calls to the class functions. The \texttt{DBBroker} class is shown in Listing \ref{lst:6-DBBroker}.
+
+The \emword{domain layer} contains the classes related with the logic and calculations that must be carried out with the data, whereas the presentation layer contains the functions necessary to render the different web page parts and display the data. To finish with, the \texttt{ServerConfig.py} file contains the configuration parameters for the web server and the SQL database.
+
+The web page was published on \url{http://joseangelmartin-bsc.eu-gb.mybluemix.net} at the beginning of May.
+
+\lstinputlisting[language=Python, firstline=1, texcl, caption = {\texttt{DBBroker.py}}, label = lst:6-DBBroker]{code/6-DBBroker.py}
 
 
-\subsubsection{T3.10.2. Implement a notification system.}
+\subsubsection{T3.10.1. Create a subpage to visualize the last data obtained by the devices}
+The objective of this task consist in the creation of a section in the previous web page where the last data sent from all the devices can be accessed. Therefore, if the devices are online, which means that they are active in that moment, the data displayed corresponds to the current vehicle flow and weather conditions in the place where the device is located.
 
-\REDNOTE{Add notifications table to the SQL database}
+A list of devices (Figure \ref{fig:6-RealTime_Selector}) has been created, where the user can select any of the devices that are configured in the system. When a device is selected, the data is loaded in the page (Figure \ref{fig:6-RealTime_Tables}). For displaying the temperature, humidity and pressure some gauges have been employed, using JustGage JavaScrpt plugin\footnote{\url{http://justgage.com/}}. The CO and LPG gasses concentration and the traffic flow are displayed in some small colour cards. Each card change its colour depending on some levels that are defined in the \textit{About this page}\footnote{\url{http://joseangelmartin-bsc.eu-gb.mybluemix.net/about.html}} section of the web page. 
 
-\REDNOTE{...}
+These levels are defined for CO and LPG as \textit{Very Low}, \textit{Low}, \textit{Medium}, \textit{High} and \textit{Very High}. The CO levels have been extracted from the Air Quality Now webpage (Figure \ref{fig:4-Pollution-Index-Airqualitynow}) \cite{airqualitynow}. The LPG levels have been calculated taking into account that the maximum LPG concentration allowed during an 8-hour workday by the Occupational Safety and Health Administration (OSHA) is 1000 ppm \footnote{\url{https://www.cdc.gov/niosh/npg/npgd0679.html}}. Finally, the Traffic flow levels are adapted from the "Highway Capacity Manual" \cite{HCM2000}.
+
+\begin{figure}[htb]
+	\centering
+	\subfigure[Device selection table]{
+		\includegraphics[width=1\textwidth]{6-RealTime_Selector.png}
+		\label{fig:6-RealTime_Selector}
+	}
+	\subfigure[Device last data]{
+		\includegraphics[width=1\textwidth]{6-RealTime_Tables.png}
+		\label{fig:6-RealTime_Tables}
+	}
+	\caption{Realtime data supage}
+	\label{fig:6-RealTime}{\url{http://joseangelmartin-bsc.eu-gb.mybluemix.net/real_time.html}}
+\end{figure}
 
 
-\subsubsection{T3.11.1. Create a subpage that displays a graph with the stored data.}
+\subsubsection{T3.10.2. Implement a notification system}
 
-\REDNOTE{...}
+A configuration page has been created, where some configurations parameters for the webpage are defined. In order control who can enter this page, a new table need to be added to the SQL database to store the users (Figure \ref{fig:6-SQL-users}). This \texttt{users} table stores one entry per each user. Each entry contains: An \texttt{user\_id} column which stores an unique identifier per user, an \texttt{email} column for the user email used to access the configuration page, and a \texttt{password} and \texttt{last\_token} column.
+
+When the user log into the page, the \texttt{user\_id} column for that user is appended to the email. Then, this text string is encrypted using \ac{AES} algorithm, using the password written by the user in the login section as the key for the algorithm. The resultant coded string is compared with the one stored in the \texttt{password} column of the database. If they are the same, the login is authorised and an \ac{UUID}, which is a random string of 128 bits, is generated and stored in the \texttt{last\_token} column and in a cookie into the user's web browser.
+%TODO: Ventajas de usar este sistema de autenticación ?
+
+Each time the user access the configuration page the value stored into the user's cookie is compared with the value in the \texttt{last\_token} column. If both values are the same, the user can access the page, in other case, the user is redirected to the login page.
+
+Notifications allows the users to receive alerts on the email if a determine parameter (CO, LPG or vehicles flow) get over a threshold. Inside the configuration page, there is a section to manage the notifications. Therefore, a \texttt{notifications} table (Figure \ref{fig:6-SQL-notifications}) needs to be added to the database. An example of a notification is shown in Figure \ref{fig:6-NotificationAlert}.
+
+\begin{figure}[htb]
+	\centering
+	\subfigure[\texttt{users} table structure]{
+		\begin{tabular}{ |p{.12\textwidth}p{.08\textwidth}P{0.08\textwidth}P{.04\textwidth}|}
+			\hline
+			\rowcolor{tabheadbg}
+			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
+			\hline
+			user\_id			& Int 		& No 	& Yes \\ 
+			\hline
+			email			& Varchar 	& No 	& No \\  
+			\hline
+			password		& Varchar 	& No 	& No \\  
+			\hline
+			last\_token		& Varchar 	& Yes 	& No \\ 
+			\hline		
+		\end{tabular}
+		\label{fig:6-SQL-users}
+	}
+	\subfigure[\texttt{notifications} table structure]{
+		\begin{tabular}{ |p{.16\textwidth}p{.08\textwidth}P{0.08\textwidth}P{.04\textwidth}|}
+			\hline
+			\rowcolor{tabheadbg}
+			\textscale{.8}{\textbf{Column}}	& \textscale{.8}{\textbf{Type}}	& \textscale{.8}{\textbf{Nullable}} 	& \textscale{.8}{\textbf{PK}} \\
+			\hline
+			email			& Varchar	& No 	& Yes \\ 
+			\hline
+			COLimit			& Double 	& Yes 	& No \\  
+			\hline
+			LPGLimit		& Double 	& Yes 	& No \\  
+			\hline
+			vehiclesLimit	& Double 	& Yes 	& No \\ 
+			\hline		
+		\end{tabular}
+		\label{fig:6-SQL-notifications}
+	}
+	\caption{Structure of the \texttt{users} and \texttt{notifications} SQL tables}
+	\label{fig:6-SQL-users-notifications}
+\end{figure}
 
 
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{6-NotificationAlert.png}
+		\caption{Example notification alert email}
+		\label{fig:6-NotificationAlert}
+	\end{center}
+\end{figure}
 
 
+\subsubsection{T3.11.1. Create a subpage that displays a graph with the stored data}
+The last task focus on the creation of a section in the web page where the user can show a chart of the evolution of each of the parameters measured in a certain time interval. Therefore, the user have to be able of selecting the time interval and the devices from which their data will be displayed. 
 
-%%%% Sprint X
-%\section{Sprint X: ....}
-%\REDNOTE{...}
-%% Product Backlog refinement
-%
-%\subsection{Sprint planning meeting}
-%\REDNOTE{...}
-%
-%%\UserStoryTable{4}{3}{High}{x}
-%%{Name of the user story}
-%%{A description of the user story}
-%%{	\item Task A
-%%	\item Task B
-%%	\item Task C
-%%}{	\item Test A
-%%	\item Test B
-%%}
-%
-%%Table \ref{tab:Sprint2-User-story-4}
-%
-%\subsection{Results of the development of the tasks}
-%\textbf{task something ...}
-%
-%\REDNOTE{...}
-%
-%\subsection{Daily Scrum}
-%\REDNOTE{...}
-%
-%\subsection{Sprint review}
-%\REDNOTE{...}
-%
-%\subsection{Sprint retrospective}
-%\REDNOTE{...}
+To avoid having lot of peaks in the chart, as measures are taken every 5 minutes, a moving average is applied to the displayed charts. Equation (\ref{eq:simple_moving_averages}) shows the moving average formula. The factor used in the moving average can be changed in the configuration page. Figure \ref{fig:6-SampleChart} shows an example of the humidity chart for two devices.
+
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=1\textwidth]{6-SampleChart.png}
+		\caption{Humidity chart with moving average}
+		\label{fig:6-SampleChart}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{Final test}
+To finish with the Sprint and the Results section, a test of the complete architecture has been done. In this test, one device has been executing during the whole day, measuring the vehicle flow and the environmental parameters. Due to the difficulties of placing the device in the street during the whole day, the test has been carried out inside a house in Ciudad Real. The device was located near the window of the hose, from where the street was completely visible. Figure \ref{fig:6-Test_Loc1} and \ref{fig:6-Test_Loc2} shows the location of the device inside the house, whereas Figure \ref{fig:6-Test_Loc3} shows the image captured by the camera. 
+
+Then, Figure \ref{fig:6-RealTime} shows the different charts for the data recorded with the device 1 from the 30th of May 2018 at 13:12 to 21:45 of the same day.
+
+\begin{figure}[htb]
+	\centering
+	\subfigure[]{
+		\includegraphics[width=0.75\textwidth]{6-Test_Loc1.jpg}
+		\label{fig:6-Test_Loc1}
+	}\\
+	\subfigure[]{
+		\includegraphics[width=0.48\textwidth]{6-Test_Loc2.jpg}
+		\label{fig:6-Test_Loc2}
+	}
+	\subfigure[Camera view]{
+		\includegraphics[width=0.48\textwidth]{6-Test_Loc3.jpg}
+		\label{fig:6-Test_Loc3}
+	}
+	\caption{Final test: Device location}
+	\label{fig:6-Test_Loc}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\subfigure[Temperature]{
+		\includegraphics[width=1\textwidth]{6-Experiment_Temperature.png}
+		\label{fig:6-Experiment_Temperature}
+	}
+	\subfigure[Humidity]{
+		\includegraphics[width=1\textwidth]{6-Experiment_Humidity.png}
+		\label{fig:6-Experiment_Humidity}
+	}
+	\subfigure[Pressure]{
+		\includegraphics[width=1\textwidth]{6-Experiment_Pressure.png}
+		\label{fig:6-Experiment_Pressure}
+	}
+	\caption{Final test charts}
+	\label{fig:6-RealTime}
+\end{figure}
+
+\begin{figure}[htb]\ContinuedFloat
+	\centering
+	\subfigure[CO]{
+		\includegraphics[width=1\textwidth]{6-Experiment_CO.png}
+		\label{fig:6-Experiment_CO}
+	}
+	\subfigure[LPG]{
+		\includegraphics[width=1\textwidth]{6-Experiment_LPG.png}
+		\label{fig:6-Experiment_LPG}
+	}
+	\subfigure[Vehicle Flow]{
+		\includegraphics[width=1\textwidth]{6-Experiment_Vehicles.png}
+		\label{fig:6-Experiment_Vehicles}
+	}
+	\caption{Final test charts (cont.)}
+	\label{fig:6-RealTime}{\url{http://joseangelmartin-bsc.eu-gb.mybluemix.net/historical.html}}
+\end{figure}
+
+\subsubsection{Web page url}
+
+\begin{tabular}{|>{\columncolor[HTML]{C0C0C0}}l |}
+	\hline
+	\url{http://joseangelmartin-bsc.eu-gb.mybluemix.net}\\
+	\hline
+\end{tabular}

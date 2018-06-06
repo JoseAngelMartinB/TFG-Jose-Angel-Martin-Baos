@@ -176,11 +176,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
                     <div class="col-lg-6">
                       {% if data['CO'] < limits['CO'][0] %}
                         <div class="card text-white bg-very-low o-hidden h-100">
-                      {% elif data['CO'] > limits['CO'][0] and data['CO'] < limits['CO'][1] %}
+                      {% elif data['CO'] >= limits['CO'][0] and data['CO'] < limits['CO'][1] %}
                         <div class="card text-white bg-low o-hidden h-100">
-                      {% elif data['CO'] > limits['CO'][1] and data['CO'] < limits['CO'][2] %}
+                      {% elif data['CO'] >= limits['CO'][1] and data['CO'] < limits['CO'][2] %}
                         <div class="card text-white bg-medium o-hidden h-100">
-                      {% elif data['CO'] > limits['CO'][2] and data['CO'] < limits['CO'][3] %}
+                      {% elif data['CO'] >= limits['CO'][2] and data['CO'] < limits['CO'][3] %}
                         <div class="card text-white bg-high o-hidden h-100">
                       {% else %}
                         <div class="card text-white bg-very-high o-hidden h-100">
@@ -200,11 +200,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
                     <div class="col-lg-6">
                       {% if data['LPG'] < limits['LPG'][0] %}
                         <div class="card text-white bg-very-low o-hidden h-100">
-                      {% elif data['LPG'] > limits['LPG'][0] and data['LPG'] < limits['LPG'][1] %}
+                      {% elif data['LPG'] >= limits['LPG'][0] and data['LPG'] < limits['LPG'][1] %}
                         <div class="card text-white bg-low o-hidden h-100">
-                      {% elif data['LPG'] > limits['LPG'][1] and data['LPG'] < limits['LPG'][2] %}
+                      {% elif data['LPG'] >= limits['LPG'][1] and data['LPG'] < limits['LPG'][2] %}
                         <div class="card text-white bg-medium o-hidden h-100">
-                      {% elif data['LPG'] > limits['LPG'][2] and data['LPG'] < limits['LPG'][3] %}
+                      {% elif data['LPG'] >= limits['LPG'][2] and data['LPG'] < limits['LPG'][3] %}
                         <div class="card text-white bg-high o-hidden h-100">
                       {% else %}
                         <div class="card text-white bg-very-high o-hidden h-100">
@@ -234,11 +234,11 @@ https://startbootstrap.com/template-overviews/sb-admin/
                 <div class="card-body">
                   {% if data['Vehicles_per_line'] < limits['Vehicles'][0] %}
                     <div class="card text-white bg-very-low o-hidden h-100">
-                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][0] and data['Vehicles_per_line'] < limits['Vehicles'][1] %}
+                  {% elif data['Vehicles_per_line'] >= limits['Vehicles'][0] and data['Vehicles_per_line'] < limits['Vehicles'][1] %}
                     <div class="card text-white bg-low o-hidden h-100">
-                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][1] and data['Vehicles_per_line'] < limits['Vehicles'][2] %}
+                  {% elif data['Vehicles_per_line'] >= limits['Vehicles'][1] and data['Vehicles_per_line'] < limits['Vehicles'][2] %}
                     <div class="card text-white bg-medium o-hidden h-100">
-                  {% elif data['Vehicles_per_line'] > limits['Vehicles'][2] and data['Vehicles_per_line'] < limits['Vehicles'][3] %}
+                  {% elif data['Vehicles_per_line'] >= limits['Vehicles'][2] and data['Vehicles_per_line'] < limits['Vehicles'][3] %}
                     <div class="card text-white bg-high o-hidden h-100">
                   {% else %}
                     <div class="card text-white bg-very-high o-hidden h-100">

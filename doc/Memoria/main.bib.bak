@@ -507,8 +507,49 @@
   author    = {Silberschatz, Abraham and Galvin, Peter Baer and Gagne, Greg},
   title     = {Operating System Concepts 7th Edition},
   year      = {2006},
-  publisher = {John Wiley \&\#38; Sons, Inc.},
+  publisher = {John Wiley \& Sons, Inc.},
   isbn      = {047176907X},
+}
+
+@Book{Meg14,
+  author = {Riwanto Megosinarso},
+  title  = {Step by Step Bootstrap 3: A Quick Guide to Responsive Web Development Using Bootstrap 3},
+  year   = {2014},
+  editor = {CreateSpace Independent Publishing Platform},
+}
+
+@Book{Gri14,
+  author = {Miguel Grinberg},
+  title  = {Flask Web Development: Developing Web Applications with Python},
+  year   = {2014},
+  editor = {O'Reilly Media, Inc},
+}
+
+@Electronic{Mat16,
+  author       = {Yutaka Matsubara},
+  title        = {PyMySQL documentation},
+  year         = {2016},
+  note         = {[Accessed 5 May 2018]},
+  howpublished = {\url{https://pymysql.readthedocs.io/en/latest/}},
+}
+
+@Electronic{Vil07,
+  author       = {David Villa},
+  title        = {Patrón Singleton en Python como metaclase},
+  year         = {2007},
+  note         = {[Accessed 4 May 2018]},
+  howpublished = {\url{http://crysol.github.io/recipe/2007-06-27/patrn-singleton-en-python-como-metaclase.html}},
+}
+
+@Book{HCM2000,
+  author    = {Transportation research board},
+  title     = {Highway Capacity Manual},
+  year      = {2000},
+  publisher = {Transportation Research Board, National Research Council},
+  address   = {Washington, D.C.},
+  groups    = {public},
+  key       = {TRB},
+  timestamp = {2012-04-13T20:28:54.000+0200},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
