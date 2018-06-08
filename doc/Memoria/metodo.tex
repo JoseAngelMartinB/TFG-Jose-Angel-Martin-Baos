@@ -153,7 +153,7 @@ However, some disadvantages should be commented:
 \end{itemize}
 
 
-\section{Resources} %TODO: Completar
+\section{Resources}
 In this section we are going to describe the different technologies that are employed during the development of this \ac{BSc.} thesis.
 
 \subsection{Hardware resources}
@@ -220,9 +220,16 @@ Now, the different hardware resources employed in the \ac{BSc.} thesis are detai
 
 
 \subsection{Software resources}
-In this part the different software resources employed are described. These include the \ac{OS}, programming languages, libraries, the different development tools and the software used to generate the documentation.
+In this part the different software resources employed are described. These include the \ac{OS}, programming languages, libraries, the different development tools and the software used to generate the documentation as shown in Figure \ref{fig:5-SoftwareResources}.
 
-\REDNOTE{Image of the different software resources as in DanielEsteban \ac{TFG}.} %TODO
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[width=0.92\textwidth]{5-SoftwareResources.pdf}
+		\caption{Software resources}
+		\label{fig:5-SoftwareResources}
+	\end{center}
+\end{figure}
+
 
 \textbf{Operating Systems:}
 \begin{itemize}
@@ -238,6 +245,21 @@ In this part the different software resources employed are described. These incl
 \textbf{Programming Languages:}
 \begin{itemize}
 	\item \emlst{Python 3 \cite{Dow12}.} Python is a high-level programming language. Python focuses on offering a simple syntax, as well as being an interpreted language, allowing it to be ideal for scripting and for developing applications in various areas and for most platforms. In addition, it is an \ac{OO} language and has efficient and high-level data structures. Python has been used because it has lot of support for Raspberry Pi. Moreover, the main libraries for the camera module of the Raspberry Pi are written in Python and can use the power of the NumPy scientific computation library.
+	
+	\item \emlst{HTML \cite{Duc11}.} Hypertext Markup Language or HTML is the most common markup language for the creation of webpages or web applications. Web browsers receive the HTML code from the web severs and render it into web pages that are displayed to the user.
+	
+	\item \emlst{CSS \cite{Duc11}.} Cascading Style Sheets or CSS is a style sheet language which is used to create rules that specify how the content of an element should appear in a web page.
+	
+	\item \emlst{JavaScript.} JavaScript or JS is a high-level interpreted programming language. I is commonly used in interactive webpages and it is a essential part of web applications. JS supports functional, imperative, object-oriented and event-driven programming styles. Initially, it was created to run on the client-side, but nowadays it is used also in the web servers.
+	
+\end{itemize}
+
+
+\textbf{Database:}
+\begin{itemize}
+	\item \emlst{MySQL \cite{Bea05}.} MySQL is an open-source relational database management system. It use \ac{SQL} language internally to access and mange the database.
+	
+	\item \emlst{MySQL Workbench.} It is an unified visual tool which provides data modelling, SQL development and comprehensive administrations tools for MySQL database servers configuration and maintenance.  
 	
 \end{itemize}
 
@@ -259,18 +281,21 @@ In this part the different software resources employed are described. These incl
 	
 	\item \emlst{Git \cite{CS14}.} Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.
 	
-	\item \emlst{GitHub.} GitHub is a web-based Git version control repository. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.\footnote{GitHub webpage: \url{https://github.com/}}
-	
-	%\item \textbf{Make}    https://www.gnu.org/doc/doc.html
-	
+	\item \emlst{GitHub.} GitHub is a web-based Git version control repository. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.\footnote{GitHub webpage: \url{https://github.com/}}	
 	
 \end{itemize}
 
 \textbf{Software used for the documentation:}
 \begin{itemize}
-	\item \emlst{Trello.} Trello is a web tool which provides support for the Kanban technique allowing to manage the progress of the project. Trello provides the functionality to create boards composed by several lists with cards in them. For this project, a board has been created with 3 lists: \emph{To Do}, \emph{Doing} and \emph{Done}.$^{\ref{footnote-1}}$
+	\item \emlst{Trello.} Trello is a web tool which provides support for the Kanban technique allowing to manage the progress of the project. Trello provides the functionality to create boards composed by several lists with cards in them. For this project, a board has been created with 3 lists: \emph{To Do}, \emph{Doing} and \emph{Done}.$^{\ref{footnote-1}}$ Figure \ref{fig:5-Trello} shows a screen capture of Trello during the execution of User Story 3 in the Sprint 1.
 	
-	\REDNOTE{Insert a screen capture of the Board} %TODO
+	\begin{figure}[!h]
+		\begin{center}
+			\includegraphics[width=0.96\textwidth]{5-Trello.png}
+			\caption{Kanban board on Trello during the execution of User Story 3}
+			\label{fig:5-Trello}
+		\end{center}
+	\end{figure}
 	
 	\item \emlst{\LaTeX{} \cite{Kot11}.} \LaTeX{} is a software for typesetting documents. It is not a word processor, but is used as a document markup language. \LaTeX{} is free, open source and provide great typographic quality on the documents, which makes it ideal for composing scientific documents. It is based on the \TeX{} typesetting engine created by Donald Knuth.
 	
@@ -280,7 +305,7 @@ In this part the different software resources employed are described. These incl
 	
 	\item \emlst{GIMP.} GIMP (\ac{GNU} Image Manipulation Program) is a free and open-source raster graphics editor used for image editing.
 	
-	%\item \textbf{Inkscape.}
+	\item \textbf{Inkscape.} It is an open-source editor which allows to create or edit vector graphics such as illustrations, charts, diagrams, etc. This tool is used for creating some of the figures of this document.
 	
 \end{itemize}
 
@@ -288,6 +313,6 @@ In this part the different software resources employed are described. These incl
 \begin{itemize}
 	\item \emlst{MP4Box \cite{MP4Box}.} MP4Box is the multimedia package available in GPAC. It can be used for performing manipulations on multimedia files such as AVI, MPG, TS and ISO media files (for example MP4 or 3GP). In this work, it has been used to generate MP4 files from H.264 video format.
 	
-	%TODO: Add more additional software	
+	\item \emlst{IBM Bluemix.} Bluemix is a cloud \ac{PaaS} developed by IBM. It integrates several services and programming languages, such as Java, Python, Node.js, GO, Ruby, etc. Bluemix is based on Cloud Foundry, which is an open-source multi cloud application originally developed by VMware.
 	
 \end{itemize}

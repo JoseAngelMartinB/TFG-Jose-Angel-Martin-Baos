@@ -493,14 +493,13 @@
   Timestamp                = {2017.08.18}
 }
 
-@TechReport{AirQualityEEA16,
-  Title                    = {Air quality in Europe — 2016 report},
-  Institution              = {European Environment Agency},
-  Year                     = {2016},
-
-  File                     = {:mnt/datos/Ingenieria Informatica/TFG/Recursos/THAL16127ENN_Air_quality_in_europe_report_2016.pdf:PDF},
-  Owner                    = {joseangel},
-  Timestamp                = {2017.12.30}
+@TechReport{AirQualityEEA17,
+  title       = {Air quality in Europe — 2017 report},
+  institution = {European Environment Agency},
+  year        = {2017},
+  file        = {:mnt/datos/Ingenieria Informatica/TFG/Recursos/THAL16127ENN_Air_quality_in_europe_report_2016.pdf:PDF},
+  owner       = {joseangel},
+  timestamp   = {2017.12.30},
 }
 
 @Book{SGG06,
@@ -542,7 +541,6 @@
 }
 
 @Book{HCM2000,
-  author    = {Transportation research board},
   title     = {Highway Capacity Manual},
   year      = {2000},
   publisher = {Transportation Research Board, National Research Council},
@@ -550,6 +548,34 @@
   groups    = {public},
   key       = {TRB},
   timestamp = {2012-04-13T20:28:54.000+0200},
+}
+
+@Book{Duc11,
+  author    = {Jon Duckett},
+  title     = {HTML and CSS: Design and Build Websites},
+  year      = {2011},
+  publisher = {John Wiley \& Sons, Inc.},
+}
+
+@Book{Bea05,
+  author    = {Alan Beaulieu},
+  title     = {Learning SQL},
+  year      = {2005},
+  publisher = {O'Reilly Media},
+}
+
+@Book{Mar16,
+  author    = {Peter Marwedel},
+  title     = {Embedded System Design},
+  year      = {2016},
+  publisher = {Springer},
+}
+
+@TechReport{Pre00,
+  author      = {Lutz Prechelt},
+  title       = {An Empirical Comparison of C, C++, Java, Perl, Python, Rexx, and Tcl for a Search, String Processing Program},
+  institution = {Universitat Karlsruhe, Fakultat fur Informatik},
+  year        = {2000},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

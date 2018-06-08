@@ -14,7 +14,7 @@ class Singleton(type):
 
 
 class DBBroker:
-    """ Class to access the database and execute querrys. """
+    """ Class to access the database and execute queries. """
     __metaclass__ = Singleton
 
     def __init__(self):
@@ -41,7 +41,7 @@ class DBBroker:
         self.__connection.close()
 
     def select(self, query):
-        """ Executes a select query on the database. """
+        """ Executes a select query against the database. """
         data = None
         success = self.__connect()
         if success:
@@ -52,13 +52,13 @@ class DBBroker:
                 data = cursor.fetchall()
             except pymysql.InternalError as error:
                 _ , message = error.args
-                print("Error in select querry from data base. %s", message)
+                print("Error in select query from data base. %s", message)
 
             self.__close_connection()
         return data
 
     def update(self, query):
-        """ Executes an update/add or remove query on the database. """
+        """ Executes an update/add or remove query against the database. """
         success = self.__connect()
         if success:
             try:
@@ -69,5 +69,5 @@ class DBBroker:
             except pymysql.InternalError as error:
                 _ , message = error.args
                 self.__connection.rollback()
-                print("Error in update querry from data base. %s", message)
+                print("Error in update query from database. %s", message)
             self.__close_connection()

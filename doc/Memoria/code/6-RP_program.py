@@ -96,10 +96,6 @@ if __name__ == "__main__":
         cam_module.shutdown_flag.set()
         sen_module.shutdown_flag.set()
 
-        # Release the lock
-        if lock.locked():
-            lock.release()
-
         # Wait for the threads termination...
         cam_module.join()
         sen_module.join()
