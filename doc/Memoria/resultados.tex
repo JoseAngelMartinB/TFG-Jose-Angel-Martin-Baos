@@ -735,7 +735,7 @@ Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed
 
 \subsubsection{T3.8.1. Create a program that executes each module in a different thread}
 
-At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} python library is used to create the different threads. We have decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
+At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} Python library is used to create the different threads. We have decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -798,7 +798,7 @@ In the Sprint planning meeting the different user stories that are addressed wer
 
 
 \subsubsection{T3.9.1. Create an IBM Bluemix Cloud Foundry App to deploy the web page}
-The IBM Bluemix service has been used to create a web app. IBM Cloud allows to create mobile and web applications that can be managed from the IBM Cloud console or by command line. These tools allows building, running and deploying the app. The first step is to create an IBM Bluemix Cloud Foundry App from the IBM Cloud dashboard (Figure \ref{fig:6-Bluemix-DashBoard}). Python was selected as the programming language for the web app to maintain uniformity with the code developed for the Raspberry Pi devices. Moreover, python allows to the programmers to implement functions with fewer lines of code than many other commonly used programming languages \cite{Pre00}. The Cloud Foundry App created was named \textit{BSc Thesis Web page}.
+The IBM Bluemix service has been used to create a web app. IBM Cloud allows to create mobile and web applications that can be managed from the IBM Cloud console or by command line. These tools allows building, running and deploying the app. The first step is to create an IBM Bluemix Cloud Foundry App from the IBM Cloud dashboard (Figure \ref{fig:6-Bluemix-DashBoard}). Python was selected as the programming language for the web app to maintain uniformity with the code developed for the Raspberry Pi devices. Moreover, Python allows to the programmers to implement functions with fewer lines of code than many other commonly used programming languages \cite{Pre00}. The Cloud Foundry App created was named \textit{BSc Thesis Web page}.
 
 \emword{IBM Cloud Developer Tools} is a command line program for managing IBM Cloud Foundry Apps. These tools are installed using the command:
 \begin{console}
