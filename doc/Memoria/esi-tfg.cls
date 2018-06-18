@@ -204,8 +204,8 @@
 
 
 %% -- BIBLIOGRAFÍA -------------------------------------------------------------
-\bibliographystyle{alpha}
-%\bibliographystyle{plain}
+%\bibliographystyle{alpha}
+\bibliographystyle{plain}
 % \bibliographystyle{es-alpha} % Bibliografia estilo en español
 
 \newcommand{\bibfont}{\small}      % Bibliography's font size

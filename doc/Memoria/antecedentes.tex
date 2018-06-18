@@ -5,24 +5,24 @@
 \chapter{Background}
 \label{chap:background}
 
-\drop{T}{his} chapter aims to explain some important concepts that will be used as the base for the development of this \ac{BSc.} thesis. Firstly, an introduction about intelligent transport systems and traffic modelling is presented. In addition, traffic emissions monitoring and some European measures taken to reduce emissions are discussed. Then, embedded systems are explained and how they can be implemented in traffic and environmental surveillance. It will go on to introduce Raspberry Pi systems and how they can be used in order to achieve the objectives of this \ac{BSc.} Thesis. Finally, H.264/AVC video codec is presented.
+\drop{T}{his} chapter aims to explain some important concepts that will be used as a basis for the development of this \ac{BSc.} thesis. Firstly, an introduction about intelligent transport systems and traffic modelling is presented. In addition, traffic emissions monitoring and some European measures taken to reduce emissions are discussed. Then, embedded systems are explained and how they can be implemented in traffic and environmental surveillance. It will go on to introduce Raspberry Pi systems and how they can be used in order to achieve the objectives addressed of this \ac{BSc.} Thesis. Finally, H.264/AVC video codec is presented.
 
 \section{Taxonomy of intelligent transportation systems}
 \ac{ITS} are tools that combine advanced technologies in communication and information in order to solve transportation problems such as traffic congestion, safety and environmental conservation \cite{San15}. \ac{ITS} can be classified according on their strategic objectives \cite{Rafiq201345} into:
 \begin{enumerate}
-	\item \emlst{CooperativeMobility.} The development of cooperative systems based on vehicle communications has considerably grown in the last years. These systems require an intelligent organization of system resources by integrating cooperative applications running on an in-vehicle device.
+	\item \emlst{CooperativeMobility.} The development of cooperative systems based on vehicle communications has considerably grown in the last years. These systems require the interconnection of users, vehicles and infrastructure by integrating cooperative applications running on an in-vehicle device.
 	
-	\item \emlst{EcoMobility.} At the present time, the different modes of transport are essential elements with direct influence on daily life activities. Nonetheless, these transport vehicles are increasing the greenhouse gas emissions with several negative consequences in the environment. For this reason, it is highly important to develop a way to exploit transportation resources intelligently, so that the environment is threatened as little as possible. EcoMobility pursues this objective by employing \ac{ITS} to make the transport greener.
+	\item \emlst{EcoMobility.} At the present time, the different modes of transport are essential elements with direct influence on daily life activities. Nonetheless, these transport vehicles are increasing the greenhouse gas emissions with several negative consequences in the environment. For this reason, it is highly important to develop a low carbon economy, so that the environment is threatened as little as possible. EcoMobility pursues this objective by focusing on energy-efficient \ac{ITS}.
 	
-	\item \emlst{SafeMobility.} Over 40.000 people die on road accidents every year in Europe, which is a significant loss to the society. In addition, these accidents involves a cost of 200 billion euros to the European economy. By the use of \ac{ITS}, the number of accidents on the road can be reduced noticeably. For example, driver assistance systems (ADAS) can be used to detect hazards on the road and warn the driver about them.
+	\item \emlst{SafeMobility.} Over 40.000 people die on road accidents every year in Europe, which is a significant loss to the society. In addition, these accidents involves a cost of 200 billion euros to the European economy. By the use of \ac{ITS}, the number of accidents on the road can be reduced noticeably. For example, driver assistance systems (ADAS) can be used to detect hazards on the road and to warn drivers about them.
 	
 	\item \emlst{Infomobility.} In order to develop safer, smarter, and more efficient transport systems reliable, personalized, and anytime anywhere based real-time travel and traffic information systems are needed. These systems should be aware of the needs, preferences, travel habits, etc. of a particular user.
 \end{enumerate}
 
-According with the taxonomy previously reviewed, this project is classified as EcoMobility, because it pursues the efficient use of the transport resources in order to threat the least as possible the environment. \cite{NAVARRO2016314,eCo-MOVe,ADASIS} are examples of projects also classified as EcoMobility.
+According with the taxonomy previously reviewed, this project is classified as EcoMobility, because it pursues to monitor the traffic emissions in urban areas. \cite{ADASIS,eCo-MOVe, NAVARRO2016314} are examples of projects also classified as EcoMobility.
 
 \section{Traffic modelling}
-A model is a simplified version of a concept, phenomenon, relationship, structure, system or an aspect of the real world. Therefore, a traffic model is a mathematical model of real world traffic. Traffic models can be classified as \textit{microscopic}, which assume that the behaviour of an individual vehicle is a function of the traffic conditions in its environment, and \textit{macroscopic}, which assume an aggregate behaviour of vehicles without considering each individual vehicle. It is assumed that the \ac{ITS} are able to collect the macroscopic magnitudes of \emword{density}, \emword{flow} and \emword{speed} as the essential parameters which characteristic the traffic state. 
+A model is a simplified version of a concept, phenomenon, relationship, structure, system or an aspect of the real world. Therefore, a traffic model is a mathematical model of real world traffic. Traffic models can be classified as \textit{microscopic}, which assume that the behaviour of an individual vehicle is a function of the traffic conditions in its environment, and \textit{macroscopic}, which assume an aggregate behaviour of vehicles without considering each individual vehicle. It is assumed that the \ac{ITS} are able to collect the macroscopic magnitudes of \emword{density}, \emword{flow} and \emword{speed} as the essential parameters which characteristic the traffic state and, therefore, the current emission levels derived from the transport.
 
 Density $k$, which is adopted from physics, indicates the number of vehicles per road kilometre. It is calculated as shown in Equation (\ref{eq:4-density}) where ${ \Delta  }_{ X }$ represents a location interval at a specific moment and $n$ the number of vehicles moving through this interval.
 \begin{equation} \label{eq:4-density}
@@ -36,15 +36,15 @@ q = \frac { m }{ { \Delta  }_{ T } }
 
 Finally, the mean speed $u$ is the quotient of the flow rate and the density, as shown in Equation (\ref{eq:4-mean-speed}).
 \begin{equation} \label{eq:4-mean-speed}
-u = \frac { q }{ k } =\frac { \text{Total  distance  covered  by  vehicles} }{ \text{Total  time  spent  by  vehicles} } 
+u = \frac { q }{ k } = \frac{m \cdot {\Delta  }_{ X }}{n \cdot {\Delta  }_{ T }} = \frac { \text{Total  distance  covered  by  vehicles} }{ \text{Total  time  spent  by  vehicles} } 
 \end{equation}
 
-From the previous equation the \emword{fundamental realation} of traffic flow theory can be defined and it is expressed as shown in Equation (\ref{eq:4-fundamental-relation}). Therefore, using this equation the three essentials parameters of a macroscopic traffic model can be reduced to two of them.
+From the previous equation the \emword{fundamental relation} of traffic flow theory can be defined and it is expressed as shown in Equation (\ref{eq:4-fundamental-relation}). Therefore, using this equation the three essentials parameters of a macroscopic traffic model can be reduced to two of them.
 \begin{equation} \label{eq:4-fundamental-relation}
 q = k \cdot u
 \end{equation}
 
-In this project the flow rate is the only essential parameter measured. Nonetheless, by measuring the density or the mean speed a complete traffic model can be generated.
+In this project the flow rate is the only essential parameter measured. Nonetheless, the methodology developed in this project allows to measure the density by locating two consecutive sensors in a road, therefore, a complete traffic model can be generated.
 
 
 \section{Traffic pollution}
@@ -57,9 +57,9 @@ In this project the flow rate is the only essential parameter measured. Nonethel
 %	- European project --> https://ec.europa.eu/clima/policies/transport_en
 %	- Air quality in Europe — 2016 report
 
-Road transport is often the main source of air pollution in urban areas, for this reason there is an increasing need to estimate precisely its contribution to air pollution in the cities. Therefore, many authorities have developed some emissions models and systems in order to predict the road transport contribution to air pollution. Some systems, such as \ac{DTM} systems can focus on lower local emissions, using tools such as variable speed limits, ramp metering, adaptive signal timing \cite{MK10}, vehicle-class routing or prioritization \cite{ZDHB09}. These measures can generate some secondary effects such as longer travel delays, a decrease in the transit performance, or higher greenhouse gas emissions, therefore they should only be activated when they are warranted by air quality conditions \cite{EMA09} and, again, reliable emissions models are needed for this purpose. 
+Road transport is often the main source of air pollution in urban areas, for this reason there is an increasing need to estimate precisely its contribution to air pollution on the cities. Therefore, many institutions have developed some emissions models and systems in order to predict the road transport contribution to air pollution. Some systems, such as \ac{DTM} systems can focus on the reduction of emissions, using tools such as variable speed limits, ramp metering, adaptive signal timing \cite{MK10}, vehicle-class routing or prioritization \cite{ZDHB09}. These measures can generate some secondary effects such as longer travel delays, a decrease in the transit performance, or higher greenhouse gas emissions, therefore they should only be activated when they are warranted by air quality conditions \cite{EMA09} and, again, reliable emissions models are needed for this purpose. 
 
-The \emword{COPERT} emission model \cite{NS16} can be applied to calculate pollutant emissions due to road traffic. This model is the most commonly used methodology in Europe for the elaboration of official national inventories of emission due to road traffic \cite{Zaldei2017531}. COPERT model allows to estimate the emissions of six different categories of vehicles. Using this model and the vehicle flow rate the levels of the different pollutants can be predicted and, therefore, measures taken to palliate its effects.
+The \emword{COPERT} emission model \cite{NS16} can be applied to calculate pollutant emissions due to road traffic. This model is the most commonly used methodology in Europe for the elaboration of official national inventories of emission due to road traffic \cite{Zaldei2017531}. COPERT model allows to estimate the emissions of six different categories of vehicles. Using this model and the traffic flow rate the levels of the different pollutants can be predicted and, therefore, active traffic control measures on the basis of these estimates of the pollution can be taken to palliate its effects.
 
 \subsection{Traffic pollution in Europe}
 In Europe, transport represents a quarter of it's greenhouse gas emissions. Whereas the pollution generated by other sectors have been decreasing during the last years, the transport sector emissions only started to decrease in 2007 and they still remain higher than in 1990, as Figure \ref{fig:4-Emissions-Europe-2016} shows. Consequently, in July 2016, the European Commission adopted a low-emission mobility strategy, which aims to ensure that Europe stay competitive and it is able to respond the increasingly mobility needs of people and goods \cite{EuStrat}. 
@@ -89,7 +89,7 @@ Some projects like \ac{CITEAIR} has been created by the European Union \cite{cit
 
 % Mencionar ciudades como casos de la problemática.
 With the goal of evidencing the problem of traffic pollution in big cities, some examples has been selected. Air quality information about Madrid, Berlin and Paris taken on Tuesday 6th of February 2018 are shown in Figure \ref{fig:4-AirQuality-Details}.
-As it can be observed, the pollution indices during that day were very high, especially in some cities such as Berlin, where its current roadside pollution level was very high (its NO\textsubscript{2} index value is between 75 and 100). Moreover, the previous day (\textit{yesterday} column of the figure) the traffic pollution was even greater, whit a NO\textsubscript{2} pollution index over 50 for the three cities. For this reason, some measures should be taken those days, especially in Berlin. This evidence reinforces the fact that some pollution prevention and control mechanisms are necessary.
+As it can be observed, the pollution indices during that day were very high, especially in some cities such as Berlin, where its current roadside pollution level was very high (its NO\textsubscript{2} index value is between 75 and 100). Moreover, the previous day (\textit{yesterday} column of the figure) the traffic pollution was even greater, with a NO\textsubscript{2} pollution index over 50 for the three cities. For this reason, some measures should be taken those days, especially in Berlin. This evidence reinforces the fact that some pollution prevention and control mechanisms are necessary.
 
 \begin{figure}[!htbp]
 	\centering
@@ -136,7 +136,7 @@ Embedded systems have been used from early ages to monitor traffic or environmen
 
 Nowadays, lots of projects are being developed where modern embedded systems and IoT technologies are used to design weather stations. This provides lot of advantages, such as reducing the cost of these systems, or increasing the number of weather sensors that can be placed in a city (because of the scalability capabilities of these embedded systems). Taking all these into account, sensors can be located on several points of the city, and consequently, measures would be more accurate. Furthermore, better predictions can be made and, if they are combined with a distributed traffic flow control system, these devices can be used to feed a \ac{DSS} which helps authorities to mitigate environmental problems. In the next paragraphs, some example of embedded systems used for monitoring environmental parameters will be presented.
 
-Acura\footnote{\url{https://acuraembedded.com/blog/acura-embedded-systems-to-reduce-carbon-emissions-for-public-transport-buses/}} is an example of an embedded system used to reduce carbon emission in public transport buses. This devices collect the vehicle location, emissions generated and fuel consumed by the buses and send this data to a control center where it is monitored in real-time. These statistics generated are used to reduce the vehicle's carbon footprint.
+Acura\footnote{\url{https://acuraembedded.com/blog/acura-embedded-systems-to-reduce-carbon-emissions-for-public-transport-buses}} is an example of an embedded system used to reduce carbon emission in public transport buses. This devices collect the vehicle location, emissions generated and fuel consumed by the buses and send this data to a control center where it is monitored in real-time. These statistics generated are used to reduce the vehicle's carbon footprint.
 
 Bosch Climo\footnote{\url{http://www.boschclimo.com}} is an intelligent air monitoring embedded system designed by Bosch and Intel to evaluate, visualize and act upon the air quality. This solution allows to monitor the ambient air pollutants in real-time thanks to Wi-Fi, GSM, and EDGE network connections. It used cloud-base analytics of data obtained from lot of sensors to facilitate the energy-efficiency, scalability and sustainability of real-world applications.
 
@@ -181,7 +181,7 @@ There are lot of devices whose features are similar to the ones of the Raspberry
 	{\small
 		\input{tables/raspberry-vs-arduino.tex}
 	}
-	\caption{\textit{Raspberry Pi 3 B} and \textit{Arduino UNO} specifications}
+	\caption{Specifications of \textit{Raspberry Pi 3 B} versus \textit{Arduino UNO}}
 	\label{tab:raspberry-vs-arduino}
 \end{table}
 
@@ -198,7 +198,7 @@ Any video is composed by a sequence of images that are reproduced in a sequentia
 
 \subsection{Macroblocks}
 \label{subsect:Macroblocks}
-A \emword{macroblock} is the basic unit in the video compression formats based on linear block transforms. It contain the information of a 16x16 pixels region of the frame. These blocks contains information about the luminance, the chrominance and the \emword{motion vectors} associated to them. Each macroblock can be divided into several block of lower size called partitions \cite{Gir14}, which varies from 16x16 to 4x4, as shown in Figure \ref{fig:4-Macroblocks}. In this figure, it is shown how a macroblock can be divided into two partitions of 16x8 or 8x16, our just in four partitions of 8x8, and each of this 8x8 partitions can be divided into two partitions of 8x4 or 4x8 or into four partitions of 4x4.
+A \emword{macroblock} is the basic unit in the video compression formats based on linear block transforms. It contains the information of a 16x16 pixels region of the frame. These blocks contains information about the luminance, the chrominance and the \emword{motion vectors} associated to them. Each macroblock can be divided into several block of lower size called partitions \cite{Gir14}, which varies from 16x16 to 4x4, as shown in Figure \ref{fig:4-Macroblocks}. In this figure, it is shown how a macroblock can be divided into two partitions of 16x8 or 8x16, our just in four partitions of 8x8, and each of this 8x8 partitions can be divided into two partitions of 8x4 or 4x8 or into four partitions of 4x4.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -217,7 +217,7 @@ PiCamera motion data values for each macroblock are 4-bytes long, as it consist 
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{4-Car_with_MV.png}
-		\caption{Example of  the \emword{motion vectors} taken by the Raspberry Pi}
+		\caption{Example of  the \emword{motion vectors} taken using the developed device}
 		\label{fig:4-Car_with_MV}
 	\end{center}
 \end{figure}
