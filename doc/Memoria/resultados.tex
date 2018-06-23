@@ -26,7 +26,7 @@ In this first phase, the main objective is to define the Scrum team, the user st
 
 \subsection{Scrum Team}
 Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team have the following structure:
-\begin{itemize}
+\begin{itemize}[noitemsep]
 	\item \textbf{Product Owner:} Ricardo García Ródenas
 	\item \textbf{Scrum Master:} Luis Rodríguez Benítez
 	\item \textbf{Development Team:} José Ángel Martín Baos
@@ -432,7 +432,7 @@ The next step is to connect the previous electronic circuit to the Raspberry Pi.
 
 
 \subsubsection{T2.5.1. Develop a class that communicates with the external sensors using \ac{SPI}}
-As it has been previously stated in task T2.4.2, the analogue output from the MQ sensors will be converted to a digital value using an \ac{ADC} chip. For this purpose, the MCP3008 chip \cite{ADC} is going to be used, which communicates with the processor using the \ac{SPI} protocol. The class developed needs to implement this protocol internally in order to obtain the data from this chip using the GPIO pins (Listing \ref{lst:6-spiCommunicator}). The protocol has been implemented following the specifications of the MCP3008 datasheet (Figure \ref{fig:6-MCP3008-SPI}), where it is stated the signals that need to be activated in each clock cycle to allow the communication. The channel is going to be provided as argument, taking into account that channel 0 corresponds with the MQ-7 sensor and channel 1 to the MQ-2 sensor, as it was stated in the wiring connections of Figure \ref{fig:6-Circuit-Schematic}.
+As it has been previously stated in task T2.4.2, the analogue output from the MQ sensors will be converted to a digital value using an \ac{ADC} chip. For this purpose, the MCP3008 chip \cite{ADC} is going to be used, which communicates with the processor using the \ac{SPI} protocol. The class developed needs to implement this protocol internally in order to obtain the data from this chip using the GPIO pins (Listing \ref{lst:6-spiCommunicator}). The protocol has been implemented following the specifications of the MCP3008 datasheet (Figure \ref{fig:6-MCP3008-SPI}), where it is stated the signals that need to be activated in each clock cycle to allow the communication. The channel is going to be provided as argument, taking into account that channel 0 corresponds with the MQ-7 sensor and channel 1 to the MQ-2 sensor, as stated in the wiring connections (Figure \ref{fig:6-Circuit-Schematic}).
 
 \begin{figure}[!h]
 	\begin{center}
@@ -567,8 +567,6 @@ Following the project plan, Sprint 3 is dedicated to the development of the main
 
 During the Sprint planning meeting the Scrum Team analysed the different user stories and divided them into some tasks and tests. The user stories addressed in this Sprint are shown in Tables \ref{tab:Sprint3-User-story-6} to \ref{tab:Sprint3-User-story-8}.
 
-% TODO: Add Ricardo's diagram?
-
 \UserStoryTable{6}{3}{High}{15}
 {Develop a comunication module using IBM IoT}
 {Development of a comunication module that allows to send Raspberry Pi data to the Cloud usign IBM Watson IoT Platform.}
@@ -618,7 +616,7 @@ The IBM Watson \ac{IoT} Platform collects connected devices data and performs an
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{6-MQTT.pdf}
+		\includegraphics[width=0.96\textwidth]{6-MQTT.pdf}
 		\caption{MQTT basic structure}
 		\label{fig:6-MQTT}
 	\end{center}
@@ -652,7 +650,7 @@ Once the parameters of the Watson \ac{IoT} Platform have been configured, the co
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to connect and send data to Watson IoT Platform}, label = lst:6-connect-IBM-IoT.py]{code/6-connect-IBM-IoT.py}
 
-Heretofore, the different data collected by the Raspberry Pi device were sent to the MQTT queue. This data is published as an event in the Watson \ac{IoT} Platform. Events can be pulished associated to any of the three \ac{QoS} leves defined by the MQTT protocol:
+Heretofore, the different data collected by the Raspberry Pi device were sent to the MQTT queue. This data is published as an event in the Watson \ac{IoT} Platform. Events can be associated to any of the three \ac{QoS} levels defined by the MQTT protocol:
 \begin{itemize}
 	\item \textbf{At most once (qos=0).} This is the fastest mode of transfer. The message is not stored and it is delivered across the network without acknowledgement.
 	\item \textbf{At least once (qos=1).} The message is delivered at least once. If a failure occurs before acknowledgement is received, then the message is forwarded again.
@@ -728,14 +726,14 @@ A program has been developed to receive the data from the different Raspberry Pi
  
 \lstinputlisting[firstline=1, texcl, caption = {\texttt{application.conf} file}, label = lst:6-application.conf]{code/6-application.conf}
 
-Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed. Lines 6 to 22 define the function that is executed each time a new message arrives at the server. This function accesses to the database to store all the received data. Then, lines 27 to 35 connect to the Watson IoT Platform. To finish with, line 36 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 37 associates this event with the previously defined function.
+Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed. Lines 6 to 22 define the function that is executed each time a new message arrives at the server. This function accesses to the database to store all the received data. Then, lines 27 to 34 connect to the Watson IoT Platform. To finish with, line 35 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 36 associates this event with the previously defined function.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to store data received from the Watson IoT Platform into the database}, label = lst:6-subscriber.py]{code/6-subscriber.py}
 
 
 \subsubsection{T3.8.1. Create a program that executes each module in a different thread}
 
-At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} Python library is used to create the different threads. We have decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
+At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} Python library is used to create the different threads. It has been decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -845,7 +843,7 @@ The \emword{presentation layer} is responsible for handling all user interface a
 
 % TODO: Dibujo de las multicapas con que lenguaje funciona cada una?
 
-The \emword{persistence layer} contains the \texttt{DBBroker} class, which is in charge of the connection to the database and the execution of operations on it. This class implements the \emword{Singleton} design pattern \cite{Vil07}, which avoids creating more than one instance of the same class. The responsibility of creating just one instance is relegated to the class itself. Therefore, if the class is used and no instance exists a new one is created and stored for posterior calls to the class functions. The \texttt{DBBroker} class is shown in Listing \ref{lst:6-DBBroker}.
+The \emword{persistence layer} contains the \texttt{DBBroker} class, which is in charge of the connection to the database and the execution of operations on it. This class implements the \emword{Singleton} design pattern \cite{design_patterns, Vil07}, which avoids creating more than one instance of the same class. The responsibility of creating just one instance is relegated to the class itself. Therefore, if the class is used and no instance exists a new one is created and stored for posterior calls to the class functions. The \texttt{DBBroker} class is shown in Listing \ref{lst:6-DBBroker}.
 
 The \emword{domain layer} contains the classes related to the logic and calculations that must be carried out with the data whereas the presentation layer contains the necessary functions to render the different web page parts and display the data. To finish with, the \texttt{ServerConfig.py} file contains the configuration parameters for the web server and the SQL database.
 

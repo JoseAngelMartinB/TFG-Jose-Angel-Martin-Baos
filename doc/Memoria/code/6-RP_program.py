@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# -*- coding: utf-8; mode: python -*-
 
 from config import *
 from CountVehicles import CountVehicles
