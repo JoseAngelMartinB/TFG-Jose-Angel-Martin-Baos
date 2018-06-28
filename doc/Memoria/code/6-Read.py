@@ -11,7 +11,5 @@ def read(self, mq_channel):
         adc_value = self.spi_comm.read(mq_channel)
         Rs += self.getResistance(adc_value, mq_channel)
         time.sleep(READ_SAMPLE_INTERVAL/1000.0)
-
     Rs = Rs/READ_SAMPLE_TIMES
-
     return Rs

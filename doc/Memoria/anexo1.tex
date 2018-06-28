@@ -9,6 +9,7 @@
 
 
 \section{Installation and configuration of Raspbian}
+\label{chap:installation_raspbian}
 The first step to get the device working consists of the installation of the Raspbian Operating System and the configuration of the device to allow access to the Raspberry from another device using a wireless connection.
 
 \subsection{Installation of Raspbian in a microSD card}
@@ -21,7 +22,7 @@ Raspbian \ac{OS} can be downloaded from the Raspberry Pi downloads page\footnote
 $ sha1sum file.zip | grep hash_value
 \end{console} %$
 
-	\item Now, the microSD card can be inserted and mounted on the computer. Usually the card gets mounted automatically. The list of devices mounted on the computer is shown in Figure \ref{fig:Appendix_df-h_command}. It can be observed that the mircoSD card corresponds to the route \texttt{/dev/sdb1}. The command used is: 
+	\item Now, the microSD card can be inserted and mounted on the computer. Usually the card gets mounted automatically. The list of devices mounted on the computer is shown in Figure \ref{fig:Appendix_df-h_command}. It can be observed that the microSD card corresponds to the route \texttt{/dev/sdb1}. The command used is: 
 \begin{console}
 $ df -h
 \end{console} %$
@@ -33,12 +34,12 @@ $ df -h
 		\end{center}
 	\end{figure}
 
-	\item Once the path where the mircoSD was mounted is known, the next step is to execute the following command to unmount the card, where \texttt{/dev/sdb1} is de route corresponding to the card. This avoids the \ac{OS} writes the card while the files are being copied.
+	\item Once the path where the microSD was mounted is known, the next step is to execute the following command to unmount the card, where \texttt{/dev/sdb1} is de route corresponding to the card. This avoids the \ac{OS} writes the card while the files are being copied.
 \begin{console}
 $ umount /dev/sdb1
 \end{console} %$
 
-	\item Now, the \ac{OS} image can be extracted and copied to the micro-SD card as shown in Figure \ref{fig:Appendix_SO_copy}. The following commands have to be executed from the directory where the file was downloaded:
+	\item Now, the \ac{OS} image can be extracted and copied to the microSD card as shown in Figure \ref{fig:Appendix_SO_copy}. The following commands have to be executed from the directory where the file was downloaded:
 \begin{console}
 $ unzip 2017-07-05-raspbian-jessie.zip 
 $ sudo dd bs=4M if=2017-07-05-raspbian-jessie.img of=/dev/sdb1
@@ -52,7 +53,7 @@ $ sudo dd bs=4M if=2017-07-05-raspbian-jessie.img of=/dev/sdb1
 		\end{center}
 	\end{figure}
 
-	\item Once the process has finished and before extracting the micro-SD card from the computer it should be checked that the cache is clean. The next command must be executed:
+	\item Once the process has finished and before extracting the microSD card from the computer it should be checked that the cache is clean. The next command must be executed:
 \begin{console}
 $ sync
 \end{console} %$
@@ -143,6 +144,7 @@ The installation of the sense hat was explained on Tasks T2.4.2 and T2.5.1 of th
 
 
 \subsection{Installation of the software libraries}
+\label{chap:install-soft-lib}
 Some libraries were needed in order to execute the software developed in this \ac{BSc.} thesis:
 \begin{enumerate}
 	\item NumPy. It is the fundamental package for scientific computing with Python. NumPy can also be used as an efficient multi-dimensional container of generic data. To install it, the next command has to be executed:

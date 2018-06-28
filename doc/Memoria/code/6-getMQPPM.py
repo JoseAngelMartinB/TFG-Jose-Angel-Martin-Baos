@@ -2,7 +2,7 @@ def getMQPPM(self, rs_ro_ratio, mq_curve):
     """
     Calculate the ppm of the target gas using the slope and a point
     form the line obtained aproximating the sensitivity characteristic curve.
-    x = (y-n)/m
+
 
     Input:   rs_ro_ratio -> Value obtained of the division Rs/Ro
              mq_curve -> Line obtained using two points form the sensitivity

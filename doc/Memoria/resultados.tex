@@ -5,15 +5,12 @@
 \chapter{Results}
 \label{chap:results}
 
-\drop{I}{n} this chapter, the different results obtained during the development of this \ac{BSc.} thesis are presented. The working methodology presented in Chapter \ref{chap:methodology} is used to carry out the work. In first place, the initial Sprint is presented, where the Scrum team is set up, as well as the initial planning of the project. Subsequently, the different Sprints are presented, where the work planned in the initial Sprint are carried out.
-
-
-
+\drop{I}{n} this chapter, the different results obtained during the development of this \ac{BSc.} thesis are presented. The working methodology presented in Chapter \ref{chap:methodology} is used to carry out the work. In first place, the initial Sprint is presented, where the Scrum team is set up, as well as the initial planning of the project. Subsequently, the different Sprints and the tasks associated to them are described.
 
 %%% Sprint 0
 \section{Sprint 0: Initial planning}
 \label{Section:Sprint0}
-In this first phase, the main objective is to define the Scrum team, the user stories, the project plan and the temporal and cost planning. Then, the draft (“Anteproyecto”) have to be written. Once this Sprint was completed, the project started  as it was stated in the temporal planning. The task associated to this initial Sprint is shown in Table \ref{tab:Sprint0-Tasks}.
+In this first phase, the main objective is to define the Scrum team, the user stories, the project plan and the temporal and cost planning. Then, the draft (“Anteproyecto”) had to be written. Once this Sprint was completed, the project started  as it was stated in the temporal planning. The task associated to this initial Sprint is shown in Table \ref{tab:Sprint0-Tasks}.
 
 \begin{table}[hp]
 	\centering
@@ -25,7 +22,7 @@ In this first phase, the main objective is to define the Scrum team, the user st
 \end{table}
 
 \subsection{Scrum Team}
-Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team have the following structure:
+Following the Scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team has the following structure:
 \begin{itemize}[noitemsep]
 	\item \textbf{Product Owner:} Ricardo García Ródenas
 	\item \textbf{Scrum Master:} Luis Rodríguez Benítez
@@ -33,7 +30,7 @@ Following the scrum roles defined in Section \ref{5-ScrumTeam}, the Scrum team h
 \end{itemize}
 
 \subsection{Product Backlog}
-The Scrum Team had several meetings after the completion of the draft (“Anteproyecto”) and the different requirements stated in the draft were translated to user stories that needs to be accomplished during the execution of the BSc. thesis. The Scrum Team has defined the different user stories, as well as the priority and the estimated duration they will have using planning poker technique. In this technique, the product owner explains an user story and each member of the development team writes his estimation into a card \cite{Gar18}. Nonetheless, in this case, all the members of the Scrum Team have participated in the estimation. The final list of User stories is shown in Table \ref{tab:User-Stories}.
+The Scrum Team had several meetings after the completion of the draft (“Anteproyecto”) and the different requirements stated in the draft were translated to user stories which need to be accomplished during the execution of the BSc. thesis. The Scrum Team has defined the different user stories, as well as their priority and their estimated duration using the planning poker technique. In this technique, the product owner explains an user story and each member of the development team writes his estimation into a card \cite{Gar18}. Nonetheless, in this case, all the members of the Scrum Team have participated in the estimation. The final list of User stories is shown in Table \ref{tab:User-Stories}.
 
 \begin{table}[hp]
 	\centering
@@ -44,7 +41,7 @@ The Scrum Team had several meetings after the completion of the draft (“Antepr
 	\label{tab:User-Stories}
 \end{table}
 	
-The different user stories are presented in its corresponding Sprint. Each user story is composed by the following fields:
+The different user stories are presented in their corresponding Sprint. Each user story is composed by the following fields:
 \begin{itemize}
 	\item \emlst{Sprint.} It indicates the Sprint number to which the user story belongs to.
 	\item \emlst{Priority.} Priority given to the user story. It can take the levels: low, medium and high.
@@ -56,7 +53,7 @@ The different user stories are presented in its corresponding Sprint. Each user 
 \end{itemize}
 
 \subsection{Project plan}
-Once the different user stories have been defined, the next step is to define the different Sprints that must be carried out and their associated user stories (Table \ref{tab:Sprints}). This is only the initial plan of the project, so that means that additional tasks can be created to solve errors or to add functionalities not taken into account in this initial phase of the project.
+The next step is to define the different Sprints that must be carried out and their associated user stories (Table \ref{tab:Sprints}). This is only the initial plan of the project, so that means that additional tasks can be created to solve errors or to add functionalities not taken into account in this initial phase of the project.
 
 \begin{table}[hp]
 	\centering
@@ -72,7 +69,7 @@ Considering Table \ref{tab:Sprints}, the temporal planning for this BSc. thesis 
 
 \begin{figure}[!h]
 	\begin{center}
-		\begin{ganttchart}[%Specs
+		\begin{ganttchart}[
 			x unit = 9pt,
 			vgrid={*{3}{draw=none},dotted},
 			title/.style={fill=gray!30, draw=black, very thick},
@@ -93,11 +90,9 @@ Considering Table \ref{tab:Sprints}, the temporal planning for this BSc. thesis 
 			\gantttitle{May}{4}
 			\gantttitle{Jun}{4}\\
 			
-			% Draft (“Anteproyecto”)
 			\ganttgroup{Draft}{3}{8} \\
 			\Dganttbar{Sprint 0}{35h}{3}{8} \\	
 			
-			% Draft (“Anteproyecto”)
 			\ganttgroup{BSc. Thesis}{9}{38} \\
 			\Dganttbar{Sprint 1}{50h}{9}{16} \\
 			\Dganttbar{Sprint 2}{55h}{17}{24} \\
@@ -113,9 +108,9 @@ Considering Table \ref{tab:Sprints}, the temporal planning for this BSc. thesis 
 \end{figure}
 
 \subsection{Cost planning}
-To manage the costs for the development of this project, two tables had been elaborated. Table \ref{tab:Hardware-Costs} indicates the costs related to the hardware resources that might be purchased in order to execute the project. Moreover, some development costs must be taken into account, as it is indicated in Table \ref{tab:Development-Costs}. For the purpose of calculating the salary of the developer, the \ac{UCLM} retributions table of labor contracts for research projects on 2017 has been used. Therefore, it has been considered that the developer will have a “Tercera-O-II” category, meaning that the annual cost of a full-time job is $23.025.67$\euro{}. Taking into account that a full-time job in the UCLM consist of 7 work hours per day and 225 working days per year then, the Table \ref{tab:Development-Costs} is obtained. 
+To manage the costs for the development of this project, two tables has been elaborated. Table \ref{tab:Hardware-Costs} indicates the costs related to the hardware resources that might be purchased in order to execute the project. Moreover, some development costs must be taken into account, as it is indicated in Table \ref{tab:Development-Costs}. For the purpose of calculating the salary of the developer, the \ac{UCLM} retributions table of labor contracts for research projects on 2017 has been used. Therefore, it has been considered that the developer will have a “Tercera-O-II” category, meaning that the annual cost of a full-time job is $23,025.67$\euro{}. Considering that a full-time job in the UCLM consist of 7 work hours per day and 225 working days per year then, Table \ref{tab:Development-Costs} is obtained. 
 
-Taking into account Tables \ref{tab:Hardware-Costs} and \ref{tab:Development-Costs}, an estimation of the total cost of the project can be $3685.87$\euro{}.
+Taking into account Tables \ref{tab:Hardware-Costs} and \ref{tab:Development-Costs}, an estimation of the total cost of the project can be $3,685.87$\euro{}.
 
 \begin{table}[hp]
 	\centering
@@ -150,7 +145,7 @@ During the planning meeting the different user stories addressed in this Sprint 
 {	\item Install and configure Raspbian \ac{OS}.
 	\item Install the necessary libraries.
 }{	\item Check if the system works correctly using a SSH connection.
-	\item Check if python works.
+	\item Check if Python works.
 }
 
 \UserStoryTable{2}{1}{High}{5}
@@ -174,24 +169,24 @@ During the planning meeting the different user stories addressed in this Sprint 
 }
 
 \subsubsection{T1.1.1. Install and configure Raspbian \ac{OS}}
-The first step consist of the Raspbian \ac{OS} installation and its configuration. The Operating System allows us not only to execute programs into the Raspberry Pi device, but also to connect it to the network, which is necessary to send the data collected.
+The first step consist of the Raspbian \ac{OS} installation and its configuration as shown in Section \ref{chap:installation_raspbian} of Appendix \ref{chap:installation_guide}. The Operating System allows us not only to execute programs into the Raspberry Pi device, but also connect it to the network, which is necessary to send the data collected.
 
 \subsubsection{T1.1.2. Install the necessary libraries}
-When the \ac{OS} is installed, some libraries need to be installed in order to execute the programs that are developed in the following Sprints. All these steps are detailed in the Appendix \ref{chap:installation_guide}. Once installed, the functionality of the system has been checked using a SSH connection from the development computer to the Raspberry, in order to ease the access to the system. 
+When the \ac{OS} is installed, some libraries need to be installed in order to execute the programs that are developed in the following Sprints. All these steps are detailed in section \ref{chap:install-soft-lib} of the Appendix \ref{chap:installation_guide}. Once installed, the functionality of the system has been checked using a SSH connection from the development computer to the Raspberry, in order to ease the access to the system. 
 
 \subsubsection{T1.2.1. Install the PiCamera module}
-The next step is connecting the PiCamera module and configuring it as it is detailed in Appendix \ref{chap:installation_guide}. Now, the device is the one shown in Figure \ref{fig:6-Sistema_v1}. 
+The next step is connecting the PiCamera module and configuring it as it is detailed in Appendix \ref{chap:installation_guide}. The device is shown in Figure \ref{fig:6-Sistema_v1}. 
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{6-Sistema_v1.jpg}
+		\includegraphics[width=0.76\textwidth]{6-Sistema_v1.jpg}
 		\caption{Device structure with PiCamera installed}
 		\label{fig:6-Sistema_v1}
 	\end{center}
 \end{figure}
 
 \subsubsection{T1.2.2. Develop a program to record videos}
-A configuration file has been implemented containing some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed without difficulties. The file format is shown and explained in Appendix \ref{chap:config_file}. The parameters related to the camera are shown in Listing \ref{lst:6-camera-config}.
+A configuration file has been implemented containing some variables that are used by several modules of the device. Hence, these values are stored only once and can be changed directly. The file format is shown and explained in Appendix \ref{chap:config_file}. The parameters related to the camera are shown in Listing \ref{lst:6-camera-config}.
 
 \lstinputlisting[language=Python, firstline=4, texcl, caption = {Part of \texttt{config.py} file containing the camera parameters}, label = lst:6-camera-config]{code/6-camera-config.py}
 
@@ -200,30 +195,30 @@ To ensure the correct functionality of the camera, a set of test videos are reco
 \lstinputlisting[language=Python, firstline=4, texcl, caption = {Video recording with PiCamera script}, label = lst:6-camera-video-recording]{code/6-camera-video-recording.py}
 
 \subsubsection{T1.3.1. Extract the \emword{motion vectors} while recording a video with the PiCamera module using PiMotionAnalysis}
-\BLUENOTE{The result of the previous task allows to record videos using the PiCamera. Moreover, the PiCamera is capable of generating the motion vector estimates that the camera's H.264 encoder calculates while generating the compressed video. If we suppose a video where each frame has $x$ pixels width and $y$ pixels height, the total number of pixels can be calculated as $ Npx = x\cdot y $. Then, taking into account that each macroblock has a size of $16\times16$ pixels, the number of motion vectors can be calculated in the following way:
+The result of the previous task allows to record videos using the PiCamera. Moreover, the Raspberry Pi is capable of obtaining the motion vectors estimates that the H.264 encoder calculates while generating the compressed video. If we suppose a video where each frame has $x$ pixels width and $y$ pixels height, the total number of pixels can be calculated as $ Npx = x\cdot y $. Then, taking into account that each macroblock has a size of $16\times16$ pixels, the number of motion vectors can be calculated in the following way:
 $ Nmv = \frac { x }{ 16 } \cdot \frac { y }{ 16 } =\frac { xy }{ 256 } $. 
 Hence, we can calculate the percentage of the video information processed using motion vectors instead of pixels as
-$ \frac { Nmv }{ Npx } \simeq 0.4\% $. In consequence, we can say that motion vectors are very useful because using them only the 0.4\% of the video information is needed approximately, which makes it a very good approach if low resources are available. }
+$ \frac { Nmv }{ Npx } \simeq 0.4\% $. In consequence, we can state that using motion vectors is very efficient.
 
-This task deals with the need of extracting motion data from videos. To achieve this task, \texttt{PiMotionAnalysis} class from \texttt{picamera.array} is used. While recording is in progress, the incoming motion data is stored into a numpy array and the \texttt{analyse} method from this class is called with the resulting array passed as argument \cite{PiCameraDoc}. This class can be extended and then, the \texttt{analyse} method can be overridden. Therefore, in this method, the \emword{motion vectors} can be used to identify motion fields in the video.
+This task deals with the need of extracting motion data from videos. To complete this task, \texttt{PiMotionAnalysis} class from \texttt{picamera.array} is used. While recording is in progress, the incoming motion data is stored into a numpy array and the \texttt{analyse} method from this class is called with the resulting array passed as argument \cite{PiCameraDoc}. This class can be extended and then, the \texttt{analyse} method can be overridden. Therefore, in this method, the \emword{motion vectors} can be used to identify motion fields in the video.
 
-The \texttt{analyse} method is called by the camera each time a frame is recorded and the motion vectors obtained for that frame are passed as argument to this method. Then, the algorithm to count the number of vehicles have to be implemented inside this method, in order to be executed in each frame. Nonetheless, due to the fact that the camera is configured to record 30 frames per second (fps), the execution of the algorithm must last less than $1/30$ seconds or even less due to the overhead of the picamera itself when generating the image. This is a major limitation that must be taken into account when designing and implementing the algorithm.
+The \texttt{analyse} method is called by the camera each time a frame is recorded and the motion vectors obtained for that frame are passed as argument to this method. Then, the algorithm to count the number of vehicles has to be implemented inside this method, in order to be executed in each frame. Nonetheless, due to the fact that the camera is configured to record 30 frames per second (fps), the execution of the algorithm must last less than $1/30$ seconds or even less due to the overhead of the PiCamera itself while it generates the image. This is a major limitation that must be taken into account when designing and implementing the algorithm.
 
 \subsubsection{T1.3.2. Read and process the data stored containing the motion vectors.}
-\BLUENOTE{Due to the fact that \texttt{PiMotionAnalysis} class is used when the video is being recorded, it is used in the final implementation but first, in order to complete the different test, \texttt{PiMotionArray} class is used instead. This class converts the incoming motion data into a numpy array as the realtime version (\texttt{PiMotionAnalysis}), but the conversion is made when the recording has finished. This will allow us to have the videos with the motion data stored into files and use them at any time, allowing us to check the implemented algorithm and the different parameters. The class generates a 3-dimensional numpy array organized as (frames, rows, columns) where rows and columns are the number of the rows and columns of the macro-block (see Section \ref{subsect:Macroblocks}) in the frame. In the implementation of this class there is an extra column in the motion vector data that is not going to be used.}
+Due to the fact that \texttt{PiMotionAnalysis} class processes the video while it is being recorded, it is used in the final implementation but first, in order to complete the different tests, \texttt{PiMotionArray} class is used instead. This class also converts the incoming motion data into a numpy array, but the conversion is made when the recording has finished. This will allow us to have the videos with the motion data stored into separated files we can and use them at any time, allowing us to check the implemented algorithm and the different parameters. The class generates a 3-dimensional numpy array organized as frames, rows, and column, where rows and columns represents the position of the macroblock (see Section  \ref{subsect:Macroblocks}) in the frame. PiCamera generates an extra column in the motion vector data that is not going to be used.
 
-The class used for recording the videos and store the \emword{motion vectors} that have been used later for developing the algorithm to count vehicles is shown in Listing \ref{lst:6-Recorder-Sprint1}. Some parameters are given as arguments: \texttt{distance} and \texttt{angle}. They are used only for the filename so as to know afterwards the conditions of the camera when the video was recorded. In this class, the camera is configured according to the values stored in \texttt{config.py}. When the video had been recorded, it will be stored in a file with extension \texttt{.h264}, as well as the motion data, that will be stored in a file with the same name but with \texttt{.data} extension. To finish with, the video will be also converted to \texttt{.mp4} to ease its view in the development computer. 
+Listing \ref{lst:6-Recorder-Sprint1} shows the class used for recording the videos and store the \emword{motion vectors} that have been used later for developing the algorithm to count vehicles. Some parameters are given as arguments: \texttt{distance} and \texttt{angle}. They are used only for generating the filename so as to know afterwards the conditions of the camera when the video was recorded. In this class, the camera is configured according to the values stored in \texttt{config.py}. When the video has been recorded, it is stored in a file with extension \texttt{.h264}, as well as the motion data, that is stored in a file with the same name but with \texttt{.data} extension. To finish with, the video is also converted to \texttt{.mp4} to ease its view in the development computer. 
 
 \lstinputlisting[language=Python, firstline=4, texcl, caption = {Class used to record a video and its corresponding motion data}, label = lst:6-Recorder-Sprint1]{code/6-Recorder-Sprint1.py}
 
 
 \subsubsection{T1.3.3. Develop a noise filter using moving averages}
-There are some factors that can affect the number of \emword{motion vectors} in a certain frame. Some of these factors can be the incorrect codification of that frame, a small object crossing the image (e.g., a person or an animal) or just light reflection. Moreover, when H.264 video coding is used, there are several types of frames: I-frames, P-frames and B-frames as explained in Section \ref{subsect:H.264}. I-frames do not require other video frames to be decoded, therefore, they do not generate any \emword{motion vectors}. Thus, the number of \emword{motion vectors} in some frames is not going to be close to the reality, causing noise. To solve this problem, a smoothing technique is used. More concretely, simple moving averages calculation is applied.
+There are some factors that can affect the number of \emword{motion vectors} in a certain frame. Some of these factors can be the incorrect codification of that frame, a small object crossing the image (e.g., a person or an animal) or just light reflection. Moreover, when H.264 video coding is used, there are several types of frames: I-frames, P-frames and B-frames as explained in Section \ref{subsect:H.264}. I-frames do not require other video frames to be decoded, therefore, they do not generate any \emword{motion vectors}. Thus, the number of \emword{motion vectors} in some frames is not going to be close to the real motion, causing noise. To solve this problem, a smoothing technique is used. More concretely, simple moving averages calculation is applied.
 
 A simple moving average \cite{Smi15} is an unweighted average of $k$ prior values. Since a time series can be regarded as a sequence of values, $\{x_{t}\}$, being $t=1,2,3,4,…n$, the moving average of these values $\{\overline {x_{t}}\}$ can be computed. If we assume that $n$ is quite large, and we select an integer $k$ which is much smaller than $n$, we can compute the simple moving averages (of order $k$) as shown in Equation (\ref{eq:simple_moving_averages}).
 
 \begin{equation} \label{eq:simple_moving_averages}
-\overline { { x }_{ t } } =\frac { 1 }{ k } \sum _{ i=t-k+1 }^{ t }{ { x }_{ i } } ,\quad 2\le k\le n
+\overline { { x }_{ t } } =\frac { 1 }{ k } \sum _{ i=t-k+1 }^{ t }{ { x }_{ i } } ,\quad k\le t\le n
 \end{equation}
 
 The result of applying the simple moving average over the data recorded previously is shown in Figure \ref{fig:6-moving_averages}, where it can be appreciated how the graphic corresponding with the data before applying simple moving averages (black line) has some noise and sometimes it falls to 0. Additionally, it can be observed how the noise is decreased using this smoothing technique (red line).
@@ -240,11 +235,10 @@ The result of applying the simple moving average over the data recorded previous
 \subsubsection{T1.3.4. Develop the algorithm to count vehicles}
 To count the vehicles that travels on a street depending on its direction and using the motion data previously stored, an algorithm has been developed. Its pseudocode is shown in Algorithm \ref{alg:count_vehicles_V1}. This algorithm discriminates the vehicles direction (left or right). For each of the directions, the following algorithm is executed: 
 
-\BLUENOTE{For each frame, the number of \emword{motion vectors} in that frame is compared with the number of vectors in the previous frame, increasing or decreasing a variable called \variable{growth}. Once the number of frames exceed the \variable{HEIGHT\_THRESHOLD} variable, if the \variable{growth} variable is positive, the variable \variable{n\_positive\_frames} is increased by one. If this last variable overtakes the \variable{WIDTH\_THRESHOLD} variable, then it can be considererd that a new car has been detected. If the \variable{growth} variable gets equal to \variable{-GROWTH\_LIMIT}, then it is considered that the car has already passed, and the variable \variable{n\_positive\_frames} is restored to its initial value (zero).}
+For each frame, the number of \emword{motion vectors} in that frame is compared with the number of vectors in the previous frame, increasing or decreasing a variable called \variable{growth}. Once this variable exceed the \variable{HEIGHT\_THRESHOLD} variable, if it is positive, the variable \variable{n\_positive\_frames} is increased by one each frame. If this last variable is greater than the \variable{WIDTH\_THRESHOLD} variable, then it can be considererd that a new car has been detected. If the \variable{growth} variable gets equal to \variable{-GROWTH\_LIMIT}, then it is considered that the car has already passed, and the variable \variable{n\_positive\_frames} is restored to its initial value (zero).
 
-An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-Count_cars_graphic}, where the blue line represents the number of \emword{motion vectors} with left \GREENNOTE{direction} for each frame, and the red line represents the same but for those that go from left to right. The black line, represent the \variable{HEIGHT\_THRESHOLD} variable. Therefore, a car can be predicted if the number of frames in one direction overtakes the \variable{HEIGHT\_THRESHOLD} variable during more than \variable{WIDTH\_THRESHOLD} frames. And, it can be considered that the car has already passed if the number of frames has been decreasing $\variable{GROWTH\_LIMIT} \times 2 $ frames, regardless if the number of \emword{motion vectors} is under the \variable{HEIGHT\_THRESHOLD} variable or not. Therefore, in Figure \ref{fig:6-Count_cars_graphic}, it can be considered that two different vehicles have passed near the frame 1000, as the number of \emword{motion vectors} has decreased during more than $\variable{GROWTH\_LIMIT} \times 2 $ frames.
+An example of the execution fo the algorithm is shown in Figure \ref{fig:6-Count_cars_graphic}, where the blue line represents the number of \emword{motion vectors} with left direction for each frame, and the red line represents the same but for those that go from left to right. The black line, represents the \variable{HEIGHT\_THRESHOLD} variable. Therefore, a car can be predicted if the number of frames in one direction overtakes the \variable{HEIGHT\_THRESHOLD} variable during more than \variable{WIDTH\_THRESHOLD} frames. And, it can be considered that the car has already passed if the number of frames has been decreasing during $\variable{GROWTH\_LIMIT} \times 2 $ frames, regardless if the number of \emword{motion vectors} is under the \variable{HEIGHT\_THRESHOLD} variable or not. Therefore, in Figure \ref{fig:6-Count_cars_graphic}, it can be considered that two different vehicles have passed near the frame 1000, as the number of \emword{motion vectors} has decreased during more than $\variable{GROWTH\_LIMIT} \times 2 $ frames.
 
-%\IncMargin{1em}
 \begin{algorithm}
 	\SetKwInput{Input}{Input}\SetKwInput{Output}{Output}
 	\LinesNumbered
@@ -263,7 +257,6 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 	
 	
 	\For{frame $\gets$ 0 to frames}{
-		%Add to the end of $mv$ vector a list with two elements. The first element consist in the number of motion vectors in that frame whose 'x' value is greather than the variable $GROUP\_SENSITIVITY$. The second element is the number of them whose 'x' value is lower than $-GROUP\_SENSITIVITY$.
 		\tcc{Obtain number of \emword{motion vectors} in each direction.}
 		left\_mvs $\gets$ (motion\_data[frame]['x'] > GROUP\_SENSITIVITY).sum()\;
 		right\_mvs $\gets$ (motion\_data[frame]['x'] < -GROUP\_SENSITIVITY).sum()\;
@@ -313,30 +306,30 @@ An example of the execution fo the algorithm can be shown in Figure \ref{fig:6-C
 
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=1\textwidth]{6-Count_cars_graphic.pdf}
+		\includegraphics[width=0.96\textwidth]{6-Count_cars_graphic.pdf}
 		\caption{Number of \emword{motion vectors} in the test video 8}
 		\label{fig:6-Count_cars_graphic}
 	\end{center}
 \end{figure}
 
-Once the algorithm has been developed, it needs to be tested using the different videos recorded previously as it was stated in the list of tests for the user story. For this purpose an automated test has been programmed, which executes the algorithm over the different videos recorded, and whose results are shown in Table \ref{tab:Results_CountVehicles_V1}. In these tests, 23 videos of one minute length and with different camera configurations were tested and 89.57\% of the vehicles where correctly identified by the algorithm. After evaluating the results obtained, it is concluded that they are acceptable for the goal of this Sprint. Moreover, it is shown that the algorithm performs almost without any error if the camera is centered, this means that it looks perpendicular to the road, such as in Figure \ref{fig:4-Car_with_MV}. 
+Once the algorithm has been developed, it needs to be tested using the different videos recorded previously as it was stated in the list of tests for the user story. For this purpose an automated test has been programmed, which executes the algorithm over the different videos recorded, and whose results are shown in Table \ref{tab:Results_CountVehicles_V1}. In these tests, 23 videos of one minute length and with different camera configurations were tested and 89.57\% of the vehicles were correctly identified by the algorithm. After evaluating the results obtained, it is concluded that they can be considered acceptable for the goal of this Sprint. Moreover, it is shown that the algorithm performs almost without any error if the camera is centered, this means that it looks perpendicular to the road, such as in Figure \ref{fig:4-Car_with_MV}. 
 
-The next step is to modify this algorithm to work in real time. For this purpose, the first step is to change the class used to process the \emword{motion vectors} to \texttt{PiMotionAnalysis}, and to create and structure that stores \emword{motion vectors} from the latter frames in order to be able to apply the algorithm. The last step is to measure the time taken by program to execute one iteration, which is approximately 0.0024 seconds, which is about 14 times lower than 0.033 seconds, with is the period between frames.
+The next step is to modify this algorithm to work in real time. For this purpose, the first step is to change the class used to process the \emword{motion vectors} to \texttt{PiMotionAnalysis}, and to create an structure that stores \emword{motion vectors} from the latter frames in order to be able to apply the algorithm. The last step is to measure the time taken by the program to execute one iteration, which is approximately 0.0024 seconds. This is about 14 times lower than 0.033 seconds, which is the period between frames.
 
 \begin{table}[!h]
 	\centering
 	{\small
 		\input{tables/6-Results/Results_CountCarsV1.tex}
 	}
-	\caption{Results of the Algorithm \ref{alg:count_vehicles_V1} using the first test video dataset}
+	\caption{Results of the Algorithm \ref{alg:count_vehicles_V1} using the first dataset of test videos}
 	\label{tab:Results_CountVehicles_V1}
 \end{table}
 
 
-\newpage
+\clearpage
 %%% Sprint 2
 \section{Sprint 2: Design of an environmental parameters monitoring system}
-In this Sprint, a program to obtain environmental data is going to be developed. This goal involves the integration of some environmental sensors to measure several parameters such as temperature, humidity and pressure, as well as, the design and implementation of an electronic circuit to measure some contaminant gases. These gas sensors used are the MQ-7 and MQ-2, which measures CO and LPG gases, respectively. Once the circuit has been implemented, a program must be developed in order to control the sensors, as well as get the data they generate and finally store it into a data structure.
+In this Sprint, a program to obtain environmental data is going to be developed. This goal involves the integration of some environmental sensors to measure several parameters such as temperature, humidity and pressure, as well as, the design and implementation of an electronic circuit to measure some pollutant gases. The gas sensors used are the MQ-7 and MQ-2, which measures CO and LPG gases, respectively. Once the circuit has been implemented, a program have to be developed in order to control the sensors, as well as collect the data generated and finally store it into a data structure.
 
 During the planning meeting, the two user stories addressed in this Sprint have been analysed. These user stories are shown in Tables \ref{tab:Sprint2-User-story-4} and \ref{tab:Sprint2-User-story-5}.
 
@@ -358,7 +351,7 @@ During the planning meeting, the two user stories addressed in this Sprint have 
 	\item Calibrate the MQ sensors.
 	\item Develop a method to obtain data from the different sensors and synchronize them.
 }{	\item Test the environmental sensors.
-	\item Test the MQ gas sensor.
+	\item Test the MQ gas sensors.
 }
 
 
@@ -380,21 +373,24 @@ To install this board, the first step is to place it correctly on top of the Ras
 \end{figure}
 
 \subsubsection{T2.4.2. Design an electronic circuit for the MQ gas sensors}
-Due to the necessity of measuring some gases such as CO or Liquefied Petroleum Gas (LPG), some external sensors (MQ-7 and MQ-2) are needed. The MQ sensors are inexpensive gas sensors that are sensitive for a wide range of gasses and are especially recommended for indoor use. These inexpensive sensors have been used due to the fact that we only want to obtain an approximate value of the polluting gases concentration and accurate sensors are very expensive and require complex calibration methods. Moreover, as these sensors are quite common, they can be obtained in lot of specialized stores. A conversion to a digital value must be carried out as these sensors only provide an analogue signal output. For this purpose an \ac{ADC} is needed and the MCP3008 chip has been used \cite{MCP3008}.
+Due to the necessity of measuring some gases such as CO or Liquefied Petroleum Gas (LPG), some external sensors (MQ-7 and MQ-2) are needed. The MQ sensors are inexpensive gas sensors sensitive for a wide range of gasses and especially recommended for indoor use. These inexpensive sensors have been used due to the fact that we only want to obtain an approximate value of the polluting gases concentration and accurate sensors are more expensive and require complex calibration methods. Moreover, as these sensors are quite common, they can be obtained in lot of specialized stores. A conversion to a digital value must be carried out as these sensors only provide an analogue signal output. For this purpose an \ac{ADC} is needed and the MCP3008 chip has been used \cite{MCP3008}.
 
 As a result of the complexity of incorporating the MQ sensor directly to the electronic circuit, a chip module (Figure \ref{fig:6-MQ_Sensor}) has been used instead, which implements the connections to the MQ sensor and provide four external connections (voltage, ground, digital output and analogue output). The digital output is not going to be used, as it only provides a logical value (1 or 0) according to a gas concentration threshold. Therefore, the analogue output is used and the value is converted to a digital one using the \ac{ADC} chip.
 
+
+The implementation of the MQ-7 sensor is more complex than the MQ-2 sensor because it works in cycles of two phases: First the sensor is powered by 1.4 volts during 60 seconds. At the end of this phase, the results are read from the sensor and then a phase of 90 seconds starts where the sensor is heated with 5 volts (which allows the sensor to be cleaned for the next measurement). 
+
+In the case of the MQ-2 sensor, the 5 volts which are necessary in order to power it, can be supplied by the 5 volts power supply (Pin 4) of the GPIO interface as shown in Figure \ref{fig:6-Raspberry-Pinout-En}, which can supply up to $700mA$. In the case of the MQ-7 sensor, \ac{PWM} is going to be used to generate 1.4 volts, but the GPIO pins used for the \ac{PWM} can only supply $50mA$. This sensor consumes approximately $150mA$ and therefore the Raspberry pin could burn. To solve this problem the LM317 chip has been used, which is a regulator capable of supplying more than $1.5A$ over an output-voltage range of 1.25 volts to 37 volts \cite{LM317}. By using LM317 chip, the current is drawn from the 5 volts power supply and the pin BCM 16 can be used without any problem for generating a \ac{PWM}.
+
+\ac{PWM} is a modulation technique that allows generating waveforms of high frequencies and high precision \cite{DdlT16}. It can be used to control the power supplied to electrical devices, such as motors. To generate a \ac{PWM} signal it is needed to define the period and the duty cycle (Figure \ref{fig:6-PWM-signal}). The period indicates the duration of each cycle, whereas the duty cycle describes the proportion of the period in which the signal is in high power state (in this case 3.3 volts, which is voltage generated by the GPIO pins). The frequency (which is the inverse of the period) has been defined to $100 Hz$, and taking this value into account the duty cycle has been defined to $14\%$ for obtaining 1.4 volts and to $100\%$ for obtaining the maximum voltage allowed by the LM317 chip (for the heating phase). The final circuit is shown in Figure \ref{fig:6-Circuit-Schematic}.
+
 \begin{figure}[!h]
 	\begin{center}
-		\includegraphics[width=0.5\textwidth]{6-MQ_Sensor.jpg}
+		\includegraphics[width=0.46\textwidth]{6-MQ_Sensor.jpg}
 		\caption{MQ sensor chip used}
 		\label{fig:6-MQ_Sensor}
 	\end{center}
 \end{figure}
-
-The implementation of the MQ-7 sensor is more complex than the MQ-2 sensor because it works in cycles of two phases: First the sensor is powered by 1.4 volts during 60 seconds. At the end of this phase, the results are read from the sensor and then a phase of 90 seconds starts where the sensor is heated with 5 volts (which allows the sensor to be cleaned for the next measurement). In the case of the MQ-2 sensor, the 5 volts which are necessary in order to power it can be supplied by the 5 volts power supply (Pin 4) of the GPIO interface as shown in Figure \ref{fig:6-Raspberry-Pinout-En}, which can supply up to 700 mA. In the case of the MQ-7 sensor, \ac{PWM} is going to be used to generate 1.4 volts, but the GPIO pins used for the \ac{PWM} can only supply 50 mA. This sensor consumes approximately 150 mA and therefore the Raspberry pin could burn. To solve this problem the LM317 chip has been used, which is a regulator capable of supplying more than 1.5 A over an output-voltage range of 1.25 volts to 37 volts \cite{LM317}. By using LM317 chip, the current is drawn form the 5 volts power supply and the pin BCM 16 can be used without any problem for generating a \ac{PWM}.
-
-\ac{PWM} is a modulation technique that allow generating waveforms of high frequencies and high precision \cite{DdlT16}. It can be used to control the power supplied to electrical devices, such as motors. To generate a \ac{PWM} signal it is needed to define the period and the duty cycle (Figure \ref{fig:6-PWM-signal}). The period indicates the duration of each cycle, whereas the duty cycle describes the proportion of the period in which the signal is in high power state (in this case 3.3 volts, which is voltage generated by the GPIO pins). The frequency (which is the inverse of the period) has been defined to $100 Hz$ which is enough, and taking this value into account the duty cycle has been defined to $14\%$ in order to obtain 1.4 volts and to $100\%$ to obtain the maximum voltage allowed by the LM317 chip (for the heating phase). The final circuit is shown in Figure \ref{fig:6-Circuit-Schematic}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -406,8 +402,6 @@ The implementation of the MQ-7 sensor is more complex than the MQ-2 sensor becau
 
 The consequence of using the LM317 chip is that it has an internal drift that we have measured as approximately 1.8 volts and, consequently, only 3.2 volts can be generated using a 5 volts power supply. Since the 5 volts phase is only used to heat the sensor, there is not a big difference in the precision of the measurements, hence we consider this solution can be accepted for this prototype. In a final implementation, two solutions can be considered to solve this problem. The first one is to use a higher voltage power supply (which is a direct solution if the device is connected to the street lighting power supply). A second approach consist in the implementation of a circuit using transistors to switch between 1.4 and 5 volts.
 
-
-% https://easyeda.com/editor
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[width=1\textwidth]{6-Circuit-Schematic.pdf}
@@ -422,6 +416,10 @@ The consequence of using the LM317 chip is that it has an internal drift that we
 \subsubsection{T2.4.3. Connect the electronic circuit to Raspberry Pi device}
 The next step is to connect the previous electronic circuit to the Raspberry Pi. For this purpose the GPIO pins are going to be used. However, as the Sense hat module has been installed in the Raspberry Pi, not all the GPIO pins are available. These pins can be located in Figure \ref{fig:6-Raspberry-Pinout-Expanded} or using the web page \url{https://pinout.xyz/} where all the information about the different pins is displayed. Therefore, for the \ac{SPI} communication with the MCP3008 chip the pins BCM  18, 19, 20, and 21 are used. In addition, pin BCM 16 is used for \ac{PWM} and GPIO 4 and 6 for 5 volts power and ground respectively. Figure \ref{fig:6-Electric_diagram.pdf} shows the connection diagram of the components using a protoboard to connect them.
 
+
+\subsubsection{T2.5.1. Develop a class that communicates with the external sensors using \ac{SPI}}
+As it has been previously stated in task T2.4.2, the analogue output from the MQ sensors will be converted to a digital value using an \ac{ADC} chip. For this purpose, the MCP3008 chip \cite{ADC} is going to be used, which communicates with the processor using the \ac{SPI} protocol. The class developed needs to implement this protocol internally in order to obtain the data from this chip using the GPIO pins (Listing \ref{lst:6-spiCommunicator}). The protocol has been implemented following the specifications of the MCP3008 datasheet (Figure \ref{fig:6-MCP3008-SPI}), where it is stated the signals that need to be activated in each clock cycle to allow the communication. The channel is going to be provided as argument, taking into account that channel 0 corresponds with the MQ-7 sensor and channel 1 to the MQ-2 sensor, as stated in the wiring connections (Figure \ref{fig:6-Circuit-Schematic}).
+
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[height=1\textwidth,angle=90]{6-Electric_diagram-cropped.pdf}
@@ -429,10 +427,6 @@ The next step is to connect the previous electronic circuit to the Raspberry Pi.
 		\label{fig:6-Electric_diagram.pdf}
 	\end{center}
 \end{figure}
-
-
-\subsubsection{T2.5.1. Develop a class that communicates with the external sensors using \ac{SPI}}
-As it has been previously stated in task T2.4.2, the analogue output from the MQ sensors will be converted to a digital value using an \ac{ADC} chip. For this purpose, the MCP3008 chip \cite{ADC} is going to be used, which communicates with the processor using the \ac{SPI} protocol. The class developed needs to implement this protocol internally in order to obtain the data from this chip using the GPIO pins (Listing \ref{lst:6-spiCommunicator}). The protocol has been implemented following the specifications of the MCP3008 datasheet (Figure \ref{fig:6-MCP3008-SPI}), where it is stated the signals that need to be activated in each clock cycle to allow the communication. The channel is going to be provided as argument, taking into account that channel 0 corresponds with the MQ-7 sensor and channel 1 to the MQ-2 sensor, as stated in the wiring connections (Figure \ref{fig:6-Circuit-Schematic}).
 
 \begin{figure}[!h]
 	\begin{center}
@@ -446,9 +440,9 @@ As it has been previously stated in task T2.4.2, the analogue output from the MQ
 
 
 \subsubsection{T2.5.2. Develop a method to convert the read values of the MQ sensors to particles per million}
-The values provided by the previous class correspond to the voltage of the current that goes through the sensor and it need to be converted to particles per million of the gas measured. For this purpose the sensitivity characteristic curve of the different gases (Figure \ref{fig:6-MQ_curve}) defined in the sensor documentation must be studied. This curve explains how the resistance of the sensor changes depending on the concentration of the target gas. Therefore, the first step must be to compute the resistance of the sensors. 
+The values provided by the previous class correspond to the voltage of the electric current that goes through the sensor. This value has to be converted to particles per million of the gas measured. For this purpose the sensitivity characteristic curve of the different gases (Figure \ref{fig:6-MQ_curve}) defined in the sensor documentation must be studied. This curve explains how the resistance of the sensor changes depending on the concentration of the target gas. Therefore, the first step must be to compute the resistance of the sensors. 
 
-The value provided by the \ac{SPI} protocol needs to be converted in order to obtain the real value of the voltage. In the MCP3008 chip documentation \cite{ADC}, Equation (\ref{eq:digital_output_code_calculaiton}) is proposed to calculate the value given by the converter ($adc$), where ${V}_{RL}$ is the value of the voltage being measured in the corresponding channel of the converter and ${V}_{R}$ the reference level used by the converter.
+The value provided by the \ac{ADC} chip needs to be converted in order to obtain the real value of the voltage. In the MCP3008 chip documentation \cite{ADC}, Equation (\ref{eq:digital_output_code_calculaiton}) is proposed to calculate the real value given by the converter and denoted as $adc$, where ${V}_{RL}$ is the value of the voltage being measured in the corresponding channel of the converter and ${V}_{R}$ the reference level used by the converter.
 \begin{equation} \label{eq:digital_output_code_calculaiton}
 adc = \frac { 1024\cdot { V }_{ RL } }{ { V }_{ R } } 
 \end{equation}
@@ -462,17 +456,17 @@ The reference level used by the \ac{ADC} chip is going to be the same as the use
 {V}_{R} = {V}_{C}
 \end{equation}
 
-To obtain the resistance of the MQ sensors, their official documentation \cite{MQ7,MQ2} propose the use of the Equation (\ref{eq:operational_principle}), where ${R}_{S}$ is the current resistance of the sensor (in $K\Omega$, i.e. 1000 ohms), ${R}_{L}$ is the load resistance in $K\Omega$ (i.e. the external resistance connected to the sensor) and ${V}_{RL}$ is the value of the voltage being measured. 
+To obtain the resistance of the MQ sensors, their official documentation \cite{MQ2, MQ7} propose the use of the Equation (\ref{eq:operational_principle}), where ${R}_{S}$ is the current resistance of the sensor (in $K\Omega$, i.e. 1000 ohms), ${R}_{L}$ is the load resistance in $K\Omega$ (i.e. the external resistance connected to the sensor) and ${V}_{RL}$ is the value of the voltage being measured. 
 \begin{equation} \label{eq:operational_principle}
-{ { R }_{ S } }/{ { R }_{ L } }=\frac { { V }_{ C }-V_{ RL } }{ V_{ RL } } 
+\frac { { R }_{ S } }{ { R }_{ L } }=\frac { { V }_{ C }-V_{ RL } }{ V_{ RL } } 
 \end{equation}
 
-Combining Equations (\ref{eq:VRL}), (\ref{eq:ref_voltage}) and (\ref{eq:operational_principle}), Equation (\ref{eq:Rs_equation}) is obtained, which allows to calculate the value of the MQ gas sensor resistance using the raw value obtained by the \ac{ADC} chip (denoted as $adc$).
+Combining Equations (\ref{eq:VRL}), (\ref{eq:ref_voltage}) and (\ref{eq:operational_principle}), Equation (\ref{eq:Rs_equation}) is obtained, which allows to calculate the value of the MQ gas sensor resistance using the raw value obtained by the \ac{ADC} chip (denoted as $adc$). \clearpage
 \begin{equation} \label{eq:Rs_equation}
 \begin{aligned}
-{ { R }_{ S } }/{ { R }_{ L } }=\frac { { V }_{ C }-V_{ RL } }{ V_{ RL } } \Rightarrow 
-{ { R }_{ S } }/{ { R }_{ L } }=\frac { { V }_{ C }-\frac { adc\cdot { V }_{ C } }{ 1024 }  }{ \frac { adc\cdot { V }_{ C } }{ 1024 }  } \Rightarrow \\
-{ { R }_{ S } }/{ { R }_{ L } }=\frac { 1024\cdot { V }_{ C }-adc\cdot { V }_{ C } }{ adc\cdot { V }_{ C } } \Rightarrow 
+\frac { { R }_{ S } }{ { R }_{ L } }=\frac { { V }_{ C }-V_{ RL } }{ V_{ RL } } \Rightarrow 
+\frac { { R }_{ S } }{ { R }_{ L } }=\frac { { V }_{ C }-\frac { adc\cdot { V }_{ C } }{ 1024 }  }{ \frac { adc\cdot { V }_{ C } }{ 1024 }  } \Rightarrow \\
+\frac { { R }_{ S } }{ { R }_{ L } }=\frac { 1024\cdot { V }_{ C }-adc\cdot { V }_{ C } }{ adc\cdot { V }_{ C } } \Rightarrow 
 \boxed{
 { R }_{ S }=\frac {  { R }_{ L } \cdot (1024-adc) }{ adc } 
 }
@@ -501,7 +495,7 @@ where $Gppm$ is the target gas measured in particles per million, ${R}_{S}$ is t
 		\label{fig:6-MQ-2_curve}
 	}
 	\caption{Sensitivity characteristic curve of the MQ sensors}
-	\label{fig:6-MQ_curve}{Source: MQ sensor documentation \cite{MQ7,MQ2}}
+	\label{fig:6-MQ_curve}{Source: MQ sensor documentation \cite{MQ2,MQ7}}
 \end{figure}
 
 Therefore, to convert from the sensor resistance to ppm, the slope $m$ and the y-intercept of the line $n$ must be calculated for both sensors \cite{ConfMQX}. For example, to calculate the line that defines the CO concentration in the MQ-7 sensor, first, it is needed to calculate the slope of the line as shown in Equation (\ref{eq:CO_slope}).
@@ -517,24 +511,24 @@ Gppm=\frac {1}{m} \left[ \log_{10}{ \left( \frac{{R}_{S}}{{R}_{O}} \right)}-n \r
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {\emph{getMQPPM} method from \texttt{Sensors.py} file}, label = lst:6-getMQPPM]{code/6-getMQPPM.py}
 
-The last step is the development of a method to obtain the final value from the sensor given the channel where it is connected. This method is shown in Listing \ref{lst:6-Read}
+The last step is the development of a method to obtain the final value from the sensor given the channel where it is connected. This method is shown in Listing \ref{lst:6-Read}.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {\emph{read} method from \texttt{Sensors.py} file}, label = lst:6-Read]{code/6-Read.py}
 
 
 \subsubsection{T2.5.3. Calibrate the MQ sensors}
-The MQ sensor documentation propose as a calibration method the generation of a certain concentration of a given gas and the measurement of the resultant resistance of the sensor. For example, for MQ-7 sensor, a concentration of 100ppm of CO in clean air is needed. Nevertheless, we have not enough resources to generate this gas concentration, and other calibration methods have been studied, such as measuring the current concentration of the gas with another CO sensor comparing the results, but it was not possible either. 
+The MQ sensor documentation proposes as a calibration method the generation of a certain concentration of a given gas and the measurement of the resultant resistance of the sensor. For example, for MQ-7 sensor, a concentration of $100ppm$ of CO in clean air is needed. Nevertheless, we have not enough resources to generate this gas concentration, and other calibration methods have been studied, such as measuring the current concentration of the gas with another CO sensor comparing the results, but it was not possible either. 
 
 Therefore, an alternative approach has been developed in order to obtain an approximate value for ${R}_{O}$. It consists in locating the sensor into clean air (without CO and LPG contamination) and then takes a measure of the sensor resistance (${R}_{S}$). Then, the sensitivity curve of clean air for the given sensor can be calculated and used to obtain ${R}_{O}$, as shown in lines 16-19 of Listing \ref{lst:6-MQCalibration}, where \texttt{MQ\textbf{X}\_RO\_CLEAN\_AIR\_FACTOR} is the value of the clean air on the ordinate axis for the sensor sensitivity characteristic curve (Figure \ref{fig:6-MQ_curve}). This calculation can be repeated several times in order to obtain more accurate values. These steps have to be repeated for all the units installed of each sensor type (MQ-7 and MQ-2), as the values changes depending on every sensor.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {\emph{calibration} method from \texttt{Sensors.py} file}, label = lst:6-MQCalibration]{code/6-MQCalibration.py}
 
-With this approach an approximate value of the gas concentration can be obtained. Nonetheless, it is proposed as future work to correctly calibrate all the sensors, in order to obtain the accurate gas concentration.
+With this approach, an approximate value of the gas concentration can be obtained. Nonetheless, it is proposed as future work to correctly calibrate all the sensors, in order to obtain a more accurate gas concentration.
 
 
 \subsubsection{T2.5.4. Develop a method to obtain data from the different sensors and synchronize them}
 
-In order to synchronize and collect the data from all the previous sensors a new method has to be developed. Firstly, the necessary GPIO pins for the sensors are going to be configured, as well as initializing the \ac{PWM} cycle for controlling the voltage of the MQ-7 sensor. Secondly, all the sensor data from the MQ sensors and from the environment sensors installed in the Sense Hat \cite{SenseHAT} are going to be obtained.
+In order to synchronize and collect the data from all the previous sensors a new method has to be developed. Firstly, the necessary GPIO pins for the sensors are going to be configured, as well as initializing the \ac{PWM} cycle for controlling the voltage of the MQ-7 sensor. Secondly, all the data from the MQ sensors and from the environment sensors installed in the Sense Hat \cite{SenseHAT} are going to be obtained.
 
 In order to avoid noisy data or sudden changes on the data caused by erroneous measurements, a smoothed average is going to be applied as it is shown in Equation (\ref{eq:smoothed_average}), where ${w}_{t+1}$ represents the current data read by the sensor, $\overline{{w}_{t}}$ is the value calculated by the equation in the previous measure and $\alpha$ is a weight that indicates how new values affect to the final value represented as $\overline{{w}_{t+1}}$.
 \begin{equation} \label{eq:smoothed_average}
@@ -558,12 +552,12 @@ If we suppose that $\varepsilon$ is negligible with a value of ${10}^{-3}$, and 
 \end{equation}
 Then, considering $n=12$ and $\varepsilon={10}^{-3}$, the value calculated is $\alpha=0.57$, which is the one that will be used.
 
-These parameters are going to be used to adjust Equation (\ref{eq:smoothed_average}) obtaining the final equation. At this point, the Sprint has been completely finished and the Raspberry Pi device can obtain not only environmental and pollution information, but also the traffic flow as it was explained in Section \ref{Section:Sprint1}.
+These parameters are going to be used to adjust Equation (\ref{eq:smoothed_average}) obtaining the final number. At this point, the Sprint has been completely finished and the Raspberry Pi device can obtain not only environmental and pollution information, but also the traffic flow as it was explained in Section \ref{Section:Sprint1}.
 
 
 %%% Sprint 3
-\section{Sprint 3: Development of a module to send data from Raspberry Pi to the Cloud and store it into a database}
-Following the project plan, Sprint 3 is dedicated to the development of the main program that integrates all the previous modules, collects the data they generate and sends it to the Cloud. Moreover, a server needs to be developed to receive the data send by the multiple devices, process and store it into a database. Sprint 3 cannot be started unless Sprints 1 and 2 are finished.
+\section{Sprint 3: Development of a module to send data from the Raspberry Pi to the Cloud and store it into a database}
+Following the project plan, Sprint 3 is dedicated to the development of the main program that integrates all the previous modules, collects the data they generate and sends it to the Cloud. Moreover, a server needs to be developed to receive the data sent by the multiple devices, process and store it into a database. Sprint 3 cannot be started until Sprints 1 and 2 have finished.
 
 During the Sprint planning meeting the Scrum Team analysed the different user stories and divided them into some tasks and tests. The user stories addressed in this Sprint are shown in Tables \ref{tab:Sprint3-User-story-6} to \ref{tab:Sprint3-User-story-8}.
 
@@ -593,13 +587,14 @@ During the Sprint planning meeting the Scrum Team analysed the different user st
 	\item Check if communication module obtains the generated data correctly.
 }
 
+\clearpage
 \subsubsection{T3.6.1. Create and configure an IBM Watson IoT Platform account}
 
-To send the data collected by each one of the Raspberry Pi devices, \emword{MQTT} messaging has been used. \emword{MQTT} is a publish and subscribe messaging transport protocol that is designed for the efficient exchange of real-time data between sensors and other devices. \emword{MQTT} runs over the TCP/IP protocol and it is the primary protocol used by the \emword{IBM Watson IoT Platform}, which is the service that have been used to communicate the Raspberry Pi devices. Moreover, IBM also provides some good resources for implementing the server that is developed in Sprint 4. 
+To send the data collected by each one of the Raspberry Pi devices, \emword{MQTT} messaging has been used. \emword{MQTT} is a publish and subscribe messaging transport protocol that is designed for the efficient exchange of real-time data between sensors and other devices. \emword{MQTT} runs over the TCP/IP protocol and it is the primary protocol used by the \emword{IBM Watson IoT Platform}, which is the service that has been used to communicate the Raspberry Pi devices. Moreover, IBM also provides some good resources for implementing the server that is developed in Sprint 4. 
 
 IBM is one of the top companies that provides cloud solutions for organizations. Their different services are widely used by lot of companies all over the world. In addition, thanks to the IBM Academic Initiative program, the use of the IBM Bluemix services is completely free for students and teachers. For this reason we have decided to use them in this \ac{BSc.} thesis.
 
-To create the IBM Academic account, first we need to register at \url{ibm.onthehub.com} using the University email. Then, we need to select \emph{IBM Cloud} and purchase it. This does not cost anything and a token will be generated which gives access to the IBM Bluemix services for 6 moths or 1 year, depending on whether the email corresponds to a student or a teacher, respectively. This token has to be introduced in \url{http://www.ibm.com/bluemix}. Finally, we can access to the IBM Cloud dashboard in the web page \url{console.bluemix.net}. There, all the services created are listed as shown in Figure \ref{fig:6-Bluemix-DashBoard}. 
+To create the IBM Academic account, first we need to register at \url{ibm.onthehub.com} using the University email. Then, we need to select \emph{IBM Cloud} and purchase it. This does not cost anything and a token is generated which gives access to the IBM Bluemix services for 6 moths or 1 year, depending on whether the email corresponds to a student or a teacher, respectively. This token has to be introduced in \url{http://www.ibm.com/bluemix}. Finally, we can access to the IBM Cloud dashboard in the web page \url{console.bluemix.net}. There, all the services created are listed as shown in Figure \ref{fig:6-Bluemix-DashBoard}. 
 
 \begin{figure}[!h]
 	\begin{center}
@@ -612,7 +607,7 @@ To create the IBM Academic account, first we need to register at \url{ibm.ontheh
 
 \subsubsection{T3.6.2. Connect the Raspberry Pi device to the IoT Platform}
 
-The IBM Watson \ac{IoT} Platform collects connected devices data and performs analytics on real-time data \cite{IBMIoT}. The \ac{IoT} Platform relies on \emword{MQTT} service to send the data between the sensors and the applications running in the servers. Figure \ref{fig:6-MQTT} shows a diagram with the basic structure of \emword{MQTT} messaging. In this example, two Raspberry Pi devices collect the temperature and send it to the \emword{MQTT} service (\emph{Publish}), whereas the server manifest its intention of receiving the temperatures (\emph{Subscribe}) and, therefore, receives all the temperature data collected by the devices.
+The IBM Watson \ac{IoT} Platform collects data from the connected devices and performs analytics on real-time \cite{IBMIoT}. The \ac{IoT} Platform relies on \emword{MQTT} service to send the data between the sensors and the applications running in the servers. Figure \ref{fig:6-MQTT} shows a diagram with the basic structure of \emword{MQTT} messaging. In this example, two Raspberry Pi devices collect the temperature and send it to the \emword{MQTT} service (\emph{Publish}), whereas the server manifests its intention of receiving the temperatures (\emph{Subscribe}) and, therefore, receives all the temperature data collected by the devices.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -622,7 +617,7 @@ The IBM Watson \ac{IoT} Platform collects connected devices data and performs an
 	\end{center}
 \end{figure}
 
-From the IBM Bluemix Console Dashboard (Figure \ref{fig:6-Bluemix-DashBoard}), the \emph{Create Resource} section needs to be selected and then the \emph{Internet of Things Platform} service have to be chosen. The \emph{little} plan is available and allows to use the service for free, with some limitations like a maximum of 200 MB of data per month or a maximum of 500 devices connected. Nevertheless, a plan with more resources can be bought if it is necessary at anytime. The last step is to click the \textit{Launch} button that opens IBM Watson \ac{IoT} Platform in a new browser window.
+From the IBM Bluemix Console Dashboard (Figure \ref{fig:6-Bluemix-DashBoard}), the \emph{Create Resource} section needs to be selected and then the \emph{Internet of Things Platform} service has to be chosen. The \emph{little} plan is available and allows to use the service for free, with some limitations like a maximum of 200 MB of data per month or a maximum of 500 devices connected. Nevertheless, a plan with more resources can be bought if it is necessary at anytime. The last step is to click the \textit{Launch} button that opens IBM Watson \ac{IoT} Platform in the browser.
 
 Inside the IBM Watson \ac{IoT} Platform all the configuration related with the service can be managed. In addition, some statistics about the different devices connected can be obtained, in order to know if the system is working properly. The \textit{Devices} section (Figure \ref{fig:6-IoT_Dashboard}) displays all the associated devices and allows to add new ones. In this page the device types can also be managed by selecting the \textit{Device Types} tab in the upper menu. The \texttt{Raspberry\_Pi} type has been defined, which allows to connect several Raspberry Pi devices. When a new device is added to the platform an authentication token is generated, which is used by the device to connect to the IBM \ac{IoT} service. 
 
@@ -634,19 +629,20 @@ Inside the IBM Watson \ac{IoT} Platform all the configuration related with the s
 	\end{center}
 \end{figure}
 
-The next step is to define the configuration file for each one of the devices as it is shown in Listing \ref{lst:6-device-conf}, where the following parameters are:
+The next step is to define the configuration file for each one of the devices as it is shown in Listing \ref{lst:6-device-conf}, where the following parameters are defined:
 \begin{itemize}
-	\item \textbf{org.} Indicates the organization ID, which is displayed in the IBM Bluemix dashboard (Figure \ref{fig:6-Bluemix-DashBoard}).
-	\item \textbf{type.} Identifies the type of device. The device type is a grouping for devices that perform a specific task.
+	\item \textbf{org.} It indicates the organization ID, which is displayed in the IBM Bluemix dashboard (Figure \ref{fig:6-Bluemix-DashBoard}).
+	\item \textbf{type.} It identifies the type of device which is a grouping for devices that perform a specific task.
 	\item \textbf{id.} It is an unique ID that identifies each device which is added to the application.
 	\item \textbf{auth-method.} It defines the autentication method. The only supported method at this moment is "token".
 	\item \textbf{auth-token.} An authentication token that allows to securely connect the device to Watson \ac{IoT} Platform.
 	\item \textbf{clean-session.} When it is set to true the messages are queued while the device is not connected.
 \end{itemize}
 
+\clearpage
 \lstinputlisting[firstline=1, texcl, caption = {\texttt{device.conf} file}, label = lst:6-device-conf]{code/6-device.conf}
 
-Once the parameters of the Watson \ac{IoT} Platform have been configured, the code to connect to it was developed, as shown in Listing \ref{lst:6-connect-IBM-IoT.py}. Lines 5 to 8 set the configuration stored into \texttt{device.conf} and allow connecting to the service. Then, line 14 sends the data variable, which is a dictionary with all the sensor data, to the MQTT queue. Finally, line 22 disconnects from the service. This defines the communication module of the Raspberry Pi device.
+Once the parameters of the Watson \ac{IoT} Platform have been configured, the code to connect to it was developed, as shown in Listing \ref{lst:6-connect-IBM-IoT.py}. Lines 5 to 8 set the configuration stored into \texttt{device.conf} and allow connecting to the service. Then, line 14 sends the data variable, which is a dictionary with all the sensor data, to the MQTT queue. Finally, line 21 disconnects from the service. This defines the communication module of the Raspberry Pi device.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to connect and send data to Watson IoT Platform}, label = lst:6-connect-IBM-IoT.py]{code/6-connect-IBM-IoT.py}
 
@@ -654,7 +650,7 @@ Heretofore, the different data collected by the Raspberry Pi device were sent to
 \begin{itemize}
 	\item \textbf{At most once (qos=0).} This is the fastest mode of transfer. The message is not stored and it is delivered across the network without acknowledgement.
 	\item \textbf{At least once (qos=1).} The message is delivered at least once. If a failure occurs before acknowledgement is received, then the message is forwarded again.
-	\item \textbf{Exactly once (qos=2).} This is the safest but slowest transfer mode. The message is always delivered exactly one. This means that the message must be stored locally at the sender until a confirmation message is published by the receiver.
+	\item \textbf{Exactly once (qos=2).} This is the safest but slowest transfer mode. The message is always delivered exactly one time. This means that the message must be stored locally at the sender until a confirmation message is published by the receiver.
 \end{itemize}
 
 The application (receiver) that is subscribed to the "sensor\_update" event in the MQTT queue and process all the data generated by the Raspberry Pi devices is developed in User Story 7.
@@ -664,7 +660,7 @@ The application (receiver) that is subscribed to the "sensor\_update" event in t
 
 We want to store all the collected data in order to be able to access it later or to plot a graph with the historical data. For this reason, a database is needed. As the data generated by the devices is well organized and fixed, a relational SQL database is used. The academic IBM Bluemix account allows to create a ClearDB database. ClearDB is an external company that offers SQL databases. With the free plan a database of up to 10 MB can be created. Nonetheless, ClearDB offers advanced plans if more space is needed.
 
-To manage the SQL database the application MySQL Workbench is used, which is an unified visual tool for database architects and developers. This application is available on Windows, Mac OS and Linux distributions. The first step is to connect the application to the database. Each database table have one or more columns, which contains data of a certain data type. In Tables \ref{tab:6-SQL-data} and \ref{tab:6-SQL-devices} the \texttt{Nullable} attribute specifies if a column can contain null data, whereas the \texttt{PK} attribute specifies if the column is part of the \textit{Primary Key}.
+To manage the SQL database the application MySQL Workbench is used, which is an unified visual tool for database architects and developers. This application is available on Windows, Mac OS and Linux distributions. The first step is to connect the application to the database. Each database table has one or more columns, which contains data of a certain data type. In Tables \ref{tab:6-SQL-data} to \ref{tab:6-SQL-devices} the \texttt{Nullable} attribute specifies if a column can contain null data, whereas the \texttt{PK} attribute specifies if the column is part of the \textit{Primary Key}.
 
 Two tables have been created: The \texttt{data} table (Table \ref{tab:6-SQL-data}) stores all the data received from the Raspberry Pi devices; whereas the \texttt{devices} table (Table \ref{tab:6-SQL-devices}) stores information about all the different Raspberry Pi devices, such as the time interval when a sensor is updated, their location and the number of lanes in the street where the sensor is located.
 
@@ -721,19 +717,19 @@ Two tables have been created: The \texttt{data} table (Table \ref{tab:6-SQL-data
 
 \subsubsection{T3.7.2. Develop a program that connects to the IoT Platform and stores into the SQL database the received information}
 
-A program has been developed to receive the data from the different Raspberry Pi devices and store it into the database previously created. This program runs in a server together with the web server developed in Sprint 4. The program access to the IBM Watson IoT Platform and subscribes to the events that the Raspberry Pi devices generates. Therefore, the first step is to define the \texttt{application.conf} file (Listing \ref{lst:6-application.conf}) which contains the information used to connect to the Watson IoT Platform. This file is similar to the one used by the Raspberry Pi devices, but there is one new parameter, \texttt{aut-key}, which is a value generated at the same time as the \texttt{aut-token} when a new Application is added to the platform from the \textit{Applications} panel.
+A program has been developed to receive the data from the different Raspberry Pi devices and store it into the database previously created. This program runs in a server together with the web server developed in Sprint 4. The program accesses to the IBM Watson IoT Platform and subscribes to the events that the Raspberry Pi devices generates. Therefore, the first step is to define the \texttt{application.conf} file (Listing \ref{lst:6-application.conf}) which contains the information used to connect to the Watson IoT Platform. This file is similar to the one used by the Raspberry Pi devices, but there is one new parameter, \texttt{aut-key}, which is a value generated at the same time as the \texttt{aut-token} when a new Application is added to the platform from the \textit{Applications} panel.
 
  
 \lstinputlisting[firstline=1, texcl, caption = {\texttt{application.conf} file}, label = lst:6-application.conf]{code/6-application.conf}
 
-Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed. Lines 6 to 22 define the function that is executed each time a new message arrives at the server. This function accesses to the database to store all the received data. Then, lines 27 to 34 connect to the Watson IoT Platform. To finish with, line 35 subscribe the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 36 associates this event with the previously defined function.
+Listing \ref{lst:6-subscriber.py} shows relevant code from the program developed. Lines 6 to 21 define the function that is executed each time a new message arrives at the server. This function accesses to the database to store all the received data. Then, lines 27 to 34 connect to the Watson IoT Platform. To finish with, line 35 subscribes the server to "sensor\_update" events generated by the "Raspberry\_Pi" devices and line 36 associates this event with the previously defined function.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic code to store data received from the Watson IoT Platform into the database}, label = lst:6-subscriber.py]{code/6-subscriber.py}
 
 
 \subsubsection{T3.8.1. Create a program that executes each module in a different thread}
 
-At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} Python library is used to create the different threads. It has been decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong \cite{SGG06}.
+At this point, all the necessary modules for the Raspberry Pi devices have been created,  thence the next step is to join all of them into the same program. The solution adopted is to build a main program that is going to create one thread per module (Camera, Sensors and Communication), as shown in Figure \ref{fig:6-Modules}. The \textit{threading} Python library is used to create the different threads. It has been decided to use threads instead of processes for two major reasons. The first reason is that threads share memory, which allows to use global variables, whereas processes need to implement some message passing mechanism. Moreover, threads are lighter than processes because threads share resources of the process to which they belong to \cite{SGG06}.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -745,18 +741,18 @@ At this point, all the necessary modules for the Raspberry Pi devices have been 
 
 
 \subsubsection{T3.8.2. Modify communication module in order to access to the data generated by camera and sensor modules}
-All the different modules execute concurrently and share some resources such as memory. This allows to have some global variables that are used to communicate the data collected from Camera and Sensors module to the Communication one. Nevertheless, the \emword{critical section} problem is introduced using this approach \cite{SGG06}. A situation where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the order in which the access took place, is called a \emword{race condition}. A critical section is a segment of code in which processes may change global variables, therefore a race condition can occur. For this reason, only one process must be allowed to execute in its critical section. The code section implementing the request of a process to execute its critical section is called \emword{entry section}. The critical section might be followed by an \emword{exit section}, where the process communicates that it has finished executing its critical section. Any solution to the critical section problem must satisfy three requirements:
+All the different modules execute concurrently and share some resources such as memory. This allows to have some global variables that are used to communicate the data collected from Camera and Sensors module to the Communication one. Nevertheless, the \emword{critical section} problem is introduced using this approach \cite{SGG06}. A situation where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the order in which the access took place, is called a \emword{race condition}. A critical section is a segment of code in which processes may change global variables, therefore a race condition can occur. For this reason, only one process must be allowed to execute code from the critical section. The code section implementing the request of a process to execute its critical section is called \emword{entry section}. The critical section might be followed by an \emword{exit section}, where the process communicates that it has finished executing its critical section. Any solution to the critical section problem must satisfy three requirements:
 \begin{itemize}
 	\item \textbf{Mutual exclusion.} If a process is executing in its critical section no other process can be executing in their critical sections.
 	\item \textbf{Progress.} The selection of the process that will enter the critical section next cannot be postponed indefinitely.
 	\item \textbf{Bounded waiting.} There is a limit on the number of times that any process is allowed to enter its critical section after another process has made a request to enter its critical section and before that request is granted.
 \end{itemize}
 
-\emword{Locks} have been used to solve the critical section problem. The lock is implemented using a binary semaphore, also called \emword{mutex}, which has a counter initialized to 1 and two main methods. \texttt{Acquire} method is used when a thread want to access the critical section, then if the internal variable of the lock is equal 1, the variable is decreased to 0 and the thread enters the critical section. In any other case, the thread gets blocked there until \texttt{release} method is called by any other thread into the same lock. Then variable will be set to 1 again and all the processes that are blocked in the \texttt{acquire} method will compete for the access to the critical section. Listing \ref{lst:6-locks.py} shows a solution to the critical section problem using locks.
+\emword{Locks} have been used to solve the critical section problem. The lock is implemented using a binary semaphore, also called \emword{mutex}, which has a counter initialized to 1 and two main methods. \texttt{Acquire} method is used when a thread wants to access the critical section, then if the internal variable of the lock is equal to 1, the variable is decreased to 0 and the thread enters the critical section. In any other case, the thread gets blocked there until \texttt{release} method is called by any other thread into the same lock. Then the variable will be set to 1 again and all the processes that are blocked in the \texttt{acquire} method will compete for the access to the critical section. Listing \ref{lst:6-locks.py} shows a solution to the critical section problem using locks.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Solution to the critical section problem using locks}, label = lst:6-locks.py, emph={lock},emphstyle=\textbf]{code/6-locks.py}
 
-The main program running into the Raspberry Pi devices loads the different modules, defines some global variables and a lock that is used for the critical section problem. Then, the process creates two different threads, one for the camera and another for the sensor modules, passing them the lock previously created. The main thread is the one that executes the communication module once all the other threads have been created. Listing \ref{lst:6-RP_program.py} shows the main structure of the final program. The communication module is the one that orchestrate the rest of the modules, by means of a timer which is triggered repeatedly after a determined number of seconds defined in \texttt{time\_interval} variable. The configuration of the program is stored in \texttt{config.py} file with is shown in Appendix \ref{chap:config_file}.
+The main program running into the Raspberry Pi devices have to load the different modules and define some global variables and a lock, which is used for the critical section problem. Then, the process creates two different threads, one for the camera and another for the sensor modules, passing them the lock previously created. The main thread is the one that executes the communication module once all the other threads have been created. Listing \ref{lst:6-RP_program.py} shows the main structure of the final program. The communication module is the one that orchestrates the rest of the modules, by means of a timer which is triggered repeatedly after a determined number of seconds defined in \texttt{time\_interval} variable. The configuration of the program is stored in \texttt{config.py} file which is shown in Appendix \ref{chap:config_file}.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {Basic structure of the Raspberry Pi final program}, label = lst:6-RP_program.py]{code/6-RP_program.py}
 
@@ -786,7 +782,7 @@ In the Sprint planning meeting the different user stories that are addressed wer
 	\item Check if an alert is generated when the threshold level is exceded.
 }
 
-\UserStoryTable{11}{4}{Medium}{20}
+\UserStoryTable{11}{4}{Low}{20}
 {Display the historical data generated by the Raspberry Pi devices}
 {Develop a subpage into the web page to visualize the information captured from the devices in an interval of time.}
 {	\item Create a subpage that displays a graph with the stored data.
@@ -796,24 +792,24 @@ In the Sprint planning meeting the different user stories that are addressed wer
 
 
 \subsubsection{T3.9.1. Create an IBM Bluemix Cloud Foundry App to deploy the web page}
-The IBM Bluemix service has been used to create a web app. IBM Cloud allows to create mobile and web applications that can be managed from the IBM Cloud console or by command line. These tools allows building, running and deploying the app. The first step is to create an IBM Bluemix Cloud Foundry App from the IBM Cloud dashboard (Figure \ref{fig:6-Bluemix-DashBoard}). Python was selected as the programming language for the web app to maintain uniformity with the code developed for the Raspberry Pi devices. Moreover, Python allows to the programmers to implement functions with fewer lines of code than many other commonly used programming languages \cite{Pre00}. The Cloud Foundry App created was named \textit{BSc Thesis Web page}.
+The IBM Bluemix service has been used to create a web app. IBM Cloud allows to create mobile and web applications that can be managed from the IBM Cloud console or by command line. These tools allow building, running and deploying the app. The first step is to create an IBM Bluemix Cloud Foundry App from the IBM Cloud dashboard (Figure \ref{fig:6-Bluemix-DashBoard}). Python was selected as the programming language for the web app to maintain uniformity with the code developed for the Raspberry Pi devices. Moreover, Python allows to the programmers to implement functions with fewer lines of code than many other commonly used programming languages \cite{Pre00}. The app created was named \textit{BSc Thesis Webpage}.
 
 \emword{IBM Cloud Developer Tools} is a command line program for managing IBM Cloud Foundry Apps. These tools are installed using the command:
 \begin{console}
 $ curl -sL https://ibm.biz/idt-installer | bash
 \end{console} %$
 
-Once installed, the web app needs to be configured in the IBM Cloud Developer Tools. For this purpose, the directory where the web app code is placed have to be accessed using the command line. Then, the Developer Tools have to be associated with the developer IBM Cloud account by using:
+Once installed, the web app needs to be configured in the IBM Cloud Developer Tools. For this purpose, the directory where the web app code is placed has to be accessed using the command line. Then, the Developer Tools have to be associated with the developer IBM Cloud account by using:
 \begin{console}
 $ bluemix login -u joseangel.martin3@alu.uclm.es -o JoseAngel.Martin3@alu.uclm.es -s dev
 \end{console} %$
 
-When the web app had been configured, it is managed from the command line in the developer's computer. To upload or update the code into the IBM servers and start running the application, the following command need to be executed:
+When the web app has been configured, it can be managed from the command line in the developer's computer. To upload or update the code into the IBM servers and start running the application, the following command needs to be executed:
 \begin{console}
 $ bluemix app push "BSc Thesis Webpage"
 \end{console} %$
 
-Finally, the status of the application can be checked from the IBM Cloud Dashboard as shown in Figure \ref{fig:6-Webpage_App} or by using the command line as shown in Figure \ref{fig:6-AppShow}. In addition, some parameters from the application, such as the number of instances or the memory per instance can be configured here.
+Finally, the status of the application can be checked in the IBM Cloud Dashboard (Figure \ref{fig:6-Webpage_App}) or by using the command line( Figure \ref{fig:6-AppShow}). In addition, some parameters from the application, such as the memory or the number of instances can be configured here.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -835,17 +831,15 @@ Finally, the status of the application can be checked from the IBM Cloud Dashboa
 \subsubsection{T3.9.2. Create a simple web page using a Bootstrap template}
 \emword{Bootstrap} \cite{Meg14} is a free open-source toolkit for development with HTML, CSS and JavaScript. Bootstrap is used for developing responsive websites and web applications. There are lots of bootstrap themes that can be downloaded and used as a template for developing the web page. In this \ac{BSc.} thesis the theme used is \textit{SB Admin}\footnote{SB Admin theme can be downloaded from: \url{https://startbootstrap.com/template-overviews/sb-admin/}}.
 
-Bootstrap was used to build the front-end of the web page, whereas \emword{Flask} framework \cite{Gri14} for Python programming language was employed to build the back-end of the application. Flask does not require the use of particular tools of libraries. For this reason any library can be used to implement the database abstraction layer and the rest of the components. The SQL database has been integrated into the server using the library \emword{PyMySQL} \cite{Mat16}. 
+Bootstrap was used to build the front-end of the web page, whereas \emword{Flask} framework \cite{Gri14} for Python was employed to build the back-end of the application. Flask does not require the use of particular tools of libraries. For this reason any library can be used to implement the database abstraction layer and the rest of the components. The SQL database has been integrated into the server using the library \emword{PyMySQL} \cite{Mat16}. 
 
 A multi-layered architecture or \textit{n}-tier architecture was employed in the web server. It consists in dividing the different components on several layers. More concretely, a three-tier architecture was used, which consists of three layers: presentation, domain and persistence.
 
 The \emword{presentation layer} is responsible for handling all user interface and browser communication logic. This information is passed to the \textit{domain} or \textit{business layer}, which is responsible for executing specific business rules associated with the request. Finally, \textit{persistence layer} is in charge of performing load and store operations into the database.
 
-% TODO: Dibujo de las multicapas con que lenguaje funciona cada una?
+The \emword{persistence layer} contains the \texttt{DBBroker} class, which is in charge of the connection to the database and the execution of operations on it. This class implements the \emword{Singleton} design pattern \cite{design_patterns, Vil07}, which avoids creating more than one instance of the same class. The responsibility of creating just one instance is relegated to the class itself. Therefore, if the class is used and no instance exists, a new one is created and stored for posterior calls to the class functions. The \texttt{DBBroker} class is shown in Listing \ref{lst:6-DBBroker}.
 
-The \emword{persistence layer} contains the \texttt{DBBroker} class, which is in charge of the connection to the database and the execution of operations on it. This class implements the \emword{Singleton} design pattern \cite{design_patterns, Vil07}, which avoids creating more than one instance of the same class. The responsibility of creating just one instance is relegated to the class itself. Therefore, if the class is used and no instance exists a new one is created and stored for posterior calls to the class functions. The \texttt{DBBroker} class is shown in Listing \ref{lst:6-DBBroker}.
-
-The \emword{domain layer} contains the classes related to the logic and calculations that must be carried out with the data whereas the presentation layer contains the necessary functions to render the different web page parts and display the data. To finish with, the \texttt{ServerConfig.py} file contains the configuration parameters for the web server and the SQL database.
+The \emword{domain layer} contains the classes related to the logic and calculations that must be carried out with the data whereas the presentation layer contains the necessary functions to render the different web page parts and displays the data. To finish with, the \texttt{ServerConfig.py} file contains the configuration parameters for the web server and the SQL database.
 
 \lstinputlisting[language=Python, firstline=1, texcl, caption = {\texttt{DBBroker.py}}, label = lst:6-DBBroker]{code/6-DBBroker.py}
 
@@ -871,13 +865,11 @@ A list of devices (Figure \ref{fig:6-RealTime_Selector}) has been created, where
 
 
 \subsubsection{T3.10.2. Implement a notification system}
-A configuration page was created, where some parameters of configuration for the web page are defined. In order control the users which access grants to this subpage, a new table needs to be added into the SQL database to store the users (Table \ref{tab:6-SQL-users}). This \texttt{users} table stores one entry per each user. Each entry contains: An \texttt{user\_id} column which stores an unique identifier per user, an \texttt{email} column for the user email used to access the configuration page and a \texttt{password} and \texttt{last\_token} column.
+A configuration page was created where some parameters of configuration for the web page were defined. In order control the users with access grants to this subpage, a new table needs to be added into the SQL database to store the users (Table \ref{tab:6-SQL-users}). This \texttt{users} table stores one entry per each user. Each entry contains: An \texttt{user\_id} column which stores an unique identifier per user, an \texttt{email} column for the user email used to access the configuration page and a \texttt{password} and \texttt{last\_token} column.
 
-When the user logs into the page, the \texttt{user\_id} column for that user is appended to the email. Then, this text string is encrypted using the \ac{AES} algorithm, using the password written by the user in the login section as the key for the algorithm. The resultant coded string is compared with the one stored in the \texttt{password} column of the database. If they are the same, the login is authorised and an \ac{UUID}, which is a random string of 128 bits, is generated and stored in the \texttt{last\_token} column and in a cookie into the user's web browser.
-%TODO: Ventajas de usar este sistema de autenticación ?
-Each time the user accesses the configuration page the value stored into the user's cookie is compared with the value in the \texttt{last\_token} column. If both values are the same, the user can access the page, in other case, the user is redirected to the login page.
+When the user logs into the page, the \texttt{user\_id} column for that user is appended to the email. Then, this text string is encrypted using the \ac{AES} algorithm, using the password written by the user in the login section as the key for the algorithm. The resultant coded string is compared with the one stored in the \texttt{password} column of the database. If they are the same, the login is authorised and an \ac{UUID}, which is a random string of 128 bits, is generated and stored in the \texttt{last\_token} column and in a cookie into the user's web browser. Each time the user accesses the configuration page the value stored into the user's cookie is compared with the value in the \texttt{last\_token} column. If both values are the same, the user can access the page, in other case, the user is redirected to the login page.
 
-Notifications allow the users to receive alerts on the email if a concrete parameter (CO, LPG or vehicles flow) get over a threshold. Inside the configuration page, there is a section to manage the notifications. Therefore, a \texttt{notifications} table (Table \ref{tab:6-SQL-notifications}) needs to be added to the database. An example of a notification is shown in Table \ref{tab:6-NotificationAlert}.
+Notifications allow the users to receive alerts on the email if a concrete parameter (CO, LPG or vehicles flow) get over a threshold. Inside the configuration page, there is a section to manage the notifications. Therefore, a \texttt{notifications} table (Table \ref{tab:6-SQL-notifications}) needs to be added to the database. An example of a notification is shown in Figure \ref{tab:6-NotificationAlert}.
 
 \begin{table}[htb]
 	\centering
@@ -932,7 +924,7 @@ Notifications allow the users to receive alerts on the email if a concrete param
 
 
 \subsubsection{T3.11.1. Create a subpage that displays a graph with the stored data}
-The last task focuses on the creation of a section on the web page where the user can show a chart of the evolution of each one of the parameters measured in a certain time interval. Therefore, the user has select the time interval and the devices from which their data has to be displayed. To avoid having lot of peaks in the chart, as measures are captured every 5 minutes, a moving average is applied to the data displayed in the charts. Equation (\ref{eq:simple_moving_averages}) shows the moving average equation. The factor used in the moving average can be changed in the configuration page. Figure \ref{fig:6-SampleChart} shows an example of the humidity chart from two devices.
+The last task focuses on the creation of a section on the web page where the user can show a chart of the evolution of each one of the parameters measured in a certain time interval. Therefore, the user has to select the time interval and the devices from which their data has to be displayed. To avoid having lot of peaks in the chart, as measures are captured every 5 minutes, a moving average is applied to the data displayed in the charts. Equation (\ref{eq:simple_moving_averages}) shows the moving average equation. The factor used in the moving average can be changed in the configuration page. Figure \ref{fig:6-SampleChart} shows an example of the humidity chart from two devices.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -944,7 +936,7 @@ The last task focuses on the creation of a section on the web page where the use
 
 
 \subsubsection{Final test}
-To finish both with the Sprint and the Results section, a test of the complete architecture was accomplished. In this test, one device had been executing during the whole day, measuring the vehicle flow and the environmental parameters. Due to the difficulties of placing the device in the street during the whole day, the test has been carried out inside a house in Ciudad Real. The device was located near the window of the house, where the street was completely visible. Figure \ref{fig:6-Test_Loc1} and \ref{fig:6-Test_Loc2} shows the location of the device inside the house whereas Figure \ref{fig:6-Test_Loc3} shows the image captured by the camera. Finally, Figure \ref{fig:6-RealTime} shows the different charts for the data recorded with the device 1 the 30th of May 2018 from 13:12 to 21:45.
+To finish both with the Sprint and the Results section, a test of the complete architecture was accomplished. In this test, one device has been executing during the whole day, measuring the vehicle flow and the environmental parameters. Due to the difficulties of placing the device in the street during the whole day, the test has been carried out inside a house in Ciudad Real. The device was located near the window of the house, where the street was completely visible. Figure \ref{fig:6-Test_Loc1} and \ref{fig:6-Test_Loc2} shows the location of the device inside the house whereas Figure \ref{fig:6-Test_Loc3} shows the image captured by the camera. Finally, Figure \ref{fig:6-RealTime} shows the different charts for the data recorded with the device 1 the 30th of May 2018 from 13:12h to 21:45h.
 
 \begin{figure}[htb]
 	\centering
