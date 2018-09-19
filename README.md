@@ -12,6 +12,8 @@ The objective in this Bachelor of Science (BSc.) thesis is to design and build a
 
 The following diagram shows the system architecture of the complete intelligent system. Nevertheless, in this BSc. thesis only the monitoring infrastructure will be developed.
 
+![System architecture](arquitectura_sistema.png)
+
 
 ### References:
 [Bib18] Simon Elias Bibri. The IoT for smart sustainable cities of the future: An analytical framework for sensor-based big data applications for environmental sustainability. Sustainable Cities and Society, 38:230–253, 2018.
