@@ -16,8 +16,8 @@ The following diagram shows the system architecture of the complete intelligent 
 
 
 ### References:
-[Bib18] Simon Elias Bibri. The IoT for smart sustainable cities of the future: An analytical framework for sensor-based big data applications for environmental sustainability. Sustainable Cities and Society, 38:230–253, 2018.
-[SNB10] Robin Smit, Leonidas Ntziachristos, and Paul Boulter. Validation of road vehicle and traffic emission models – a review and meta-analysis. Atmospheric Environment, 44:2943–2953, August 2010.
+* [Bib18] Simon Elias Bibri. The IoT for smart sustainable cities of the future: An analytical framework for sensor-based big data applications for environmental sustainability. Sustainable Cities and Society, 38:230–253, 2018.
+* [SNB10] Robin Smit, Leonidas Ntziachristos, and Paul Boulter. Validation of road vehicle and traffic emission models – a review and meta-analysis. Atmospheric Environment, 44:2943–2953, August 2010.
 
 
 ## Author:
